@@ -1,0 +1,6 @@
+applications:
+- buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  host: eightbar
+  name: eightbar
+  memory: 64M
+  stack: cflinuxfs2
