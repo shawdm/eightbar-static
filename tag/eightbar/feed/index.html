@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>eightbar &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/eightbar/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Watson Rock, Paper, Scissors</title>
+		<link>http://eightbar.co.uk/2016/06/26/watson-rock-paper-scissors/</link>
+		<pubDate>Sun, 26 Jun 2016 13:46:56 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[bluemix]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[kids]]></category>
+		<category><![CDATA[watson]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3349</guid>
+		<description><![CDATA[A simple hands-on activity to let kids train a machine learning classifier to be able to play Rock, Paper, Scissors. I&#8217;ve written and spoken before that I think we should do more to introduce children to the idea of machine learning. And I&#8217;ve tried introducing my two kids to it, such as by making a [&#8230;] <a href="http://eightbar.co.uk/2016/06/26/watson-rock-paper-scissors/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><strong>A simple hands-on activity to let kids train a machine learning classifier to be able to play Rock, Paper, Scissors.</strong></p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27305758384/in/dateposted-public/" title="Screen Shot 2016-06-26 at 13.59.20"><img style="border: thin black solid" src="https://c1.staticflickr.com/8/7663/27305758384_2405bce9f2.jpg" width="450" height="282" alt="Screen Shot 2016-06-26 at 13.59.20"/></a></p>
+<p>I&#8217;ve <a href="http://dalelane.co.uk/blog/?p=3299">written</a> and <a href="http://www.stemtechconference.com/past-events/conference-2015/showcase">spoken</a> before that I think we should do more to introduce children to the idea of machine learning. And I&#8217;ve tried introducing my two kids to it, such as by making a <a href="http://dalelane.co.uk/blog/?tag=codeclub">Code Club</a>-style game with them: we built <a href="http://dalelane.co.uk/blog/?p=3330">a system to play Guess Who</a>, that they trained both to understand what you say and to recognise the characteristics of faces from photos.</p>
+<p>This weekend, we tried out another idea &#8211; <strong>Rock, Paper, Scissors</strong> from a web app, using the web cam to see your moves, and training a system to recognise your hand signs. </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27815450382/in/dateposted-public/" title="DSC06146"><img src="https://c7.staticflickr.com/8/7086/27815450382_a385ddcda6.jpg" width="450" height="223" alt="DSC06146"/></a></p>
+<p>In many ways, this was simpler than the Guess Who project, and one I would&#8217;ve tried before if we&#8217;d thought of it! I&#8217;ve made getting the system to choose it&#8217;s next move very simple, as it just chooses one of the three options at random.</p>
+<p>The machine learning element comes from the fact that I got them to train a custom image classifier to recognise what a &#8216;rock&#8217;, &#8216;paper&#8217; and &#8216;scissors&#8217; hand sign looks like.</p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27916785445/in/dateposted-public/" title="DSC06153"><img src="https://c6.staticflickr.com/8/7346/27916785445_9772591bc2.jpg" width="450" height="299" alt="DSC06153"/></a></p>
+<p>Last night I hacked together <a href="https://watson-rock-paper-scissors.eu-gb.mybluemix.net/">a quick single-page training web app</a> for them to use. Unlike with the Guess Who game, where we worked on it together to come up with the project, this time I made it myself to see how they&#8217;d get on with using it. (I was thinking that if it went well, I&#8217;d try using it with one of my school groups). </p>
+<p>They got off to a good start&#8230; although I hadn&#8217;t counted on how much time Grace would spend checking out her hair once she saw the web cam video. <img src="https://s.w.org/images/core/emoji/72x72/1f642.png" alt="&#x1f642;" class="wp-smiley" style="height: 1em; max-height: 1em;" /> </p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/PJW19emo6J8?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/PJW19emo6J8">Video of the kids getting started</a></small></p>
+<p>I&#8217;ve got it so that you can take photos from the web cam by clicking on a button, and put the photo into one of three training groups &#8211; one each for rock, paper and scissors. </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27304547304/in/dateposted-public/" title="DSC06150"><img src="https://c1.staticflickr.com/8/7720/27304547304_772252bc55.jpg" width="450" height="299" alt="DSC06150"/></a></p>
+<p>My hope was that the three hand signs &#8211; a fist, a flat palm, and two fingers &#8211; are distinct enough that an image classifier could quickly start to distinguish between them. </p>
+<p>Although I should probably add some overlay to the live video to suggest where to put your hand, how close to the camera, etc. as their initial attempts were fairly inconsistent.</p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/7KrEHEx9Hbk?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/7KrEHEx9Hbk">Video of their first attempt at training</a></small></p>
+<p>As before, I&#8217;m using one of the <a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/">Watson developer APIs</a> available in <a href="https://bluemix.net/">Bluemix</a>, called <a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/visual-recognition.html">Visual Recognition</a>. </p>
+<p>To train it, you just need to upload zip files, where each zip file contains examples of photos of something you want to recognise. </p>
+<p>In this case, we want to upload three zip files &#8211; one of photos of &#8220;rock&#8221;, one zip file of &#8220;paper&#8221; photos, one zip file of photos of &#8220;scissors&#8221;. And you can do all of that in <a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/visual-recognition/api/v3/#create_a_classifier">a single HTTP POST</a>, so the code behind the training app is very simple. </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27840011881/in/dateposted-public/" title="DSC06152"><img src="https://c2.staticflickr.com/8/7506/27840011881_cbe882f7e7.jpg" width="450" height="257" alt="DSC06152"/></a></p>
+<p>That said, I should still share the code. </p>
+<p>It was hacked together in an evening, so it&#8217;s a complete mess. But I&#8217;ll try and find some spare time this week to tidy it up, and put the code somewhere in case it&#8217;s helpful. Some of the code for driving the webcam, zipping up the photos, and uploading them, might be useful to someone. </p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/O7z2yXTWKo0?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/O7z2yXTWKo0">The first test</a></small></p>
+<p>To test it, I made a simple game. I&#8217;ve got it keeping score to see how many moves you win against the random choices the game makes. Although Grace seemed more interested in counting the number of times the game correctly identified our moves. It wasn&#8217;t perfect!</p>
+<p>(The &#8220;Watson&#8217;s move&#8221; images used in the game bit were made by Faith. She took photos of her own hand using an iPad, and did the weird grid background effect using <a href="http://www.mixcord.co/partners/popagraph.html">PopAGraph</a>. It wasn&#8217;t quite what I expected, but I think it looks kinda neat.) </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27305736804/in/dateposted-public/" title="Screen Shot 2016-06-26 at 13.57.16"><img style="border: thin black solid" src="https://c5.staticflickr.com/8/7448/27305736804_94efff066f.jpg" width="500" height="313" alt="Screen Shot 2016-06-26 at 13.57.16"/></a></p>
+<p>As with the <a href="http://dalelane.co.uk/blog/?p=3330">Guess Who activity</a>, what most interested me was the girls&#8217; reactions to the behaviour of the ML system. I was surprised that even after last time, their initial assumption was still that they could take one photo of each, and that would be enough. (Another reason why it&#8217;s worth doing a few of these activities to reinforce it). </p>
+<p>But with a little nudging, they quickly saw how that the more examples they gave, the better the system performed. </p>
+<p>Other than that, a lot of the lessons they learned were reminders of <a href="http://dalelane.co.uk/blog/?p=3330">what we talked about before</a> about what it&#8217;s like doing supervised learning projects. </p>
+<p><iframe width="450" height="338" src="https://www.youtube.com/embed/vYxDD37Jqn8?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/vYxDD37Jqn8">The second attempt&#8230; another test after more training this time</a></small></p>
+<p>One thing I was impressed with was when they thought that the training would be more effective if they used an actual rock, actual scissors, and a sheet of paper. Doing that made the accuracy a hundred times better. That makes sense, as they are much more distinct than all photos of hands, so that was a neat idea!</p>
+<p>And that&#8217;s pretty much it. My second experiment at getting the kids to play with machine learning seemed to work pretty well. </p>
+<p>I&#8217;ve put the app I made for them up on Bluemix so you&#8217;re welcome to give it a try it you like. It&#8217;s at <a href="https://watson-rock-paper-scissors.eu-gb.mybluemix.net/">https://watson-rock-paper-scissors.eu-gb.mybluemix.net</a>. </p>
+<p>You&#8217;ll have to <a href="https://console.ng.bluemix.net/catalog/services/visual-recognition/">get your own Visual Recognition API key</a> to use it, though, but that supports a free trial, so hopefully that won&#8217;t put you off!</p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/ecBc2OG407M?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/ecBc2OG407M">Third time lucky? Another test</a></small></p>
+<hr />
+<strong>Update 1:</strong> 
+<p>A couple of friends pointed me at <a href="https://developer.ibm.com/clouddataservices/2015/12/01/humans-vs-apache-spark-building-our-rock-paper-scissors-game/">another recent IBM rock, paper, scissors project</a> when I mentioned planning to do this. </p>
+<p>It looks like a great project and is well worth a look &#8211; they&#8217;ve gone into using Apache Spark to create a system able look for patterns in how people play rock-paper-scissors and learn strategies to win the game. </p>
+<p>More recently, they&#8217;ve even gotten <a href="https://developer.ibm.com/dwblog/games-humans-vs-apache-spark/">a NAO robot to play the game</a> for them!</p>
+<p>I wasn&#8217;t aware of this work before, but decided to go ahead with our project anyway. Partly because my focus was different for this, but mostly because I think that the <a href="http://www.cgpgrey.com/blog/letter-to-jake-on-the-agonies-of-parallel-creation">Agonies of Parallel Creation</a> should never stop us from creating and sharing stuff. There&#8217;s no new idea under the sun, so if we wait for an idea that no-one has ever got close to, we&#8217;d stop creating anything. </p>
+<p>That said, it&#8217;s a particularly surreal coincidence in this case, as this is not only an IBM project, but the author of that post is the great <a href="https://twitter.com/dtaieb55">David Taieb</a> who I used to work for when he worked on Watson! Small world. </p>
+<hr />
+<strong>Update 2:</strong> 
+<p>Yes, I know you can see my API key in the video. But don&#8217;t worry. Bluemix makes it easy enough to revoke credentials so I&#8217;ve deleted that API key. Doing that was much quicker than learning enough video editing to be able to mask it out. <img src="https://s.w.org/images/core/emoji/72x72/1f642.png" alt="&#x1f642;" class="wp-smiley" style="height: 1em; max-height: 1em;" /> </p>
+<p><script async src="http://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27916796025/in/dateposted-public/" title="DSC06149"><img src="https://c2.staticflickr.com/8/7177/27916796025_517a1ecd51.jpg" width="450" height="279" alt="DSC06149"/></a></p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3349">"Watson Rock, Paper, Scissors"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3349">http://dalelane.co.uk/blog/?p=3349</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>An introduction to machine learning with Guess Who</title>
+		<link>http://eightbar.co.uk/2016/02/18/an-introduction-to-machine-learning-with-guess-who/</link>
+		<pubDate>Thu, 18 Feb 2016 18:50:40 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[kids]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3330</guid>
+		<description><![CDATA[I tried introducing my two kids to machine learning by helping them make a game this week. In this post, I&#8217;ll try and explain why, how we did it, and how it went. And if you make it all the way to an end, I&#8217;ve got some videos and a link to a demo to [&#8230;] <a href="http://eightbar.co.uk/2016/02/18/an-introduction-to-machine-learning-with-guess-who/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><strong>I tried introducing my two kids to machine learning by helping them make a game this week. </strong></p>
+<p>In this post, I&#8217;ll try and explain why, how we did it, and how it went. And if you make it all the way to an end, I&#8217;ve got some videos and a link to a demo to show you what we made.</p>
+<h3>Why</h3>
+<p>I think we need to introduce the basic concept of machine learning to children.</p>
+<p>I think the current approach to introducing coding using things like <a href="http://dalelane.co.uk/blog/?tag=scratch">Scratch</a> aren&#8217;t enough. This isn&#8217;t to say Scratch isn&#8217;t great (I&#8217;ve been running a <a href="http://dalelane.co.uk/blog/?tag=codeclub">Code Club</a> every week for the last couple of years, delivered almost entirely using Scratch, so I&#8217;d be the last person to say it isn&#8217;t a fantastic tool). It lets you snap together blocks representing actions to teach the programming mindset of getting a computer to do something by you breaking the task down into a series of steps.</p>
+<p>I think we need to add to this with something that introduces the model of machine learning &#8211; getting a computer to do something by training it with examples of doing that task.</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0055.jpg" style="border: thin black solid"/></p>
+<p>I&#8217;ve been saying this for a while &#8211; I gave a talk about it at <a href="http://www.stemtechconference.com/past-events/conference-2015/showcase">an education conference</a> last year, I&#8217;ve <a href="http://dalelane.co.uk/blog/?p=3299">written about it</a> here before, and it was the theme of a <a href="https://twitter.com/dalelane/status/690250594813153280">lecture I gave at a science society</a> in London last month.</p>
+<p>This week is half-term and I have the week off work, so I thought I&#8217;d finally spend a bit of time trying it out by experimenting on my own two daughters (Faith and Grace, who are aged 7 and 11).</p>
+<p>In Code Club, I mostly try to introduce programming concepts by helping the kids to create games. Sticking with what seems to work, I&#8217;ve helped them to make a game by training an ML system how to play it.</p>
+<h3>How</h3>
+<p>We&#8217;ve been making a sort of <a href="https://en.wikipedia.org/wiki/Guess_Who%3F">Guess Who?</a> game &#8211; a game that I&#8217;ve played with the kids for years and that they know inside out. </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/generationbass/5686663807" title="Guess-Who-Closeup.jpg"><img src="https://farm6.staticflickr.com/5223/5686663807_da29ff3852.jpg" width="448" height="368" alt="Guess-Who-Closeup.jpg"/></a><script async src="http://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<p>The idea is that the computer shows a bunch of faces and chooses one of them at random. You have to work out which one it&#8217;s chosen by asking Yes/No questions about their appearance.</p>
+<p>I introduced this to Grace and Faith mostly using analogies and anthropomorphising. </p>
+<blockquote><p>&#8220;We need to teach the computer how to play the game instead of telling it how to&#8221;.</p></blockquote>
+<blockquote><p>&#8220;We&#8217;ll do it the same way that you teach a small child to do something, not by telling it the series of steps to take but by showing it examples of how it should be done, over and over, until it learns how to do it&#8221;.</p></blockquote>
+<p>And so on.</p>
+<p>I went with a couple of opportunities for trying out machine learning approaches.</p>
+<p><strong>Understanding the question</strong></p>
+<p>As a player, we let you <strong>ask questions in natural language</strong>. You&#8217;ve just got a text box to type in anything you want to ask. In practice though, there&#8217;s a reasonably predictable set of questions you might ask &#8211; it&#8217;s a very constrained domain. So it lends itself well to <strong>using a text classifier</strong>.</p>
+<p>I got the kids to make a list of all the types of questions they ask in a Guess Who game. These were the <em>classes</em> we&#8217;d train the system with (e.g. &#8220;has brown hair&#8221; or &#8220;is wearing a hat&#8221;). Then for each class, they had to come up with as many ways as they could think of to ask that question.</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/20160217-nlc.jpg" alt="the kids using Watson NLC" style="border: thin black solid"/></p>
+<p>We used this to train <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/nl-classifier.html">IBM Watson Natural Language Classifier</a>.</p>
+<p>I chose it mostly because I&#8217;m familiar with it, it&#8217;s a hosted readily available service so there was nothing to install or configure, it has a simple web interface for training that the kids could use to enter the classes and texts they thought of, and for this sort of kicking-the-tyres-with-minimal-usage it&#8217;s free.</p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/h1ZiUIvYdD8?rel=0" frameborder="0" allowfullscreen></iframe></p>
+<p>With a little training, they had a trained classifier that would be able to take a question from the player and map it to one of the classes they&#8217;d come up with for the questions they ask when they play Guess Who.</p>
+<p><strong>Answering the question</strong></p>
+<p>The next step was to train the system to be able to answer the questions. We needed it to be able to <strong>recognise visual characteristics in a photo</strong>. Again, this is a constrained domain, although less so than for classifying questions. But still, this was basically <strong>a classifying task</strong>, albeit with the extra challenge of using images.</p>
+<p>We looked for a collection of face images that we could use, both for training, and for the game itself. We initially started trying out <a href="http://www.info.polymtl.ca/~mdhas/LWF/">Labeled Wikipedia Faces</a>, but ultimately settled on using <a href="http://vis-www.cs.umass.edu/lfw/">Labeled Faces in the Wild</a> &#8211; a set of over 13,000 photos of faces.</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/20160217-visrec.jpg" alt="Grace, preparing the training for Visual Recognition" style="border: thin black solid"/></p>
+<p>I got the kids to group examples of the faces based on the characteristics they’d come up with in their list of text classes. We just used the built-in OSX Finder to do this. </p>
+<p>One folder open on the left with all the unsorted faces in, and a bunch of folders open to the right &#8211; e.g. &#8220;short-hair&#8221;, &#8220;long-hair&#8221;, &#8220;bald&#8221;, &#8220;hat&#8221;. They scrolled through the unsorted pictures, and trained by dragging the photos across into the relevant folder.</p>
+<p>We used an IBM Watson API with this, too : <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/visual-recognition.html">IBM Watson Visual Recognition</a> </p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/F6oaA6fauzY?rel=0" frameborder="0" allowfullscreen></iframe></p>
+<p>Again, I chose it because I’m familiar with it, and it’s a hosted service I didn’t need to install or run, and while it’s in beta it’s all free to use.</p>
+<p><strong>Putting it all together</strong></p>
+<p>While they did that, I hacked together up a quick game to drive it. They were in charge of training, I wrote a simple REST API to make the requests to the Watson APIs, and a UI to let the player interact with it.</p>
+<p>We had our game!</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/20160217-guesswho.jpg" style="border: thin black solid"/></p>
+<h3>How it went</h3>
+<p>I asked them what they&#8217;d learned from doing it, and they came up with things like:</p>
+<blockquote><p><strong>&#8220;You need a lot of training data&#8221;</strong></p></blockquote>
+<p>When I explained how we&#8217;d train the visual recognition classifiers to recognise characteristics in photos, Faith said &#8220;We could take photos of each other and use those!&#8221;. I said that we&#8217;d need more than that, so she said &#8220;I could take photos of my friends as well!&#8221;.</p>
+<p>But we needed so many more than that. We started by looking to <a href="http://www.info.polymtl.ca/~mdhas/LWF/">Wikipedia</a> (always a good starting point for getting data!), before eventually settling on <a href="http://vis-www.cs.umass.edu/lfw/">the LFW set</a>.</p>
+<p>Getting them to help me find the training data gave them an idea of the sort of scale you need for these sorts of projects, as well as giving them an insight into ideas like gathering existing data rather than trying to manually create it.</p>
+<blockquote><p><strong>&#8220;The more training you give it, the better it gets&#8221;</strong></p></blockquote>
+<p>We did this project off-and-on throughout half-term week rather than all in one sitting. And we re-ran the training after each go. It was really clear the way that the results improved the more that we did.</p>
+<p>I&#8217;m a big fan of learning by doing, and I think that seeing that for themselves was more effective than if I&#8217;d just told them. Trying it out with virtually no training, and seeing that it&#8217;s rubbish. Then trying it out with a bit of training, and see it start to get better. Then trying it again after a few days and see it really improving &#8211; there was a definite light bulb moment.</p>
+<blockquote><p><strong>&#8220;Training is fun at first, but can get a bit boring after a while&#8221;</strong></p></blockquote>
+<p>This was more an issue with the visual recognition training rather than the NLC text classifier training. Even after the first afternoon they&#8217;d already come up with a classifier that was doing a decent job of most questions. But grouping the photos into the training sets took much longer. And to be honest, it really needs more training than they did if you wanted to turn this into a proper demo or game &#8211; I let them do enough to get the idea, but stopped them before it became a miserable chore!</p>
+<p>But this was a positive thing. As a takeaway, that&#8217;s a really valid and valuable insight. I&#8217;ve seen commercial ML projects fail to recognise this at the outset! Training ML systems is a repetitive, manual and very time-consuming task that does get boring for the people involved.</p>
+<p>We talked about ways that people try and get around that, like trying to turn it into a game. Grace thought that if we did this as a school activity, with all her class helping out with the training, then split between 30 kids, it wouldn&#8217;t take as long.</p>
+<p>All of these points &#8211; the amount of time and work needed to train, approaches like getting a large number of people to train, etc. &#8211; these are all great lessons about the practicalities of using machine learning.</p>
+<blockquote><p><strong>&#8220;It&#8217;s a bit like magic&#8221;</strong></p></blockquote>
+<p>If you had to describe the steps involved in working out if a photo included a face that has a moustache, that would be pretty complicated. But dividing 100 photos into two groups &#8211; faces with a moustache, and faces without a moustache &#8211; that&#8217;s easy.</p>
+<p>There were a bunch of things they talked about here that was really positive &#8211; that doing this is easy, and you don&#8217;t need you to understand the deep detail behind how it works. With Faith (my youngest) we didn&#8217;t go into too much detail about how the training works, but Grace and I did find some videos on YouTube that explained the principles behind deep learning which were interesting.</p>
+<p>More generally, what I wanted them to learn was that computers can spot patterns in data, without you needing to be able to specify rules that they should follow. And I think that&#8217;s a more effective lesson as something they saw and did for themselves rather than just reading or hearing about it.</p>
+<h3>The result</h3>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/oguzXlRT4NQ?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/oguzXlRT4NQ</a></small></p>
+<p>I&#8217;ve put what we came up with on Bluemix at <a href="http://guesswho.eu-gb.mybluemix.net/">http://guesswho.eu-gb.mybluemix.net</a></p>
+<p>I&#8217;ve also put some more videos below to show us trying it out.</p>
+<p>As I explained above, it&#8217;s not really &#8220;finished&#8221; &#8211; I think it needs more training, and the UI was hacked together in a hurry. But even as a quick half-term project, I think it already shows a glimmer of what is possible.</p>
+<p>More importantly, it shows that you can give kids a hands-on introduction to machine learning.</p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/1AkSVBzE5io?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/1AkSVBzE5io</a></small></p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/6ay7MqhW53g?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/6ay7MqhW53g</a></small></p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/Z3UReJzzY4Q?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/Z3UReJzzY4Q</a></small></p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/GNcz_D62_0w?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/GNcz_D62_0w</a></small></p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3330">"An introduction to machine learning with Guess Who"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3330">http://dalelane.co.uk/blog/?p=3330</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>The skills implications of Cognitive Computing</title>
+		<link>http://eightbar.co.uk/2015/04/29/the-skills-implications-of-cognitive-computing/</link>
+		<pubDate>Wed, 29 Apr 2015 16:07:17 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[codeclub]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[scratch]]></category>
+		<category><![CDATA[tech]]></category>
+		<category><![CDATA[watson]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3299</guid>
+		<description><![CDATA[STEMtech is a conference about the education of science, technology, engineering and maths. The attendees are an interesting mix of people from education and policy makers, as well as people like me from industry. This year, they invited me to do a talk. My slides are shared but they&#8217;ll make no sense by themselves. What [&#8230;] <a href="http://eightbar.co.uk/2015/04/29/the-skills-implications-of-cognitive-computing/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><em><a href="http://www.stemtechconference.com/">STEMtech</a> is a conference about the education of science, technology, engineering and maths. The attendees are an interesting mix of people from education and policy makers, as well as people like me from industry.</em></p>
+<p>This year, they invited me to do a talk. My <a href="http://www.slideshare.net/mobile/dalelane/the-skills-implications-of-cognitive-computing">slides are shared</a> but they&#8217;ll make no sense by themselves. What follows is roughly what I think I said. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0002.jpg"/></p>
+<p>Today I&#8217;m going to be talking about how we teach children to use computers. I&#8217;m not going to be talking about the current provision for this. I&#8217;m not going to be talking about what we necessarily need to be teaching children today, or maybe even tomorrow &#8211; partly because that&#8217;s already being well covered in the <a href="http://www.stemtechconference.com/conference-2015/conference-programme-2015">rest of the agenda today</a>. </p>
+<p>Instead, I&#8217;d like to use this session to think a little further ahead. </p>
+<p>Big changes are coming in computing, and I think we should start thinking about how we&#8217;ll need to respond to them. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0003.jpg"/></p>
+<p>big trak. I loved this thing. </p>
+<p>We used to have this at school when I was a kid, and I think I remember those lessons more strongly than any other lesson I did at school. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0004.jpg"/></p>
+<p>It had a keypad on the back. We&#8217;d program in a series of instructions &#8211; drive forwards this much, turn this much, fire the laser! </p>
+<p>This was computing to me when I was young. This was robotics. This was cool. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0005.jpg"/></p>
+<p>Not all schools used big trak, but a lot of schools used something like this. </p>
+<p>Variations of logo robot turtles have been widely used by many schools for many years, and are essentially the same thing &#8211; programming a series of instructions into a robot that follows them by driving around on the floor. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0006.jpg"/></p>
+<p>Fast forward to today, and I get to spend my Monday afternoons running a <a href="http://dalelane.co.uk/blog/?tag=codeclub">Code Club that I started in my local primary school</a>: an after-school programming group. I get just an hour or two a week to see how kids learn about computers, what they think of them, how they approach them. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0007.jpg"/></p>
+<p>We use Scratch in Code Club, just as the school are now doing in lessons. It gives a visual, drag-and-drop way to build a sequence of instructions, which are followed by sprites moving around on the screen. This is how we explain programming and computers to children. </p>
+<p>What strikes me doing this is how similar it is to what I was doing as a kid. It&#8217;s not exactly the same, but if you squint a bit and stand back a bit, it feels pretty similar. They&#8217;re both about showing children how to break an activity down into a series of steps. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0008.jpg"/></p>
+<p>And that&#8217;s to be expected. Programming itself is very similar today to what it was when I was at school. In some ways programming today is the same as it was five, ten, twenty years ago &#8211; it&#8217;s still about getting machines to perform tasks by getting people to define the sequence of instructions to follow. It&#8217;s only natural that this will be reflected in the way we introduce this to children.</p>
+<p>But this is going to change. </p>
+<p>We&#8217;re starting to see a future of computing that is going to be different, and we&#8217;re going to need new metaphors and new ways of introducing it and explaining it. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0009.jpg"/></p>
+<p>Computers have changed before. </p>
+<p>We group the evolution of computers into eras, and they start in the 1800s in the era of tabulating machines. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0010.jpg"/></p>
+<p>I&#8217;m talking about systems like punched card machines. </p>
+<p>Machines that could count more things, more quickly and more accurately than people possibly could. </p>
+<p>Machines that were considered revolutionary because they enabled the US census in 1890 to be analysed before they needed to start the 1900 census. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0011.jpg"/></p>
+<p>Machines like the Hollerith tabulating machine were the computers of their day. This was the state of the art in technology. </p>
+<p>Teaching computing then would&#8217;ve meant teaching about the capabilities of these machines. I don&#8217;t just mean the mechanics of feeding the cards into the machine, although that would&#8217;ve been part of it. I mean about looking at problems as collections of things that can be counted. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0012.jpg"/></p>
+<p>The era of tabulating machines was followed by the era of programmable machines, starting around about the 1940s with machines like Colossus. </p>
+<p>Shifting between eras isn&#8217;t instant. We didn&#8217;t just turn off all the punched card machines one day and start using programmable computers. It was gradual, there was overlap &#8211; both in terms of there being a time when we were using both kinds of machine, but also in the way that some early programmable computers included elements of the types of systems that came before. We transitioned over time from one way of thinking about computers to another. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0013.jpg"/></p>
+<p>What was different about programmable computers was that you didn&#8217;t have to just give the data to a machine to process, you could also give it the instructions that you wanted it to carry out on that data. </p>
+<p>When I think of early programmable computers, I think of the machines of the 1950s and 1960s. Huge machines that would fill a room. </p>
+<p>But this is still the era we&#8217;re in today. Our computers today are faster, and smaller, and more powerful &#8211; and better in so many other ways. But fundamentally, architecturally, conceptually &#8211; our computers today work to the same principles of these early systems. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0014.jpg"/></p>
+<p>We think the third era of computing will be the era of cognitive machines. In the same way that the transition to programmable computers wasn&#8217;t instant, neither will this be. So it&#8217;s debatable whether we&#8217;re already in an era of cognitive machines, whether we&#8217;re starting to see early signs of it, or whether it&#8217;s something that we&#8217;re anticipating. Regardless of the exact date it starts, this is what we think will characterize the next generation of computers. </p>
+<p>I should clarify what I mean by cognitive computing, because it&#8217;s perhaps not a term that has got mainstream awareness yet. </p>
+<p>I&#8217;ve got a couple of examples to help me explain it.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0015.jpg"/></p>
+<p>What is 2+2?</p>
+<p>If I give you the instruction or the question 2+2, what answer would you give me?</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0016.jpg"/></p>
+<p>I assume that most of you would answer 4. Two plus two equals four. </p>
+<p>That&#8217;s certainly the answer I&#8217;d expect from a programmable system &#8211; a system that has been hard-coded with instructions to follow, including instructions for how to handle adding numbers together. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0017.jpg"/></p>
+<p>But what if my question was in the context of social sciences, in a discussion about family structures. Then I probably would&#8217;ve been talking about the family structure of two adults and two children. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0018.jpg"/></p>
+<p>Or in the context of automotive engineering, I probably would&#8217;ve been talking about a layout of car seats with two front seats and two back seats. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0019.jpg"/></p>
+<p>Or in the context of card games, I might&#8217;ve meant a poker hand or a poker strategy. </p>
+<p>The response I would&#8217;ve wanted will have been dependent on the context that my request was in. And this is the kind of behaviour that we would expect from a cognitive computer. </p>
+<p>A programmable computer needs to be coded with the instructions to follow and the answer to return, and will always return that answer. Programmable computers are deterministic in this way. A calculator will always give me &#8216;4&#8217;, no matter how many times I ask 2+2. </p>
+<p>Cognitive computers will be more probabilistic. They&#8217;ll likely return a panel of possible answers instead of a single answer, each one associated with some level of probability that it&#8217;s the right response. And this won&#8217;t be fixed, but will take the context of the question into account. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0020.jpg"/></p>
+<p>By context, I don&#8217;t just mean the situational context. It&#8217;s also about a knowledge of the things mentioned. </p>
+<p>Consider this example, and what you think it means. </p>
+<p>Policeman helps dog bite victim. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0021.jpg"/></p>
+<p>You&#8217;d probably assumes that this means that there is a dog bite victim.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0022.jpg"/></p>
+<p>And the policeman helps him.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0020.jpg"/></p>
+<p>Policeman helps dog bite victim.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0024.jpg"/></p>
+<p>You probably wouldn&#8217;t assume that it means that the policeman helped the dog to bite the victim. </p>
+<p>But that&#8217;s a valid way to parse the sentence. </p>
+<p>So that&#8217;s not all that you do &#8211; you use your knowledge of the things mentioned in the sentence to handle the ambiguity of the English language. You know that the police help people. You know it&#8217;d be unusual for a policeman to bite someone. </p>
+<p>You use this knowledge to choose between the different possible interpretations of the sentence. </p>
+<p>This is also the behaviour we&#8217;d expect from a cognitive computer. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0025.jpg"/></p>
+<p>Systems that interact with us in our own language. Instead of us having to use machine languages or machine interfaces to work with computers, we&#8217;ll work with cognitive computers in our own languages &#8211; languages like English. </p>
+<p>Systems that are probabilistic rather than deterministic in the way they work and the answers that they return. </p>
+<p>Systems that take context into account, and learn how to apply their knowledge to identify the most likely responses. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0026.jpg"/></p>
+<p>In 1997, an IBM computer beat the grandmaster Garry Kasparov at a game of chess. We did that as a demonstration of the progress that we&#8217;d made in a technical field (in that case, things like massively parallel computing) but also as a way of explaining it&#8217;s potential. </p>
+<p>We did something similar to demonstrate and explain the progress that we&#8217;re making with cognitive computing, this time by entering a computer into a TV quiz show. </p>
+<p>Jeopardy is a TV quiz show in the US &#8211; a few contestants, buzzing in when they know the answers to questions, and winning cash prizes. It&#8217;s less well-known in the UK, but it&#8217;s huge in the US &#8211; a show that&#8217;s been going since the 1960s. </p>
+<p>They ask difficult questions. Complex, sometimes cryptic questions, with a variety of grammatical forms. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0027.jpg"/></p>
+<p>In 2011, we entered an IBM computer called Watson as a contestant. This was our first attempt at building a cognitive computer, and we wanted to show how it was different. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0028.jpg"/></p>
+<p>Watson went up against Brad Rutter and Ken Jennings &#8211; two of the best players to have ever gone on Jeopardy. These guys are household names in the US because of their performance on this show &#8211; these were the Garry Kasparov&#8217;s of the TV quiz show world.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0029.jpg"/></p>
+<p>Watson had to compete in the same way any contestant would. This wasn&#8217;t a search engine returning hundreds of thousands of possible documents. It needed to understand complex specific questions, and be able to come up with a single specific answer in seconds to be the first to the buzzer.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0030.jpg"/></p>
+<p>Some examples of the kinds of questions it got.</p>
+<p>This was actually the final question in the show. </p>
+<p>It&#8217;s talking about &#8220;Dracula&#8221; &#8211; the answer is Bram Stoker.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0031.jpg"/></p>
+<p>This is another Jeopardy question, from a round called &#8220;Lincoln Blogs&#8221;. The answer is &#8220;his resignation&#8221; &#8211; Chase submitted his resignation to President Abraham Lincoln three times. </p>
+<p>But you need an understanding of the question, and the contextual knowledge that a resignation is something you submit, in order to get that.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0032.jpg"/></p>
+<p>This is a question about Mount Everest &#8211; about who was the first person to climb Mount Everest. But it doesn&#8217;t say that. It isn&#8217;t a single-clause extractive question like &#8220;Who was the first person to climb Mount Everest?&#8221; which would be much easier to interpret. </p>
+<p>Again, answering this question precisely depends on knowing something about George Mallory and what he is known for, and knowing what kind of thing you might be &#8220;first&#8221; at in this context.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0033.jpg"/></p>
+<p>Another Jeopardy question, this time in a round called &#8220;Before and After&#8221;. </p>
+<p>The answer it&#8217;s looking for is &#8220;A Hard Day&#8217;s Night of the Living Dead&#8221;</p>
+<p>&#8220;A Hard Day&#8217;s Night&#8221; answering the Beatles bit, and &#8220;Night of the Living Dead&#8221; being the Romero zombie film. </p>
+<p>&#8220;Before and After&#8221; is the clue that they&#8217;re looking for something with that overlap between them.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0034.jpg"/></p>
+<p>This question is showing it&#8217;s age now, given recent events in Cuba.</p>
+<p>But at the time, I think the four countries that the US wasn&#8217;t getting along with were Bhutan, Cuba, North Korea and Iran. And the question is asking which of those four countries is furthest north. </p>
+<p>Answering this question correctly involves needing to recognise that there is a political element here (which countries does the US not have diplomatic relations with) and then a spatial one (which one is furthest north). </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0035.jpg"/></p>
+<p>By the end of the shows, Watson had not only won, but with a higher score than the two Jeopardy &#8220;grandmasters&#8221; combined. </p>
+<p>Even within the limited constraints of the TV quiz show format, it gave us an insight into what the future might be like. </p>
+<p>It showed what interaction with computers in the future will be like. Watson got the question from the quiz show host, understood it, buzzed in and spoke it&#8217;s answer.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0036.jpg"/></p>
+<p>The quiz show is just one way to try and explain this. </p>
+<p>A more recent example is <a href="http://ibmchefwatson.com/">Chef Watson</a>: a system that is learning about food and cooking, and using that to design new dishes and new meals. </p>
+<p>You can give it some constraints, like that you&#8217;d like a chicken dish, or that you want something like a stir-fry, or that you&#8217;d like something influenced by a cuisine like Chinese. And you can tell it how adventurous and surprising you&#8217;d like it to be. </p>
+<p>And it will design a new dish for you.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0037.jpg"/></p>
+<p>This isn&#8217;t about building a search engine for existing recipes. </p>
+<p>Chefs from the ICE Culinary Institute are working with Watson to create new recipes. </p>
+<p>They&#8217;ve trained it by giving it a massive amount of recipes to read. We didn&#8217;t manually prescribe types of dishes, types of cuisines and so on &#8211; we didn&#8217;t prescribe what characteristics we think an Indian dish for example would have. Instead, Watson had to learn that there is a type of cuisine like Caribbean and what that means as it came across a range of Caribbean recipes in what it&#8217;s read. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0038.jpg"/></p>
+<p>It was also given the chemical descriptions of a wide range of ingredients, and trained with a massive range of experiences of people&#8217;s reactions to specific flavour combinations. </p>
+<p>Watson learned which combinations people liked, and which they didn&#8217;t &#8211; and identified connections and patterns in the molecular combinations behind that. </p>
+<p>It&#8217;s about Watson as an assistant in the kitchen &#8211; making suggestions and offering ideas. </p>
+<p>It&#8217;s helping us improve our understanding of creativity. It&#8217;s helping us improve our understanding of what is in involved in being creative (something that we traditionally associate with being a very human thing), and explore opportunities for cognitive computing to help with this. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0039.jpg"/></p>
+<p>We&#8217;ve used Chef Watson in the same way that we used the quiz show: to help explain the potential behind cognitive computing. </p>
+<p>Putting Watson and the Chefs onto a food truck and taking them to conferences and events is a way of making it real. Letting people try the food that they come up with is one way to try and start a conversation how cognitive computing is going to be different. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0040.jpg"/></p>
+<p>Similarly, Watson has published a cook book of some of it&#8217;s recipes. </p>
+<p>It&#8217;s kind of fun, and not something that I would&#8217;ve expected us to be doing a few years ago. </p>
+<p>But we&#8217;re starting to find ways to explain cognitive computing through giving people tangible experiences. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0014.jpg"/></p>
+<p>Cognitive computing is still a very new and emerging concept, so it&#8217;s hard to find a definitive definition of what it means. </p>
+<p>But I&#8217;ve collected a few examples of how it&#8217;s being described in technology, industry and academia. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0042.jpg"/></p>
+<p>Forrester have described it as computers that learn, computers that can interact with us, and computers that make evidence-based recommendations.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0043.jpg"/></p>
+<p>IBM has talked about the way cognitive systems will transform the way people will interact with computers, and highlighted that these systems will draw on knowledge from massive amounts of data. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0044.jpg"/></p>
+<p>Gartner, who describe this as the smart machines era, say that this is going to be most disruptive change in the history of IT, and talk about this enabling things that we didn&#8217;t think computers would be able to do.</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0045.jpg"/></p>
+<p>MIT have talked about the collaborative nature of working with systems like these &#8211; like I tried to describe about Chef Watson, this is about systems working with people to create things that neither might have done separately.</p>
+<p><img height=232 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0046.jpg"/></p>
+<p>The British Computer Society have talked about cognitive computing as systems that learn through experiences instead of following a prescribed sequence of tasks, and highlighted that these will handle massive amounts of information. </p>
+<p><img height=233 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0048.jpg"/></p>
+<p>Sticking with this British Computer Society paper for a moment, they also highlight that there is a skills gap here. </p>
+<p>For programmable systems, we need people who can understand what the overall task a machine needs to achieve, and can identify and describe the specific steps needed to do that. </p>
+<p>Working with cognitive systems will be different. We need people who can identify the learning and experiential opportunities that a system will need in order to learn how to achieve the task. </p>
+<p>There will be a need for a generation of technologists who can work with systems like this. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0047.jpg"/></p>
+<p>Preparing Watson for Jeopardy is a good example of this. We didn&#8217;t try to pre-empt what questions might come up on the show and pull together a set of answers to look them up in (not that I think such an approach would be feasible or scalable). </p>
+<p>Instead, Watson prepared for Jeopardy by reading and extracting an understanding from a wide range of sources. I don&#8217;t mean game-show-specific sources. I don&#8217;t mean tabular data, or structured data, or data that has been manually prepared to be machine readable. I&#8217;m talking about encyclopaedias and dictionaries, newspapers and magazines, books and much more. Hundreds of sources of text &#8211; stuff that has been written for use by people. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0049.jpg"/></p>
+<p>And it learned how to use this knowledge by playing Jeopardy matches. Lots and lots of Jeopardy matches, to give it the experiences it needs to learn how to use it&#8217;s knowledge, and when to use it&#8217;s many hundreds of strategies it has under the covers. Some questions are best handled in these ways, while other questions are better handled in other ways. </p>
+<p>Watson learned how by playing the game, and got better through sparring matches with other previous champions from the Jeopardy TV show. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0050.jpg"/></p>
+<p>Since the TV show in 2011, a big focus for our work with Watson has been healthcare. </p>
+<p>Jeopardy was about taking a wide range of general knowledge sources, letting Watson extract a knowledge from that, and then giving it the experiences necessary to learn how to use that knowledge to do the task of playing a gameshow. </p>
+<p>After Jeopardy, we started giving Watson medical sources &#8211; text books, journals, research papers, treatment guidelines, medical records, and then working with doctors and clinicians to give Watson the experiences necessary to use that knowledge to support doctors and nurses. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0051.jpg"/></p>
+<p>We&#8217;ve partnered with cancer centres like Memorial Sloan Kettering and MD Anderson to do this. What we need are partners who understand what the system will need to be able to do, and can work backwards from there to identify what knowledge it will need and what experiences the system will need to have in order to use that knowledge to do it. </p>
+<p>In many ways, teaching hospitals are ideal partners for us in this because they do this for their medical students. And the metaphor of Watson going to medical school is one that seems to have stuck. It&#8217;s not quick &#8211; it&#8217;s taking a roughly comparable amount of time that it would take a person to go through medical school. </p>
+<p>But it&#8217;s working. Watson is being used today, albeit at relatively small scales, by doctors and nurses in the treatment and diagnosis of some of the world&#8217;s toughest diseases. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0052.jpg"/></p>
+<p>It doesn&#8217;t have to be so dramatic though. I think cognitive computing will become a part of all of our lives, not just something exclusive to specialists like doctors. </p>
+<p>I went to a conference in Twickenham last year, and one of the talks was about a project for a mobile phone retailer, trialling cognitive computing as a way to answer the questions they get from their customers. </p>
+<p>I loved the way that he described what they&#8217;re doing &#8211; working <strong>with</strong> Watson, rather than using it. And he described it as being like having a new member of staff to train, and needing to identify what that new member of staff would need to read, and what experiences of customer interactions they could give it to teach it how to support them. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0053.jpg"/></p>
+<p>Examples of this are all around us. In the same way that the early programmable systems built on the achievements and techniques that had come before them, cognitive computers are building on years of progress in fields like machine learning and natural language processing. </p>
+<p>Google Translate is a great example of this. </p>
+<p>You put in some text in one language, and it can translate that into another. </p>
+<p>Unlike many of the translation systems that came before it, they didn&#8217;t build this just by collecting together linguists and getting them to prescribe the instructions for translating every word. </p>
+<p>Instead, they trained a machine learning system to be able to do this, using sources like documents from the United Nations. The UN is a great source for this as they produce a lot of documents, and have to translate them into a wide range of languages for all their member nations. </p>
+<p>What you&#8217;ve got is a large number of examples that this in one language means that in another. </p>
+<p>Cognitive computing will need us to approach problems in this way &#8211; not trying to come up with all the answers ourselves, but being able to identify how to give a computer the experiences it will need in order to help. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0054.jpg"/></p>
+<p>I said that there is going to be a skills gap here, and we&#8217;re already starting to see it in the graduates that join us. </p>
+<p>We&#8217;re starting to tackle that by working with Universities to introduce modules on cognitive computing into their courses, and giving them access to instances of Watson for use in student projects. </p>
+<p>But there will come a point where we need to start introducing it earlier, into colleges and schools. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0055.jpg"/></p>
+<p>We need to start thinking about how we explain the computers of the future to children. </p>
+<p>We need to think about what is the cognitive computing equivalent of Big Trak. </p>
+<p>That experience made computers real to me as a kid. It inspired me. It made the concept and the potential come alive. What is going to do that for cognitive computers?</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0056.jpg"/></p>
+<p>In the same way that systems like Logo and Scratch have given us the way to let children try out and play with the concepts behind programmable computers, we need a way to do this for cognitive systems. </p>
+<p>Scratch has it&#8217;s palette of blocks to snap together. What is going to be the metaphor to explain systems that need to trained?</p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0057.jpg"/></p>
+<p>We talk about computers that can think. It&#8217;s obviously a metaphor, and is true in many ways but doesn&#8217;t hold in others. I&#8217;m not trying to imply I think these are going to be systems with a conciousness any time soon. </p>
+<p>But how far can we take the metaphor? As we need people who can work with systems that think and learn, this needs to take into account the way that computers learn. </p>
+<p>At the risk of pushing the metaphor too far, we need an approach built around the psychology of these emerging systems. </p>
+<p><img height=225 width=450 style="border: thin black solid; margin-top: 5px; margin-bottom: 5px" src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0058.jpg"/></p>
+<p>I started by saying that big changes are coming in computing. Tomorrow&#8217;s children are going to have amazing, exciting, powerful systems to play with, and they&#8217;re going to grow up and use them to achieve fantastic things. </p>
+<p>But first we&#8217;re going to need to figure out how to get them started. </p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3299">"The skills implications of Cognitive Computing"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3299">http://dalelane.co.uk/blog/?p=3299</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Open Data Camp Day 1</title>
+		<link>http://eightbar.co.uk/2015/02/22/open-data-camp-day-1/</link>
+		<pubDate>Sat, 21 Feb 2015 23:58:05 +0000</pubDate>
+		<dc:creator><![CDATA[James Taylor]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[addresses]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[data quality]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[hampshire]]></category>
+		<category><![CDATA[odcamp]]></category>
+		<category><![CDATA[open-data]]></category>
+		<category><![CDATA[open-street-map]]></category>
+		<category><![CDATA[OSM]]></category>
+		<category><![CDATA[uk]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[unconference]]></category>
+		<category><![CDATA[Winchester]]></category>
+
+		<guid isPermaLink="false">http://jtlog.wordpress.com/?p=2461</guid>
+		<description><![CDATA[If I don&#8217;t post a few notes from today&#8217;s Open Data Camp now, I never will, so here are a few things I scribbled down- it could be worse, I could have posted a PDF containing photos of the the &#8230; <a href="https://jtlog.wordpress.com/2015/02/21/open-data-camp-day-1/">Continue reading <span>&#8594;</span></a><img alt="" border="0" src="https://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#38;blog=1751515&#38;post=2461&#38;subd=jtlog&#38;ref=&#38;feed=1" width="1" height="1"/> <a href="http://eightbar.co.uk/2015/02/22/open-data-camp-day-1/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>If I don&#8217;t post a few notes from today&#8217;s <a href="http://odcamp.org.uk/">Open Data Camp</a> now, I never will, so here are a few things I scribbled down- it could be worse, I could have posted a PDF containing photos of the the actual scribbles!</p>
+<p>So <a href="https://docs.google.com/spreadsheet/ccc?key=0Ag75qK9Aqm79dGNsbDBHVlJKUnFCbjZNb0V4TVZQc3c&amp;usp=sharing#gid=11">out of this choice</a>&#8230;</p>
+<p><a href="https://jtlog.files.wordpress.com/2015/02/odcamp-sessions.jpg"><img class="alignnone size-medium wp-image-2462" src="https://jtlog.files.wordpress.com/2015/02/odcamp-sessions.jpg?w=300&#038;h=225" alt="odcamp-sessions" width="300" height="225" /></a></p>
+<p>&#8230;I picked, Open Data for Elections, Open Addresses, Data Literacy, Designing Laws using Open Data, and Augmented Reality for Walkers.</p>
+<h1>Open Data for Elections</h1>
+<p>I&#8217;ve been following @<a href="https://twitter.com/floppy">floppy</a>&#8216;s crazy plan to get elected for a while, so this was the easiest decision of the day: what drives someone to embrace the gory inner workings of democracy like this?</p>
+<p>Falling turnout it would seem, and concern for a functioning democracy.</p>
+<p>The first step of his journey was the <a href="http://openpolitics.org.uk/">Open Politics Manifesto</a>, which I&#8217;ve so far failed to edit- must try harder.</p>
+<p>Perhaps more interesting was how this, and use of open data, fits into a political platform as a service. It would be nice to have the opportunity to see a few additions to the usual suspects at the ballot box, and Eastleigh got a rare chance to see what that could be like with a by election. Perhaps open data services for candidates could tip he balance enough to encourage more people to stand.</p>
+<p>Things that sounded interesting:</p>
+<ul>
+<li><a href="https://democracyclub.org.uk/">Democracy Club</a></li>
+<li><a href="https://opencorporates.com/">OpenCorporates</a></li>
+<li><a href="http://data.okfn.org/doc/data-package">Data Packages</a></li>
+<li>Open data certificates (food hygiene certificates for data?)</li>
+<li>Candidates get one free leaflet delivery by Royal Mail- I wonder how big they expect those leaflets to be!</li>
+</ul>
+<h1>Open Addresses</h1>
+<p>@<a href="http://twitter.com/floppy">floppy</a> and @<a href="https://twitter.com/giacecco">giacecco</a> introduced the (huge) problems they need to overcome to rebuild a large data set without polluting that data with any sources with intellectual property restrictions. <a href="https://alpha.openaddressesuk.org/">Open Addresses</a> still have a long way to go and there were comments about how long Open Street Map has been around, and it still has gaps.</p>
+<p>They have some fun ideas about crowd sourcing address data (high vis jacket required) and there are some interesting philosophical questions around consent for addresses to be added.</p>
+<p>It will be interesting to see whether Open Addresses can get enough data to provide real value, and what services they build.</p>
+<h1>Data Literacy</h1>
+<p>Mark and Laura led a discussion around data literacy founded in the observation that competent people, with all the skills you could reasonably expect them to have, still struggle with handling data sets.</p>
+<p>Who needs to be data literate? Data scientists? Data professionals? Everyone?</p>
+<p>Data plumbers? There were some analogies with actual plumbers! You might not be a plumber but it&#8217;s useful to know something about it.</p>
+<p>If we live in a data driven society, we should know how to ask the right questions. Need domain expertise and technical expertise.</p>
+<p>Things that sounded interesting:</p>
+<ul>
+<li>Open Data Cookbook</li>
+<li><a href="http://opendatahandbook.org/">Open Data Handbook</a></li>
+</ul>
+<h1>Designing Laws using Open Data</h1>
+<p>@<a href="https://twitter.com/johnlsheridan">johnlsheridan</a> pointed out that the least interesting thing to do with legislation is to publish it and went on to share some fascinating insights into the building blocks of statute law. It sounds like the slippery language used in legislation boils down to a small number of design patterns built with simple building blocks, such as a duty along with a claim right, and so on.</p>
+<p>Knowing these building blocks makes it easier to get the gist of what laws are trying to achieve, helps navigate statutes, and could give policy makers a more reliable way to effect a goal.</p>
+<p>For example, it&#8217;s easier to make sense of the legislation covering supply of gas, and it&#8217;s possible to identify where there may be problems. The gas regulator has a <em>duty</em> to protect the interests of consumers by promoting competition, but that&#8217;s a weak duty without a clear <em>claim right</em> to enforce it.</p>
+<p>John also demonstrated a tool &#8211; <a href="http://ngrams.elasticbeanstalk.com/">http://ngrams.elasticbeanstalk.com</a> &#8211; exploring how the language used in legislation has changed over time, for example how the use of &#8220;shall&#8221; has declined and been replaced by &#8220;is to be&#8221;.</p>
+<h1>Augmented Reality for Walkers</h1>
+<p>My choice of Android tablet was largely based on what might work reasonably well for maps and augmented reality, so I seized this opportunity!</p>
+<p><a href="https://www.openstreetmap.org/user/nickw">Nick Whitelegg</a> described the Hikar Android app he&#8217;s been working on, which is intended to help hikers follow paths by overlaying map data on a live camera feed.</p>
+<p>The data is a combination of Open Street Map mapping data, with Ordnance Survey height data, which is downloaded and cached as tiles around your current location. Open GL is used to overlay a 3D view of the map data on the live camera feed, using the Android sensor APIs to detect the device&#8217;s rotation.</p>
+<p>I&#8217;ve just downloaded and installed <a href="http://www.free-map.org.uk/downloads/android/hikar-latest.apk">Hikar</a> and, while my tablet is a tad slow, it works really well. I live somewhere flat and boring but the height data made a noticeable difference when Nick demonstrated the app in hilly Winchester.</p>
+<p><strong>Still to come:</strong> Day 2!</p><br />  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/jtlog.wordpress.com/2461/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/jtlog.wordpress.com/2461/" /></a> <img alt="" border="0" src="https://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#038;blog=1751515&%23038;post=2461&%23038;subd=jtlog&%23038;ref=&%23038;feed=1" width="1" height="1" />]]></content:encoded>
+	<enclosure url="https://1.gravatar.com/avatar/74c39fd4d2c3b09efbea8c5db637c57c?s=96&amp;amp;d=identicon" length="" type="" />
+<enclosure url="https://jtlog.files.wordpress.com/2015/02/odcamp-sessions.jpg?w=300" length="" type="" />
+		</item>
+		<item>
+		<title>Open Data Camp Day 1</title>
+		<link>http://eightbar.co.uk/2015/02/22/open-data-camp-day-1-2/</link>
+		<pubDate>Sat, 21 Feb 2015 23:58:05 +0000</pubDate>
+		<dc:creator><![CDATA[James Taylor]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[addresses]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[data quality]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[hampshire]]></category>
+		<category><![CDATA[odcamp]]></category>
+		<category><![CDATA[open-data]]></category>
+		<category><![CDATA[open-street-map]]></category>
+		<category><![CDATA[OSM]]></category>
+		<category><![CDATA[uk]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[unconference]]></category>
+		<category><![CDATA[Winchester]]></category>
+
+		<guid isPermaLink="false">https://jtlog.wordpress.com/?p=2461</guid>
+		<description><![CDATA[If I don&#8217;t post a few notes from today&#8217;s Open Data Camp now, I never will, so here are a few things I scribbled down- it could be worse, I could have posted a PDF containing photos of the the &#8230; <a href="https://jtlog.wordpress.com/2015/02/21/open-data-camp-day-1/">Continue reading <span>&#8594;</span></a><img alt="" border="0" src="https://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#38;blog=1751515&#38;post=2461&#38;subd=jtlog&#38;ref=&#38;feed=1" width="1" height="1"/> <a href="http://eightbar.co.uk/2015/02/22/open-data-camp-day-1-2/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>If I don&#8217;t post a few notes from today&#8217;s <a href="http://odcamp.org.uk/">Open Data Camp</a> now, I never will, so here are a few things I scribbled down- it could be worse, I could have posted a PDF containing photos of the the actual scribbles!</p>
+<p>So <a href="https://docs.google.com/spreadsheet/ccc?key=0Ag75qK9Aqm79dGNsbDBHVlJKUnFCbjZNb0V4TVZQc3c&amp;usp=sharing#gid=11">out of this choice</a>&#8230;</p>
+<p><a href="https://jtlog.files.wordpress.com/2015/02/odcamp-sessions.jpg"><img class="alignnone size-medium wp-image-2462" src="https://jtlog.files.wordpress.com/2015/02/odcamp-sessions.jpg?w=300&#038;h=225" alt="odcamp-sessions" width="300" height="225" /></a></p>
+<p>&#8230;I picked, Open Data for Elections, Open Addresses, Data Literacy, Designing Laws using Open Data, and Augmented Reality for Walkers.</p>
+<h1>Open Data for Elections</h1>
+<p>I&#8217;ve been following @<a href="https://twitter.com/floppy">floppy</a>&#8216;s crazy plan to get elected for a while, so this was the easiest decision of the day: what drives someone to embrace the gory inner workings of democracy like this?</p>
+<p>Falling turnout it would seem, and concern for a functioning democracy.</p>
+<p>The first step of his journey was the <a href="http://openpolitics.org.uk/">Open Politics Manifesto</a>, which I&#8217;ve so far failed to edit- must try harder.</p>
+<p>Perhaps more interesting was how this, and use of open data, fits into a political platform as a service. It would be nice to have the opportunity to see a few additions to the usual suspects at the ballot box, and Eastleigh got a rare chance to see what that could be like with a by election. Perhaps open data services for candidates could tip he balance enough to encourage more people to stand.</p>
+<p>Things that sounded interesting:</p>
+<ul>
+<li><a href="https://democracyclub.org.uk/">Democracy Club</a></li>
+<li><a href="https://opencorporates.com/">OpenCorporates</a></li>
+<li><a href="http://data.okfn.org/doc/data-package">Data Packages</a></li>
+<li>Open data certificates (food hygiene certificates for data?)</li>
+<li>Candidates get one free leaflet delivery by Royal Mail- I wonder how big they expect those leaflets to be!</li>
+</ul>
+<h1>Open Addresses</h1>
+<p>@<a href="http://twitter.com/floppy">floppy</a> and @<a href="https://twitter.com/giacecco">giacecco</a> introduced the (huge) problems they need to overcome to rebuild a large data set without polluting that data with any sources with intellectual property restrictions. <a href="https://alpha.openaddressesuk.org/">Open Addresses</a> still have a long way to go and there were comments about how long Open Street Map has been around, and it still has gaps.</p>
+<p>They have some fun ideas about crowd sourcing address data (high vis jacket required) and there are some interesting philosophical questions around consent for addresses to be added.</p>
+<p>It will be interesting to see whether Open Addresses can get enough data to provide real value, and what services they build.</p>
+<h1>Data Literacy</h1>
+<p>Mark and Laura led a discussion around data literacy founded in the observation that competent people, with all the skills you could reasonably expect them to have, still struggle with handling data sets.</p>
+<p>Who needs to be data literate? Data scientists? Data professionals? Everyone?</p>
+<p>Data plumbers? There were some analogies with actual plumbers! You might not be a plumber but it&#8217;s useful to know something about it.</p>
+<p>If we live in a data driven society, we should know how to ask the right questions. Need domain expertise and technical expertise.</p>
+<p>Things that sounded interesting:</p>
+<ul>
+<li>Open Data Cookbook</li>
+<li><a href="http://opendatahandbook.org/">Open Data Handbook</a></li>
+</ul>
+<h1>Designing Laws using Open Data</h1>
+<p>@<a href="https://twitter.com/johnlsheridan">johnlsheridan</a> pointed out that the least interesting thing to do with legislation is to publish it and went on to share some fascinating insights into the building blocks of statute law. It sounds like the slippery language used in legislation boils down to a small number of design patterns built with simple building blocks, such as a duty along with a claim right, and so on.</p>
+<p>Knowing these building blocks makes it easier to get the gist of what laws are trying to achieve, helps navigate statutes, and could give policy makers a more reliable way to effect a goal.</p>
+<p>For example, it&#8217;s easier to make sense of the legislation covering supply of gas, and it&#8217;s possible to identify where there may be problems. The gas regulator has a <em>duty</em> to protect the interests of consumers by promoting competition, but that&#8217;s a weak duty without a clear <em>claim right</em> to enforce it.</p>
+<p>John also demonstrated a tool &#8211; <a href="http://ngrams.elasticbeanstalk.com/">http://ngrams.elasticbeanstalk.com</a> &#8211; exploring how the language used in legislation has changed over time, for example how the use of &#8220;shall&#8221; has declined and been replaced by &#8220;is to be&#8221;.</p>
+<h1>Augmented Reality for Walkers</h1>
+<p>My choice of Android tablet was largely based on what might work reasonably well for maps and augmented reality, so I seized this opportunity!</p>
+<p><a href="https://www.openstreetmap.org/user/nickw">Nick Whitelegg</a> described the Hikar Android app he&#8217;s been working on, which is intended to help hikers follow paths by overlaying map data on a live camera feed.</p>
+<p>The data is a combination of Open Street Map mapping data, with Ordnance Survey height data, which is downloaded and cached as tiles around your current location. Open GL is used to overlay a 3D view of the map data on the live camera feed, using the Android sensor APIs to detect the device&#8217;s rotation.</p>
+<p>I&#8217;ve just downloaded and installed <a href="http://www.free-map.org.uk/downloads/android/hikar-latest.apk">Hikar</a> and, while my tablet is a tad slow, it works really well. I live somewhere flat and boring but the height data made a noticeable difference when Nick demonstrated the app in hilly Winchester.</p>
+<p><strong>Still to come:</strong> Day 2!</p><br />  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/jtlog.wordpress.com/2461/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/jtlog.wordpress.com/2461/" /></a> <img alt="" border="0" src="https://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#038;blog=1751515&%23038;post=2461&%23038;subd=jtlog&%23038;ref=&%23038;feed=1" width="1" height="1" />]]></content:encoded>
+	<enclosure url="https://1.gravatar.com/avatar/74c39fd4d2c3b09efbea8c5db637c57c?s=96&amp;amp;d=identicon" length="" type="" />
+<enclosure url="https://jtlog.files.wordpress.com/2015/02/odcamp-sessions.jpg?w=300" length="" type="" />
+		</item>
+		<item>
+		<title>Open Data Camp Day 1</title>
+		<link>http://eightbar.co.uk/2015/02/22/open-data-camp-day-1-3/</link>
+		<pubDate>Sat, 21 Feb 2015 23:58:05 +0000</pubDate>
+		<dc:creator><![CDATA[James Taylor]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[addresses]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[data quality]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[hampshire]]></category>
+		<category><![CDATA[odcamp]]></category>
+		<category><![CDATA[open-data]]></category>
+		<category><![CDATA[open-street-map]]></category>
+		<category><![CDATA[OSM]]></category>
+		<category><![CDATA[uk]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[unconference]]></category>
+		<category><![CDATA[Winchester]]></category>
+
+		<guid isPermaLink="false">http://jtlog.wordpress.com/?p=2461</guid>
+		<description><![CDATA[If I don&#8217;t post a few notes from today&#8217;s Open Data Camp now, I never will, so here are a few things I scribbled down- it could be worse, I could have posted a PDF containing photos of the the &#8230; <a href="https://jtlog.wordpress.com/2015/02/21/open-data-camp-day-1/">Continue reading <span>&#8594;</span></a><img alt="" border="0" src="https://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#38;blog=1751515&#38;post=2461&#38;subd=jtlog&#38;ref=&#38;feed=1" width="1" height="1"/> <a href="http://eightbar.co.uk/2015/02/22/open-data-camp-day-1-3/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>If I don&#8217;t post a few notes from today&#8217;s <a href="http://odcamp.org.uk/">Open Data Camp</a> now, I never will, so here are a few things I scribbled down- it could be worse, I could have posted a PDF containing photos of the the actual scribbles!</p>
+<p>So <a href="https://docs.google.com/spreadsheet/ccc?key=0Ag75qK9Aqm79dGNsbDBHVlJKUnFCbjZNb0V4TVZQc3c&amp;usp=sharing#gid=11">out of this choice</a>&#8230;</p>
+<p><a href="https://jtlog.files.wordpress.com/2015/02/odcamp-sessions.jpg"><img class="alignnone size-medium wp-image-2462" src="https://jtlog.files.wordpress.com/2015/02/odcamp-sessions.jpg?w=300&#038;h=225" alt="odcamp-sessions" width="300" height="225" /></a></p>
+<p>&#8230;I picked, Open Data for Elections, Open Addresses, Data Literacy, Designing Laws using Open Data, and Augmented Reality for Walkers.</p>
+<h1>Open Data for Elections</h1>
+<p>I&#8217;ve been following @<a href="https://twitter.com/floppy">floppy</a>&#8216;s crazy plan to get elected for a while, so this was the easiest decision of the day: what drives someone to embrace the gory inner workings of democracy like this?</p>
+<p>Falling turnout it would seem, and concern for a functioning democracy.</p>
+<p>The first step of his journey was the <a href="http://openpolitics.org.uk/">Open Politics Manifesto</a>, which I&#8217;ve so far failed to edit- must try harder.</p>
+<p>Perhaps more interesting was how this, and use of open data, fits into a political platform as a service. It would be nice to have the opportunity to see a few additions to the usual suspects at the ballot box, and Eastleigh got a rare chance to see what that could be like with a by election. Perhaps open data services for candidates could tip he balance enough to encourage more people to stand.</p>
+<p>Things that sounded interesting:</p>
+<ul>
+<li><a href="https://democracyclub.org.uk/">Democracy Club</a></li>
+<li><a href="https://opencorporates.com/">OpenCorporates</a></li>
+<li><a href="http://data.okfn.org/doc/data-package">Data Packages</a></li>
+<li>Open data certificates (food hygiene certificates for data?)</li>
+<li>Candidates get one free leaflet delivery by Royal Mail- I wonder how big they expect those leaflets to be!</li>
+</ul>
+<h1>Open Addresses</h1>
+<p>@<a href="http://twitter.com/floppy">floppy</a> and @<a href="https://twitter.com/giacecco">giacecco</a> introduced the (huge) problems they need to overcome to rebuild a large data set without polluting that data with any sources with intellectual property restrictions. <a href="https://alpha.openaddressesuk.org/">Open Addresses</a> still have a long way to go and there were comments about how long Open Street Map has been around, and it still has gaps.</p>
+<p>They have some fun ideas about crowd sourcing address data (high vis jacket required) and there are some interesting philosophical questions around consent for addresses to be added.</p>
+<p>It will be interesting to see whether Open Addresses can get enough data to provide real value, and what services they build.</p>
+<h1>Data Literacy</h1>
+<p>Mark and Laura led a discussion around data literacy founded in the observation that competent people, with all the skills you could reasonably expect them to have, still struggle with handling data sets.</p>
+<p>Who needs to be data literate? Data scientists? Data professionals? Everyone?</p>
+<p>Data plumbers? There were some analogies with actual plumbers! You might not be a plumber but it&#8217;s useful to know something about it.</p>
+<p>If we live in a data driven society, we should know how to ask the right questions. Need domain expertise and technical expertise.</p>
+<p>Things that sounded interesting:</p>
+<ul>
+<li>Open Data Cookbook</li>
+<li><a href="http://opendatahandbook.org/">Open Data Handbook</a></li>
+</ul>
+<h1>Designing Laws using Open Data</h1>
+<p>@<a href="https://twitter.com/johnlsheridan">johnlsheridan</a> pointed out that the least interesting thing to do with legislation is to publish it and went on to share some fascinating insights into the building blocks of statute law. It sounds like the slippery language used in legislation boils down to a small number of design patterns built with simple building blocks, such as a duty along with a claim right, and so on.</p>
+<p>Knowing these building blocks makes it easier to get the gist of what laws are trying to achieve, helps navigate statutes, and could give policy makers a more reliable way to effect a goal.</p>
+<p>For example, it&#8217;s easier to make sense of the legislation covering supply of gas, and it&#8217;s possible to identify where there may be problems. The gas regulator has a <em>duty</em> to protect the interests of consumers by promoting competition, but that&#8217;s a weak duty without a clear <em>claim right</em> to enforce it.</p>
+<p>John also demonstrated a tool &#8211; <a href="http://ngrams.elasticbeanstalk.com/">http://ngrams.elasticbeanstalk.com</a> &#8211; exploring how the language used in legislation has changed over time, for example how the use of &#8220;shall&#8221; has declined and been replaced by &#8220;is to be&#8221;.</p>
+<h1>Augmented Reality for Walkers</h1>
+<p>My choice of Android tablet was largely based on what might work reasonably well for maps and augmented reality, so I seized this opportunity!</p>
+<p><a href="https://www.openstreetmap.org/user/nickw">Nick Whitelegg</a> described the Hikar Android app he&#8217;s been working on, which is intended to help hikers follow paths by overlaying map data on a live camera feed.</p>
+<p>The data is a combination of Open Street Map mapping data, with Ordnance Survey height data, which is downloaded and cached as tiles around your current location. Open GL is used to overlay a 3D view of the map data on the live camera feed, using the Android sensor APIs to detect the device&#8217;s rotation.</p>
+<p>I&#8217;ve just downloaded and installed <a href="http://www.free-map.org.uk/downloads/android/hikar-latest.apk">Hikar</a> and, while my tablet is a tad slow, it works really well. I live somewhere flat and boring but the height data made a noticeable difference when Nick demonstrated the app in hilly Winchester.</p>
+<p><strong>Still to come:</strong> Day 2!</p><br />  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/jtlog.wordpress.com/2461/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/jtlog.wordpress.com/2461/" /></a> <img alt="" border="0" src="https://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#038;blog=1751515&%23038;post=2461&%23038;subd=jtlog&%23038;ref=&%23038;feed=1" width="1" height="1" />]]></content:encoded>
+	<enclosure url="https://1.gravatar.com/avatar/74c39fd4d2c3b09efbea8c5db637c57c?s=96&amp;amp;d=identicon" length="" type="" />
+<enclosure url="https://jtlog.files.wordpress.com/2015/02/odcamp-sessions.jpg?w=300" length="" type="" />
+		</item>
+		<item>
+		<title>Monki Gras 2015</title>
+		<link>http://eightbar.co.uk/2015/02/10/monki-gras-2015/</link>
+		<pubDate>Tue, 10 Feb 2015 12:00:46 +0000</pubDate>
+		<dc:creator><![CDATA[Laura Cowen]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[Open Source]]></category>
+		<category><![CDATA[WASdev]]></category>
+
+		<guid isPermaLink="false">http://lauracowen.co.uk/blog/?p=2097</guid>
+		<description><![CDATA[<p>Monki Gras happened again! Though, in its Monki Gras 2015 incarnation, it acquired a heavy metal umlaut and a &#8216;slashed zero&#8217; in its typeface; an allusion to its Nordic nature: M&#246;nki Gras 2&#216;15 What is Monki Gras? Well&#8230; So, how to explain #monkigras? Like TED but smaller, more random and with @monkchips in charge &#8212; &#8230; <a href="http://lauracowen.co.uk/blog/2015/02/10/monki-gras-2015/">Continue reading <span>Monki Gras 2015</span> <span>&#8594;</span></a></p>
+<p>The post <a rel="nofollow" href="http://lauracowen.co.uk/blog/2015/02/10/monki-gras-2015/">Monki Gras 2015</a> appeared first on <a rel="nofollow" href="http://lauracowen.co.uk/blog">LauraCowen.co.uk</a>.</p> <a href="http://eightbar.co.uk/2015/02/10/monki-gras-2015/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><a href="http://monkigras.com/" title="monkigras.com">Monki Gras</a> happened again! Though, in its Monki Gras 2015 incarnation, it acquired a <a href="http://en.wikipedia.org/wiki/Metal_umlaut" title="Metal umlaut on Wikipedia">heavy metal umlaut</a> and a <a href="http://en.wikipedia.org/wiki/Slashed_zero" title="Slashed zero on Wikipedia">&#8216;slashed zero&#8217;</a> in its typeface; an allusion to its <a href="http://en.wikipedia.org/wiki/Nordic_countries" title="Nordic countries on Wikipedia">Nordic</a> nature: Mönki Gras 2Ø15</p>
+<h2>What is Monki Gras?</h2>
+<p>Well&#8230;</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p>So, how to explain <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a>? Like TED but smaller, more random and with <a href="https://twitter.com/monkchips">@monkchips</a> in charge</p>
+<p>&mdash; Paul Johnston (@PaulDJohnston) <a href="https://twitter.com/PaulDJohnston/status/562237054487379968">February 2, 2015</a></p></blockquote>
+<p>And Ricardo makes a good point, explaining why I, and others, just keep going back:</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p>Back home from <a href="https://twitter.com/monkigras">@monkigras</a>.  <a href="https://twitter.com/redmonk">@redmonk</a> has me completely spoiled as to what a conference is supposed to be like.</p>
+<p>&mdash; Ricardo J. Méndez (@ArgesRic) <a href="https://twitter.com/ArgesRic/status/561647182278066177">January 31, 2015</a></p></blockquote>
+<p>There&#8217;s a single track of talks so you are saved the effort of making decisions about what to see and you can just focus on listening. The speakers entertain as well as inform, which, I really like.</p>
+<p>While it is a tech conference, there&#8217;s little code because it&#8217;s about making technology happen rather than the details of the technology itself. So there are talks on developer culture, design, and data, as well as slightly more off-the-wall things to keep our brains oiled.</p>
+<p>In <a href="https://twitter.com/monkchips" title="James Governor on Twitter">James&#8217;</a> very own distinctive words:</p>
+<blockquote class="twitter-tweet" lang="en"><p>turns out if you ask people to be creative and not just give the normal pitch they do a fucking great job. <a href="https://twitter.com/hashtag/protip?src=hash">#protip</a> for conference organisers</p>
+<p>&mdash; Mönki Gras (@monkigras) <a href="https://twitter.com/monkigras/status/560812330234425344">January 29, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<blockquote class="twitter-tweet" lang="en"><p>What a great crowd, all celebrating <a href="https://twitter.com/hashtag/nordiccraft?src=hash">#nordiccraft</a>! <a href="http://t.co/2wmsrrzv52">pic.twitter.com/2wmsrrzv52</a></p>
+<p>&mdash; Mönki Gras (@monkigras) <a href="https://twitter.com/monkigras/status/560854249492729858">January 29, 2015</a></p></blockquote>
+<h2>Why go all Nordic this year?</h2>
+<p>All the speakers this year were Scandinavian in some way. It was probably the most rigorously applied conference theme I&#8217;ve ever seen (mostly, conferences come up with a &#8216;theme&#8217; for marketing purposes which usually gets mostly forgotten about by the time of the conference itself).</p>
+<blockquote class="twitter-tweet" lang="en"><p>What have the Nordics done for us? &lt;- Basically the theme for <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a> this year. Turns out, quite a lot. ☺</p>
+<p>&mdash; Laura Cowen (@lauracowen) <a href="https://twitter.com/lauracowen/status/560815323419803648">January 29, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p>James talks a bit more about this on the <a href="http://monkigras.com/blog/" title="Scandinavian focus on the Monkigras blog">Monkigras blog</a>. A surprising amount of tech we know and love comes out of the relatively sparsely populated Scandinavian countries. For example:</p>
+<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/monkchips">@monkchips</a> Yes please. Don&#39;t forget, Finland builds our internet <img src="http://lauracowen.co.uk/blog/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> &lt;3 <a href="https://twitter.com/hashtag/ssh?src=hash">#ssh</a> <a href="https://twitter.com/hashtag/irc?src=hash">#irc</a> <a href="https://twitter.com/hashtag/git?src=hash">#git</a> <a href="https://twitter.com/hashtag/Linux?src=hash">#Linux</a> <a href="https://twitter.com/hashtag/MySQL?src=hash">#MySQL</a> <a href="https://twitter.com/hashtag/opensource?src=hash">#opensource</a> cc <a href="https://twitter.com/GabbiCahane">@gabbicahane</a> <a href="https://twitter.com/monkigras">@monkigras</a></p>
+<p>&mdash; Pia Henrietta K (@PHenriettaK) <a href="https://twitter.com/PHenriettaK/status/552135512203726848">January 5, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p>And, apparently, Finland leads the EU in enterprise cloud computing:</p>
+<blockquote class="twitter-tweet" lang="en"><p>Cloud computing used by 1 in 5 enterprises in the EU in 2014, 1 in 2 in Finland <a href="https://twitter.com/hashtag/Eurostat?src=hash">#Eurostat</a> <a href="http://t.co/CuMAzNIPoD">http://t.co/CuMAzNIPoD</a> <a href="http://t.co/JGMwAJ1v5Y">pic.twitter.com/JGMwAJ1v5Y</a></p>
+<p>&mdash; European Commission (@EU_Commission) <a href="https://twitter.com/EU_Commission/status/542260605542203392">December 9, 2014</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<h2>Are the Nordics really that different from anywhere else?</h2>
+<p>Well, this graph seems to say they are, if only for their taste in music:</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p>Metal bands per 100.000 inhabitants <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a> <a href="http://t.co/eTZf2MJl59">pic.twitter.com/eTZf2MJl59</a></p>
+<p>&mdash; Lars Trieloff (@trieloff) <a href="https://twitter.com/trieloff/status/560854416564449280">January 29, 2015</a></p></blockquote>
+<p>Which suggests there is at least <em>something</em> different about Nordic cultures from the rest of Europe, let alone the world.</p>
+<p>So several of the speakers delved into why they thought this led to success in technology innovation and development. For example, there&#8217;s the attitude to not recognising when you&#8217;re failing and giving up so that you can be successful by doing it another way:</p>
+<blockquote class="twitter-tweet" lang="en"><p>There is no shame in turning around and giving up. And give up as soon as possible then you don&#39;t die. &#8211; Norwegian Mountain Code. <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a></p>
+<p>&mdash; Laura Cowen (@lauracowen) <a href="https://twitter.com/lauracowen/status/560766645925605376">January 29, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p>A Swedish concept, <em><a href="http://en.wikipedia.org/wiki/Lagom" title="Lagom on Wikipedia">lagom</a></em>, which means &#8216;just the right amount&#8217; was credited with the popularity of the cloud in the Nordics. And, indeed, with pretty much anything we could think of throughout the rest of the event.</p>
+<blockquote class="twitter-tweet" lang="en"><p>The cloud is more popular in the Nordics, because it allows you to spend just the right amount (lagom) on infrastructure <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a></p>
+<p>&mdash; Lars Trieloff (@trieloff) <a href="https://twitter.com/trieloff/status/560783321144492035">January 29, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p>Similarly, you could argue that lagom is why Docker is popular among developers:</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p>Why is <a href="https://twitter.com/docker">@docker</a> so hot? It allows developers to get back to craftsmanship, not to worry about things they don&#39;t care about <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a></p>
+<p>&mdash; Danese Cooper (@DivaDanese) <a href="https://twitter.com/DivaDanese/status/561151492774973440">January 30, 2015</a></p></blockquote>
+<p>One fascinating talk, by a Swedish speaker based in Silicon Valley, was about the difference between startups in the Nordics and Silicon Valley. For example, the inescapable differences between their welfare systems were credited as being responsible for different priorities regarding making money. (Hopefully, videos of the talks will be put online and I&#8217;ll add a link to it.)</p>
+<p>Obviously, all this talk about culture can, and did, drift into stereotyping. I did get slightly weary of the repeated comparisons between cultures, though interesting and, often, humorous.</p>
+<blockquote class="twitter-tweet" lang="en"><p>Anyone who uses stereotypes is a terrible person. <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a></p>
+<p>&mdash; Simon Phipps (@webmink) <a href="https://twitter.com/webmink/status/561124125708914690">January 30, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<h2>Developer culture</h2>
+<p>One of the things I&#8217;m most interested in is hearing what other companies have learnt about developer culture and community. For example:</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p>Spotify has scaled to over 1,200 people by getting developers to work in small autonomous &quot;Squads&quot; <a href="http://t.co/5yFvMBQcvn">http://t.co/5yFvMBQcvn</a> <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a></p>
+<p>&mdash; Sam Shead (@Sam_L_Shead) <a href="https://twitter.com/Sam_L_Shead/status/562255415812292609">February 2, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p>There&#8217;s more about this talk on <a href="http://www.techworld.com/startups/spotify-developer-squads-key-swedish-startups-success-3596415/" title="Spotify's developer squads on Techworld">Techworld</a>. And Spotify have blogged some funky videos about the developer culture they aspire to (<a href="https://labs.spotify.com/2014/03/27/spotify-engineering-culture-part-1/" title="Spotify engineering culture: part 1">part 1</a> and <a href="https://labs.spotify.com/2014/09/20/spotify-engineering-culture-part-2/" title="Spotify engineering culture: part 2">part 2</a>), which are well worth watching if you work in software development.</p>
+<p>Something that I&#8217;m working on at IBM is increasing the openness of our development teams so, again, I&#8217;m always interested in new ways to do this. This is something that Sweden (yes, the country!) has adopted to a surprising extent:</p>
+<blockquote class="twitter-tweet" lang="en"><p>Swedish citizens take turns at curating the official <a href="https://twitter.com/sweden">@sweden</a> Twitter account! <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a></p>
+<p>&mdash; Laura Cowen (@lauracowen) <a href="https://twitter.com/lauracowen/status/560746078585507840">January 29, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<h2>Innovation and inefficiencies</h2>
+<p>One important message that came across at Monki Gras 2015 was that you have to allow time for innovation to happen. It&#8217;s when things seem inefficient and time is not allocated to a specific activity that innovation often occurs.</p>
+<p>A nice example of this is the BrewPi project. At Monki Gras 2013, Elco Jacobs talked about his open source project of brewing beer and using a Raspberry Pi to monitor it:</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/OeVKxg8NP_I" frameborder="0" allowfullscreen></iframe></p>
+<p>I bumped into him this year and what had been a project now occupies him full-time as a small business selling the technology to brewers around the world. A pause in his education when he had nothing better to do had enabled him to get on with his BrewPi project and, after graduation, turn it into a business.</p>
+<blockquote class="twitter-tweet" lang="en"><p>Fun conversations about <a href="https://twitter.com/brew_pi">@brew_pi</a> at <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a> <a href="http://t.co/sXYGvJ6ck5">http://t.co/sXYGvJ6ck5</a></p>
+<p>&mdash; Paul Johnston (@PaulDJohnston) <a href="https://twitter.com/PaulDJohnston/status/561169434501713920">January 30, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<blockquote class="twitter-tweet" lang="en"><p>It&#39;s really important that Finland has really inefficient universities because people start tinkering and solving problems <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a></p>
+<p>&mdash; Paul Johnston (@PaulDJohnston) <a href="https://twitter.com/PaulDJohnston/status/560817347767050240">January 29, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<h2>Data journalism</h2>
+<p>There&#8217;s a lot talked about <a href="http://www.theguardian.com/public-leaders-network/2014/apr/15/big-data-open-data-transform-government" title="Big data vs open data in The Guardian">open data</a> and how we should be able to access tax-funded data about things that affect our lives. The Guardian is taking a lead with <a href="http://www.theguardian.com/media/data-journalism" title="Data journalism at The Guardian">data journalism</a> and <a href="https://twitter.com/HelenaBengtsson">Helena Bengtsson</a> gave a talk about how knowing how to navigate large data sets to find meaning was vital to finding stories in the Wikileaks data.</p>
+<blockquote class="twitter-tweet" lang="en"><p>Inspiring talk on “Data Journalism” from <a href="https://twitter.com/HelenaBengtsson">@HelenaBengtsson</a> at <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a>. Talking through how learning simple SQL helped use <a href="https://twitter.com/wikileaks">@wikileaks</a> data.</p>
+<p>&mdash; Daniel Appelquist (@torgo) <a href="https://twitter.com/torgo/status/560830299106340864">January 29, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p>She started out in data journalism in Sweden where, in one case, she acquired and mapped large data sets that revealed water pollution problems around the country, which triggered a several stories.</p>
+<p>It&#8217;s not just having the data that matters but the interpretation of the data. That&#8217;s what data journalism gives us over just &#8216;big data':</p>
+<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/beauvais">@beauvais</a>: Sure. We see the same with our analysis. When we hand people data, they largely don&#39;t care, without the interpretation.</p>
+<p>&mdash; Donnie Berkholz (@dberkholz) <a href="https://twitter.com/dberkholz/status/560830919011885056">January 29, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p>Also, I found out a fascinating fact:</p>
+<blockquote class="twitter-tweet" lang="en"><p>Scandinavia: gov info is public unless classified otherwise. Rest of Europe: gov info is confidential unless they say otherwise. <a href="https://twitter.com/hashtag/monkigras?src=hash">#monkigras</a></p>
+<p>&mdash; Laura Cowen (@lauracowen) <a href="https://twitter.com/lauracowen/status/560833203158929409">January 29, 2015</a></p></blockquote>
+<p><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p>Anyway, that&#8217;s about as much as I can cram in. We also found out random things about Scandinavian knitwear and the fact that Sweden has its own official typeface, <a href="http://www.theguardian.com/world/2014/nov/14/sweden-sans-designers-create-national-font" title="Sweden Sans in The Guardian">Sweden Sans</a>. And we ate lots of Nordic foods, drank Nordic beer and (some of us) drank Akvavit. And, most importantly, we talked to each other lots.</p>
+<p>The thing I really value about Monki Gras (on top of the great talks, food, drink, and fun atmosphere) is the small size of the event and all the interesting people to talk to. That&#8217;s why I keep going back.</p>
+<p>P.S. <a href="http://tangentialthoughts.com/it-trends/monkigras-becomes-nordigras/" title="Monki Gras 2015 write-up">A good write-up of the talks</a></p>
+<p>The post <a rel="nofollow" href="http://lauracowen.co.uk/blog/2015/02/10/monki-gras-2015/">Monki Gras 2015</a> appeared first on <a rel="nofollow" href="http://lauracowen.co.uk/blog">LauraCowen.co.uk</a>.</p>
+]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>How to use the IBM Watson Relationship Extraction service on Bluemix</title>
+		<link>http://eightbar.co.uk/2015/01/25/how-to-use-the-ibm-watson-relationship-extraction-service-on-bluemix/</link>
+		<pubDate>Sun, 25 Jan 2015 20:18:54 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[bluemix]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[nodejs]]></category>
+		<category><![CDATA[watson]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3272</guid>
+		<description><![CDATA[Before Christmas, I wrote about how I used the Watson Relationship Extraction service on Bluemix to pick out the things mentioned in news stories, as part of a mobile app we built on a hackday. I&#8217;d still like to do something more with that app, but in the meantime I should at least share how [&#8230;] <a href="http://eightbar.co.uk/2015/01/25/how-to-use-the-ibm-watson-relationship-extraction-service-on-bluemix/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Before Christmas, I wrote about how <a href="http://dalelane.co.uk/blog/?p=3261">I used the Watson Relationship Extraction service on Bluemix to pick out the things mentioned in news stories</a>, as part of a <a href="https://www.youtube.com/watch?v=vBCz31arNxw">mobile app we built on a hackday</a>. I&#8217;d still like to do something more with that app, but in the meantime I should at least share how I did the Relationship Extraction bit. </p>
+<p>From the <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/relationship-extraction.html">official doc for the service</a>:</p>
+<blockquote><p>From unstructured text, Relationship Extraction can extract entities (such as people, locations, organizations, events), and the relationships between these entities (such as person employed-by organization, person resides-in location).</p></blockquote>
+<p>This is provided as a hosted service on <a href="http://bluemix.net/">IBM Bluemix</a> where any developer can sign up and give it a try. </p>
+<p>It&#8217;s available as a <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/sireapi/">documented REST API</a>, but as part of using it in the hackday, I needed to write a bit of code around that, just to prepare the request and parse the response. I think it&#8217;ll save me time to reuse this the next time I want to build something with the API, so I&#8217;m <a href="https://github.com/dalelane/extract-relationships">sharing it as a standalone package</a>. </p>
+<p>In this post, I&#8217;ll walk though how you can use it, with a small app that grabs the contents of a BBC News story and picks out the names of people mentioned in the story. </p>
+<p>First, a simpler example. Consider this exciting text:</p>
+<blockquote><p>Dale Lane works as a developer for IBM. He started in 2003. Dale lives in the UK, in a town called Eastleigh. Before that, he was a student at the University of Bath.</p></blockquote>
+<p>A few lines of Javascript are enough to run that through the service. </p>
+<pre style="border: thin solid silver; background-color: #eeeeee; padding: 0.7em; font-size: 1.2em; overflow: auto;">var text = '';
+var watson = require('extract-relationships');
+watson.extract(text, function(err, response) {
+    // response has got all the info  
+});</pre>
+<p>The <a href="https://gist.github.com/dalelane/223500f2eae708fe34ef">full contents of <code>response</code></a> is in a gist if you want to see it, but I&#8217;ll show just a few examples here to give you the idea. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-01.jpg" alt='screenshot'/></p>
+<p>It has picked out all of the references to me, recognising that they are all describing a person, and that &#8216;developer&#8217; is my occupation. </p>
+<p>The &#8216;begin&#8217; and &#8216;end&#8217; numbers tell you where in the text each bit was found. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-02.jpg" alt='screenshot'/></p>
+<p>It&#8217;s picked out the reference to IBM, and recognised that this is a name of a commercial organisation. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-03.jpg" alt='screenshot'/></p>
+<p>It&#8217;s recognised that &#8216;2003&#8217; is a reference to a date. </p>
+<p>As well as identifying those entities and many others, it&#8217;s also picked out the relationships between them. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-04.jpg" alt='screenshot'/></p>
+<p>For example, it&#8217;s identified the relationship between me and IBM. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-05.jpg" alt='screenshot'/></p>
+<p>And the relationship between me and my old University. </p>
+<p>I&#8217;ve written a more <a href="https://github.com/dalelane/extract-relationships#interpreting-the-output">detailed breakdown of what is contained in the response</a> including how to find out what each of the fields mean, and what the different possible values for each one are. </p>
+<p>That&#8217;s the basics with a few input sentences. Next, we start throwing a lot of text at it. </p>
+<p>In about <a href="https://github.com/dalelane/extract-relationships/blob/master/examples/newspeople.js">thirty lines of Javascript</a>, you can download the text from a news story on the BBC News website, and pick out the names of all of the people mentioned in the story. </p>
+<p><script src="https://gist.github.com/dalelane/2571821221f177643d05.js"></script></p>
+<p>If you <a href="https://github.com/dalelane/extract-relationships/blob/master/examples/newspeople.js">run that simple example</a>, you get the <a href="https://github.com/dalelane/extract-relationships/blob/master/examples/newspeople.js#L94">list of people</a> that are included in the story text. </p>
+<p>Where it starts to get interesting is when you combine this with other sources and APIs. </p>
+<p>For example, once you&#8217;ve picked out the names of people from the story, try looking up their profiles on Wikipedia, and finding out who they are. </p>
+<p>Or, instead of people, pick out the names of places from news stories, and use a geocoding API to plot them on a map. (<em>There are geocoding services available on Bluemix, too, if that helps.</em>)</p>
+<p>Hopefully you can see how you could start to use this in your own apps. </p>
+<p>Finally, some practical points. </p>
+<p><strong>How do you <a href="https://www.npmjs.com/package/extract-relationships">install the package</a> I&#8217;ve shared so you can use it?</strong></p>
+<pre style="border: thin solid silver; background-color: #eeeeee; padding: 0.7em; font-size: 1.2em; overflow: auto;">npm install --save extract-relationships</pre>
+<p><strong>How do you configure it for the Watson Relationship Extraction Service?</strong></p>
+<p>The API we&#8217;re using is an authenticated service hosted in IBM Bluemix, so there is a tiny bit of config you need to do first before you can use it.</p>
+<p>If you&#8217;re <a href="https://github.com/dalelane/extract-relationships#bluemix">running your app in Bluemix</a>, then there isn&#8217;t much to do. Add the Relationship Extraction service to your app from the Bluemix dashboard, and the endpoint and credentials will automatically be provided and should just work. </p>
+<p>If you&#8217;re <a href="https://github.com/dalelane/extract-relationships#running-outside-bluemix">running your app on your own machine</a>, there are a couple of extra steps instead. </p>
+<p>Go to <a href="http://bluemix.net/">Bluemix</a>. Sign up for an account if you haven&#8217;t already got on</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-06.jpg" alt='screenshot'/></p>
+<p>From the dashboard, create an app. You need something as a placeholder to bind the Relationship Extraction service to, even if you don&#8217;t use it. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-07.jpg" alt='screenshot'/></p>
+<p>Create a web app and give it a name. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-08.jpg" alt='screenshot'/></p>
+<p>Add a service. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-09.jpg" alt='screenshot'/></p>
+<p>Choose the Relationship Extraction service from the group of Watson services. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-10.jpg" alt='screenshot'/></p>
+<p>Click on &#8216;Show Credentials&#8217;. Everything you need to configure your app is in here. You need the url, username and password. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-11.jpg" alt='screenshot'/></p>
+<p>Copy this into an <a href="https://github.com/dalelane/extract-relationships#options">options object</a> like this:</p>
+<pre style="border: thin solid silver; background-color: #eeeeee; padding: 0.7em; font-size: 1.2em; overflow: auto;">var options = {
+    api : {
+        url : 'https://url.of.your.watson.service...',
+        user : 'your-watson-service-username',
+        pass : 'your-watson-service-password'
+    }
+};</pre>
+<p>To reiterate, this isn&#8217;t the username and password that you use to sign in to Bluemix. It&#8217;s the username and password specifically for this service that Bluemix has generated for your app. </p>
+<p>It&#8217;s not a good idea to hard-code passwords in your code, so I&#8217;d suggest putting them outside of your app and grabbing them in when needed. Environment variables are an easy way to do this, and are what I&#8217;ve done in <a href="https://github.com/dalelane/extract-relationships/tree/master/examples">the few samples I&#8217;ve written</a>. </p>
+<p>That&#8217;s all there is to it. </p>
+<p>I&#8217;ve put more info on <a href="https://github.com/dalelane/extract-relationships">github</a> with the <a href="https://github.com/dalelane/extract-relationships/blob/master/index.js">source for how I&#8217;m using the API</a>. </p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3272">"How to use the IBM Watson Relationship Extraction service on Bluemix"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3272">http://dalelane.co.uk/blog/?p=3272</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Watson News Companion</title>
+		<link>http://eightbar.co.uk/2014/12/12/watson-news-companion/</link>
+		<pubDate>Fri, 12 Dec 2014 16:52:31 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[hack]]></category>
+		<category><![CDATA[hackday]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[watson]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3261</guid>
+		<description><![CDATA[We recently ran a hackathon at work: people within IBM were invited to try building a mobile app aimed at consumers using Watson services. It was a fun chance to try out some new ideas, as well as to build something using our APIs &#8211; dogfooding is always a good thing. I worked on a [&#8230;] <a href="http://eightbar.co.uk/2014/12/12/watson-news-companion/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><a href="https://www.flickr.com/photos/dalelane/16004789072" title="screenshot on Flickr"><img align="right" hspace=10 vspace=10 src="https://farm9.staticflickr.com/8613/16004789072_c4beb842c3_n.jpg" width="183" height="320" alt="newscompanion screenshot"/></a>We recently ran a hackathon at work: people within IBM were invited to try building a mobile app aimed at consumers using <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/services-catalog.html">Watson services</a>. It was a fun chance to try out some new ideas, as well as to build something using our APIs &#8211; dogfooding is always a good thing. </p>
+<p>I worked on a hack with <a href="https://twitter.com/davidgeorgeuk">David</a> which we submitted on Wednesday. This is what we came up with, and how we built it. </p>
+<p><strong>The idea</strong></p>
+<p>A mobile app that will help users to digest the news by explaining references in stories and providing greater context. </p>
+<p><strong>Background</strong></p>
+<p>It&#8217;s difficult to find the time nowadays to properly read and understand what&#8217;s going on in the world. We rarely have the time to sit and read through a newspaper. Instead, we might quickly read news stories online from our smartphones and tablets. But that often makes it difficult to understand the broader context that a story is in. There might be references in the story to people, places, organisations or events that are unfamiliar. </p>
+<p>Watson could help. It could be an assistant as you read the news, explaining unfamiliar references and the broader context. </p>
+<p><strong>Features</strong></p>
+<p>Our Watson News Companion demo is a mobile news reader app that:</p>
+<ul>
+<li>anticipates questions and suggests areas where it can help improve understanding
+</li>
+<li>provides answers to questions without needing the users to lose their place in the story
+</li>
+<li>allow the user to dig deeper with their own follow-up questions
+</li>
+</ul>
+<p><iframe width="450" height="253" src="http://www.youtube.com/embed/vBCz31arNxw?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="http://youtu.be/vBCz31arNxw">A video walkthrough of the hack</a></small></p>
+<p><strong>Implementation</strong></p>
+<p>The hack was built as a mobile web app using the <a href="http://mean.io/">MEAN stack</a>: using <a href="http://expressjs.com/">express</a> as the framework on a <a href="http://nodejs.org/">Node.js</a> platform, storing some information in a <a href="http://www.mongodb.org/">MongoDB</a> and building the UI with <a href="https://angularjs.org/">AngularJS</a>. </p>
+<p>It uses RSS feeds from news websites to fetch content, which are shown in a simple newsreader app built using <a href="http://goratchet.com/">Ratchet</a>. </p>
+<p>The contents of the story is run through the <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/relationship-extraction.html">Watson Relationship Extraction API</a> to pick out the people, places, organisations, and other entities mentioned in the story. </p>
+<p>The <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/sireapi/#exampleOutput">API output</a> includes co-references, to identify the multiple mentions of the same entity. These are combined and reviewed, and together with the type of the entity are used to generate likely questions about the entity. </p>
+<p>These questions are sent to the <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/question-answer.html">Watson Question and Answer API</a>. For questions which are returned with answers with a high confidence, annotations are added inline to the news story. Pressing the annotation brings up a sliding panel at the bottom of the screen with the answer to the question. The links and footer annotations are built using <a href="http://www.bigfootjs.com/">bigfoot</a>.</p>
+<p>Every screen in the app also includes an &#8220;Ask Watson&#8221; button which lets the user enters any free text question to let them dig deeper into what they&#8217;ve read. </p>
+<p><strong>Could you build this?</strong></p>
+<p>This was a proof-of-concept built in a hurry, so we&#8217;re not calling this a finished app. But everything we used is freely available &#8211; both to people inside IBM and the public. </p>
+<p>We developed on an instance of Bluemix (our <a href="http://www.cloudfoundry.org/">Cloud Foundry</a>-based development platform) available internally within IBM. You can sign up for free to a public instance of Bluemix at <a href="http://bluemix.net/">bluemix.net</a>. </p>
+<p>The technologies used to build the hack are all freely available : Node.js, MongoDB, AngularJS, Ratchet, bigfoot, jQuery.</p>
+<p>A beta version of the Watson Relationship Extraction API is <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/getstarted.html">freely available for apps hosted on Bluemix</a>.</p>
+<p>A beta version of the Watson Question and Answer API is freely available for apps hosted on Bluemix. But this is a <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/qaapi/">demo instance of Watson</a> that has only read a small number of general healthcare documents. That&#8217;s not a useful corpus for our hack, so to record our demo we stood up our own instance &#8211; using an untrained instance of Watson which we gave a small subset of Wikipedia to read. We used the Question and Answer API on this instance instead of the Bluemix one. For people outside IBM to do this, they need to sign up to join the <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/ecosystem.html">Watson Ecosystem</a>. This is also free, but there are criteria for who is eligible at this point, and an application process to go through. </p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3261">"Watson News Companion"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3261">http://dalelane.co.uk/blog/?p=3261</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>A Conversational Internet of Things – ThingMonk talk</title>
+		<link>http://eightbar.co.uk/2014/12/04/a-conversational-internet-of-things-thingmonk-talk-2/</link>
+		<pubDate>Thu, 04 Dec 2014 22:00:55 +0000</pubDate>
+		<dc:creator><![CDATA[Nick O'Leary]]></dc:creator>
+				<category><![CDATA[Events]]></category>
+		<category><![CDATA[Planet]]></category>
+		<category><![CDATA[eightbar]]></category>
+
+		<guid isPermaLink="false">http://knolleary.net/?p=1663</guid>
+		<description><![CDATA[Earlier this year, Tom Coates wrote a blog post about his session at this year&#8217;s O&#8217;Reilly Foo Camp. Over tea with colleagues, we talked about some of the ideas from the post and how some of our research work might be interesting when applied to them. One thing led to another and I found myself [&#8230;] <a href="http://eightbar.co.uk/2014/12/04/a-conversational-internet-of-things-thingmonk-talk-2/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><i>Earlier this year, Tom Coates wrote a <a href="https://medium.com/product-club/interacting-with-a-world-of-connected-objects-875b4a099099">blog post</a> about his session at this year&#8217;s O&#8217;Reilly Foo Camp. Over tea with colleagues, we talked about some of the ideas from the post and how some of our research work might be interesting when applied to them.</i></p>
+<p>One thing led to another and I found myself talking about it at ThingMonk this year. What follows is a slightly expanded version of my talk.<br />
+</p>
+<hr />
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-0-300x168.png" alt="ciot-0" width="300" height="168" class="aligncenter size-medium wp-image-1666" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-2-300x168.png" alt="ciot-2" width="300" height="168" class="aligncenter size-medium wp-image-1667" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p><b>Humanising Things</b></p>
+<p>We have a traditional of putting human faces on things. Whether it&#8217;s literally seeing faces on the Things in our everyday lives, such as the <a href="https://www.flickr.com/photos/dbtelford/6967361278/">drunk octopus</a> spoiling for a fight, or possibly the most <a href="https://www.flickr.com/photos/blackbeltjones/5089926442/">scary drain pipe</a> ever.</p>
+<p>Equally, we have a tendency to put a human persona onto things. The advent of Twitter brought an onslaught of Things coming online. It seemingly isn&#8217;t possible for me to do a talk without at least a fleeting mention of Andy Standford-Clark&#8217;s twittering ferries; where regular updates are provided for where each ferry is.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-5-300x168.png" alt="ciot-5" width="300" height="168" class="aligncenter size-medium wp-image-1668" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p>One of the earliest Things on Twitter was Tower Bridge. Tom Armitage, who was working near to the bridge at the time, wrote some code that grabbed the schedule for the bridge opening and closing times, and created the account to relay that information.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-6-300x168.png" alt="ciot-6" width="300" height="168" class="aligncenter size-medium wp-image-1669" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p>One key difference between the ferries and the bridge is that the ferries are just relaying information, a timestamp and a position, whereas the bridge is speaking to us in the first-person. This small difference immediately begins to bring a more human side to the account.<br />
+But ultimately, they are simple accounts that relay their state with whomever is following them.</p>
+<p>This sort of thing seems to have caught on particularly with the various space agencies. We no longer appear able to send a robot to Mars, or land a probe on a comet without an accompanying twitter account bringing character to the events.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-7-300x168.png" alt="ciot-7" width="300" height="168" class="aligncenter size-medium wp-image-1683" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p>There&#8217;s always a sense of excitement when these inanimate objects start to have a conversation with one another. The conversations between the philae lander and its orbiter were particularly touching as they waved goodbye to one another. Imagine, the lander, which was launched into space years before Twitter existed, chose to use its last few milliamps of power to send a final goodbye.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-8-300x168.png" alt="ciot-8" width="300" height="168" class="aligncenter size-medium wp-image-1684" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p>But of course as soon as you peek behind the curtain, you see someone running Tweetdeck, logged in and typing away. I was watching the live stream as the ESA team were nervously awaiting to hear from philae. And I noticed the guy in the foreground, not focused on the instrumentation as his colleagues were, but rather concentrating on his phone. Was he the main behind the curtain, preparing Philae&#8217;s first tweet from the surface? Probably not, but for the purposes of this talk, let&#8217;s pretend he was.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-9-300x168.png" alt="ciot-9" width="300" height="168" class="aligncenter size-medium wp-image-1670" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p>The idea of giving Things a human personality isn&#8217;t a new idea. There is a wealth of rigorous scientific research in this area.</p>
+<p>One esteemed academic, Douglas Adams, tells us about the work done by the The Sirius Cybernetics Corporation, who invented a concept called Genuine People Personalities (&#8220;GPP&#8221;) which imbue their products with intelligence and emotion.</p>
+<p>He writes:</p>
+<blockquote><p>Thus not only do doors open and close, but they thank their users for using them, or sigh with the satisfaction of a job well done. Other examples of Sirius Cybernetics Corporation&#8217;s record with sentient technology include an armada of neurotic elevators, hyperactive ships&#8217; computers and perhaps most famously of all, Marvin the Paranoid Android. Marvin is a prototype for the GPP feature, and his depression and &#8220;terrible pain in all the diodes down his left side&#8221; are due to unresolved flaws in his programming.
+</p></blockquote>
+<p>In a related field, we have the <a href="http://reddwarf.wikia.com/wiki/Talkie_Toaster">Talkie Toaster</a> created by Crapola, Inc and seen aboard Red Dwarf. The novelty kitchen appliance was, on top of being defective, only designed to provide light conversation at breakfast time, and as such it was totally single-minded and tried to steer every conversation to the subject of toast.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-13-300x168.png" alt="ciot-13" width="300" height="168" class="aligncenter size-medium wp-image-1671" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p><b>Seam[less|ful]ness</b></p>
+<p>In this era of the Internet of Things, we talk about a future where our homes and workplaces are full of connected devices, sharing their data, making decisions, collaborating to make our lives &#8216;better&#8217;.</p>
+<p>Whilst there are people who celebrate this invisible ubiquity and utility of computing, the reality is going to much more messy.</p>
+<p><a href="http://en.wikipedia.org/wiki/Mark_Weiser">Mark Weiser</a>, Chief Scientist at Xerox PARC, coined the term &#8220;ubiquitous computing&#8221; in 1988.</p>
+<blockquote><p>Ubiquitous computing names the third wave in computing, just now beginning. First were mainframes, each shared by lots of people. Now we are in the personal computing era, person and machine staring uneasily at each other across the desktop. Next comes ubiquitous computing, or the age of calm technology, when technology recedes into the background of our lives.</p></blockquote>
+<p>Discussion of Ubiquitous Computing often celebrated the idea of seamless experiences between the various devices occupying our lives. But in reality, Mark Weiser advocated for the opposite; that seamlessness was undesirable and self-defeating attribute of such a system.</p>
+<p>He preferred a vision of &#8220;Seamfulness, with beautiful seams&#8221;</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-15-300x168.png" alt="ciot-15" width="300" height="168" class="aligncenter size-medium wp-image-1673" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p>The desire to present a single view of the system, with no joins, is an unrealistic aspiration in the face of the cold realities of wifi connectivity, battery life, system reliability and whether the Cloud is currently turned on.</p>
+<p>Presenting a user with a completely monolithic system gives them no opportunity to connect with and begin to understand the constituent parts. That is not it say this information is needed to all users all of the time. But there is clearly utility to some users some of the time.</p>
+<p>When you come home from work and the house is cold, what went wrong? Did the thermostat in the living room break and decide it was the right temperature already? Did the message from the working thermostat fail to get to the boiler? Is the boiler broken? Did you forgot to cancel the entry in your calendar saying you&#8217;d be late home that day?</p>
+<p>Without some appreciation of the moving parts in a system, how can a user feel any ownership or empowerment when something goes wrong with it. Or worse yet, how can they avoid feeling anything other than intimidated by this monolithic system that simply says &#8220;I&#8217;m Sorry Dave, I&#8217;m afraid I can&#8217;t do that&#8221;.</p>
+<p>Tom Armitage <a href="http://tomarmitage.com/2014/12/02/some-of-these-things-are-not-like-the-others/">wrote up his</a> talk from Web Directions South and published it earlier this week, just as I was writing this talk. He covers a lot of what I&#8217;m talking about here so much more eloquently than I am &#8211; go read it. One piece his post pointed me at that I hadn&#8217;t seen was <a href="http://techcrunch.com/2014/10/14/august-smart-lock-on-sale/">Techcrunch&#8217;s recent review of August&#8217;s Smart Lock</a>.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-16-300x168.png" alt="ciot-16" width="300" height="168" class="aligncenter size-medium wp-image-1674" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p>Tom picked out some choice quotes from the review which I&#8217;ll share here:</p>
+<blockquote><p>“…much of the utility of the lock was negated by the fact that I have roommates and not all of them were willing or able to download the app to test it out with me […] My dream of using Auto-Unlock was stymied basically because my roommates are luddites.”
+</p></blockquote>
+<blockquote><p>“Every now and then it didn’t recognize my phone as I approached the door.”</p></blockquote>
+<blockquote><p>“There was also one late night when a stranger opened the door and walked into the house when August should have auto-locked the door.”</p></blockquote>
+<p>This is the reason for having beautiful seams; seams help you understand the edges of a devices sphere of interaction, but should not be so big to trip you up. Many similar issues exists with IP connected light bulbs. When I need to remember which app to launch on my phone depending on which room I&#8217;m walking into, and which bulbs happen to be in there, the seams have gotten too big.</p>
+<p>In a recent <a href="https://medium.com/product-club/interacting-with-a-world-of-connected-objects-875b4a099099">blog post</a>, Tom Coates wrote about the idea of a chatroom for the house &#8211; go read it.</p>
+<blockquote><p>Much like a conference might have a chatroom, so might a home. And it might be a space that you could duck into as you pleased to see what was going on. By turning the responses into human language you could make the actions of the objects less inscrutable and difficult to understand.</p></blockquote>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-17-300x168.png" alt="ciot-17" width="300" height="168" class="aligncenter size-medium wp-image-1675" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p>This echoes back to the world of Twitter accounts for Things. But rather than them being one-sided conversations presenting raw data in a more consumable form, or Wizard-of-Oz style man-behind-the-curtain accounts, a chatroom is a space where the conversation can flow both ways; both between the owner and their devices, but also between the devices themselves.</p>
+<p>What might it take to turn such a chatroom into a reality?</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-18-300x168.png" alt="ciot-18" width="300" height="168" class="aligncenter size-medium wp-image-1676" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p><b>Getting Things Talking</b></p>
+<p>Getting Things connected is no easy task.</p>
+<p>We&#8217;re still in the early days of the protocol wars.</p>
+<p>Whilst I have to declare allegiance to the now international OASIS standard MQTT, I&#8217;m certainly not someone who thinks one protocol will rule them all. It pains me whenever I see people make those sorts of claims. But that&#8217;s a talk for a different day.</p>
+<p>Whatever your protocol of choice, there are an emerging core set that seem to be the more commonly talked about. Each with its strengths and weaknesses. Each with its backers and detractors.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-19-300x168.png" alt="ciot-19" width="300" height="168" class="aligncenter size-medium wp-image-1677" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p>What (mostly) everyone agrees on is the need for more than just efficient protocols for the Things to communicate by. A protocol is like a telephone line. It&#8217;s great that you and I have agreed on the same standards so when I dial this number, you answer. But what do we say to each other once we&#8217;re connected? A common protocol does not mean I understand what you&#8217;re trying to say to me.</p>
+<p>And thus began the IoT meta-model war.</p>
+<p>There certainly a lot of interesting work being done in this area.</p>
+<p>For example, HyperCat, a consortium of companies coming out of a Technology Strategy Board funded Demonstrator project in the last year or so.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-21-300x168.png" alt="ciot-21" width="300" height="168" class="aligncenter size-medium wp-image-1678" style="box-shadow: 1px 1px 8px #999;" /></p>
+<blockquote><p>HyperCat is an open, lightweight JSON-based hypermedia catalogue format for exposing collections of URIs. Each HyperCat catalogue may expose any number of URIs, each with any number of RDF-like triple statements about it. HyperCat is simple to work with and allows developers to publish linked-data descriptions of resources.
+</p></blockquote>
+<p>URIs are great. The web is made of them and they are well understood. At least, they are well understood by machines. What we&#8217;re lacking is the human view of this world. How can this well-formed, neatly indented JSON be meaningful or helpful to the user who is trying to understand what is happening.</p>
+<p>This is by no means a criticism of HyperCat, or any of the other efforts to create models of the IoT. They are simply trying to solve a different set of problems to the ones I&#8217;m talking about today.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-23-300x168.png" alt="ciot-23" width="300" height="168" class="aligncenter size-medium wp-image-1679" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p><b>Talking to Computers</b></p>
+<p>We live in an age where the talking to computers is becoming less the reserve of science fiction.</p>
+<p>Siri, OK Google, Cortana all exist as ways to interact with the devices in your pocket. My four year old son walks up to me when I have my phone out and says: &#8220;OK Google, show me a picture of the Octonauts&#8221; and takes over my phone without even having to touch it. To him, as to me, voice control is still a novelty. But I wonder what his 6 month old sister will find to be the intuitive way of interacting with devices in a few years time.</p>
+<p>The challenge of Natural Language Parsing, NLP, is one of the big challenges in Computer Science. Correctly identifying the words being spoken is relatively well solved. But understanding what those words mean, what intent they try to convey, is still a hard thing to do.</p>
+<p>To answer the question &#8220;Which bat is your favourite?&#8221; without any context is hard to do. Are we talking to a sportsman with their proud collection of cricket bats? Is it the zoo keeper with their colony of winged animals. Or perhaps a comic book fan being asked to chose between George Clooney and Val Kilmer.</p>
+<p>Context is also key when you want to hold a conversation. The English language is riddled with ambiguity. Our brains are constantly filling in gaps, making theories and assertions over what the other person is saying. The spoken word also presents its own challenges over the written word.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-28-300x168.png" alt="ciot-28" width="300" height="168" class="aligncenter size-medium wp-image-1680" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p>&#8220;Hu was the premiere of China until 2012&#8243;</p>
+<p>When said aloud, you don&#8217;t know if I&#8217;ve asked you a question or stated a fact. When written down, it is much clearer.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-29-300x168.png" alt="ciot-29" width="300" height="168" class="aligncenter size-medium wp-image-1681" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p>In their emerging technology report for 2014, Gartner put the Internet of Things at the peak of inflated expectation. But if you look closely at the curve, up at the peak, right next to IoT, is NLP Question Answering. If this was a different talk, I&#8217;d tell you all about how IBM Watson is solving those challenges. But this isn&#8217;t that talk.</p>
+<p><img src="http://knolleary.net/blog/wp-content/uploads/2014/12/ciot-30-300x168.png" alt="ciot-30" width="300" height="168" class="aligncenter size-medium wp-image-1682" style="box-shadow: 1px 1px 8px #999;" /></p>
+<p><b>A Conversational Internet of Things</b></p>
+<p>To side step a lot of the challenges of NLP, one area of research we&#8217;re involved with is that of Controlled Natural Language and in particular, Controlled English.</p>
+<p>CE is designed to be readable by a native English speaker whilst representing information in a structured and unambiguous form. It is structured by following a simple but fully defined syntax, which may be parsed by a computer system.</p>
+<p>It is unambiguous by using only words that are defined as part of a conceptual model.</p>
+<p>CE serves as a language that is both understandable by human and computer system &#8211; which allows them to communicate.</p>
+<p>For example,</p>
+<pre>there is a thermometer named t1 that is located in the room r1</pre>
+<p>A simple sentence that establishes the fact that a thermometer exists in a given room.</p>
+<pre>the thermometer t1 can measure the environment variable temperature</pre>
+<p>Each agent in the system builds its own model of the world that can be used to define concepts such thermometer, temperature, room and so on. As the model is itself defined in CE, the agents build their models through conversing in CE.</p>
+<pre>there is a radiator valve v1 that is located in the room r1
+the radiator valve v1 can control the environment variable temperature</pre>
+<p>It is also able to using reasoning to determine new facts. </p>
+<pre>the room r1 has the environment variable temperature that can be measured and that can be controlled</pre>
+<p>As part of some research work with Cardiff University, we&#8217;ve been looking at how CE can be extended to a conversational style of interaction.</p>
+<p>These range from exchanging facts between devices &#8211; the tell</p>
+<pre>the environment variable temperature in room r1 has value "21"</pre>
+<p>Being able to ask question &#8211; ask-tell</p>
+<pre>for which D1 is it true that
+      ( the device D1 is located in room V1 ) and
+      ( the device D1 can measure the environment variable temperature ) and
+      ( the value V1 == "r1")</pre>
+<p>Expanding on and explaining why certain facts are believed to be true:</p>
+<pre>the room r1 has the environment variable temperature that can be measured and that can be controlled
+    because
+the thermometer named t1 is located in the room r1 and can measure the environment variable temperature
+    and
+the radiator valve v1 is located in the room r1 and can control the environment variable temperature</pre>
+<p>The fact that the devices communicate in CE means the user can passively observe the interactions. But whilst CE is human readable, it isn&#8217;t necessarily human writeable. So some of the research is also looking at how to bridge from NL to CE using a confirm interaction:</p>
+<pre>NL: The thermometer in the living room has moved to the dining room
+CE: the thermometer t1 is located in the room r2</pre>
+<p>Whilst the current research work is focused on scenarios for civic agencies &#8211; for example managing information exchange in a policing context, I&#8217;m interested in applying this work to the IoT domain.</p>
+<p>With these pieces, you can begin to see how you could have an interaction like this:</p>
+<pre>
+    User: I will be late home tonight.
+    House: the house will have a state of occupied at 1900
+    User: confirmed
+    House: the room r1 has a temperature with minimum allowable value 20 after time 1900
+           the roomba, vc1, has a clean cycle scheduled for time 1800
+</pre>
+<p>Of course this is still quite dry and formal. It would be much more human, more engaging, if the devices came with their own genuine people personality. Or at least, the appearance of one.</p>
+<pre>
+    User: I will be late home tonight.
+    House: Sorry to hear that, shall I tell everyone to expect you back by 7?
+    User: yes please    
+    Thermometer: I'll make sure its warm when you get home
+    Roomba: *grumble*
+</pre>
+<p>I always picture the Roomba as being a morose, reticent creature who really hates its own existence. We have one in the kitchen next to our lab at work, set to clean at 2am. If we leave the door to the lab open, it heads in and, without fail, maroons itself on a set of bar stools we have with a sloped base. Some might call that a fault in its programming, much like Marvin, but I like to think its just trying to find a way to end it all.</p>
+<p>This is all some way from having a fully interactive chat room for your devices. But the building blocks are there and I&#8217;ll be exploring them some more.</p>
+]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+	</channel>
+</rss>

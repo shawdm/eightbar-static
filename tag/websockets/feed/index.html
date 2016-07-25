@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>websockets &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/websockets/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Unpacking binary data from MQTT in Javascript</title>
+		<link>http://eightbar.co.uk/2014/08/29/unpacking-binary-data-from-mqtt-in-javascript/</link>
+		<pubDate>Fri, 29 Aug 2014 21:19:54 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[javascript]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[tech]]></category>
+		<category><![CDATA[websockets]]></category>
+
+		<guid isPermaLink="false">http://www.hardill.me.uk/wordpress/?p=1837</guid>
+		<description><![CDATA[While doing trawl of Stackoverflow for questions I might be able to help out with I came across this interesting looking question: Receive binary with paho mqttws31.js The question was how to unpack binary MQTT payloads into double precision floating point numbers in javascript when using the Paho MQTT over WebSockets client. Normally I would [&#8230;] <a href="http://eightbar.co.uk/2014/08/29/unpacking-binary-data-from-mqtt-in-javascript/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>While doing trawl of <a href="http://stackoverflow.com/">Stackoverflow</a> for questions I might be able to help out with I came across this interesting looking question:</p>
+<h2><a title="Receive binary with paho mqttws31.js" href="http://stackoverflow.com/questions/25547653/receive-binary-with-paho-mqttws31-js">Receive binary with paho mqttws31.js</a></h2>
+<p>The question was how to unpack binary <a href="http://mqtt.org/">MQTT</a> payloads into double precision floating point numbers in javascript when using the <a href="http://www.eclipse.org/paho/clients/js/">Paho MQTT</a> over WebSockets client.</p>
+<p>Normally I would just send floating point numbers as strings and parse them on the receiving end, but sending them as raw binary means much smaller messages, so I thought I&#8217;d see if I could help to find a solution.</p>
+<p>A little bit of Googling turned up this link to the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">Javascript typed arrays</a> which looked like it probably be in the right direction. At that point I got called away to look at something else so I stuck a quick answer in with a link and the following code snippet.</p>
+<pre class="brush: javascript; gutter: true">function onMessageArrived(message) {
+  var payload = message.payloadByte()
+  var doubleView = new Float64Array(payload);
+  var number = doubleView[0];
+  console.log(number);
+}</pre>
+<p>Towards the end of the day I managed to have a look back and there was a comment from the original poster saying that the sample didn&#8217;t work. At that point I decided to write a simple little testcase.</p>
+<p>First up quick little Java app to generate the messages.</p>
+<pre class="brush: java; gutter: true">import java.nio.ByteBuffer;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+
+public class MessageSource {
+
+  public static void main(String[] args) {
+    try {
+      MqttClient client = new MqttClient(&quot;tcp://localhost:1883&quot;, &quot;doubleSource&quot;);
+      client.connect();
+
+      MqttMessage message = new MqttMessage();
+      ByteBuffer buffer = ByteBuffer.allocate(8);
+      buffer.putDouble(Math.PI);
+      System.err.println(buffer.position() + &quot;/&quot; + buffer.limit());
+      message.setPayload(buffer.array());
+      client.publish(&quot;doubles&quot;, message);
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+      client.disconnect();
+    } catch (MqttException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+}
+</pre>
+<p>It turns out that using typed arrays is a little more complicated and requires a bit of work to populate the data structures properly. First you need to create an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays/ArrayBuffer">ArrayBuffer</a> of the right size, then wrap it in a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Uint8Array">Uint8Array</a> in order to populate it, before changing to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Float64Array">Float64Array</a>. After a little bit of playing around I got to this:</p>
+<pre class="brush: javascript; gutter: true">function onMessageArrived(message) {
+  var payload = message.payloadBytes
+  var length = payload.length;
+  var buffer = new ArrayBuffer(length);
+  uint = new Uint8Array(buffer);
+  for (var i=0; i&lt;length; i++) {
+	  uint[i] = payload[i];
+  }
+  var doubleView = new Float64Array(uint.buffer);
+  var number = doubleView[0];
+  console.log(&quot;onMessageArrived:&quot;+number);
+};</pre>
+<p>But this was returning <em>3.207375630676366e-192</em> instead of Pi. A little more head scratching and the idea of checking the byte order kicked in:</p>
+<pre class="brush: javascript; gutter: true">function onMessageArrived(message) {
+  var payload = message.payloadBytes
+  var length = payload.length;
+  var buffer = new ArrayBuffer(length);
+  uint = new Uint8Array(buffer);
+  for (var i=0; i&lt;length; i++) {
+	  uint[(length-1)-i] = payload[i];
+  }
+  var doubleView = new Float64Array(uint.buffer);
+  var number = doubleView[0];
+  console.log(&quot;onMessageArrived:&quot;+number);
+};</pre>
+<p>This now gave an answer of <em>3.141592653589793</em> which looked a lot better. I still think there may be a cleaner way to do with using a <a href="https://developer.mozilla.org/en-US/docs/Web/API/DataView">DataView</a> object, but that&#8217;s enough for a Friday night.</p>
+<p>EDIT:</p>
+<p>Got up this morning having slept on it and came up with this:</p>
+<pre class="brush: javascript; gutter: true">function onMessageArrived(message) {
+  var payload = message.payloadBytes
+  var length = payload.length;
+  var buffer = new ArrayBuffer(length);
+  uint = new Uint8Array(buffer);
+  for (var i=0; i&lt;length; i++) {
+	  uint[i] = payload[i];
+  }
+  var dataView = new DataView(uint.buffer);
+  for (var i=0; i&lt;length/8; i++) {
+      console.log(dataView.getFloat64((i*8), false));
+  }
+};</pre>
+<p>This better fits the original question in that it will decode an arbitrary length array of doubles and since we know that Java is big endian, we can set the little endian flag to false to get the right conversion without having to re-order the array as we copy it into the buffer (which I&#8217;m pretty sure wouldn&#8217;t have worked for more than one value).</p>
+]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+	</channel>
+</rss>

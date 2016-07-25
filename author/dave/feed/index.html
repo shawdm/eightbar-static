@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Dave Braines &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/author/dave/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Generating Second Life structures from PowerPoint</title>
+		<link>http://eightbar.co.uk/2006/09/04/generating-secondlife-structures-from-powerpoint/</link>
+		<comments>http://eightbar.co.uk/2006/09/04/generating-secondlife-structures-from-powerpoint/#comments</comments>
+		<pubDate>Mon, 04 Sep 2006 18:10:45 +0000</pubDate>
+		<dc:creator><![CDATA[Dave Braines]]></dc:creator>
+				<category><![CDATA[Second Life]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=177</guid>
+		<description><![CDATA[Generating a lifesize copy of the Hampton Court garden maze in Second Life using PowerPoint as the code generator <a href="http://eightbar.co.uk/2006/09/04/generating-secondlife-structures-from-powerpoint/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>It occurred to me that building things in Second Life is quite hard (well it is for me anyway), and even when you buy a &#8220;house in a box&#8221; which creates you a house when you touch the box, someone still needed to go to the bother of creating all the prims and working out their dimensions and coordinates for you.  It would be far easier if you could just draw your basic layout in something nice and easy like Paint or PowerPoint and then click on a button and the basic structure would appear on your Second Life land.  I realise that something like PowerPoint will only easily allow a 2D drawing experience, but that&#8217;s exactly what I wanted to start with &#8211; something close to being as simple as doodling with pen and paper so that I could try different room shapes and layouts quickly and easily without spending more than a few minutes on each one.</p>
+<p>I knew that generating Linden Script from a bunch of drawn lines in PowerPoint was not going to be hard.  Since I am new to Second Life the main area of complexity for me would be working out the Linden Script that I needed to generate the entire building from a single prim and a single script.  I wanted to use a single prim and single script to minize cut and paste activity from the generator to Second Life.  I spent some time proving that I could use Linden Script to create multiple instances of a single object and then transform them into whatever I wanted.  Once this was proven I used the Linden Script that I had written to become the basis for my code generation template, and drew a simple room  with a doorway using four lines in PowerPoint.  I generated the Linden Script from PowerPoint, pasted the code into a Second Life object and ran the code.  Sure enough, my simple four sided room appeared right in front of me.  Excellent.</p>
+<p><img src="http://www.sluniverse.com/snapshots/99459.jpg" alt="My first generated room" /></p>
+<p>Now I wanted a tougher structure to generate in order to test my generator.  I had a search around and found a copy of the maze layout for Hampton Court garden maze, which certainly met my need for a complex object!  I pasted this image into PowerPoint and traced the outline of the maze hedges, which took about 10 minutes.  I then clicked to generate the code, and it worked first time, although I should point out that I then proceeded to find a few bugs in my code to convert cartesian coordinates into lengths and angles, and also had to add code to handle the creation of multiple objects when a wall of longer than 10 metres was needed, and code to handle offsets of greater than 10 metres.  I also had to add code to split the generated script to ensure that each fragment remained under the 16k script limit.  This little lot took a bit longer than 10 minutes&#8230;</p>
+<p>Anyway, with those wrinkes ironed out I now had a wooden box which contained a single wooden sphere, both of which contain scripts that have been completely generated.  The only tedious bit is that you need to manually copy and paste the code from RL to SL, and for a huge object like this maze that is about 10 scripts, although for most normal buildings/rooms a single script will suffice.</p>
+<p>Now, when I touch the wooden box I get a 30 second delay followed by some frantic rezzing activity!  The final result is a Second Life version of the Hampton Court garden maze generated from a single wooden sphere using code generated from outside Second Life.  The structure consists of 144 prims and is approximately 120 metres by 80 metres in size, and yes I did get quite thoroughly lost in it when I tried to walk round it :o)</p>
+<p><img src="http://www.sluniverse.com/snapshots/99454.jpg" alt="My maze in Second Life" /></p>
+<p>Now that I have proven the generator technique I hope to try some more practical examples along with a technique for enhancing the amount of data that can be captured in the drawing tool, such as the texture of the walls, whether they are windows or doors etc.  I am still very keen to keep the input technique as simple as possible though as I&#8217;m really using this as very quick building outline generator, so I&#8217;ll probably shy away from full blown 3D drawing tools at this stage.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2006/09/04/generating-secondlife-structures-from-powerpoint/feed/</wfw:commentRss>
+		<slash:comments>34</slash:comments>
+		</item>
+	</channel>
+</rss>

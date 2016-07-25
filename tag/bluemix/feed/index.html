@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>bluemix &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/bluemix/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Watson Rock, Paper, Scissors</title>
+		<link>http://eightbar.co.uk/2016/06/26/watson-rock-paper-scissors/</link>
+		<pubDate>Sun, 26 Jun 2016 13:46:56 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[bluemix]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[kids]]></category>
+		<category><![CDATA[watson]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3349</guid>
+		<description><![CDATA[A simple hands-on activity to let kids train a machine learning classifier to be able to play Rock, Paper, Scissors. I&#8217;ve written and spoken before that I think we should do more to introduce children to the idea of machine learning. And I&#8217;ve tried introducing my two kids to it, such as by making a [&#8230;] <a href="http://eightbar.co.uk/2016/06/26/watson-rock-paper-scissors/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><strong>A simple hands-on activity to let kids train a machine learning classifier to be able to play Rock, Paper, Scissors.</strong></p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27305758384/in/dateposted-public/" title="Screen Shot 2016-06-26 at 13.59.20"><img style="border: thin black solid" src="https://c1.staticflickr.com/8/7663/27305758384_2405bce9f2.jpg" width="450" height="282" alt="Screen Shot 2016-06-26 at 13.59.20"/></a></p>
+<p>I&#8217;ve <a href="http://dalelane.co.uk/blog/?p=3299">written</a> and <a href="http://www.stemtechconference.com/past-events/conference-2015/showcase">spoken</a> before that I think we should do more to introduce children to the idea of machine learning. And I&#8217;ve tried introducing my two kids to it, such as by making a <a href="http://dalelane.co.uk/blog/?tag=codeclub">Code Club</a>-style game with them: we built <a href="http://dalelane.co.uk/blog/?p=3330">a system to play Guess Who</a>, that they trained both to understand what you say and to recognise the characteristics of faces from photos.</p>
+<p>This weekend, we tried out another idea &#8211; <strong>Rock, Paper, Scissors</strong> from a web app, using the web cam to see your moves, and training a system to recognise your hand signs. </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27815450382/in/dateposted-public/" title="DSC06146"><img src="https://c7.staticflickr.com/8/7086/27815450382_a385ddcda6.jpg" width="450" height="223" alt="DSC06146"/></a></p>
+<p>In many ways, this was simpler than the Guess Who project, and one I would&#8217;ve tried before if we&#8217;d thought of it! I&#8217;ve made getting the system to choose it&#8217;s next move very simple, as it just chooses one of the three options at random.</p>
+<p>The machine learning element comes from the fact that I got them to train a custom image classifier to recognise what a &#8216;rock&#8217;, &#8216;paper&#8217; and &#8216;scissors&#8217; hand sign looks like.</p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27916785445/in/dateposted-public/" title="DSC06153"><img src="https://c6.staticflickr.com/8/7346/27916785445_9772591bc2.jpg" width="450" height="299" alt="DSC06153"/></a></p>
+<p>Last night I hacked together <a href="https://watson-rock-paper-scissors.eu-gb.mybluemix.net/">a quick single-page training web app</a> for them to use. Unlike with the Guess Who game, where we worked on it together to come up with the project, this time I made it myself to see how they&#8217;d get on with using it. (I was thinking that if it went well, I&#8217;d try using it with one of my school groups). </p>
+<p>They got off to a good start&#8230; although I hadn&#8217;t counted on how much time Grace would spend checking out her hair once she saw the web cam video. <img src="https://s.w.org/images/core/emoji/72x72/1f642.png" alt="&#x1f642;" class="wp-smiley" style="height: 1em; max-height: 1em;" /> </p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/PJW19emo6J8?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/PJW19emo6J8">Video of the kids getting started</a></small></p>
+<p>I&#8217;ve got it so that you can take photos from the web cam by clicking on a button, and put the photo into one of three training groups &#8211; one each for rock, paper and scissors. </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27304547304/in/dateposted-public/" title="DSC06150"><img src="https://c1.staticflickr.com/8/7720/27304547304_772252bc55.jpg" width="450" height="299" alt="DSC06150"/></a></p>
+<p>My hope was that the three hand signs &#8211; a fist, a flat palm, and two fingers &#8211; are distinct enough that an image classifier could quickly start to distinguish between them. </p>
+<p>Although I should probably add some overlay to the live video to suggest where to put your hand, how close to the camera, etc. as their initial attempts were fairly inconsistent.</p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/7KrEHEx9Hbk?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/7KrEHEx9Hbk">Video of their first attempt at training</a></small></p>
+<p>As before, I&#8217;m using one of the <a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/">Watson developer APIs</a> available in <a href="https://bluemix.net/">Bluemix</a>, called <a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/visual-recognition.html">Visual Recognition</a>. </p>
+<p>To train it, you just need to upload zip files, where each zip file contains examples of photos of something you want to recognise. </p>
+<p>In this case, we want to upload three zip files &#8211; one of photos of &#8220;rock&#8221;, one zip file of &#8220;paper&#8221; photos, one zip file of photos of &#8220;scissors&#8221;. And you can do all of that in <a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/visual-recognition/api/v3/#create_a_classifier">a single HTTP POST</a>, so the code behind the training app is very simple. </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27840011881/in/dateposted-public/" title="DSC06152"><img src="https://c2.staticflickr.com/8/7506/27840011881_cbe882f7e7.jpg" width="450" height="257" alt="DSC06152"/></a></p>
+<p>That said, I should still share the code. </p>
+<p>It was hacked together in an evening, so it&#8217;s a complete mess. But I&#8217;ll try and find some spare time this week to tidy it up, and put the code somewhere in case it&#8217;s helpful. Some of the code for driving the webcam, zipping up the photos, and uploading them, might be useful to someone. </p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/O7z2yXTWKo0?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/O7z2yXTWKo0">The first test</a></small></p>
+<p>To test it, I made a simple game. I&#8217;ve got it keeping score to see how many moves you win against the random choices the game makes. Although Grace seemed more interested in counting the number of times the game correctly identified our moves. It wasn&#8217;t perfect!</p>
+<p>(The &#8220;Watson&#8217;s move&#8221; images used in the game bit were made by Faith. She took photos of her own hand using an iPad, and did the weird grid background effect using <a href="http://www.mixcord.co/partners/popagraph.html">PopAGraph</a>. It wasn&#8217;t quite what I expected, but I think it looks kinda neat.) </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27305736804/in/dateposted-public/" title="Screen Shot 2016-06-26 at 13.57.16"><img style="border: thin black solid" src="https://c5.staticflickr.com/8/7448/27305736804_94efff066f.jpg" width="500" height="313" alt="Screen Shot 2016-06-26 at 13.57.16"/></a></p>
+<p>As with the <a href="http://dalelane.co.uk/blog/?p=3330">Guess Who activity</a>, what most interested me was the girls&#8217; reactions to the behaviour of the ML system. I was surprised that even after last time, their initial assumption was still that they could take one photo of each, and that would be enough. (Another reason why it&#8217;s worth doing a few of these activities to reinforce it). </p>
+<p>But with a little nudging, they quickly saw how that the more examples they gave, the better the system performed. </p>
+<p>Other than that, a lot of the lessons they learned were reminders of <a href="http://dalelane.co.uk/blog/?p=3330">what we talked about before</a> about what it&#8217;s like doing supervised learning projects. </p>
+<p><iframe width="450" height="338" src="https://www.youtube.com/embed/vYxDD37Jqn8?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/vYxDD37Jqn8">The second attempt&#8230; another test after more training this time</a></small></p>
+<p>One thing I was impressed with was when they thought that the training would be more effective if they used an actual rock, actual scissors, and a sheet of paper. Doing that made the accuracy a hundred times better. That makes sense, as they are much more distinct than all photos of hands, so that was a neat idea!</p>
+<p>And that&#8217;s pretty much it. My second experiment at getting the kids to play with machine learning seemed to work pretty well. </p>
+<p>I&#8217;ve put the app I made for them up on Bluemix so you&#8217;re welcome to give it a try it you like. It&#8217;s at <a href="https://watson-rock-paper-scissors.eu-gb.mybluemix.net/">https://watson-rock-paper-scissors.eu-gb.mybluemix.net</a>. </p>
+<p>You&#8217;ll have to <a href="https://console.ng.bluemix.net/catalog/services/visual-recognition/">get your own Visual Recognition API key</a> to use it, though, but that supports a free trial, so hopefully that won&#8217;t put you off!</p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/ecBc2OG407M?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/ecBc2OG407M">Third time lucky? Another test</a></small></p>
+<hr />
+<strong>Update 1:</strong> 
+<p>A couple of friends pointed me at <a href="https://developer.ibm.com/clouddataservices/2015/12/01/humans-vs-apache-spark-building-our-rock-paper-scissors-game/">another recent IBM rock, paper, scissors project</a> when I mentioned planning to do this. </p>
+<p>It looks like a great project and is well worth a look &#8211; they&#8217;ve gone into using Apache Spark to create a system able look for patterns in how people play rock-paper-scissors and learn strategies to win the game. </p>
+<p>More recently, they&#8217;ve even gotten <a href="https://developer.ibm.com/dwblog/games-humans-vs-apache-spark/">a NAO robot to play the game</a> for them!</p>
+<p>I wasn&#8217;t aware of this work before, but decided to go ahead with our project anyway. Partly because my focus was different for this, but mostly because I think that the <a href="http://www.cgpgrey.com/blog/letter-to-jake-on-the-agonies-of-parallel-creation">Agonies of Parallel Creation</a> should never stop us from creating and sharing stuff. There&#8217;s no new idea under the sun, so if we wait for an idea that no-one has ever got close to, we&#8217;d stop creating anything. </p>
+<p>That said, it&#8217;s a particularly surreal coincidence in this case, as this is not only an IBM project, but the author of that post is the great <a href="https://twitter.com/dtaieb55">David Taieb</a> who I used to work for when he worked on Watson! Small world. </p>
+<hr />
+<strong>Update 2:</strong> 
+<p>Yes, I know you can see my API key in the video. But don&#8217;t worry. Bluemix makes it easy enough to revoke credentials so I&#8217;ve deleted that API key. Doing that was much quicker than learning enough video editing to be able to mask it out. <img src="https://s.w.org/images/core/emoji/72x72/1f642.png" alt="&#x1f642;" class="wp-smiley" style="height: 1em; max-height: 1em;" /> </p>
+<p><script async src="http://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27916796025/in/dateposted-public/" title="DSC06149"><img src="https://c2.staticflickr.com/8/7177/27916796025_517a1ecd51.jpg" width="450" height="279" alt="DSC06149"/></a></p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3349">"Watson Rock, Paper, Scissors"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3349">http://dalelane.co.uk/blog/?p=3349</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>How to use the IBM Watson Relationship Extraction service on Bluemix</title>
+		<link>http://eightbar.co.uk/2015/01/25/how-to-use-the-ibm-watson-relationship-extraction-service-on-bluemix/</link>
+		<pubDate>Sun, 25 Jan 2015 20:18:54 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[bluemix]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[nodejs]]></category>
+		<category><![CDATA[watson]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3272</guid>
+		<description><![CDATA[Before Christmas, I wrote about how I used the Watson Relationship Extraction service on Bluemix to pick out the things mentioned in news stories, as part of a mobile app we built on a hackday. I&#8217;d still like to do something more with that app, but in the meantime I should at least share how [&#8230;] <a href="http://eightbar.co.uk/2015/01/25/how-to-use-the-ibm-watson-relationship-extraction-service-on-bluemix/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Before Christmas, I wrote about how <a href="http://dalelane.co.uk/blog/?p=3261">I used the Watson Relationship Extraction service on Bluemix to pick out the things mentioned in news stories</a>, as part of a <a href="https://www.youtube.com/watch?v=vBCz31arNxw">mobile app we built on a hackday</a>. I&#8217;d still like to do something more with that app, but in the meantime I should at least share how I did the Relationship Extraction bit. </p>
+<p>From the <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/relationship-extraction.html">official doc for the service</a>:</p>
+<blockquote><p>From unstructured text, Relationship Extraction can extract entities (such as people, locations, organizations, events), and the relationships between these entities (such as person employed-by organization, person resides-in location).</p></blockquote>
+<p>This is provided as a hosted service on <a href="http://bluemix.net/">IBM Bluemix</a> where any developer can sign up and give it a try. </p>
+<p>It&#8217;s available as a <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/sireapi/">documented REST API</a>, but as part of using it in the hackday, I needed to write a bit of code around that, just to prepare the request and parse the response. I think it&#8217;ll save me time to reuse this the next time I want to build something with the API, so I&#8217;m <a href="https://github.com/dalelane/extract-relationships">sharing it as a standalone package</a>. </p>
+<p>In this post, I&#8217;ll walk though how you can use it, with a small app that grabs the contents of a BBC News story and picks out the names of people mentioned in the story. </p>
+<p>First, a simpler example. Consider this exciting text:</p>
+<blockquote><p>Dale Lane works as a developer for IBM. He started in 2003. Dale lives in the UK, in a town called Eastleigh. Before that, he was a student at the University of Bath.</p></blockquote>
+<p>A few lines of Javascript are enough to run that through the service. </p>
+<pre style="border: thin solid silver; background-color: #eeeeee; padding: 0.7em; font-size: 1.2em; overflow: auto;">var text = '';
+var watson = require('extract-relationships');
+watson.extract(text, function(err, response) {
+    // response has got all the info  
+});</pre>
+<p>The <a href="https://gist.github.com/dalelane/223500f2eae708fe34ef">full contents of <code>response</code></a> is in a gist if you want to see it, but I&#8217;ll show just a few examples here to give you the idea. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-01.jpg" alt='screenshot'/></p>
+<p>It has picked out all of the references to me, recognising that they are all describing a person, and that &#8216;developer&#8217; is my occupation. </p>
+<p>The &#8216;begin&#8217; and &#8216;end&#8217; numbers tell you where in the text each bit was found. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-02.jpg" alt='screenshot'/></p>
+<p>It&#8217;s picked out the reference to IBM, and recognised that this is a name of a commercial organisation. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-03.jpg" alt='screenshot'/></p>
+<p>It&#8217;s recognised that &#8216;2003&#8217; is a reference to a date. </p>
+<p>As well as identifying those entities and many others, it&#8217;s also picked out the relationships between them. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-04.jpg" alt='screenshot'/></p>
+<p>For example, it&#8217;s identified the relationship between me and IBM. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-05.jpg" alt='screenshot'/></p>
+<p>And the relationship between me and my old University. </p>
+<p>I&#8217;ve written a more <a href="https://github.com/dalelane/extract-relationships#interpreting-the-output">detailed breakdown of what is contained in the response</a> including how to find out what each of the fields mean, and what the different possible values for each one are. </p>
+<p>That&#8217;s the basics with a few input sentences. Next, we start throwing a lot of text at it. </p>
+<p>In about <a href="https://github.com/dalelane/extract-relationships/blob/master/examples/newspeople.js">thirty lines of Javascript</a>, you can download the text from a news story on the BBC News website, and pick out the names of all of the people mentioned in the story. </p>
+<p><script src="https://gist.github.com/dalelane/2571821221f177643d05.js"></script></p>
+<p>If you <a href="https://github.com/dalelane/extract-relationships/blob/master/examples/newspeople.js">run that simple example</a>, you get the <a href="https://github.com/dalelane/extract-relationships/blob/master/examples/newspeople.js#L94">list of people</a> that are included in the story text. </p>
+<p>Where it starts to get interesting is when you combine this with other sources and APIs. </p>
+<p>For example, once you&#8217;ve picked out the names of people from the story, try looking up their profiles on Wikipedia, and finding out who they are. </p>
+<p>Or, instead of people, pick out the names of places from news stories, and use a geocoding API to plot them on a map. (<em>There are geocoding services available on Bluemix, too, if that helps.</em>)</p>
+<p>Hopefully you can see how you could start to use this in your own apps. </p>
+<p>Finally, some practical points. </p>
+<p><strong>How do you <a href="https://www.npmjs.com/package/extract-relationships">install the package</a> I&#8217;ve shared so you can use it?</strong></p>
+<pre style="border: thin solid silver; background-color: #eeeeee; padding: 0.7em; font-size: 1.2em; overflow: auto;">npm install --save extract-relationships</pre>
+<p><strong>How do you configure it for the Watson Relationship Extraction Service?</strong></p>
+<p>The API we&#8217;re using is an authenticated service hosted in IBM Bluemix, so there is a tiny bit of config you need to do first before you can use it.</p>
+<p>If you&#8217;re <a href="https://github.com/dalelane/extract-relationships#bluemix">running your app in Bluemix</a>, then there isn&#8217;t much to do. Add the Relationship Extraction service to your app from the Bluemix dashboard, and the endpoint and credentials will automatically be provided and should just work. </p>
+<p>If you&#8217;re <a href="https://github.com/dalelane/extract-relationships#running-outside-bluemix">running your app on your own machine</a>, there are a couple of extra steps instead. </p>
+<p>Go to <a href="http://bluemix.net/">Bluemix</a>. Sign up for an account if you haven&#8217;t already got on</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-06.jpg" alt='screenshot'/></p>
+<p>From the dashboard, create an app. You need something as a placeholder to bind the Relationship Extraction service to, even if you don&#8217;t use it. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-07.jpg" alt='screenshot'/></p>
+<p>Create a web app and give it a name. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-08.jpg" alt='screenshot'/></p>
+<p>Add a service. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-09.jpg" alt='screenshot'/></p>
+<p>Choose the Relationship Extraction service from the group of Watson services. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-10.jpg" alt='screenshot'/></p>
+<p>Click on &#8216;Show Credentials&#8217;. Everything you need to configure your app is in here. You need the url, username and password. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-11.jpg" alt='screenshot'/></p>
+<p>Copy this into an <a href="https://github.com/dalelane/extract-relationships#options">options object</a> like this:</p>
+<pre style="border: thin solid silver; background-color: #eeeeee; padding: 0.7em; font-size: 1.2em; overflow: auto;">var options = {
+    api : {
+        url : 'https://url.of.your.watson.service...',
+        user : 'your-watson-service-username',
+        pass : 'your-watson-service-password'
+    }
+};</pre>
+<p>To reiterate, this isn&#8217;t the username and password that you use to sign in to Bluemix. It&#8217;s the username and password specifically for this service that Bluemix has generated for your app. </p>
+<p>It&#8217;s not a good idea to hard-code passwords in your code, so I&#8217;d suggest putting them outside of your app and grabbing them in when needed. Environment variables are an easy way to do this, and are what I&#8217;ve done in <a href="https://github.com/dalelane/extract-relationships/tree/master/examples">the few samples I&#8217;ve written</a>. </p>
+<p>That&#8217;s all there is to it. </p>
+<p>I&#8217;ve put more info on <a href="https://github.com/dalelane/extract-relationships">github</a> with the <a href="https://github.com/dalelane/extract-relationships/blob/master/index.js">source for how I&#8217;m using the API</a>. </p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3272">"How to use the IBM Watson Relationship Extraction service on Bluemix"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3272">http://dalelane.co.uk/blog/?p=3272</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Text analytics in BlueMix using UIMA</title>
+		<link>http://eightbar.co.uk/2014/04/13/text-analytics-in-bluemix-using-uima/</link>
+		<pubDate>Sun, 13 Apr 2014 21:41:14 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[bluemix]]></category>
+		<category><![CDATA[cloudfoundry]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[uima]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3073</guid>
+		<description><![CDATA[In this post, I want to explain how to create a text analytics application in BlueMix using UIMA, and share sample code to show how to get started. First, some background if you&#8217;re unfamiliar with the jargon. What is UIMA? UIMA (Unstructured Information Management Architecture) is an Apache framework for building analytics applications for unstructured [&#8230;] <a href="http://eightbar.co.uk/2014/04/13/text-analytics-in-bluemix-using-uima/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>In this post, I want to explain <strong>how to create a text analytics application in BlueMix using UIMA</strong>, and share <a href="http://uimahelloworld.mybluemix.net/">sample code to show how to get started</a>.  </p>
+<p>First, some background if you&#8217;re unfamiliar with the jargon. </p>
+<p><strong>What is UIMA?</strong></p>
+<p><a href="http://uima.apache.org/">UIMA</a> (Unstructured Information Management Architecture) is an Apache framework for building analytics applications for unstructured information and the OASIS standard for content analytics. </p>
+<p>I&#8217;ve <a href="http://dalelane.co.uk/blog/?tag=uima">written about it before</a>, having used it on <a href="http://cv.dalelane.co.uk/index.php/employment/ets/projects/">a few projects when I was in ETS</a>, and on other side projects since such as building <a href="http://dalelane.co.uk/blog/?p=2277">a conversational interface to web pages</a>. </p>
+<p>It&#8217;s perhaps better known for providing the architecture for the question answering system <a href="http://ibmwatson.com/">IBM Watson</a>. </p>
+<p><strong>What is BlueMix?</strong></p>
+<p><img src="http://dalelane.co.uk/blog/post-images/140413-bluemixlogo.jpg" hspace=10 vspace=10 border=0 align="left"/><a href="http://bluemix.net/">BlueMix</a> is IBM&#8217;s new Platform-as-a-Service (PaaS) offering, built on top of <a href="http://cloudfoundry.org/">Cloud Foundry</a> to provide a cloud development platform. </p>
+<p>It&#8217;s in open beta at the moment, so you can sign up and have a play. </p>
+<p>I&#8217;ve never used BlueMix before, or Cloud Foundry for that matter, so this was a chance for me to write my first app for it. </p>
+<p><strong>A UIMA &#8220;Hello World&#8221; for BlueMix</strong></p>
+<p>I&#8217;ve written a small sample to show how UIMA and BlueMix can work together. It provides a REST API that you can submit text to, and get back a JSON response with some attributes found in the text (long words, capitalised words, and strings that look like email addresses). </p>
+<p>The &#8220;analytics&#8221; that the app is doing is trivial at best, but this is just a Hello World. For now my aim isn&#8217;t to produce a useful analytics solution, but to walk through the configuration needed to define a UIMA analytics pipeline, wrap it in a REST API using <a href="http://wink.apache.org/">Wink</a>, and deploy it as a BlueMix application. </p>
+<p>When I get a chance, I&#8217;ll write a follow-up post on making something more useful. </p>
+<p>You can try out the sample on BlueMix as it&#8217;s deployed to <a href="http://uimahelloworld.mybluemix.net/">bluemix.net</a> </p>
+<p>The source is on GitHub at <a href="https://github.com/dalelane/bluemixuima">github.com/dalelane/bluemixuima</a>. </p>
+<p>In the rest of this post, I&#8217;ll walk through some of the implementation details. </p>
+<p><strong>Runtimes and services</strong></p>
+<p>Creating an application in BlueMix is already <a href="http://bluemix.net/docs">well documented</a> so I won&#8217;t reiterate those steps, other than to say that as Apache UIMA is a Java SDK and framework, I use the <strong>Liberty for Java</strong> runtime. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/140413-bluemixruntime.png" border=0 vspace=5/></p>
+<p>I&#8217;m not using any of the services in this simple sample. </p>
+<p><strong>Manifest</strong></p>
+<p>The app is bundled up in a war file, which is what we deploy. This is specified in <a href="https://github.com/dalelane/bluemixuima/blob/master/manifest.yml">manifest.yml</a>.</p>
+<p><strong>Building</strong></p>
+<p>The war file is built by an <a href="https://github.com/dalelane/bluemixuima/blob/master/build.xml">ant task</a> which has to <a href="https://github.com/dalelane/bluemixuima/blob/master/build.xml#L16">include the UIMA jar in the classpath</a>, and <a href="https://github.com/dalelane/bluemixuima/blob/master/build.xml#L49">copy my UIMA descriptor XML files into the war</a>. </p>
+<p>I&#8217;m developing in eclipse, so I set up an <a href="https://github.com/dalelane/bluemixuima/blob/master/.externalToolBuilders/BlueMix%20builder.launch">ant builder to run the build</a>, and <a href="https://github.com/dalelane/bluemixuima/blob/master/.project">configured the project to do it automatically</a>. </p>
+<p>I&#8217;m deploying from eclipse, too, using the <a href="http://dist.springsource.com/release/TOOLS/cloudfoundry">Cloud Foundry plugins for eclipse</a>. </p>
+<p><strong>XML descriptors</strong></p>
+<p>The type system is defined in <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/typeSystemDescriptor.xml">an XML descriptor file</a> and specifies the different annotations that can be created by this pipeline, and the attributes that they have. </p>
+<p>Running JCasGen in eclipse on that descriptor generates <a href="https://github.com/dalelane/bluemixuima/tree/master/src/com/dalelane/uima/bluemixhelloworld/annotations">Java classes representing those types</a>. </p>
+<p>The pipeline is also defined in XML descriptors: one <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/aggregateAnalysisEngineDescriptor.xml">overall aggregate descriptor</a> which imports three primitive descriptors for each of the three annotators in my sample pipeline : <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/primitiveAeDescriptorEmailAddresses.xml">one to find email addresses</a>, <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/primitiveAeDescriptorWordCase.xml">one to find capitalised words</a> and <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/primitiveAeDescriptorWordLengths.xml">one to find long words</a>. </p>
+<p>Note that <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/aggregateAnalysisEngineDescriptor.xml#L7">the imports in the aggregate descriptor</a> need to be relative so that they keep working once you deploy to BlueMix. </p>
+<p>These XML descriptor files are all added to the war file by being included in the <a href="https://github.com/dalelane/bluemixuima/blob/master/build.xml#L49">build.xml with a fileset include</a>. </p>
+<p><strong>Annotators</strong></p>
+<p>Each of the primitive descriptor files <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/primitiveAeDescriptorEmailAddresses.xml#L5">specifies the fully qualified class name</a> for the Java implementation of the annotator. </p>
+<p>There are <a href="https://github.com/dalelane/bluemixuima/tree/master/src/com/dalelane/uima/bluemixhelloworld/annotators">three annotators in this sample</a>. (XML files with names starting &#8220;primitiveAeDescriptor&#8221;).</p>
+<p>Each one is <a href="https://github.com/dalelane/bluemixuima/tree/master/src/com/dalelane/uima/bluemixhelloworld/annotators">implemented by a Java class</a> that extends <a href="http://uima.apache.org/d/uimaj-2.5.0/apidocs/org/apache/uima/analysis_component/JCasAnnotator_ImplBase.html">JCasAnnotator_ImplBase</a>.</p>
+<p>Each uses a regular expression to find things to annotate in the text. This isn&#8217;t intended to be an indication that this is how things should be done, just that it makes for a simple and stateless demonstration without any additional dependencies. </p>
+<p>The simplest is the regex used to find capitalised words in <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/annotators/WordCaseAnnotator.java#L31">WordCaseAnnotator</a> and the most complex is the ridiculously painful one used to find email addresses in <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/annotators/EmailAnnotator.java#L33">EmailAnnotator</a>. </p>
+<p>Note that the regexes are prepared in the <a href="http://uima.apache.org/d/uimaj-2.5.0/apidocs/org/apache/uima/analysis_component/AnalysisComponent_ImplBase.html#initialize(org.apache.uima.UimaContext)">annotator initializer</a>, and reused for each <a href="http://uima.apache.org/d/uimaj-2.5.0/apidocs/org/apache/uima/analysis_component/JCasAnnotator_ImplBase.html#process(org.apache.uima.jcas.JCas)">new CAS to process</a>, to improve performance. </p>
+<p><strong>UIMA pipeline</strong></p>
+<p>The UIMA pipeline is defined in <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java">a single Java class</a>. </p>
+<p>It finds <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/aggregateAnalysisEngineDescriptor.xml">the XML descriptor for the pipeline</a> by <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java#L67">looking in the location where BlueMix will unpack the war</a>. </p>
+<p>It <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java#L80">creates a CAS pool</a> to make it easier to handle multiple concurrent requests, and avoid the overhead of creating a CAS for every request.  </p>
+<p>Once the pipeline is <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java#L83">initialised</a>, it is ready to <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java#L108">handle incoming analysis requests</a>. </p>
+<p>Once the CAS has passed through the pipeline, <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java#L150">the annotations are immediately copied out of the CAS into a POJO</a>, so that the CAS can be returned to the pool. </p>
+<p><strong>REST API</strong></p>
+<p>The war file deployed to BlueMix contains a <a href="https://github.com/dalelane/bluemixuima/blob/master/WebContent/WEB-INF/web.xml#L7">web.xml which specifies the servlet</a> that implements the REST API.</p>
+<p>I&#8217;m using <a href="http://wink.apache.org/">Wink</a> to implement the API. The servlet definition in the web.xml specifies <a href="https://github.com/dalelane/bluemixuima/blob/master/WebContent/WEB-INF/web.xml#L12">where to find the list of API endpoints</a> and the <a href="https://github.com/dalelane/bluemixuima/blob/master/WebContent/WEB-INF/web.xml#L18">URL where the API should be</a>.</p>
+<p>The <a href="https://github.com/dalelane/bluemixuima/blob/master/WebContent/WEB-INF/resources">list of API endpoints</a> is a list of classes that Wink uses. There is only one API endpoint, so only one class listed. </p>
+<p>The <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/api/UimaResource.java">API implementation</a> is a very thin wrapper around the <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java">Pipeline class</a>. </p>
+<p>Everything is defined using <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/api/UimaResource.java#L28">annotations</a>, and Wink handles turning the response into a JSON payload. </p>
+<p><strong>That&#8217;s it</strong></p>
+<p>I think that&#8217;s pretty much it. </p>
+<p><a href="http://uimahelloworld.mybluemix.net/"><img src="http://dalelane.co.uk/blog/post-images/140413-samplescreenshot.png" border=0 vspace=5/></a></p>
+<p>I&#8217;ve added a <a href="https://github.com/dalelane/bluemixuima/blob/master/WebContent/index.html">simple front-end webpage</a>, with <a href="https://github.com/dalelane/bluemixuima/blob/master/WebContent/apitester.js">a script to submit API requests</a> for people who don&#8217;t want to do it with something like curl. </p>
+<p>It&#8217;s live at <a href="http://uimahelloworld.mybluemix.net/">uimahelloworld.mybluemix.net</a>.</p>
+<p>Like I said, it&#8217;s very simple. The Java itself isn&#8217;t particularly complex. My reason for sharing it was to provide a boilerplate config for defining a UIMA analytics pipeline, wrapping it in a REST API, and deploying it to BlueMix. </p>
+<p>Once you&#8217;ve got that working, you can do text analytics in BlueMix as complex as whatever you can dream up for your annotators. </p>
+<p>When I get time, I&#8217;ll write a follow-up post sharing what that could look like. </p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3073">"Text analytics in BlueMix using UIMA"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3073">http://dalelane.co.uk/blog/?p=3073</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+	</channel>
+</rss>

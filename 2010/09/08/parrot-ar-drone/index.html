@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Parrot AR.Drone | eightbar</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/style.css" />
+<link rel="pingback" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Feed" href="https://eightbar.eu-gb.mybluemix.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Comments Feed" href="https://eightbar.eu-gb.mybluemix.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Parrot AR.Drone Comments Feed" href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/eightbar.eu-gb.mybluemix.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='dark-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/colors/dark.css' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/css/jetpack.css?ver=3.3.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://eightbar.eu-gb.mybluemix.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://eightbar.eu-gb.mybluemix.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='A day with the inventors' href='https://eightbar.eu-gb.mybluemix.net/2010/07/12/a-day-with-the-inventors/' />
+<link rel='next' title='Sending, not taking, the biscuit' href='https://eightbar.eu-gb.mybluemix.net/2010/11/13/sending-not-taking-the-biscuit/' />
+<meta name="generator" content="WordPress 4.5.3" />
+<link rel='shortlink' href='http://wp.me/pBOPx-gp' />
+<link rel="alternate" type="application/json+oembed" href="https://eightbar.eu-gb.mybluemix.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Feightbar.co.uk%2F2010%2F09%2F08%2Fparrot-ar-drone%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://eightbar.eu-gb.mybluemix.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Feightbar.co.uk%2F2010%2F09%2F08%2Fparrot-ar-drone%2F&#038;format=xml" />
+	<style>
+		/* Link color */
+		a,
+		#site-title a:focus,
+		#site-title a:hover,
+		#site-title a:active,
+		.entry-title a:hover,
+		.entry-title a:focus,
+		.entry-title a:active,
+		.widget_twentyeleven_ephemera .comments-link a:hover,
+		section.recent-posts .other-recent-posts a[rel="bookmark"]:hover,
+		section.recent-posts .other-recent-posts .comments-link a:hover,
+		.format-image footer.entry-meta a:hover,
+		#site-generator a:hover {
+			color: #b4d1f3;
+		}
+		section.recent-posts .other-recent-posts .comments-link a:hover {
+			border-color: #b4d1f3;
+		}
+		article.feature-image.small .entry-summary p a:hover,
+		.entry-header .comments-link a:hover,
+		.entry-header .comments-link a:focus,
+		.entry-header .comments-link a:active,
+		.feature-slider a.active {
+			background-color: #b4d1f3;
+		}
+	</style>
+
+<!-- All in One SEO Pack 2.2.4.1 by Michael Torbert of Semper Fi Web Design[355,388] -->
+<meta name="description"  content="Andy Piper brought his new toy to the lab today. While on a whistle stop tour of China recently he called in at Hong Kong on the way back, where he picked up" />
+
+<meta name="keywords"  content="ar,drone,uav,augmented reality,hursley,technology" />
+
+<link rel="canonical" href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/" />
+<!-- /all in one seo pack -->
+	<style type="text/css">
+			#site-title,
+		#site-description {
+			position: absolute !important;
+			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+		</style>
+	<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #E3E3E3; }
+</style>
+</head>
+
+<body class="single single-post postid-1017 single-format-standard custom-background singular two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="https://eightbar.eu-gb.mybluemix.net/" title="eightbar" rel="home">eightbar</a></span></h1>
+				<h2 id="site-description">Raising The Eight Bar</h2>
+			</hgroup>
+
+						<a href="https://eightbar.eu-gb.mybluemix.net/">
+									<img src="https://eightbar.eu-gb.mybluemix.net/wp-content/uploads/2012/02/eightbargrass.jpg" width="1000" height="288" alt="" />
+							</a>
+			
+							<div class="only-search with-image">
+					<form method="get" id="searchform" action="https://eightbar.eu-gb.mybluemix.net/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+				</div>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-eightbar-main-menu-container"><ul id="menu-eightbar-main-menu" class="menu"><li id="menu-item-1192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1192"><a href="https://eightbar.eu-gb.mybluemix.net/">Home</a></li>
+<li id="menu-item-1193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1193"><a href="https://eightbar.eu-gb.mybluemix.net/about/">About</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="https://eightbar.eu-gb.mybluemix.net/2010/07/12/a-day-with-the-inventors/" rel="prev"><span class="meta-nav">&larr;</span> Previous</a></span>
+						<span class="nav-next"><a href="https://eightbar.eu-gb.mybluemix.net/2010/11/13/sending-not-taking-the-biscuit/" rel="next">Next <span class="meta-nav">&rarr;</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-1017" class="post-1017 post type-post status-publish format-standard hentry category-augmented-reality category-hursley category-technology tag-ar tag-drone tag-uav">
+	<header class="entry-header">
+		<h1 class="entry-title">Parrot AR.Drone</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/" title="21:37" rel="bookmark"><time class="entry-date" datetime="2010-09-08T21:37:53+00:00">September 8, 2010</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/hardillb/" title="View all posts by Ben Hardill" rel="author">Ben Hardill</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><a href="http://andypiper.co.uk/">Andy Piper</a> brought his new toy to the lab today. While on a whistle stop tour of China recently he called in at Hong Kong on the way back, where he picked up one of the a <a href="http://ardrone.parrot.com/parrot-ar-drone/">Parrot AR.Drones</a> which have been released this month.</p>
+<p>The AR.Drone is a quadricopter with 2 video cameras, one mounted in the nose and one downward-facing. The drone that acts as an ad-hock Wi-Fi access point allowing it to be controlled from any device with Wi-Fi. At the moment Parrot are only shipping a client for the iPhone, but there is an <a href="https://projects.ardrone.org/">API</a> available and there is already <a href="http://www.youtube.com/watch?v=oT_OSblo-Og&amp;feature=related" target="_blank">footage</a> on the net using an Android Nexus One to control one. It&#8217;s loaded with a bunch of other sensors as well, an accelerometer to help keep it stable and a ultrasound altimeter to help it maintain altitude over changing ground.</p>
+<p>The iPhone interface for flying the drone uses the accelerometer and is a bit tricky to start with, but I think with a little bit of practice it shouldn&#8217;t take too long to get the hang of it. The feed from the video cameras is fed back to the handset allowing you to get a pilot&#8217;s eye view. At the moment none of the software allows you to capture this video, but it&#8217;s expected to be added soon. You can also use the camera to play AR games or have the it hover and hold station over markers on the floor.</p>
+<p>The whole thing runs a embedded Linux build on a ARM chip and you can even telnet into the thing. It comes with 2 chassis, one for outside and one with some protective shrouds for the propellers to use indoors. </p>
+<p>I think some very cool stuff should be possible with a platform like this.</p>
+<p>Here are 2 short videos I short of a few of us having a go with it on the lawn in front of Hursley House.</p>
+<p><object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/SnXjEO_0wEw?fs=1&amp;hl=en_GB&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/SnXjEO_0wEw?fs=1&amp;hl=en_GB&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object></p>
+<p><object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/73cx9J9D608?fs=1&amp;hl=en_GB&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/73cx9J9D608?fs=1&amp;hl=en_GB&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object></p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1017" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1017" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1017" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1017" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="https://eightbar.eu-gb.mybluemix.net/category/augmented-reality/" rel="category tag">augmented reality</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a> and tagged <a href="https://eightbar.eu-gb.mybluemix.net/tag/ar/" rel="tag">AR</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/drone/" rel="tag">drone</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/uav/" rel="tag">UAV</a> by <a href="https://eightbar.eu-gb.mybluemix.net/author/hardillb/">Ben Hardill</a>. Bookmark the <a href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/" title="Permalink to Parrot AR.Drone" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-1017 -->
+						<div id="comments">
+	
+	
+			<h2 id="comments-title">
+			5 thoughts on &ldquo;<span>Parrot AR.Drone</span>&rdquo;		</h2>
+
+		
+		<ol class="commentlist">
+				<li class="post pingback">
+		<p>Pingback: <a href='http://www.hardill.me.uk/wordpress/?p=236' rel='external nofollow' class='url'>Eightbar &laquo; Ben&#039;s Place</a></p>
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href='http://topsy.com/eightbar.co.uk/2010/09/08/parrot-ar-drone/?utm_source=pingback&#038;utm_campaign=L2' rel='external nofollow' class='url'>Tweets that mention Parrot AR.Drone | eightbar -- Topsy.com</a></p>
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href='http://dogearnation.com/2010/09/12/170-andys-triumphant-return/' rel='external nofollow' class='url'>170 &#8211; Andy&#8217;s Triumphant Return : Dogear Nation » Podcast</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-243240">
+		<article id="comment-243240" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/3264e9ea4d10fae5f5a12fdcfbd81c31?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/3264e9ea4d10fae5f5a12fdcfbd81c31?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.theuncommon.co.uk/blog' rel='external nofollow' class='url'>Adam Groves</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/#comment-243240"><time datetime="2010-09-15T13:47:36+00:00">September 15, 2010 at 13:47</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I have some plans for the AR Drone, if I can ever afford one. There&#8217;s a headset, the Emotive Epoc, that you can buy that can do real time brain scanning:</p>
+<p><a href="http://www.ted.com/talks/lang/eng/tan_le_a_headset_that_reads_your_brainwaves.html" rel="nofollow">http://www.ted.com/talks/lang/eng/tan_le_a_headset_that_reads_your_brainwaves.html</a></p>
+<p>Basically, I&#8217;m aiming to interface the 2 together so you can move the drone with your mind. Force powers will soon be ours!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-245740">
+		<article id="comment-245740" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/68bc995e79a32e829e1403ce96817bfc?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/68bc995e79a32e829e1403ce96817bfc?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.rchelicoptersreview.net' rel='external nofollow' class='url'>JD Roberts</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/#comment-245740"><time datetime="2011-05-17T21:59:39+00:00">May 17, 2011 at 21:59</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thanks for the post &#8212; I&#8217;m surprised this Drone hasn&#8217;t become more popular.  It certainly switched me from gas rc helicopters to electric quadricopters (at least for now).  Maybe it&#8217;s the gotta-have-an-iphone (or ipad) part.  But there&#8217;s now (finally) an easy to use Android app:<br />
+<a href="http://rchelicoptersreview.net/parrot-ar-drone-android/" rel="nofollow">http://rchelicoptersreview.net/parrot-ar-drone-android/</a></p>
+<p>cheers,<br />
+JD</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+				<p class="nocomments">Comments are closed.</p>
+		
+	
+	
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+	<div style="display:none">
+	<div class="grofile-hash-map-3264e9ea4d10fae5f5a12fdcfbd81c31">
+	</div>
+	<div class="grofile-hash-map-68bc995e79a32e829e1403ce96817bfc">
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"https:\/\/eightbar.eu-gb.mybluemix.net\/2010\/09\/08\/parrot-ar-drone\/":1017}	</script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+			<div id="sharing_email" style="display: none;">
+		<form action="https://eightbar.eu-gb.mybluemix.net/2010/09/08/parrot-ar-drone/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="" />
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="" />
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="" />
+
+			
+			
+			<img style="float: right; display: none" class="loading" src="https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/images/loading.gif" alt="loading" width="16" height="16" />
+			<input type="submit" value="Send Email" class="sharing_send" />
+			<a href="#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-linkedin' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+		<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/comment-reply.min.js?ver=4.5.3'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201630'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2016Julaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.5.3'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/wp-embed.min.js?ver=4.5.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/sharing.js?ver=3.3.3'></script>
+
+	<script src="http://stats.wp.com/e-201630.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:3.3.3',blog:'9013531',post:'1017',tz:'1'});
+	var load_cmc = function(){linktracker_init(9013531,1017,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+</body>
+</html>

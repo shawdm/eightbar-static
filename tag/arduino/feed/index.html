@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>arduino &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/arduino/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Mad thermostat plan</title>
+		<link>http://eightbar.co.uk/2012/05/06/mad-thermostat-plan/</link>
+		<pubDate>Sat, 05 May 2012 23:21:06 +0000</pubDate>
+		<dc:creator><![CDATA[James Taylor]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[arduino]]></category>
+		<category><![CDATA[central heating]]></category>
+		<category><![CDATA[controller]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[heating]]></category>
+		<category><![CDATA[heatmiser]]></category>
+		<category><![CDATA[homecamp]]></category>
+		<category><![CDATA[house]]></category>
+		<category><![CDATA[kitchen]]></category>
+		<category><![CDATA[nanode]]></category>
+		<category><![CDATA[new house]]></category>
+		<category><![CDATA[Ones and Zeros]]></category>
+		<category><![CDATA[PRC]]></category>
+		<category><![CDATA[PRT/HW-N]]></category>
+		<category><![CDATA[relay]]></category>
+		<category><![CDATA[rs485]]></category>
+		<category><![CDATA[solar]]></category>
+		<category><![CDATA[solar thermal]]></category>
+		<category><![CDATA[timer]]></category>
+		<category><![CDATA[zero carbon]]></category>
+
+		<guid isPermaLink="false">http://jtlog.wordpress.com/?p=1969</guid>
+		<description><![CDATA[Something I&#8217;ve really wanted to have a go at for a long time is hacking together a smarter heating system. The long process of moving house prevented any progress until now but I think a few things fell in to &#8230; <a href="http://jtlog.wordpress.com/2012/05/05/mad-thermostat-plan/">Continue reading <span>&#8594;</span></a><img alt="" border="0" src="http://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#38;blog=1751515&#38;post=1969&#38;subd=jtlog&#38;ref=&#38;feed=1" width="1" height="1"/> <a href="http://eightbar.co.uk/2012/05/06/mad-thermostat-plan/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Something I&#8217;ve really wanted to have a go at for a long time is hacking together a smarter heating system. The long process of moving house prevented any progress until now but I think a few things fell in to place today to get the project off the ground. And so a slightly mad thermostat plan was hatched&#8230;</p>
+<p>The first part of the puzzle is a side effect of getting a solar water panel; to make the most of the solar panel we should only be using the boiler to top up the hot water at the end of the day. (Obviously that&#8217;s just theoretical at the moment because its pretty much been raining non stop since we got the solar panel!) Unfortunately the current central heating controller will only turn on the heating if the hot water is on at the same time, which is no help at all, so we really need a new controller to make the most of our zero carbon supply of hot water. There&#8217;s another, purely aesthetic reason to want a new heating controller; the <a href="http://jtlog.wordpress.com/2012/04/19/whats-cooking/">kitchen upgrade</a> got under way this week and the old controller has seen better days.</p>
+<p><a href="http://jtlog.files.wordpress.com/2012/05/current-controller.jpg"><img class="alignnone size-medium wp-image-1973" title="current-controller" src="http://jtlog.files.wordpress.com/2012/05/current-controller.jpg?w=300&#038;h=240" alt="" width="300" height="240" /></a></p>
+<p>The current kitchen destruction has a bigger part to play though; now is an ideal opportunity to hide cables behind the new cupboards. For a while that didn&#8217;t actually seem like it was going to be all that much help, based on where the old thermostat was (hidden behind a door in the living room). I was looking at various programmable thermostats but the existing wiring from the thermostat restricted the options somewhat. The programmable thermostat we had in the old house seemed to work quite well with the existing wiring and controller&#8230; as long as the battery was fresh, otherwise it got confused about the temperature. Obviously not ideal for a thermostat, so I was hoping to avoid batteries this time!</p>
+<p>Then, while being distracted by the wonky light switches yet again, inspiration struck&#8230;</p>
+<p><a href="http://jtlog.files.wordpress.com/2012/05/light-switches.jpg"><img class="alignnone size-medium wp-image-1974" title="light-switches" src="http://jtlog.files.wordpress.com/2012/05/light-switches.jpg?w=300&#038;h=240" alt="" width="300" height="240" /></a></p>
+<p>The house hasn&#8217;t been constructed with the greatest care in the world, but those switches just could not have been original. The only thing that makes sense is if they were another botched DIY job, and it seemed highly unlikely that anyone would have dropped another cable run down the wall to do it. My hunch, based on the fact that there&#8217;s a water cylinder directly above those switches, is that there&#8217;s a horizontal cable run between the two. I checked, and&#8230; eureka! So now it&#8217;s a simple job to put both switches back on the same box, leaving an empty recessed box with a now bare kitchen wall behind it, making it perfect to run a new thermostat cable through the back of the box and round to the boiler! (Well I was pretty excited by this plan at the time.)</p>
+<p>The thermostat to finish off this puzzle is a <a href="http://www.heatmisershop.co.uk/epages/Heatmiser.sf/en_GB/?ObjectPath=/Shops/Heatmiser/Products/%22PRTHW-N%20V3%22/SubProducts/%22PRTHW-N%20V3%22">Heatmiser combined programmable thermostat and hot water timer</a>. My theory is that I need the PRT/HW-N thermostat to go in the living room and a <a href="http://www.heatmisershop.co.uk/epages/Heatmiser.sf/en_GB/?ObjectPath=/Shops/Heatmiser/Products/%22Power%20Relay%22">PRC powered relay card</a> in place of the old central heating controller. I&#8217;m almost certain that the wiring will work with the existing system anyway, but if anyone has any experience/tips/gotchas, please let me know! That programmable thermostat should give me an RS485 interface to the thermostat which, if all goes well, won&#8217;t be too difficult to connect to my <a href="http://jtlog.wordpress.com/2011/08/21/nanode-343/">nanode</a>- either with a bit of soldering, or one of these <a href="http://robosavvy.com/store/product_info.php/products_id/1554">IO shields</a> if I&#8217;m feeling lazy! The thing I like about this arrangement is that it should be possible to achieve plenty of automation if all goes well but, if there are any technical hitches, there&#8217;s a decent off the shelf controller to fall back on.</p>
+<p><strong>Update:</strong> a quick update since I&#8217;m doing some head scratching over whether the existing wiring from the central heating timer to the junction box in the airing cupboard will allow the heating to run independently from the hot water. If it does, the new thermostat is in place ready to go&#8230;</p>
+<p><a href="http://jtlog.files.wordpress.com/2012/05/heatmiser-thermostat.jpg"><img class="alignnone size-medium wp-image-1995" title="OLYMPUS DIGITAL CAMERA" src="http://jtlog.files.wordpress.com/2012/05/heatmiser-thermostat.jpg?w=300&#038;h=225" alt="" width="300" height="225" /></a></p>
+<p>If it doesn&#8217;t, the new thermostat will just be a decorative feature while I figure out where I can sneak a new cable upstairs without disturbing the new kitchen! I don&#8217;t want to break the heating until I&#8217;m sure everything will work, so I&#8217;m working off a photo for now&#8230;</p>
+<p><a href="http://jtlog.files.wordpress.com/2012/05/central-heating-wiring.jpg"><img class="alignnone size-medium wp-image-1996" title="OLYMPUS DIGITAL CAMERA" src="http://jtlog.files.wordpress.com/2012/05/central-heating-wiring.jpg?w=300&#038;h=225" alt="" width="300" height="225" /></a></p>
+<p>I&#8217;d love to hear from anyone who can decipher that lovely nest of wires! Here&#8217;s my theroy so far:</p>
+<p>The black cable is the valve, and the other two cables that enter with it at the bottom are the pump and cylinder stat. It looks to me like the grey cable should be to turn the hot water off, which seems to be connected to the cylinder stat and a red wire from one of the cables above, which I&#8217;m hoping is from the timer. That just seems too easy for this house though, and I&#8217;m a bit puzzled by what the connections on the orange wire actually are. Lucky it&#8217;s all neatly connected and labelled so I can check the orange wire is connected to the cylinder stat and pump&#8230; bother. I guess I&#8217;m going to have to wait until Jo&#8217;s not looking so I can investigate more thoroughly!</p><br />  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/jtlog.wordpress.com/1969/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/jtlog.wordpress.com/1969/" /></a> <img alt="" border="0" src="http://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#038;blog=1751515&%23038;post=1969&%23038;subd=jtlog&%23038;ref=&%23038;feed=1" width="1" height="1" />]]></content:encoded>
+	<enclosure url="http://1.gravatar.com/avatar/74c39fd4d2c3b09efbea8c5db637c57c?s=96&amp;amp;d=identicon" length="" type="" />
+<enclosure url="http://jtlog.files.wordpress.com/2012/05/current-controller.jpg?w=300" length="" type="" />
+<enclosure url="http://jtlog.files.wordpress.com/2012/05/light-switches.jpg?w=300" length="" type="" />
+<enclosure url="http://jtlog.files.wordpress.com/2012/05/heatmiser-thermostat.jpg?w=300" length="" type="" />
+<enclosure url="http://jtlog.files.wordpress.com/2012/05/central-heating-wiring.jpg?w=300" length="" type="" />
+		</item>
+		<item>
+		<title>Homecamp 4</title>
+		<link>http://eightbar.co.uk/2011/10/30/homecamp-4/</link>
+		<pubDate>Sun, 30 Oct 2011 21:41:30 +0000</pubDate>
+		<dc:creator><![CDATA[Laura Cowen]]></dc:creator>
+				<category><![CDATA[conferences]]></category>
+		<category><![CDATA[arduino]]></category>
+		<category><![CDATA[behaviour_change]]></category>
+		<category><![CDATA[hacking]]></category>
+		<category><![CDATA[homecamp]]></category>
+		<category><![CDATA[home_automation]]></category>
+		<category><![CDATA[psychology]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1131</guid>
+		<description><![CDATA[DC power, electricity monitoring, gas monitoring, data gathering, solar panels, hardware hacking, software hacking, behaviour change, open source, home energy, energy visualisations, cows&#8230; Just some of the things we talked about this weekend at Homecamp 4 at the Centre for &#8230; <a href="http://eightbar.co.uk/2011/10/30/homecamp-4/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>DC power, electricity monitoring, gas monitoring, data gathering, solar panels, hardware hacking, software hacking, behaviour change, open source, home energy, energy visualisations, cows&#8230;</p>
+<p>Just some of the things we talked about this weekend at <a title="Homecamp 4 website" href="http://homecamp.org.uk/2011/09/01/announcing-home-camp-4-hack-the-house/" target="_blank">Homecamp 4 </a>at the <a title="C4CC website" href="http://www.creativecollaboration.org.uk/" target="_blank">Centre for Creative Collaboration</a> near King&#8217;s Cross in London.</p>
+<p>A two-day event this year, Homecamp 4 (thanks to organiser <a title="Ken on Twitter" href="http://twitter.com/#!/monsonite" target="_blank">Ken Boak</a>) brought together hardware hackers, software hackers, home automation fans, energy and sustainability people, designers, and loads of enthusiasm and energy for sharing skills and experiences. And, thanks to the generous sponsorship by <a title="Amee website" href="http://www.amee.com/" target="_blank">Amee</a> and the support of Manager <a title="Debbie Davies" href="http://twitter.com/#!/debbiedavies" target="_blank">Debbie Davies</a> at C4CC, we had lovely breakfasts, lunches, and Saturday evening drinks.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0026.jpg"><img class="aligncenter size-medium wp-image-1162" title="C4CC" src="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0026-300x199.jpg" alt="C4CC" width="300" height="199" srcset="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0026-300x199.jpg 300w, http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0026.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>Saturday morning was dedicated to a series of presentations that had been scheduled in advance. It kicked off with a fascinating presentation by Simon Daniel from <a title="Moixa Technology website" href="http://www.moixatechnology.com/" target="_blank">Moixa</a> (inventor of the Palm folding keyboard and the USB rechargeable batteries) about how we could, and should, power all our lighting and computing at home off a couple of solar panels. By storing the solar power in batteries and then using it as DC power, rather than converting it to AC power, we&#8217;d not only avoid unsightly power bricks on everything, but we&#8217;d double the efficiency of the solar energy over converting it to the usual AC power to match our ordinary home electricity circuits and then convert it back to DC for consumption by LED lighting, laptops, mobile phones, and the like.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9993.jpg"><img class="aligncenter size-medium wp-image-1154" title="Simon from Moixa" src="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9993-300x199.jpg" alt="Simon from Moixa" width="300" height="199" srcset="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9993-300x199.jpg 300w, http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9993.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>Another interesting point he made was that most young people either don&#8217;t own their own homes or they&#8217;re not likely to stay in their current house for the next 15 years so they&#8217;re unlikely to invest in solar panels. So the company is working out a way to produce essentially portable solar panel, battery, and control packages that could be installed (and transported when you move house) as easily as Sky.</p>
+<p>Next up was <a title="James Smith on Twitter" href="http://twitter.com/#!/floppy" target="_blank">James Smith</a> from <a title="Amee website" href="http://www.amee.com/" target="_blank">Amee</a> to demo what you can do with the Amee API. Amee collect data about energy consumption and carbon emissions, most of which is publicly available but usually not in a form that&#8217;s easy to consume. A team of scientists search out data from all over the world about the carbon emissions of anything you can think of. The team reviews the data, corrects any errors they find, and then turns the data into code. Developers can then write applications that use the data through the Amee API.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9995.jpg"><img class="aligncenter size-medium wp-image-1155" title="James from Amee" src="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9995-300x199.jpg" alt="James from Amee" width="300" height="199" srcset="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9995-300x199.jpg 300w, http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9995.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>James and <a title="Chris on Twitter" href="http://twitter.com/#!/mrchrisadams" target="_blank">Chris Adams</a>, also from Amee, demo&#8217;d how to use one of the toolkits that Amee provides to developers to show how quick it is to generate a web form that calculates the carbon emissions of cows from &#8216;enteric fermentation&#8217; (burping and farting, to you and me). His favourite Amee hack, though, was to display the carbon emissions of setting fire to things in Minecraft.</p>
+<p>After a brief pitch by <a title="Casper on Twitter" href="http://twitter.com/#!/cspr72" target="_blank">Casper Koomen</a> from Amsterdam about <a title="Pachube's website" href="https://pachube.com/" target="_blank">Pachube</a>, and an update from organiser Ken on his Nanode (previously seen, discussed, and built at Oggcamp 11!), Trystan Lea and Glyn Hudson (from North Wales) described and demo&#8217;d their neat open source, Arduino-based energy monitoring project, the <a title="OpenEnergyMonitor website" href="http://openenergymonitor.org/emon/" target="_blank">OpenEnergyMonitor</a> (first presented at Homecamp 2).</p>
+<p>After a novel but tasty free lunch of Vietnamese baguettes, the afternoon proceeded in a more unconference-style format. In a mix of formal presentations and informal discussions, we had talks on a range of topics, including getting your hardware ideas produced commercially, home energy monitoring experiences and visualisations, home-grown wind turbines, 3D printing, and I gave a short introduction/overview on the psychology of energy behaviour change. Most talks got several questions and I was really pleased that my talk, despite having a fairly different focus from many of the others, generated quite a lot of interest and discussion both at the time and over the rest of the weekend.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0035.jpg"><img class="aligncenter size-medium wp-image-1156" title="Evidence I was there!" src="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0035-199x300.jpg" alt="Evidence I was there!" width="199" height="300" srcset="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0035-199x300.jpg 199w, http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0035.jpg 533w" sizes="(max-width: 199px) 100vw, 199px" /></a></p>
+<p>The Saturday evening pub was unfortunately closed for a private party so <a title="Tony on Twitter" href="http://twitter.com/#!/tonywhitmore" target="_blank">Tony</a> and I encouraged everyone back to the lovely <a title="Harrison Bar website" href="http://harrisonbar.co.uk/" target="_blank">Harrison Bar</a> where we were staying and had already eaten a good dinner and noticed an interesting list of beers. If you like ginger beer, I recommend the Crabbie&#8217;s Ginger Beer (4%).</p>
+<p>Sunday took on a more hackday feel and the attendees either hacked on <a title="Nanode website" href="http://nanode.eu/" target="_blank">Nanodes</a> and similar hardware, played with software APIs, or wandered/sat around discussing cool ideas.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0069.jpg"><img class="aligncenter size-medium wp-image-1158" title="Hacking" src="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0069-300x199.jpg" alt="Hacking" width="300" height="199" srcset="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0069-300x199.jpg 300w, http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0069.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>In all it was a very fun weekend. We had some great conversations and met some very cool people. Hopefully, there&#8217;ll be a Homecamp 5.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0014.jpg"><img class="aligncenter size-medium wp-image-1159" title="Conversing" src="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0014-300x199.jpg" alt="Conversing" width="300" height="199" srcset="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0014-300x199.jpg 300w, http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0014.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>During the weekend, Tony and I, ever on the lookout for interesting content for the <a title="UUPC website" href="http://podcast.ubuntu-uk.org/" target="_blank">Ubuntu-UK Podcast</a>, interviewed James about Amee, and Tristan and Glynn about their OpenEnergyMonitor project. Look out for them in upcoming episodes of <a title="UUPC on Twitter" href="http://twitter.com/#!/uupc" target="_blank">UUPC</a>.</p>
+<p>Photos thanks to <a title="Tony's website" href="http://tonywhitmore.co.uk/" target="_blank">Tony Whitmore</a></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>MQTT powered video wall</title>
+		<link>http://eightbar.co.uk/2011/09/16/mqtt-powered-video-wall/</link>
+		<pubDate>Fri, 16 Sep 2011 10:20:22 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[IBM Projects]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[arduino]]></category>
+		<category><![CDATA[ETS]]></category>
+		<category><![CDATA[IBM Forum]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[South Bank]]></category>
+		<category><![CDATA[video]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1065</guid>
+		<description><![CDATA[Scaling things up a little from my first eightbar post. This was one of those projects that just sort of &#8220;turned up&#8221;. About 3 weeks ago one of the managers for the ETS department in Hursley got a call from &#8230; <a href="http://eightbar.co.uk/2011/09/16/mqtt-powered-video-wall/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Scaling things up a little from <a href="http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/">my first eightbar post</a>.</p>
+<p>This was one of those projects that just sort of &#8220;turned up&#8221;. About 3 weeks ago one of the managers for the ETS department in Hursley got a call from the team building the new IBM Forum in <a href="http://www-05.ibm.com/uk/locations/sbnk.html">IBM South Bank</a>. IBM Forums are locations where IBM can showcase technologies and solutions for customers. The team were looking for a way to control a video wall and a projector to make them show specific videos on request. The requests will come from pedestals known as &#8220;provokers&#8221;, each having a perspex dome holding a thought-provoking item. The initial suggestions had been incredibility expensive and we were asked if we could come up with a solution.</p>
+<p><a title="Provoker by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/6150090094/"><img src="http://farm7.static.flickr.com/6080/6150090094_170bde8686.jpg" alt="Provoker" width="299" height="500" /></a></p>
+<p>The provokers have access to power and an Ethernet connection. Taking all that into account a few ideas came to mind but the best seamed to be an Arduino board with Ethernet support and a button/sensor to trigger the video. There is a relatively new arduino board available that has a <a href="http://arduino.cc/en/Main/ArduinoBoardEthernet">built in Ethernet</a> shield which seemed perfect for this project. Also, since a number of the items in the provokers would be related to IBM&#8217;s Smarter Planet initiative, it made sense to use <a href="http://mqtt.org">MQTT</a> as a messaging layer as this has been used to implement a number of solutions in this space.</p>
+<p><a href="http://knolleary.net/">Nick O&#8217;Leary</a> was enlisted to put together the hardware and also the sketch for the Arduino as he had already written a <a href="http://knolleary.net/arduino-client-for-mqtt/">MQTT client for Arduino</a> in the past.</p>
+<p>Each provoker will publish a message containing a playload of &#8220;play&#8221; to a topic like</p>
+<p><em>provoker/{n}/action</em></p>
+<p>Where &#8216;{n}&#8217; is the unique number identifying which of the 6 provokers sent the message.</p>
+<p>To provide some feedback to the guest that pressed the button, the LED has been made to pulse while one of the provoker-specific videos is playing. This is controlled by each provoker subscribing to the following topic</p>
+<p><em>provoker/{n}/ack</em></p>
+<p>Sending &#8220;play&#8221; to this topic causes the LED pluse, sending &#8220;stop&#8221; turns the LED solid again.</p>
+<p>The video wall will be driven by software called Scala InfoChannel which has a scripting interface supporting (among other things) Python. So a short script to subscribe to the &#8216;action&#8217; topics and to publish on on the &#8216;ack&#8217; got the videos changing on demand.</p>
+<p>And sat in the middle is an instance of the <a href="https://www.ibm.com/developerworks/community/groups/service/html/communityview?communityUuid=d5bedadd-e46f-4c97-af89-22d65ffee070">Really Small Message Broker</a> to tie everything together.</p>
+<p><a title="Arduino in a box by knolleary, on Flickr" href="http://www.flickr.com/photos/knolleary/6123416370/"><img src="http://farm7.static.flickr.com/6185/6123416370_ba88cde8ee.jpg" alt="Arduino in a box" width="500" height="299" /></a></p>
+<p>This was also the perfect place to use some of <a href="http://www.flickr.com/photos/hardillb/6127193305/in/photostream">my new &#8220;MQTT Inside&#8221; stickers</a>.</p>
+<p><a title="First sticker deployed by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/6143434166/"><img src="http://farm7.static.flickr.com/6189/6143434166_4cf426ac18.jpg" alt="First sticker deployed" width="299" height="500" /></a></p>
+<p>This project only used one of the digital channels (for the button) and one of the analogue channels (for the LED) available on the Arduino &#8211; which leaves a lot of room for expansion for these type of devices. I can see them being used for future projects.</p>
+<p><strong>Parts list</strong></p>
+<ol>
+<li>Arduino Ethernet</li>
+<li>Blue LED Illuminated Button</li>
+<li>A single resistor to protect the LED</li>
+<li>9v power supply</li>
+<li>Sparkfun Case</li>
+</ol>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Bang went the theory&#8230;</title>
+		<link>http://eightbar.co.uk/2010/04/23/bang-went-the-theory/</link>
+		<comments>http://eightbar.co.uk/2010/04/23/bang-went-the-theory/#comments</comments>
+		<pubDate>Fri, 23 Apr 2010 14:43:05 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Piper]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[arduino]]></category>
+		<category><![CDATA[bang goes the theory]]></category>
+		<category><![CDATA[brain]]></category>
+		<category><![CDATA[emotiv]]></category>
+		<category><![CDATA[kevin brown]]></category>
+		<category><![CDATA[knolleary]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[nick o'leary]]></category>
+		<category><![CDATA[taxis]]></category>
+		<category><![CDATA[television]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1008</guid>
+		<description><![CDATA[As with yesterday&#8217;s post, I really don&#8217;t have to do too much work on this one, as the detail has already been written up elsewhere&#8230; If you watched this week&#8217;s edition of Bang Goes The Theory on BBC1, you will &#8230; <a href="http://eightbar.co.uk/2010/04/23/bang-went-the-theory/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>As with yesterday&#8217;s post, I really don&#8217;t have to do too much work on this one, as the detail has already been written up elsewhere&#8230;</p>
+<p>If you watched this week&#8217;s edition of <a href="http://www.bbc.co.uk/bang/">Bang Goes The Theory on BBC1</a>, you will have seen <a href="http://eightbar.co.uk/about/nick-oleary/">Nick O&#8217;Leary</a> and Kevin Brown from IBM Hursley helping Jem and Dallas to drive taxis. That probably wouldn&#8217;t have been entirely revolutionary, had it not been done through a combination of an Emotiv brain-signal-reading headset, and some MQTT and Arduino funkiness&#8230; no hands on the wheel or feet on the pedals!</p>
+<p>Nick has <a href="http://knolleary.net/2010/04/22/how-i-got-onto-prime-time-bbc-one/">a great write-up</a> of what sounds like a fun (but cold) event. You may still be able to catch the fun on <a href="http://www.bbc.co.uk/iplayer/episode/b00s5fvq/Bang_Goes_the_Theory_Can_You_Train_Your_Brain/">iPlayer</a>, or there are <a href="http://www.criticalmention.com/report/5093x135035.htm">some clips over here</a>.</p>
+<p style="text-align: center;"><a href="http://www.flickr.com/photos/knolleary/4541825724/in/set-72157623904843524"><img class="aligncenter" src="http://farm3.static.flickr.com/2715/4541825724_a207da04f3_d.jpg" alt="" width="500" height="375" /></a><br />
+(<em><a href="http://www.flickr.com/photos/knolleary/4541825724/">Image:</a> Creative Commons Attribution Non-Commercial Share-Alike (2.0) from knolleary&#8217;s photostream, used with permission &#8211; <a href="http://www.flickr.com/photos/knolleary/sets/72157623904843524/">full set</a></em>)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2010/04/23/bang-went-the-theory/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

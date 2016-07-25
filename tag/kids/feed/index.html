@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>kids &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/kids/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Watson Rock, Paper, Scissors</title>
+		<link>http://eightbar.co.uk/2016/06/26/watson-rock-paper-scissors/</link>
+		<pubDate>Sun, 26 Jun 2016 13:46:56 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[bluemix]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[kids]]></category>
+		<category><![CDATA[watson]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3349</guid>
+		<description><![CDATA[A simple hands-on activity to let kids train a machine learning classifier to be able to play Rock, Paper, Scissors. I&#8217;ve written and spoken before that I think we should do more to introduce children to the idea of machine learning. And I&#8217;ve tried introducing my two kids to it, such as by making a [&#8230;] <a href="http://eightbar.co.uk/2016/06/26/watson-rock-paper-scissors/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><strong>A simple hands-on activity to let kids train a machine learning classifier to be able to play Rock, Paper, Scissors.</strong></p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27305758384/in/dateposted-public/" title="Screen Shot 2016-06-26 at 13.59.20"><img style="border: thin black solid" src="https://c1.staticflickr.com/8/7663/27305758384_2405bce9f2.jpg" width="450" height="282" alt="Screen Shot 2016-06-26 at 13.59.20"/></a></p>
+<p>I&#8217;ve <a href="http://dalelane.co.uk/blog/?p=3299">written</a> and <a href="http://www.stemtechconference.com/past-events/conference-2015/showcase">spoken</a> before that I think we should do more to introduce children to the idea of machine learning. And I&#8217;ve tried introducing my two kids to it, such as by making a <a href="http://dalelane.co.uk/blog/?tag=codeclub">Code Club</a>-style game with them: we built <a href="http://dalelane.co.uk/blog/?p=3330">a system to play Guess Who</a>, that they trained both to understand what you say and to recognise the characteristics of faces from photos.</p>
+<p>This weekend, we tried out another idea &#8211; <strong>Rock, Paper, Scissors</strong> from a web app, using the web cam to see your moves, and training a system to recognise your hand signs. </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27815450382/in/dateposted-public/" title="DSC06146"><img src="https://c7.staticflickr.com/8/7086/27815450382_a385ddcda6.jpg" width="450" height="223" alt="DSC06146"/></a></p>
+<p>In many ways, this was simpler than the Guess Who project, and one I would&#8217;ve tried before if we&#8217;d thought of it! I&#8217;ve made getting the system to choose it&#8217;s next move very simple, as it just chooses one of the three options at random.</p>
+<p>The machine learning element comes from the fact that I got them to train a custom image classifier to recognise what a &#8216;rock&#8217;, &#8216;paper&#8217; and &#8216;scissors&#8217; hand sign looks like.</p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27916785445/in/dateposted-public/" title="DSC06153"><img src="https://c6.staticflickr.com/8/7346/27916785445_9772591bc2.jpg" width="450" height="299" alt="DSC06153"/></a></p>
+<p>Last night I hacked together <a href="https://watson-rock-paper-scissors.eu-gb.mybluemix.net/">a quick single-page training web app</a> for them to use. Unlike with the Guess Who game, where we worked on it together to come up with the project, this time I made it myself to see how they&#8217;d get on with using it. (I was thinking that if it went well, I&#8217;d try using it with one of my school groups). </p>
+<p>They got off to a good start&#8230; although I hadn&#8217;t counted on how much time Grace would spend checking out her hair once she saw the web cam video. <img src="https://s.w.org/images/core/emoji/72x72/1f642.png" alt="&#x1f642;" class="wp-smiley" style="height: 1em; max-height: 1em;" /> </p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/PJW19emo6J8?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/PJW19emo6J8">Video of the kids getting started</a></small></p>
+<p>I&#8217;ve got it so that you can take photos from the web cam by clicking on a button, and put the photo into one of three training groups &#8211; one each for rock, paper and scissors. </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27304547304/in/dateposted-public/" title="DSC06150"><img src="https://c1.staticflickr.com/8/7720/27304547304_772252bc55.jpg" width="450" height="299" alt="DSC06150"/></a></p>
+<p>My hope was that the three hand signs &#8211; a fist, a flat palm, and two fingers &#8211; are distinct enough that an image classifier could quickly start to distinguish between them. </p>
+<p>Although I should probably add some overlay to the live video to suggest where to put your hand, how close to the camera, etc. as their initial attempts were fairly inconsistent.</p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/7KrEHEx9Hbk?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/7KrEHEx9Hbk">Video of their first attempt at training</a></small></p>
+<p>As before, I&#8217;m using one of the <a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/">Watson developer APIs</a> available in <a href="https://bluemix.net/">Bluemix</a>, called <a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/visual-recognition.html">Visual Recognition</a>. </p>
+<p>To train it, you just need to upload zip files, where each zip file contains examples of photos of something you want to recognise. </p>
+<p>In this case, we want to upload three zip files &#8211; one of photos of &#8220;rock&#8221;, one zip file of &#8220;paper&#8221; photos, one zip file of photos of &#8220;scissors&#8221;. And you can do all of that in <a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/visual-recognition/api/v3/#create_a_classifier">a single HTTP POST</a>, so the code behind the training app is very simple. </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27840011881/in/dateposted-public/" title="DSC06152"><img src="https://c2.staticflickr.com/8/7506/27840011881_cbe882f7e7.jpg" width="450" height="257" alt="DSC06152"/></a></p>
+<p>That said, I should still share the code. </p>
+<p>It was hacked together in an evening, so it&#8217;s a complete mess. But I&#8217;ll try and find some spare time this week to tidy it up, and put the code somewhere in case it&#8217;s helpful. Some of the code for driving the webcam, zipping up the photos, and uploading them, might be useful to someone. </p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/O7z2yXTWKo0?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/O7z2yXTWKo0">The first test</a></small></p>
+<p>To test it, I made a simple game. I&#8217;ve got it keeping score to see how many moves you win against the random choices the game makes. Although Grace seemed more interested in counting the number of times the game correctly identified our moves. It wasn&#8217;t perfect!</p>
+<p>(The &#8220;Watson&#8217;s move&#8221; images used in the game bit were made by Faith. She took photos of her own hand using an iPad, and did the weird grid background effect using <a href="http://www.mixcord.co/partners/popagraph.html">PopAGraph</a>. It wasn&#8217;t quite what I expected, but I think it looks kinda neat.) </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27305736804/in/dateposted-public/" title="Screen Shot 2016-06-26 at 13.57.16"><img style="border: thin black solid" src="https://c5.staticflickr.com/8/7448/27305736804_94efff066f.jpg" width="500" height="313" alt="Screen Shot 2016-06-26 at 13.57.16"/></a></p>
+<p>As with the <a href="http://dalelane.co.uk/blog/?p=3330">Guess Who activity</a>, what most interested me was the girls&#8217; reactions to the behaviour of the ML system. I was surprised that even after last time, their initial assumption was still that they could take one photo of each, and that would be enough. (Another reason why it&#8217;s worth doing a few of these activities to reinforce it). </p>
+<p>But with a little nudging, they quickly saw how that the more examples they gave, the better the system performed. </p>
+<p>Other than that, a lot of the lessons they learned were reminders of <a href="http://dalelane.co.uk/blog/?p=3330">what we talked about before</a> about what it&#8217;s like doing supervised learning projects. </p>
+<p><iframe width="450" height="338" src="https://www.youtube.com/embed/vYxDD37Jqn8?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/vYxDD37Jqn8">The second attempt&#8230; another test after more training this time</a></small></p>
+<p>One thing I was impressed with was when they thought that the training would be more effective if they used an actual rock, actual scissors, and a sheet of paper. Doing that made the accuracy a hundred times better. That makes sense, as they are much more distinct than all photos of hands, so that was a neat idea!</p>
+<p>And that&#8217;s pretty much it. My second experiment at getting the kids to play with machine learning seemed to work pretty well. </p>
+<p>I&#8217;ve put the app I made for them up on Bluemix so you&#8217;re welcome to give it a try it you like. It&#8217;s at <a href="https://watson-rock-paper-scissors.eu-gb.mybluemix.net/">https://watson-rock-paper-scissors.eu-gb.mybluemix.net</a>. </p>
+<p>You&#8217;ll have to <a href="https://console.ng.bluemix.net/catalog/services/visual-recognition/">get your own Visual Recognition API key</a> to use it, though, but that supports a free trial, so hopefully that won&#8217;t put you off!</p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/ecBc2OG407M?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/ecBc2OG407M">Third time lucky? Another test</a></small></p>
+<hr />
+<strong>Update 1:</strong> 
+<p>A couple of friends pointed me at <a href="https://developer.ibm.com/clouddataservices/2015/12/01/humans-vs-apache-spark-building-our-rock-paper-scissors-game/">another recent IBM rock, paper, scissors project</a> when I mentioned planning to do this. </p>
+<p>It looks like a great project and is well worth a look &#8211; they&#8217;ve gone into using Apache Spark to create a system able look for patterns in how people play rock-paper-scissors and learn strategies to win the game. </p>
+<p>More recently, they&#8217;ve even gotten <a href="https://developer.ibm.com/dwblog/games-humans-vs-apache-spark/">a NAO robot to play the game</a> for them!</p>
+<p>I wasn&#8217;t aware of this work before, but decided to go ahead with our project anyway. Partly because my focus was different for this, but mostly because I think that the <a href="http://www.cgpgrey.com/blog/letter-to-jake-on-the-agonies-of-parallel-creation">Agonies of Parallel Creation</a> should never stop us from creating and sharing stuff. There&#8217;s no new idea under the sun, so if we wait for an idea that no-one has ever got close to, we&#8217;d stop creating anything. </p>
+<p>That said, it&#8217;s a particularly surreal coincidence in this case, as this is not only an IBM project, but the author of that post is the great <a href="https://twitter.com/dtaieb55">David Taieb</a> who I used to work for when he worked on Watson! Small world. </p>
+<hr />
+<strong>Update 2:</strong> 
+<p>Yes, I know you can see my API key in the video. But don&#8217;t worry. Bluemix makes it easy enough to revoke credentials so I&#8217;ve deleted that API key. Doing that was much quicker than learning enough video editing to be able to mask it out. <img src="https://s.w.org/images/core/emoji/72x72/1f642.png" alt="&#x1f642;" class="wp-smiley" style="height: 1em; max-height: 1em;" /> </p>
+<p><script async src="http://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/dalelane/27916796025/in/dateposted-public/" title="DSC06149"><img src="https://c2.staticflickr.com/8/7177/27916796025_517a1ecd51.jpg" width="450" height="279" alt="DSC06149"/></a></p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3349">"Watson Rock, Paper, Scissors"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3349">http://dalelane.co.uk/blog/?p=3349</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>An introduction to machine learning with Guess Who</title>
+		<link>http://eightbar.co.uk/2016/02/18/an-introduction-to-machine-learning-with-guess-who/</link>
+		<pubDate>Thu, 18 Feb 2016 18:50:40 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[kids]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3330</guid>
+		<description><![CDATA[I tried introducing my two kids to machine learning by helping them make a game this week. In this post, I&#8217;ll try and explain why, how we did it, and how it went. And if you make it all the way to an end, I&#8217;ve got some videos and a link to a demo to [&#8230;] <a href="http://eightbar.co.uk/2016/02/18/an-introduction-to-machine-learning-with-guess-who/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><strong>I tried introducing my two kids to machine learning by helping them make a game this week. </strong></p>
+<p>In this post, I&#8217;ll try and explain why, how we did it, and how it went. And if you make it all the way to an end, I&#8217;ve got some videos and a link to a demo to show you what we made.</p>
+<h3>Why</h3>
+<p>I think we need to introduce the basic concept of machine learning to children.</p>
+<p>I think the current approach to introducing coding using things like <a href="http://dalelane.co.uk/blog/?tag=scratch">Scratch</a> aren&#8217;t enough. This isn&#8217;t to say Scratch isn&#8217;t great (I&#8217;ve been running a <a href="http://dalelane.co.uk/blog/?tag=codeclub">Code Club</a> every week for the last couple of years, delivered almost entirely using Scratch, so I&#8217;d be the last person to say it isn&#8217;t a fantastic tool). It lets you snap together blocks representing actions to teach the programming mindset of getting a computer to do something by you breaking the task down into a series of steps.</p>
+<p>I think we need to add to this with something that introduces the model of machine learning &#8211; getting a computer to do something by training it with examples of doing that task.</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0055.jpg" style="border: thin black solid"/></p>
+<p>I&#8217;ve been saying this for a while &#8211; I gave a talk about it at <a href="http://www.stemtechconference.com/past-events/conference-2015/showcase">an education conference</a> last year, I&#8217;ve <a href="http://dalelane.co.uk/blog/?p=3299">written about it</a> here before, and it was the theme of a <a href="https://twitter.com/dalelane/status/690250594813153280">lecture I gave at a science society</a> in London last month.</p>
+<p>This week is half-term and I have the week off work, so I thought I&#8217;d finally spend a bit of time trying it out by experimenting on my own two daughters (Faith and Grace, who are aged 7 and 11).</p>
+<p>In Code Club, I mostly try to introduce programming concepts by helping the kids to create games. Sticking with what seems to work, I&#8217;ve helped them to make a game by training an ML system how to play it.</p>
+<h3>How</h3>
+<p>We&#8217;ve been making a sort of <a href="https://en.wikipedia.org/wiki/Guess_Who%3F">Guess Who?</a> game &#8211; a game that I&#8217;ve played with the kids for years and that they know inside out. </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/generationbass/5686663807" title="Guess-Who-Closeup.jpg"><img src="https://farm6.staticflickr.com/5223/5686663807_da29ff3852.jpg" width="448" height="368" alt="Guess-Who-Closeup.jpg"/></a><script async src="http://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<p>The idea is that the computer shows a bunch of faces and chooses one of them at random. You have to work out which one it&#8217;s chosen by asking Yes/No questions about their appearance.</p>
+<p>I introduced this to Grace and Faith mostly using analogies and anthropomorphising. </p>
+<blockquote><p>&#8220;We need to teach the computer how to play the game instead of telling it how to&#8221;.</p></blockquote>
+<blockquote><p>&#8220;We&#8217;ll do it the same way that you teach a small child to do something, not by telling it the series of steps to take but by showing it examples of how it should be done, over and over, until it learns how to do it&#8221;.</p></blockquote>
+<p>And so on.</p>
+<p>I went with a couple of opportunities for trying out machine learning approaches.</p>
+<p><strong>Understanding the question</strong></p>
+<p>As a player, we let you <strong>ask questions in natural language</strong>. You&#8217;ve just got a text box to type in anything you want to ask. In practice though, there&#8217;s a reasonably predictable set of questions you might ask &#8211; it&#8217;s a very constrained domain. So it lends itself well to <strong>using a text classifier</strong>.</p>
+<p>I got the kids to make a list of all the types of questions they ask in a Guess Who game. These were the <em>classes</em> we&#8217;d train the system with (e.g. &#8220;has brown hair&#8221; or &#8220;is wearing a hat&#8221;). Then for each class, they had to come up with as many ways as they could think of to ask that question.</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/20160217-nlc.jpg" alt="the kids using Watson NLC" style="border: thin black solid"/></p>
+<p>We used this to train <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/nl-classifier.html">IBM Watson Natural Language Classifier</a>.</p>
+<p>I chose it mostly because I&#8217;m familiar with it, it&#8217;s a hosted readily available service so there was nothing to install or configure, it has a simple web interface for training that the kids could use to enter the classes and texts they thought of, and for this sort of kicking-the-tyres-with-minimal-usage it&#8217;s free.</p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/h1ZiUIvYdD8?rel=0" frameborder="0" allowfullscreen></iframe></p>
+<p>With a little training, they had a trained classifier that would be able to take a question from the player and map it to one of the classes they&#8217;d come up with for the questions they ask when they play Guess Who.</p>
+<p><strong>Answering the question</strong></p>
+<p>The next step was to train the system to be able to answer the questions. We needed it to be able to <strong>recognise visual characteristics in a photo</strong>. Again, this is a constrained domain, although less so than for classifying questions. But still, this was basically <strong>a classifying task</strong>, albeit with the extra challenge of using images.</p>
+<p>We looked for a collection of face images that we could use, both for training, and for the game itself. We initially started trying out <a href="http://www.info.polymtl.ca/~mdhas/LWF/">Labeled Wikipedia Faces</a>, but ultimately settled on using <a href="http://vis-www.cs.umass.edu/lfw/">Labeled Faces in the Wild</a> &#8211; a set of over 13,000 photos of faces.</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/20160217-visrec.jpg" alt="Grace, preparing the training for Visual Recognition" style="border: thin black solid"/></p>
+<p>I got the kids to group examples of the faces based on the characteristics they’d come up with in their list of text classes. We just used the built-in OSX Finder to do this. </p>
+<p>One folder open on the left with all the unsorted faces in, and a bunch of folders open to the right &#8211; e.g. &#8220;short-hair&#8221;, &#8220;long-hair&#8221;, &#8220;bald&#8221;, &#8220;hat&#8221;. They scrolled through the unsorted pictures, and trained by dragging the photos across into the relevant folder.</p>
+<p>We used an IBM Watson API with this, too : <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/visual-recognition.html">IBM Watson Visual Recognition</a> </p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/F6oaA6fauzY?rel=0" frameborder="0" allowfullscreen></iframe></p>
+<p>Again, I chose it because I’m familiar with it, and it’s a hosted service I didn’t need to install or run, and while it’s in beta it’s all free to use.</p>
+<p><strong>Putting it all together</strong></p>
+<p>While they did that, I hacked together up a quick game to drive it. They were in charge of training, I wrote a simple REST API to make the requests to the Watson APIs, and a UI to let the player interact with it.</p>
+<p>We had our game!</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/20160217-guesswho.jpg" style="border: thin black solid"/></p>
+<h3>How it went</h3>
+<p>I asked them what they&#8217;d learned from doing it, and they came up with things like:</p>
+<blockquote><p><strong>&#8220;You need a lot of training data&#8221;</strong></p></blockquote>
+<p>When I explained how we&#8217;d train the visual recognition classifiers to recognise characteristics in photos, Faith said &#8220;We could take photos of each other and use those!&#8221;. I said that we&#8217;d need more than that, so she said &#8220;I could take photos of my friends as well!&#8221;.</p>
+<p>But we needed so many more than that. We started by looking to <a href="http://www.info.polymtl.ca/~mdhas/LWF/">Wikipedia</a> (always a good starting point for getting data!), before eventually settling on <a href="http://vis-www.cs.umass.edu/lfw/">the LFW set</a>.</p>
+<p>Getting them to help me find the training data gave them an idea of the sort of scale you need for these sorts of projects, as well as giving them an insight into ideas like gathering existing data rather than trying to manually create it.</p>
+<blockquote><p><strong>&#8220;The more training you give it, the better it gets&#8221;</strong></p></blockquote>
+<p>We did this project off-and-on throughout half-term week rather than all in one sitting. And we re-ran the training after each go. It was really clear the way that the results improved the more that we did.</p>
+<p>I&#8217;m a big fan of learning by doing, and I think that seeing that for themselves was more effective than if I&#8217;d just told them. Trying it out with virtually no training, and seeing that it&#8217;s rubbish. Then trying it out with a bit of training, and see it start to get better. Then trying it again after a few days and see it really improving &#8211; there was a definite light bulb moment.</p>
+<blockquote><p><strong>&#8220;Training is fun at first, but can get a bit boring after a while&#8221;</strong></p></blockquote>
+<p>This was more an issue with the visual recognition training rather than the NLC text classifier training. Even after the first afternoon they&#8217;d already come up with a classifier that was doing a decent job of most questions. But grouping the photos into the training sets took much longer. And to be honest, it really needs more training than they did if you wanted to turn this into a proper demo or game &#8211; I let them do enough to get the idea, but stopped them before it became a miserable chore!</p>
+<p>But this was a positive thing. As a takeaway, that&#8217;s a really valid and valuable insight. I&#8217;ve seen commercial ML projects fail to recognise this at the outset! Training ML systems is a repetitive, manual and very time-consuming task that does get boring for the people involved.</p>
+<p>We talked about ways that people try and get around that, like trying to turn it into a game. Grace thought that if we did this as a school activity, with all her class helping out with the training, then split between 30 kids, it wouldn&#8217;t take as long.</p>
+<p>All of these points &#8211; the amount of time and work needed to train, approaches like getting a large number of people to train, etc. &#8211; these are all great lessons about the practicalities of using machine learning.</p>
+<blockquote><p><strong>&#8220;It&#8217;s a bit like magic&#8221;</strong></p></blockquote>
+<p>If you had to describe the steps involved in working out if a photo included a face that has a moustache, that would be pretty complicated. But dividing 100 photos into two groups &#8211; faces with a moustache, and faces without a moustache &#8211; that&#8217;s easy.</p>
+<p>There were a bunch of things they talked about here that was really positive &#8211; that doing this is easy, and you don&#8217;t need you to understand the deep detail behind how it works. With Faith (my youngest) we didn&#8217;t go into too much detail about how the training works, but Grace and I did find some videos on YouTube that explained the principles behind deep learning which were interesting.</p>
+<p>More generally, what I wanted them to learn was that computers can spot patterns in data, without you needing to be able to specify rules that they should follow. And I think that&#8217;s a more effective lesson as something they saw and did for themselves rather than just reading or hearing about it.</p>
+<h3>The result</h3>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/oguzXlRT4NQ?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/oguzXlRT4NQ</a></small></p>
+<p>I&#8217;ve put what we came up with on Bluemix at <a href="http://guesswho.eu-gb.mybluemix.net/">http://guesswho.eu-gb.mybluemix.net</a></p>
+<p>I&#8217;ve also put some more videos below to show us trying it out.</p>
+<p>As I explained above, it&#8217;s not really &#8220;finished&#8221; &#8211; I think it needs more training, and the UI was hacked together in a hurry. But even as a quick half-term project, I think it already shows a glimmer of what is possible.</p>
+<p>More importantly, it shows that you can give kids a hands-on introduction to machine learning.</p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/1AkSVBzE5io?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/1AkSVBzE5io</a></small></p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/6ay7MqhW53g?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/6ay7MqhW53g</a></small></p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/Z3UReJzzY4Q?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/Z3UReJzzY4Q</a></small></p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/GNcz_D62_0w?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/GNcz_D62_0w</a></small></p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3330">"An introduction to machine learning with Guess Who"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3330">http://dalelane.co.uk/blog/?p=3330</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+	</channel>
+</rss>

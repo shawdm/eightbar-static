@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>screenreader &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/screenreader/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>W4A : Future of screen readers</title>
+		<link>http://eightbar.co.uk/2013/06/04/w4a-future-of-screen-readers/</link>
+		<pubDate>Tue, 04 Jun 2013 07:20:34 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[screenreader]]></category>
+		<category><![CDATA[tech]]></category>
+		<category><![CDATA[w4a2013]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=2641</guid>
+		<description><![CDATA[This is the second of four posts sharing some of the things I saw while at the International World Wide Web Conference for w4a. Several of the projects that I saw showed glimpses of a possible future for screen readers. I&#8217;ve written about screen readers before, and some of the challenges with using them. Interactive [&#8230;] <a href="http://eightbar.co.uk/2013/06/04/w4a-future-of-screen-readers/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>This is the second of <a href="http://dalelane.co.uk/blog/?tag=w4a2013">four posts</a> sharing some of the things I saw while at the <a href="http://www2013.org/">International World Wide Web Conference</a> for <a href="http://www.w4a.info/2013/">w4a</a>. </p>
+<p>Several of the projects that I saw showed glimpses of a possible future for screen readers. </p>
+<p>I&#8217;ve <a href="http://dalelane.co.uk/blog/?s=screenreader">written about screen readers before</a>, and some of the challenges with using them. </p>
+<p><strong>Interactive SIGHT</strong></p>
+<p>One project interpreted pictures of charts or graphs and created a textual summary of the information shown in them. </p>
+<p>I&#8217;m still amazed at this. It takes a picture of a graph, not the original raw data, and generates sensible summaries of what it shows. </p>
+<p>For example, given this image:</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/130529-sight-graph1.png"/></p>
+<p>It can generate:</p>
+<blockquote><p>This graphic is about United States. The graphic shows that  United States at 35 thousand dollars is the third highest with respect to the dollar value of gross domestic product per capita 2001 among the countries listed. Luxembourg at 44.2 thousand dollars is the highest</p></blockquote>
+<p>or </p>
+<blockquote><p>The dollar value of gross domestic product per capita 2001 is 25 thousand dollars for Britain, which has the lowest dollar value of product per capita 2001. United States has 1.4 times more product per capita 2001 than Britain. The difference between the dollar value of gross domestic product per capita 2001 for United States and that for Britain is 10 thousand dollars. </p></blockquote>
+<p>The original version was able to process bar graphs, and was <a href="http://users.ece.cmu.edu/~ejschwar/papers/w4a10.pdf">presented to W4A in 2010</a>. What I saw was an extension that added <a href="https://www.dropbox.com/sh/giyw9zubmbsgjm2/rAJ50TZG-T/full-papers/p6-moraes.pdf">support for line graphs</a>.</p>
+<p>Their focus is on the sort of graphics found in newspapers and magazines &#8211; informational, rather than scientific graphs. They want to be able to generate a high level summary, rather than a list of plot points that require the user to build a mental model in order to interpret. </p>
+<p>For example:</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/130529-sight-graph3.png"/></p>
+<blockquote><p>The image shows a line graph. The line graph presents the number of Walmmartâ€™s sales of leather jackets. The line graph shows a trend that changes. The changing trend consists of a rising trend from 1997 to 1999 followed by a falling trend through 2006. The first segment is the rising trend. The rising trend is steep. The rising trend has a starting value of 1890. The rising trend has an ending value of 36840. The second segment is the falling trend. The falling trend has a starting value of 36840. The falling trend has an ending value of 12606.</p></blockquote>
+<p><img src="http://dalelane.co.uk/blog/post-images/130529-sight-graph4.png"/></p>
+<blockquote><p>The image shows a line graph. The line graph presents the number of people who started smoking under the age of 18 in the US. The line graph shows a trend that changes. The changing trend consists of a rising trend from 1962 to 1966 followed by a falling trend through 1980. The first segment is the rising trend. The rising trend is steep. The second segment is the falling trend.</p></blockquote>
+<p>It&#8217;s able to interpret an image and recognise trends, recognise how noisy or smooth it is, recognise if the trend changes, and more. Impressive. </p>
+<p><strong>Interpreting data in tables</strong></p>
+<p>Another project demonstrated <a href="https://www.dropbox.com/sh/giyw9zubmbsgjm2/3toi3w-9HY/communications/p38-lai.pdf">restructuring data tables in web pages to make them easier to explore</a> with a screenreader. </p>
+<p>They have an interesting approach of analysing an HTML table and reorganising it to make it more accessible, abstracting out complex sections into a series of menus. </p>
+<p>For example, given a table such as this:</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/130529-tables-1.png"/></p>
+<p>it can produce navigable menus such as this:</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/130529-tables-2.png"/></p>
+<p>Even quite complex tables, with row and column spans, which would otherwise be quite difficult to interpret if read row-by-row by a screenreader, is made much more accessible. </p>
+<p><strong>Capti web player</strong></p>
+<p>Another technology I saw demonstrated was the <a href="http://www.ra.ethz.ch/CDstore/www2012/W4A/03%20-%20Microsoft%20Accessibility%20Challenge/borodin.pdf">Capti web player</a>. </p>
+<p>Tools such as <a href="http://www.instapaper.com/">instapaper</a> and <a href="http://getpocket.com/">read it later</a> have showed that we can take most web pages and extract the body text for the article on the page. </p>
+<p>This capability should be ideal for visually impaired users, but the tools themselves are still quite difficult to use and integrate poorly with assistive technologies. Someone described them as obviously &#8220;designed by sighted people for sighted people&#8221;. </p>
+<p><a href="https://itunes.apple.com/gb/app/capti-web-player/id437052502?mt=8">Capti combines this capability with an accessible media player</a> making it easy to navigate through an article, move through a list of articles, and so on. To a sighted user like me, it looked like they&#8217;ve mashed together instapaper with an audiobook-type media player. I often listen to podcasts while I go running, and am a heavy user of pocket and Safari&#8217;s reading list. So this looks ideal for me. </p>
+<p><strong>Multiple simultaneous audio streams</strong></p>
+<p>Finally, one fascinating project looked at how to make it quicker to scan large amounts of content with a screenreader to find a specific piece of information. I&#8217;ve <a href="http://dalelane.co.uk/blog/?p=2192">written before that relying on a screenreader</a> (which creates a sequential audio representation of the information on the page, starting at the beginning and going through the contents) can be tremendously time-consuming, and that it results in visually impaired users taking considerably more time to find information on the web. </p>
+<p>This project investigated whether this could be improved by <a href="https://www.dropbox.com/sh/giyw9zubmbsgjm2/GB-xw6t33K/google-awards/jguerreiro.pdf">using multiple simultaneous sound sources</a>. </p>
+<p>It sounds mad, but they&#8217;re starting from observations such as the cocktail party effect &#8211; that in a noisy room with several conversations going on, we&#8217;re able to pick out a specific conversation that we want to listen for. Or that a student not paying attention in a lecture will hear if a lecturer says something like &#8220;this will be on the exam&#8221;. </p>
+<p>They&#8217;re looking at a variety of approaches, such as separating the channels directionally, so one audio stream will sound like it&#8217;s coming from the left, while another is in front. Or having different voices, such as different genders, for the different streams. It&#8217;s an intriguing idea, and I&#8217;d love to see if it could be useful.</p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=2641">"W4A : Future of screen readers"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=2641">http://dalelane.co.uk/blog/?p=2641</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+	</channel>
+</rss>

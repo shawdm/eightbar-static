@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>opensource &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/opensource/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Web 2.0 to OpenSim made easy (JSON support added)</title>
+		<link>http://eightbar.co.uk/2008/09/14/web-20-to-opensim-made-easy-json-support-added/</link>
+		<comments>http://eightbar.co.uk/2008/09/14/web-20-to-opensim-made-easy-json-support-added/#comments</comments>
+		<pubDate>Sun, 14 Sep 2008 21:45:07 +0000</pubDate>
+		<dc:creator><![CDATA[Rob Smart]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[Second Life]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[Virtual worlds]]></category>
+		<category><![CDATA[lsl]]></category>
+		<category><![CDATA[opensim]]></category>
+		<category><![CDATA[opensource]]></category>
+		<category><![CDATA[scripting]]></category>
+		<category><![CDATA[secondlife]]></category>
+		<category><![CDATA[virtualworlds]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=574</guid>
+		<description><![CDATA[I&#8217;ve been tracking the progress of the OpenSim project for quite some time now and gradually delving deeper into the midst of this little open-source wonder. For those of you who haven&#8217;t come across OpenSim, or have heard of it &#8230; <a href="http://eightbar.co.uk/2008/09/14/web-20-to-opensim-made-easy-json-support-added/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>I&#8217;ve been tracking the progress of the <a href="http://opensimulator.org">OpenSim</a> project for quite some time now and gradually delving deeper into the midst of this little open-source wonder. </p>
+<p>For those of you who haven&#8217;t come across OpenSim, or have heard of it but haven&#8217;t investigated in too much detail; OpenSim is a Virtual Worlds platform built from the ground up which uses the <a href="http://secondlife.com/">Second Life</a> protocol. Initially OpenSim has set out to emulate the current function of the Second Life servers. This means that you use the Second Life client to log onto an OpenSim server.</p>
+<p>OpenSim has been built in a modular fashion, meaning that particular modules can be swapped in and out depending on the purpose of the Virtual World you wish to run. At the moment the modules are limited to things like&#8230; support for different databases, physics engines, scripting engines etc.</p>
+<p>In the future I expect to see a whole raft of new modules ranging from the important but slightly mundane, authentication e.g. LDAP, OpenID etc. to plugins allowing different client types e.g. Flash, Unity etc. and modules for payment systems etc. </p>
+<p>At the moment OpenSim is still in alpha, with stability a high priority. Already though it is becoming well fleshed out with building, avatar customization the ability to connect multiple sims (islands) together and a healthy base of scripting available enabling the majority of existing LSL scripts to run and also allowing c# and other languages to be used.</p>
+<p>In addition to the LSL scripting ported from Second Life there are extra API calls that can be made that enable function such as loading images from the web directly onto objects in world. There is also a scripting API that lets you format text and images on objects.</p>
+<p>As I have become more involved in OpenSim and got to learn how it works a bit more I thought it time to start contributing something towards the codebase. A <a href="http://nwn.blogs.com/nwn/2006/08/a_brotherhud_of.html">long time ago</a> in Second Life I created a translation device that listened to your conversation and sent the text out to Google to be translated, it then read out the translation in world. </p>
+<p>There are many other services in Second Life that use this pattern of utilizing services around the Web. The LSL scripting language however is not good at handling the formats that most Web 2.0 APIs and services speak. In fact may SL gadgets and devices rely on custom web server scripts to speak to the outside service and cut down the data drastically before its passed back into SL where the gadget uses it. This is a major pain in the ass as any SL gadget creator will tell you.</p>
+<p>One of the most common formats used by Web 2.0 service APIs (Google,Flickr, Yahoo etc.) is called JSON (or javascript object notation). JSON is a simple way of describing objects, however it can come in many shapes and sizes making it almost possible to consume directly in SL or OpenSim.</p>
+<p>For that reason my first contribution to the OpenSim project is to implement a scripting function called <a href="http://opensimulator.org/wiki/OSSL_Implemented">osParseJSON</a>, which should hopefully open the flood gates for people who want to make the most of the Web 2.0 services they use every day and get that data into OpenSim. </p>
+<p>For now I&#8217;ve written a <a href="http://robsmart.co.uk/2008/09/14/opensim-web-20-contribution/">simple example</a>, that uses Googles translation API. The example lets you translate between 23 different languages.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2008/09/14/web-20-to-opensim-made-easy-json-support-added/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

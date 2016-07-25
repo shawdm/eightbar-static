@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>nodejs &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/nodejs/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>How to use the IBM Watson Relationship Extraction service on Bluemix</title>
+		<link>http://eightbar.co.uk/2015/01/25/how-to-use-the-ibm-watson-relationship-extraction-service-on-bluemix/</link>
+		<pubDate>Sun, 25 Jan 2015 20:18:54 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[bluemix]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[nodejs]]></category>
+		<category><![CDATA[watson]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3272</guid>
+		<description><![CDATA[Before Christmas, I wrote about how I used the Watson Relationship Extraction service on Bluemix to pick out the things mentioned in news stories, as part of a mobile app we built on a hackday. I&#8217;d still like to do something more with that app, but in the meantime I should at least share how [&#8230;] <a href="http://eightbar.co.uk/2015/01/25/how-to-use-the-ibm-watson-relationship-extraction-service-on-bluemix/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Before Christmas, I wrote about how <a href="http://dalelane.co.uk/blog/?p=3261">I used the Watson Relationship Extraction service on Bluemix to pick out the things mentioned in news stories</a>, as part of a <a href="https://www.youtube.com/watch?v=vBCz31arNxw">mobile app we built on a hackday</a>. I&#8217;d still like to do something more with that app, but in the meantime I should at least share how I did the Relationship Extraction bit. </p>
+<p>From the <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/relationship-extraction.html">official doc for the service</a>:</p>
+<blockquote><p>From unstructured text, Relationship Extraction can extract entities (such as people, locations, organizations, events), and the relationships between these entities (such as person employed-by organization, person resides-in location).</p></blockquote>
+<p>This is provided as a hosted service on <a href="http://bluemix.net/">IBM Bluemix</a> where any developer can sign up and give it a try. </p>
+<p>It&#8217;s available as a <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/sireapi/">documented REST API</a>, but as part of using it in the hackday, I needed to write a bit of code around that, just to prepare the request and parse the response. I think it&#8217;ll save me time to reuse this the next time I want to build something with the API, so I&#8217;m <a href="https://github.com/dalelane/extract-relationships">sharing it as a standalone package</a>. </p>
+<p>In this post, I&#8217;ll walk though how you can use it, with a small app that grabs the contents of a BBC News story and picks out the names of people mentioned in the story. </p>
+<p>First, a simpler example. Consider this exciting text:</p>
+<blockquote><p>Dale Lane works as a developer for IBM. He started in 2003. Dale lives in the UK, in a town called Eastleigh. Before that, he was a student at the University of Bath.</p></blockquote>
+<p>A few lines of Javascript are enough to run that through the service. </p>
+<pre style="border: thin solid silver; background-color: #eeeeee; padding: 0.7em; font-size: 1.2em; overflow: auto;">var text = '';
+var watson = require('extract-relationships');
+watson.extract(text, function(err, response) {
+    // response has got all the info  
+});</pre>
+<p>The <a href="https://gist.github.com/dalelane/223500f2eae708fe34ef">full contents of <code>response</code></a> is in a gist if you want to see it, but I&#8217;ll show just a few examples here to give you the idea. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-01.jpg" alt='screenshot'/></p>
+<p>It has picked out all of the references to me, recognising that they are all describing a person, and that &#8216;developer&#8217; is my occupation. </p>
+<p>The &#8216;begin&#8217; and &#8216;end&#8217; numbers tell you where in the text each bit was found. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-02.jpg" alt='screenshot'/></p>
+<p>It&#8217;s picked out the reference to IBM, and recognised that this is a name of a commercial organisation. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-03.jpg" alt='screenshot'/></p>
+<p>It&#8217;s recognised that &#8216;2003&#8217; is a reference to a date. </p>
+<p>As well as identifying those entities and many others, it&#8217;s also picked out the relationships between them. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-04.jpg" alt='screenshot'/></p>
+<p>For example, it&#8217;s identified the relationship between me and IBM. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-05.jpg" alt='screenshot'/></p>
+<p>And the relationship between me and my old University. </p>
+<p>I&#8217;ve written a more <a href="https://github.com/dalelane/extract-relationships#interpreting-the-output">detailed breakdown of what is contained in the response</a> including how to find out what each of the fields mean, and what the different possible values for each one are. </p>
+<p>That&#8217;s the basics with a few input sentences. Next, we start throwing a lot of text at it. </p>
+<p>In about <a href="https://github.com/dalelane/extract-relationships/blob/master/examples/newspeople.js">thirty lines of Javascript</a>, you can download the text from a news story on the BBC News website, and pick out the names of all of the people mentioned in the story. </p>
+<p><script src="https://gist.github.com/dalelane/2571821221f177643d05.js"></script></p>
+<p>If you <a href="https://github.com/dalelane/extract-relationships/blob/master/examples/newspeople.js">run that simple example</a>, you get the <a href="https://github.com/dalelane/extract-relationships/blob/master/examples/newspeople.js#L94">list of people</a> that are included in the story text. </p>
+<p>Where it starts to get interesting is when you combine this with other sources and APIs. </p>
+<p>For example, once you&#8217;ve picked out the names of people from the story, try looking up their profiles on Wikipedia, and finding out who they are. </p>
+<p>Or, instead of people, pick out the names of places from news stories, and use a geocoding API to plot them on a map. (<em>There are geocoding services available on Bluemix, too, if that helps.</em>)</p>
+<p>Hopefully you can see how you could start to use this in your own apps. </p>
+<p>Finally, some practical points. </p>
+<p><strong>How do you <a href="https://www.npmjs.com/package/extract-relationships">install the package</a> I&#8217;ve shared so you can use it?</strong></p>
+<pre style="border: thin solid silver; background-color: #eeeeee; padding: 0.7em; font-size: 1.2em; overflow: auto;">npm install --save extract-relationships</pre>
+<p><strong>How do you configure it for the Watson Relationship Extraction Service?</strong></p>
+<p>The API we&#8217;re using is an authenticated service hosted in IBM Bluemix, so there is a tiny bit of config you need to do first before you can use it.</p>
+<p>If you&#8217;re <a href="https://github.com/dalelane/extract-relationships#bluemix">running your app in Bluemix</a>, then there isn&#8217;t much to do. Add the Relationship Extraction service to your app from the Bluemix dashboard, and the endpoint and credentials will automatically be provided and should just work. </p>
+<p>If you&#8217;re <a href="https://github.com/dalelane/extract-relationships#running-outside-bluemix">running your app on your own machine</a>, there are a couple of extra steps instead. </p>
+<p>Go to <a href="http://bluemix.net/">Bluemix</a>. Sign up for an account if you haven&#8217;t already got on</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-06.jpg" alt='screenshot'/></p>
+<p>From the dashboard, create an app. You need something as a placeholder to bind the Relationship Extraction service to, even if you don&#8217;t use it. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-07.jpg" alt='screenshot'/></p>
+<p>Create a web app and give it a name. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-08.jpg" alt='screenshot'/></p>
+<p>Add a service. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-09.jpg" alt='screenshot'/></p>
+<p>Choose the Relationship Extraction service from the group of Watson services. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-10.jpg" alt='screenshot'/></p>
+<p>Click on &#8216;Show Credentials&#8217;. Everything you need to configure your app is in here. You need the url, username and password. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150125-screenshot-11.jpg" alt='screenshot'/></p>
+<p>Copy this into an <a href="https://github.com/dalelane/extract-relationships#options">options object</a> like this:</p>
+<pre style="border: thin solid silver; background-color: #eeeeee; padding: 0.7em; font-size: 1.2em; overflow: auto;">var options = {
+    api : {
+        url : 'https://url.of.your.watson.service...',
+        user : 'your-watson-service-username',
+        pass : 'your-watson-service-password'
+    }
+};</pre>
+<p>To reiterate, this isn&#8217;t the username and password that you use to sign in to Bluemix. It&#8217;s the username and password specifically for this service that Bluemix has generated for your app. </p>
+<p>It&#8217;s not a good idea to hard-code passwords in your code, so I&#8217;d suggest putting them outside of your app and grabbing them in when needed. Environment variables are an easy way to do this, and are what I&#8217;ve done in <a href="https://github.com/dalelane/extract-relationships/tree/master/examples">the few samples I&#8217;ve written</a>. </p>
+<p>That&#8217;s all there is to it. </p>
+<p>I&#8217;ve put more info on <a href="https://github.com/dalelane/extract-relationships">github</a> with the <a href="https://github.com/dalelane/extract-relationships/blob/master/index.js">source for how I&#8217;m using the API</a>. </p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3272">"How to use the IBM Watson Relationship Extraction service on Bluemix"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3272">http://dalelane.co.uk/blog/?p=3272</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+	</channel>
+</rss>

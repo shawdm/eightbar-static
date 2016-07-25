@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Node-RED &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/category/node-red/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Node-RED Flows that make flows</title>
+		<link>http://eightbar.co.uk/2014/01/19/node-red-flows-that-make-flows/</link>
+		<pubDate>Sun, 19 Jan 2014 16:39:41 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Stanford-Clark]]></dc:creator>
+				<category><![CDATA[IBM Projects]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[Node-RED]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[hacking]]></category>
+		<category><![CDATA[MQTT]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1493</guid>
+		<description><![CDATA[Executive Summary When a mummy function node and a daddy function node love each other very much, the daddy node injects a payload into the mummy node through a wire between them, and a new baby message flow is made, &#8230; <a href="http://eightbar.co.uk/2014/01/19/node-red-flows-that-make-flows/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<h2>Executive Summary</h2>
+<p>When a mummy function node and a daddy function node love each other very much, the daddy node injects a payload into the mummy node through a wire between them, and a new baby message flow is made, which comes out of mummy&#8217;s output terminal. The baby&#8217;s name is Jason.</p>
+<h2>Where did this idea come from?</h2>
+<p>In <a title="Node-RED" href="http://nodered.org" target="_blank">Node-RED</a>, if you export some nodes to the clipboard, you will see the flow and its connections use a JSON wire format.</p>
+<p>For a few weeks I&#8217;ve been thinking about generating that JSON programmatically, in order to create flows which encode various input and output capabilities and functions, according to some input parameters which give the specific details of what the flow is to do.</p>
+<p>I think there&#8217;s been an alignment of planets that&#8217;s occurred, which led to this idea:</p>
+<p><a title="Stefan Kwiatkowski" href="http://twitter.com/stef_k_uk" target="_blank">@stef_k_uk</a> has been talking to me about deploying applications onto &#8220;slave&#8221; Raspberry Pis from a master Pi.</p>
+<p>Dritan Kaleshi and Terence Song from Bristol University have been discussing using the Node-RED GUI as a configurator tool for a system we&#8217;re working on together, and also we&#8217;ve been working on representing <a title="HyperCat" href="http://wiki.1248.io/doku.php?id=hypercat" target="_blank">HyperCat</a> catalogues in Node-RED, as part of our Technology Strategy Board Internet of Things project, <a title="IoT-Bay" href="http://iot-bay.org" target="_blank">IoT-Bay</a>.</p>
+<p><a title="James Macfarlane" href="http://twitter.com/rocketengines" target="_blank">@rocketengines</a> and I were cooking up cool ideas for cross-compiling Node-RED flows into other languages, a while back, and</p>
+<p>in a very productive ideas afternoon last week, <a title="Prof Jeremy Frey" href="http://twitter.com/profechem" target="_blank">@profechem</a> and I stumbled upon an idea for carrying the parser for a data stream along with the data itself, as part of its meta-data description.</p>
+<p>All of the above led me to think &#8220;wouldn&#8217;t it be cool if you could write a flow in Node-RED which produced as output another flow.&#8221; And for this week&#8217;s #ThinkFriday afternoon, I gave it a try.</p>
+<h2>First experiment</h2>
+<p>The first experiment was a flow which had an injector node feeding a JSON object of parameters into a flow which generated the JSON for an MQTT input node, a function node to process the incoming data in some way, and an MQTT output node. So it was the classic <em>subscribe &#8211; process &#8211; publish</em> pattern which occurs so often in our everday lives (if you live the kind of life that I do!).<br />
+<img class="aligncenter" alt="first Node-RED flow" src="http://stanford-clark.com/nodeRED/flow1.png" />And here&#8217;s the Node-RED flow which generates that: <a title="flow that makes a new flow" href="http://flows.nodered.org/flow/7887838b33139c673ad2" target="_blank">flow-generator</a></p>
+<p>So if you sent in<br />
+<code>{<br />
+"broker": "localhost",<br />
+"input": "source_topic",<br />
+"output": "destination_topic",<br />
+"process": "msg.payload = \"* \"+msg.payload+\" *\";\nreturn msg;"<br />
+}</code></p>
+<p>the resulting JSON would be the wire format for a three-node flow which has an MQTT input node subscribed to &#8220;<code>source_topic</code>&#8221; on the broker on &#8220;localhost&#8221;, a function node which applies a transformation to the data: in this case, wrapping it with an asterisk at each end, and finally an MQTT publish node sending it to &#8220;<code>destination_topic</code>&#8221; on &#8220;localhost&#8221;.<br />
+<strong>N.B.</strong> make sure you escape any double quotes in the &#8220;process&#8221; string, as shown above.</p>
+<p>The JSON appears in the debug window. If you highlight it, right-mouse &#8211; Copy, and then do Import from&#8230; Clipboard in Node-RED and ctrl-V the JSON into the text box and click OK, you get the three node flow described above ready to park on your Node-RED worksheet and then Deploy.<br />
+<img class="aligncenter" alt="the resulting " src="http://stanford-clark.com/nodeRED/flow4.png" />And it works!!</p>
+<h2>So what?</h2>
+<p>So far so cool. But what can we do with it?</p>
+<p>The next insight was that the configuration message (supplied by the injector) could come from somewhere else. An MQTT topic, for example. So now we have the ability for a data stream to be accompanied not only by meta-data describing what it is, but also have the code which parses it.<br />
+<img class="aligncenter" alt="flow with added MQTT configurator" src="http://stanford-clark.com/nodeRED/flow2.png" />My thinking is that if you subscribe to a data topic, say:<br />
+<code>andy/house/kitchen/temperature</code><br />
+there could be two additional topics, published &#8220;retained&#8221; so you get them when you first subscribe, and then any updates thereafter:</p>
+<p>A metadata topic which describes, in human and/or machine readable form, what the data is about, for example:<br />
+<code>andy/house/kitchen/temperature/meta</code> with content<br />
+&#8220;temperature in degrees Celcius in the kitchen at Andy&#8217;s house&#8221;</p>
+<p>And a parser topic which contains the code which enables the data to be parsed:<br />
+<code>andy/house/kitchen/temperature/parser</code> with content<br />
+&#8220;<code>msg.value = Math.round(msg.payload) + \" C\"; return msg;</code>&#8221;<br />
+(that&#8217;s probably a rubbish example of a useful parser, but it&#8217;s just for illustration!)</p>
+<p>If you&#8217;re storing your data in a <a title="HyperCat" href="http://wiki.1248.io/doku.php?id=hypercat" target="_blank">HyperCat</a> metadata catalogue (and you should think about doing so if you&#8217;re not &#8211; see <a title="Pilgrim Beart" href="http://twitter.com/pilgrimbeart" target="_blank">@pilgrimbeart</a>&#8216;s excellent <a title="HyperCat in 15 mins" href="http://www.slideshare.net/1248_io/hypercat-introduction-15-mins" target="_blank">HyperCat in 15 minutes presentation</a>), then the catalogue entry for the data point could include the URI of the parser function along with the other meta-data.</p>
+<h2>And then&#8230;</h2>
+<p>Now things get really interesting&#8230; what if we could deploy that flow we&#8217;ve created to a node.js run-time and set it running, as if we&#8217;d created the flow by hand in the Node-RED GUI and clicked &#8220;Deploy&#8221;?<br />
+Well we can!</p>
+<p>When you click Deploy, the Node-RED GUI does an HTTP POST to &#8220;<code>/flows</code>&#8221; in the node.js run-time that&#8217;s running the Node-RED server (red.js), and sends it the list of JSON objects which describe the flow that you&#8217;ve made.<br />
+So&#8230; if we hang an HTTP request node off the end of the flow which generates the JSON for our little flow, then it should look like a Deploy from a GUI.</p>
+<p>Et voila!<br />
+<img class="aligncenter" alt="flow that deploys to a remote Node-RED" src="http://stanford-clark.com/nodeRED/flow3.png" /><br />
+Note that you have to be careful not to nuke your flow-generating-flow by posting to your own Node-RED run-time! I am posting the JSON to Node-RED on my nearby Raspberry Pi. When you publish a configuration message to the configuration topic of this flow, the appropriate set of nodes is created &#8211; <em>input &#8211; process &#8211; output</em> &#8211; and then deployed to Node-RED on the Pi, which dutifully starts running the flow, subscribing to the specified topic, transforming the data according to the prescribed processing function, and publishing it to the specified output topic.</p>
+<p>I have to say, I think this is all rather exciting!</p>
+<p><a title="Andy Stanford-Clark" href="http://twitter.com/andysc" target="_blank">@andysc</a></p>
+<h3>Footnote:</h3>
+<p>It&#8217;s worth mentioning, that Node-RED generates unique IDs for nodes that look like &#8220;8cf45583.109bf8&#8221;. I&#8217;m not sure how it does that, so I went for a simple monotonically increasing number instead (1, 2 &#8230;). It seems to work fine, but there might be good reasons (which I&#8217;m sure <a title="Nick O'leary" href="http://twitter.com/knolleary" target="_blank">@knolleary</a> will tell me about) why I should do it the &#8220;proper&#8221; way.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>LastFM + IBM = IBM Rocks | eightbar</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/style.css" />
+<link rel="pingback" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Feed" href="https://eightbar.eu-gb.mybluemix.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Comments Feed" href="https://eightbar.eu-gb.mybluemix.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; LastFM + IBM = IBM Rocks Comments Feed" href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/eightbar.eu-gb.mybluemix.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='dark-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/colors/dark.css' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/css/jetpack.css?ver=3.3.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://eightbar.eu-gb.mybluemix.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://eightbar.eu-gb.mybluemix.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Virtual Worlds Forum Europe 2007' href='https://eightbar.eu-gb.mybluemix.net/2007/07/17/virtual-worlds-forum-europe-2007/' />
+<link rel='next' title='Virtual art is real too. Watch the World(s)' href='https://eightbar.eu-gb.mybluemix.net/2007/07/19/virtual-art-is-real-too-watch-the-worlds/' />
+<meta name="generator" content="WordPress 4.5.3" />
+<link rel='shortlink' href='http://wp.me/pBOPx-5Q' />
+<link rel="alternate" type="application/json+oembed" href="https://eightbar.eu-gb.mybluemix.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Feightbar.co.uk%2F2007%2F07%2F19%2Flastfm-ibm-ibm-rocks%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://eightbar.eu-gb.mybluemix.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Feightbar.co.uk%2F2007%2F07%2F19%2Flastfm-ibm-ibm-rocks%2F&#038;format=xml" />
+	<style>
+		/* Link color */
+		a,
+		#site-title a:focus,
+		#site-title a:hover,
+		#site-title a:active,
+		.entry-title a:hover,
+		.entry-title a:focus,
+		.entry-title a:active,
+		.widget_twentyeleven_ephemera .comments-link a:hover,
+		section.recent-posts .other-recent-posts a[rel="bookmark"]:hover,
+		section.recent-posts .other-recent-posts .comments-link a:hover,
+		.format-image footer.entry-meta a:hover,
+		#site-generator a:hover {
+			color: #b4d1f3;
+		}
+		section.recent-posts .other-recent-posts .comments-link a:hover {
+			border-color: #b4d1f3;
+		}
+		article.feature-image.small .entry-summary p a:hover,
+		.entry-header .comments-link a:hover,
+		.entry-header .comments-link a:focus,
+		.entry-header .comments-link a:active,
+		.feature-slider a.active {
+			background-color: #b4d1f3;
+		}
+	</style>
+
+<!-- All in One SEO Pack 2.2.4.1 by Michael Torbert of Semper Fi Web Design[355,397] -->
+<meta name="description"  content="Psssst! Ian's away on holiday and I can't see Roo, so I'm going to hijack eightbar and write about something none virtual worlds related. There's a" />
+
+<meta name="keywords"  content="technology" />
+
+<link rel="canonical" href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/" />
+<!-- /all in one seo pack -->
+	<style type="text/css">
+			#site-title,
+		#site-description {
+			position: absolute !important;
+			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+		</style>
+	<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #E3E3E3; }
+</style>
+</head>
+
+<body class="single single-post postid-362 single-format-standard custom-background singular two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="https://eightbar.eu-gb.mybluemix.net/" title="eightbar" rel="home">eightbar</a></span></h1>
+				<h2 id="site-description">Raising The Eight Bar</h2>
+			</hgroup>
+
+						<a href="https://eightbar.eu-gb.mybluemix.net/">
+									<img src="https://eightbar.eu-gb.mybluemix.net/wp-content/uploads/2012/02/eightbargrass.jpg" width="1000" height="288" alt="" />
+							</a>
+			
+							<div class="only-search with-image">
+					<form method="get" id="searchform" action="https://eightbar.eu-gb.mybluemix.net/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+				</div>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-eightbar-main-menu-container"><ul id="menu-eightbar-main-menu" class="menu"><li id="menu-item-1192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1192"><a href="https://eightbar.eu-gb.mybluemix.net/">Home</a></li>
+<li id="menu-item-1193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1193"><a href="https://eightbar.eu-gb.mybluemix.net/about/">About</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="https://eightbar.eu-gb.mybluemix.net/2007/07/17/virtual-worlds-forum-europe-2007/" rel="prev"><span class="meta-nav">&larr;</span> Previous</a></span>
+						<span class="nav-next"><a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/virtual-art-is-real-too-watch-the-worlds/" rel="next">Next <span class="meta-nav">&rarr;</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-362" class="post-362 post type-post status-publish format-standard hentry category-technology">
+	<header class="entry-header">
+		<h1 class="entry-title">LastFM + IBM = IBM Rocks</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/" title="09:10" rel="bookmark"><time class="entry-date" datetime="2007-07-19T09:10:42+00:00">July 19, 2007</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/darrenshaw/" title="View all posts by Darren Shaw" rel="author">Darren Shaw</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>Psssst!  Ian&#8217;s away on holiday and I can&#8217;t see Roo, so I&#8217;m going to hijack eightbar and write about something none virtual worlds related.</p>
+<p>There&#8217;s a competition running inside IBM at the moment, it&#8217;s to develop a situational application (mashup) using some of the data feeds available on our Intranet.  Lots of people here listen to music while they work and being a nerdy population, they also tend to use <a href="http://www.last.fm">LastFM</a>.  So why not show the music that&#8217;s being listened to at different IBM sites across the world? That&#8217;s what <a href="http://ibmrocks.mytoycode.com/">IBM Rocks</a> does.</p>
+<p><a href="http://ibmrocks.mytoycode.com/"><img src='https://eightbar.eu-gb.mybluemix.net/wp-content/ibmrocks.jpg' alt='IBM Rocks' /></a></p>
+<p>It takes feeds from our internal directory system (bluepages) and our site location database (RESO) , merges them with <a href="http://www.last.fm">LastFM</a> feeds and displays them on a <a href="http://freeearth.poly9.com/">Poly9</a> 3D earth.  Pretty simple really, not much business value (so we wont win the competition), but it looks pretty.</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-362" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-362" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-362" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-362" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a> by <a href="https://eightbar.eu-gb.mybluemix.net/author/darrenshaw/">Darren Shaw</a>. Bookmark the <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/" title="Permalink to LastFM + IBM = IBM Rocks" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-362 -->
+						<div id="comments">
+	
+	
+			<h2 id="comments-title">
+			16 thoughts on &ldquo;<span>LastFM + IBM = IBM Rocks</span>&rdquo;		</h2>
+
+		
+		<ol class="commentlist">
+				<li class="comment byuser comment-author-roo even thread-even depth-1" id="li-comment-131328">
+		<article id="comment-131328" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/41565acfd46c69765dcc03da170a4ff5?s=68&#038;d=retro&#038;r=g' srcset='http://1.gravatar.com/avatar/41565acfd46c69765dcc03da170a4ff5?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://rooreynolds.com/about' rel='external nofollow' class='url'>Roo</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-131328"><time datetime="2007-07-19T10:04:12+00:00">July 19, 2007 at 10:04</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>It&#8217;s always refreshing to have non-virtual worlds posts (reminds me of the early days of Eightbar.. ahh, the nostalgia), but especially when they&#8217;re as fun as this. Great stuff Darren!</p>
+<p>You realise I&#8217;m going to have to listen to a lot more music now so that my musical tastes are reflected in Hursley&#8217;s playlist. I see someone in Hursley is listening to Frou Frou this morning though, which is a good start. 🙂</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-darrenshaw bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-131329">
+		<article id="comment-131329" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/27bfccc752af06878f9d38e678fdc265?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/27bfccc752af06878f9d38e678fdc265?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='https://eightbar.eu-gb.mybluemix.net/about/darrenshaw/' rel='external nofollow' class='url'>Darren Shaw</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-131329"><time datetime="2007-07-19T10:05:03+00:00">July 19, 2007 at 10:05</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>That was Gareth, but I also listen to Frou Frou too. 🙂</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-131383">
+		<article id="comment-131383" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/7525f4bf3aeeae56a11219a239bbc06c?s=68&#038;d=retro&#038;r=g' srcset='http://1.gravatar.com/avatar/7525f4bf3aeeae56a11219a239bbc06c?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">wade</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-131383"><time datetime="2007-07-19T14:47:48+00:00">July 19, 2007 at 14:47</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Click on most any US site and you see fairly recognizable stuff: Eagles, LedZep, Bjork&#8230; then click on the Cambridge site. Huh?!?     🙂</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-132217">
+		<article id="comment-132217" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/a5081579e7882bbc1e94462656ff657a?s=68&#038;d=retro&#038;r=g' srcset='http://1.gravatar.com/avatar/a5081579e7882bbc1e94462656ff657a?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Robin Fernandes</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-132217"><time datetime="2007-07-23T14:31:28+00:00">July 23, 2007 at 14:31</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>How do you figure out which last.fm users to track? It doesn&#8217;t seem to be picking up my songs at the mo&#8217; (<a href="http://www.last.fm/user/rewbs/" rel="nofollow">http://www.last.fm/user/rewbs/</a>).</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-darrenshaw bypostauthor even thread-even depth-1" id="li-comment-132230">
+		<article id="comment-132230" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/27bfccc752af06878f9d38e678fdc265?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/27bfccc752af06878f9d38e678fdc265?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='https://eightbar.eu-gb.mybluemix.net/about/darrenshaw/' rel='external nofollow' class='url'>Darren Shaw</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-132230"><time datetime="2007-07-23T16:10:35+00:00">July 23, 2007 at 16:10</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Robin, you need to signup on the internal version if you haven&#8217;t already done so.  I need to manually transfer the users over periodically.  If you haven&#8217;t signed up, go to <a href="http://ibmrocks.bluehost.ibm.com/ibmrocks/index.php" rel="nofollow">http://ibmrocks.bluehost.ibm.com/ibmrocks/index.php</a> and then click on join.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-132255">
+		<article id="comment-132255" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/cef8e3d8700011540fd3a3cbee765f9d?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/cef8e3d8700011540fd3a3cbee765f9d?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://davidjsmitty.com' rel='external nofollow' class='url'>David J Smith</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-132255"><time datetime="2007-07-23T19:26:21+00:00">July 23, 2007 at 19:26</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>This is great!  🙂  Thanks for sharing this.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-132443">
+		<article id="comment-132443" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/a5081579e7882bbc1e94462656ff657a?s=68&#038;d=retro&#038;r=g' srcset='http://1.gravatar.com/avatar/a5081579e7882bbc1e94462656ff657a?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Robin Fernandes</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-132443"><time datetime="2007-07-24T12:41:34+00:00">July 24, 2007 at 12:41</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Brilliant &#8211; thanks Darren!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-134517">
+		<article id="comment-134517" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/14918cf08bc31e575058ac221b153ca9?s=68&#038;d=retro&#038;r=g' srcset='http://1.gravatar.com/avatar/14918cf08bc31e575058ac221b153ca9?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.rygh.no' rel='external nofollow' class='url'>Nicolai Rygh // Kolya Oh</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-134517"><time datetime="2007-07-30T21:44:14+00:00">July 30, 2007 at 21:44</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I have used it since you posted it here on Eightbar, but it looks like it doesn&#8217;t pick up every track played (or in the RSS feed from last.fm). Maybe you could post something about how it works  &#8211; in more detail.</p>
+<p>But it is nice!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-140896">
+		<article id="comment-140896" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/3aa18c8e2ce8d5c3d10ee5b5abda16b5?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/3aa18c8e2ce8d5c3d10ee5b5abda16b5?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://ninepointzero.wordpress.com' rel='external nofollow' class='url'>Adarsh Prabhu</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-140896"><time datetime="2007-08-18T05:01:34+00:00">August 18, 2007 at 05:01</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>How very interesting.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-141732">
+		<article id="comment-141732" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/481e25e1653bb637b4c2c16e7a03db10?s=68&#038;d=retro&#038;r=g' srcset='http://1.gravatar.com/avatar/481e25e1653bb637b4c2c16e7a03db10?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.last.fm/user/Ullic/' rel='external nofollow' class='url'>Rich Savarie</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-141732"><time datetime="2007-08-20T22:51:33+00:00">August 20, 2007 at 22:51</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Very cool! I signed up earlier today and I couldn&#8217;t help but keep checking the global stats throughout the day to see what other IBMers were listening to. There goes my productivity rate! 😉</p>
+<p>FYI: There&#8217;s also a Last.FM group for IBMers called &#8220;IBM Rockers&#8221; &#8211; Join up! 😀</p>
+<p><a href="http://www.last.fm/group/IBM+Rockers" rel="nofollow">http://www.last.fm/group/IBM+Rockers</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href='http://blogs.ittoolbox.com/km/elsua/archives/virtual-worlds-for-corporate-collaboration-by-roo-reynolds-19114' rel='external nofollow' class='url'>elsua: The Knowledge Management Blog</a></p>
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href='http://sweetsecondlife.com/more-art-in-virtual-worlds-am-radio-rocks/' rel='external nofollow' class='url'>Sweet Second Life - Today&#8217;s Top Blog Posts on Second Life - Powered by SocialRank</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-241215">
+		<article id="comment-241215" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/8836c877d5d3ae3e8410bfabd72b6241?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/8836c877d5d3ae3e8410bfabd72b6241?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http:megan-nevrmind.blogspot.com' rel='external nofollow' class='url'>Silvia</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-241215"><time datetime="2008-11-23T04:33:11+00:00">November 23, 2008 at 04:33</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I feel very fine lstening music its my life!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-241326">
+		<article id="comment-241326" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/feec1675c304dcb500888c8f74ac0e18?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/feec1675c304dcb500888c8f74ac0e18?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.aspirarinspirar.blogspot.com' rel='external nofollow' class='url'>Mariana</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-241326"><time datetime="2008-12-19T14:23:23+00:00">December 19, 2008 at 14:23</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Great idea. I&#8217;m a new IBMer and just love to find this. Now I feel better listening music here (and installing last.fm plugin). 😉<br />
+But, why doesn&#8217;t this version here <a href="http://ibmrocks.mytoycode.com/" rel="nofollow">http://ibmrocks.mytoycode.com/</a> show just one IBM site in Brazil? I wanna know what people is listening here, what are the most popular tracks&#8230;</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-241435">
+		<article id="comment-241435" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/e8e190f6b8cbf70149d353eb1acf3809?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/e8e190f6b8cbf70149d353eb1acf3809?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://lastfm' rel='external nofollow' class='url'>alex0407</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-241435"><time datetime="2009-01-15T00:37:40+00:00">January 15, 2009 at 00:37</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>es una idea genial, grandioso amazing</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-242490">
+		<article id="comment-242490" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/b42c6f0407ac0d8e37036c1cbd6943e3?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/b42c6f0407ac0d8e37036c1cbd6943e3?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Papagenaa</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/#comment-242490"><time datetime="2009-10-09T15:22:26+00:00">October 9, 2009 at 15:22</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>=O</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+				<p class="nocomments">Comments are closed.</p>
+		
+	
+	
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+	<div style="display:none">
+	<div class="grofile-hash-map-41565acfd46c69765dcc03da170a4ff5">
+	</div>
+	<div class="grofile-hash-map-27bfccc752af06878f9d38e678fdc265">
+	</div>
+	<div class="grofile-hash-map-7525f4bf3aeeae56a11219a239bbc06c">
+	</div>
+	<div class="grofile-hash-map-a5081579e7882bbc1e94462656ff657a">
+	</div>
+	<div class="grofile-hash-map-cef8e3d8700011540fd3a3cbee765f9d">
+	</div>
+	<div class="grofile-hash-map-14918cf08bc31e575058ac221b153ca9">
+	</div>
+	<div class="grofile-hash-map-3aa18c8e2ce8d5c3d10ee5b5abda16b5">
+	</div>
+	<div class="grofile-hash-map-481e25e1653bb637b4c2c16e7a03db10">
+	</div>
+	<div class="grofile-hash-map-8836c877d5d3ae3e8410bfabd72b6241">
+	</div>
+	<div class="grofile-hash-map-feec1675c304dcb500888c8f74ac0e18">
+	</div>
+	<div class="grofile-hash-map-e8e190f6b8cbf70149d353eb1acf3809">
+	</div>
+	<div class="grofile-hash-map-b42c6f0407ac0d8e37036c1cbd6943e3">
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"https:\/\/eightbar.eu-gb.mybluemix.net\/2007\/07\/19\/lastfm-ibm-ibm-rocks\/":362}	</script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+			<div id="sharing_email" style="display: none;">
+		<form action="https://eightbar.eu-gb.mybluemix.net/2007/07/19/lastfm-ibm-ibm-rocks/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="" />
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="" />
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="" />
+
+			
+			
+			<img style="float: right; display: none" class="loading" src="https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/images/loading.gif" alt="loading" width="16" height="16" />
+			<input type="submit" value="Send Email" class="sharing_send" />
+			<a href="#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-linkedin' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+		<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/comment-reply.min.js?ver=4.5.3'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201630'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2016Julaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.5.3'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/wp-embed.min.js?ver=4.5.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/sharing.js?ver=3.3.3'></script>
+
+	<script src="http://stats.wp.com/e-201630.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:3.3.3',blog:'9013531',post:'362',tz:'1'});
+	var load_cmc = function(){linktracker_init(9013531,362,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+</body>
+</html>

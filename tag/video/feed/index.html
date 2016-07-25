@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>video &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/video/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>MQTT powered video wall</title>
+		<link>http://eightbar.co.uk/2011/09/16/mqtt-powered-video-wall/</link>
+		<pubDate>Fri, 16 Sep 2011 10:20:22 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[IBM Projects]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[arduino]]></category>
+		<category><![CDATA[ETS]]></category>
+		<category><![CDATA[IBM Forum]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[South Bank]]></category>
+		<category><![CDATA[video]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1065</guid>
+		<description><![CDATA[Scaling things up a little from my first eightbar post. This was one of those projects that just sort of &#8220;turned up&#8221;. About 3 weeks ago one of the managers for the ETS department in Hursley got a call from &#8230; <a href="http://eightbar.co.uk/2011/09/16/mqtt-powered-video-wall/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Scaling things up a little from <a href="http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/">my first eightbar post</a>.</p>
+<p>This was one of those projects that just sort of &#8220;turned up&#8221;. About 3 weeks ago one of the managers for the ETS department in Hursley got a call from the team building the new IBM Forum in <a href="http://www-05.ibm.com/uk/locations/sbnk.html">IBM South Bank</a>. IBM Forums are locations where IBM can showcase technologies and solutions for customers. The team were looking for a way to control a video wall and a projector to make them show specific videos on request. The requests will come from pedestals known as &#8220;provokers&#8221;, each having a perspex dome holding a thought-provoking item. The initial suggestions had been incredibility expensive and we were asked if we could come up with a solution.</p>
+<p><a title="Provoker by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/6150090094/"><img src="http://farm7.static.flickr.com/6080/6150090094_170bde8686.jpg" alt="Provoker" width="299" height="500" /></a></p>
+<p>The provokers have access to power and an Ethernet connection. Taking all that into account a few ideas came to mind but the best seamed to be an Arduino board with Ethernet support and a button/sensor to trigger the video. There is a relatively new arduino board available that has a <a href="http://arduino.cc/en/Main/ArduinoBoardEthernet">built in Ethernet</a> shield which seemed perfect for this project. Also, since a number of the items in the provokers would be related to IBM&#8217;s Smarter Planet initiative, it made sense to use <a href="http://mqtt.org">MQTT</a> as a messaging layer as this has been used to implement a number of solutions in this space.</p>
+<p><a href="http://knolleary.net/">Nick O&#8217;Leary</a> was enlisted to put together the hardware and also the sketch for the Arduino as he had already written a <a href="http://knolleary.net/arduino-client-for-mqtt/">MQTT client for Arduino</a> in the past.</p>
+<p>Each provoker will publish a message containing a playload of &#8220;play&#8221; to a topic like</p>
+<p><em>provoker/{n}/action</em></p>
+<p>Where &#8216;{n}&#8217; is the unique number identifying which of the 6 provokers sent the message.</p>
+<p>To provide some feedback to the guest that pressed the button, the LED has been made to pulse while one of the provoker-specific videos is playing. This is controlled by each provoker subscribing to the following topic</p>
+<p><em>provoker/{n}/ack</em></p>
+<p>Sending &#8220;play&#8221; to this topic causes the LED pluse, sending &#8220;stop&#8221; turns the LED solid again.</p>
+<p>The video wall will be driven by software called Scala InfoChannel which has a scripting interface supporting (among other things) Python. So a short script to subscribe to the &#8216;action&#8217; topics and to publish on on the &#8216;ack&#8217; got the videos changing on demand.</p>
+<p>And sat in the middle is an instance of the <a href="https://www.ibm.com/developerworks/community/groups/service/html/communityview?communityUuid=d5bedadd-e46f-4c97-af89-22d65ffee070">Really Small Message Broker</a> to tie everything together.</p>
+<p><a title="Arduino in a box by knolleary, on Flickr" href="http://www.flickr.com/photos/knolleary/6123416370/"><img src="http://farm7.static.flickr.com/6185/6123416370_ba88cde8ee.jpg" alt="Arduino in a box" width="500" height="299" /></a></p>
+<p>This was also the perfect place to use some of <a href="http://www.flickr.com/photos/hardillb/6127193305/in/photostream">my new &#8220;MQTT Inside&#8221; stickers</a>.</p>
+<p><a title="First sticker deployed by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/6143434166/"><img src="http://farm7.static.flickr.com/6189/6143434166_4cf426ac18.jpg" alt="First sticker deployed" width="299" height="500" /></a></p>
+<p>This project only used one of the digital channels (for the button) and one of the analogue channels (for the LED) available on the Arduino &#8211; which leaves a lot of room for expansion for these type of devices. I can see them being used for future projects.</p>
+<p><strong>Parts list</strong></p>
+<ol>
+<li>Arduino Ethernet</li>
+<li>Blue LED Illuminated Button</li>
+<li>A single resistor to protect the LED</li>
+<li>9v power supply</li>
+<li>Sparkfun Case</li>
+</ol>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

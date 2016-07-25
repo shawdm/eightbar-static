@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>hackday &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/hackday/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Watson News Companion</title>
+		<link>http://eightbar.co.uk/2014/12/12/watson-news-companion/</link>
+		<pubDate>Fri, 12 Dec 2014 16:52:31 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[hack]]></category>
+		<category><![CDATA[hackday]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[watson]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3261</guid>
+		<description><![CDATA[We recently ran a hackathon at work: people within IBM were invited to try building a mobile app aimed at consumers using Watson services. It was a fun chance to try out some new ideas, as well as to build something using our APIs &#8211; dogfooding is always a good thing. I worked on a [&#8230;] <a href="http://eightbar.co.uk/2014/12/12/watson-news-companion/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><a href="https://www.flickr.com/photos/dalelane/16004789072" title="screenshot on Flickr"><img align="right" hspace=10 vspace=10 src="https://farm9.staticflickr.com/8613/16004789072_c4beb842c3_n.jpg" width="183" height="320" alt="newscompanion screenshot"/></a>We recently ran a hackathon at work: people within IBM were invited to try building a mobile app aimed at consumers using <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/services-catalog.html">Watson services</a>. It was a fun chance to try out some new ideas, as well as to build something using our APIs &#8211; dogfooding is always a good thing. </p>
+<p>I worked on a hack with <a href="https://twitter.com/davidgeorgeuk">David</a> which we submitted on Wednesday. This is what we came up with, and how we built it. </p>
+<p><strong>The idea</strong></p>
+<p>A mobile app that will help users to digest the news by explaining references in stories and providing greater context. </p>
+<p><strong>Background</strong></p>
+<p>It&#8217;s difficult to find the time nowadays to properly read and understand what&#8217;s going on in the world. We rarely have the time to sit and read through a newspaper. Instead, we might quickly read news stories online from our smartphones and tablets. But that often makes it difficult to understand the broader context that a story is in. There might be references in the story to people, places, organisations or events that are unfamiliar. </p>
+<p>Watson could help. It could be an assistant as you read the news, explaining unfamiliar references and the broader context. </p>
+<p><strong>Features</strong></p>
+<p>Our Watson News Companion demo is a mobile news reader app that:</p>
+<ul>
+<li>anticipates questions and suggests areas where it can help improve understanding
+</li>
+<li>provides answers to questions without needing the users to lose their place in the story
+</li>
+<li>allow the user to dig deeper with their own follow-up questions
+</li>
+</ul>
+<p><iframe width="450" height="253" src="http://www.youtube.com/embed/vBCz31arNxw?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="http://youtu.be/vBCz31arNxw">A video walkthrough of the hack</a></small></p>
+<p><strong>Implementation</strong></p>
+<p>The hack was built as a mobile web app using the <a href="http://mean.io/">MEAN stack</a>: using <a href="http://expressjs.com/">express</a> as the framework on a <a href="http://nodejs.org/">Node.js</a> platform, storing some information in a <a href="http://www.mongodb.org/">MongoDB</a> and building the UI with <a href="https://angularjs.org/">AngularJS</a>. </p>
+<p>It uses RSS feeds from news websites to fetch content, which are shown in a simple newsreader app built using <a href="http://goratchet.com/">Ratchet</a>. </p>
+<p>The contents of the story is run through the <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/relationship-extraction.html">Watson Relationship Extraction API</a> to pick out the people, places, organisations, and other entities mentioned in the story. </p>
+<p>The <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/sireapi/#exampleOutput">API output</a> includes co-references, to identify the multiple mentions of the same entity. These are combined and reviewed, and together with the type of the entity are used to generate likely questions about the entity. </p>
+<p>These questions are sent to the <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/question-answer.html">Watson Question and Answer API</a>. For questions which are returned with answers with a high confidence, annotations are added inline to the news story. Pressing the annotation brings up a sliding panel at the bottom of the screen with the answer to the question. The links and footer annotations are built using <a href="http://www.bigfootjs.com/">bigfoot</a>.</p>
+<p>Every screen in the app also includes an &#8220;Ask Watson&#8221; button which lets the user enters any free text question to let them dig deeper into what they&#8217;ve read. </p>
+<p><strong>Could you build this?</strong></p>
+<p>This was a proof-of-concept built in a hurry, so we&#8217;re not calling this a finished app. But everything we used is freely available &#8211; both to people inside IBM and the public. </p>
+<p>We developed on an instance of Bluemix (our <a href="http://www.cloudfoundry.org/">Cloud Foundry</a>-based development platform) available internally within IBM. You can sign up for free to a public instance of Bluemix at <a href="http://bluemix.net/">bluemix.net</a>. </p>
+<p>The technologies used to build the hack are all freely available : Node.js, MongoDB, AngularJS, Ratchet, bigfoot, jQuery.</p>
+<p>A beta version of the Watson Relationship Extraction API is <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/getstarted.html">freely available for apps hosted on Bluemix</a>.</p>
+<p>A beta version of the Watson Question and Answer API is freely available for apps hosted on Bluemix. But this is a <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/qaapi/">demo instance of Watson</a> that has only read a small number of general healthcare documents. That&#8217;s not a useful corpus for our hack, so to record our demo we stood up our own instance &#8211; using an untrained instance of Watson which we gave a small subset of Wikipedia to read. We used the Question and Answer API on this instance instead of the Bluemix one. For people outside IBM to do this, they need to sign up to join the <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/ecosystem.html">Watson Ecosystem</a>. This is also free, but there are criteria for who is eligible at this point, and an application process to go through. </p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3261">"Watson News Companion"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3261">http://dalelane.co.uk/blog/?p=3261</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Recent hacktivity</title>
+		<link>http://eightbar.co.uk/2012/10/14/recent-hacktivity-2/</link>
+		<pubDate>Sun, 14 Oct 2012 22:00:56 +0000</pubDate>
+		<dc:creator><![CDATA[James Taylor]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[Planet]]></category>
+		<category><![CDATA[555 timer]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[hackday]]></category>
+		<category><![CDATA[hackday-x]]></category>
+		<category><![CDATA[hackdayx]]></category>
+		<category><![CDATA[hurhackx]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[Life, the Universe, and Everything]]></category>
+		<category><![CDATA[lotus connections]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[social business]]></category>
+		<category><![CDATA[southackton]]></category>
+		<category><![CDATA[Southampton]]></category>
+		<category><![CDATA[zOS]]></category>
+
+		<guid isPermaLink="false">http://jtlog.wordpress.com/?p=2085</guid>
+		<description><![CDATA[This time of year seems to be hacking season and over the last few days I&#8217;ve been along to two hackdays! Friday was IBM&#8217;s internal Social Business Hackday. There was some MQTT hacking, a z/OS hack, hacks with Lotus Connections, &#8230; <a href="https://jtlog.wordpress.com/2012/10/14/recent-hacktivity/">Continue reading <span>&#8594;</span></a><img alt="" border="0" src="https://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#38;blog=1751515&#38;post=2085&#38;subd=jtlog&#38;ref=&#38;feed=1" width="1" height="1"/> <a href="http://eightbar.co.uk/2012/10/14/recent-hacktivity-2/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>This time of year seems to be hacking season and over the last few days I&#8217;ve been along to two <a href="http://subdigit.com/blog/hackday-explained/">hackdays</a>!</p>
+<p>Friday was <a href="http://www.brianodonovan.ie/2012/08/hacking-becomes-mainstream-in-ibm.html">IBM&#8217;s internal Social Business Hackday</a>. There was some MQTT hacking, a <a href="https://www.ibm.com/developerworks/mydeveloperworks/blogs/MartinPacker/entry/hackday_x_batch_analytics_baby_steps42">z/OS hack</a>, hacks with Lotus Connections, hacks that could be the future of Lotus Connections, and I was attempting to hack a work around for a <a href="https://jazz.net/jazz/web/projects/Jazz%20Foundation#action=com.ibm.team.workitem.viewWorkItem&amp;id=216492">Jazz work item</a>. And that was just at the Hursley local event! We were able to link up with a few other labs, but over two days there were IBMers hacking around the globe. There are going to be a lot of amazing projects to choose from when it comes to voting.</p>
+<p><a href="https://jtlog.files.wordpress.com/2012/10/webcams.png"><img class="alignnone size-medium wp-image-2086" title="webcams" alt="" src="https://jtlog.files.wordpress.com/2012/10/webcams.png?w=300&#038;h=164" height="164" width="300" /></a></p>
+<p>(There are a few more photos from HackDay X, and previous hackdays, on the <a href="http://www.flickr.com/groups/hackday_ibm/">IBM hackday group on flickr</a>.)</p>
+<p>For round two, today was the <a href="http://southackton.org.uk/2012/09/19/hack-day/">soutHACKton hack day</a>. By the time I arrived the soldering and drilling had already begun!! Unfortunately I wasn&#8217;t able to stay long so I&#8217;m hoping there&#8217;ll me more of these in the future. I did just about have time to try out an idea I had to hack an old doorbell to sense people using the door knocker. A while ago I had accidentally created a touch sensor with a 555 timer while <a href="https://jtlog.wordpress.com/2009/06/22/my-first-currentcost-development-board-circuit/">attempting to build another circuit</a>. So my cunning plan was to deliberately create a <a href="http://fritzing.org/projects/digital-input-555-touch-switch/">555 touch switch</a> and connect it to the bolt on the inside of the front door. Unfortunately the best I could manage today was a two wire touch sensor, which isn&#8217;t going to work. At least not without leaving a wire hanging out of the letter box with some instructions attached! Unless someone who knows more about electronics can suggest a plan B, I may just resort to a boring doorbell button instead!!</p><br />  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/jtlog.wordpress.com/2085/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/jtlog.wordpress.com/2085/" /></a> <img alt="" border="0" src="https://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#038;blog=1751515&%23038;post=2085&%23038;subd=jtlog&%23038;ref=&%23038;feed=1" width="1" height="1" />]]></content:encoded>
+	<enclosure url="https://1.gravatar.com/avatar/74c39fd4d2c3b09efbea8c5db637c57c?s=96&amp;amp;d=identicon" length="" type="" />
+<enclosure url="https://jtlog.files.wordpress.com/2012/10/webcams.png?w=300" length="" type="" />
+		</item>
+		<item>
+		<title>Recent hacktivity</title>
+		<link>http://eightbar.co.uk/2012/10/14/recent-hacktivity/</link>
+		<pubDate>Sun, 14 Oct 2012 22:00:56 +0000</pubDate>
+		<dc:creator><![CDATA[James Taylor]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[Planet]]></category>
+		<category><![CDATA[555 timer]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[hackday]]></category>
+		<category><![CDATA[hackday-x]]></category>
+		<category><![CDATA[hackdayx]]></category>
+		<category><![CDATA[hurhackx]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[Life, the Universe, and Everything]]></category>
+		<category><![CDATA[lotus connections]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[social business]]></category>
+		<category><![CDATA[southackton]]></category>
+		<category><![CDATA[Southampton]]></category>
+		<category><![CDATA[zOS]]></category>
+
+		<guid isPermaLink="false">http://jtlog.wordpress.com/?p=2085</guid>
+		<description><![CDATA[This time of year seems to be hacking season and over the last few days I&#8217;ve been along to two hackdays! Friday was IBM&#8217;s internal Social Business Hackday. There was some MQTT hacking, a z/OS hack, hacks with Lotus Connections, &#8230; <a href="http://jtlog.wordpress.com/2012/10/14/recent-hacktivity/">Continue reading <span>&#8594;</span></a><img alt="" border="0" src="http://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#38;blog=1751515&#38;post=2085&#38;subd=jtlog&#38;ref=&#38;feed=1" width="1" height="1"/> <a href="http://eightbar.co.uk/2012/10/14/recent-hacktivity/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>This time of year seems to be hacking season and over the last few days I&#8217;ve been along to two <a href="http://subdigit.com/blog/hackday-explained/">hackdays</a>!</p>
+<p>Friday was <a href="http://www.brianodonovan.ie/2012/08/hacking-becomes-mainstream-in-ibm.html">IBM&#8217;s internal Social Business Hackday</a>. There was some MQTT hacking, a <a href="https://www.ibm.com/developerworks/mydeveloperworks/blogs/MartinPacker/entry/hackday_x_batch_analytics_baby_steps42">z/OS hack</a>, hacks with Lotus Connections, hacks that could be the future of Lotus Connections, and I was attempting to hack a work around for a <a href="https://jazz.net/jazz/web/projects/Jazz%20Foundation#action=com.ibm.team.workitem.viewWorkItem&amp;id=216492">Jazz work item</a>. And that was just at the Hursley local event! We were able to link up with a few other labs, but over two days there were IBMers hacking around the globe. There are going to be a lot of amazing projects to choose from when it comes to voting.</p>
+<p><a href="http://jtlog.files.wordpress.com/2012/10/webcams.png"><img class="alignnone size-medium wp-image-2086" title="webcams" alt="" src="http://jtlog.files.wordpress.com/2012/10/webcams.png?w=300&#038;h=164" height="164" width="300" /></a></p>
+<p>(There are a few more photos from HackDay X, and previous hackdays, on the <a href="http://www.flickr.com/groups/hackday_ibm/">IBM hackday group on flickr</a>.)</p>
+<p>For round two, today was the <a href="http://southackton.org.uk/2012/09/19/hack-day/">soutHACKton hack day</a>. By the time I arrived the soldering and drilling had already begun!! Unfortunately I wasn&#8217;t able to stay long so I&#8217;m hoping there&#8217;ll me more of these in the future. I did just about have time to try out an idea I had to hack an old doorbell to sense people using the door knocker. A while ago I had accidentally created a touch sensor with a 555 timer while <a href="http://jtlog.wordpress.com/2009/06/22/my-first-currentcost-development-board-circuit/">attempting to build another circuit</a>. So my cunning plan was to deliberately create a <a href="http://fritzing.org/projects/digital-input-555-touch-switch/">555 touch switch</a> and connect it to the bolt on the inside of the front door. Unfortunately the best I could manage today was a two wire touch sensor, which isn&#8217;t going to work. At least not without leaving a wire hanging out of the letter box with some instructions attached! Unless someone who knows more about electronics can suggest a plan B, I may just resort to a boring doorbell button instead!!</p><br />  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/jtlog.wordpress.com/2085/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/jtlog.wordpress.com/2085/" /></a> <img alt="" border="0" src="http://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#038;blog=1751515&%23038;post=2085&%23038;subd=jtlog&%23038;ref=&%23038;feed=1" width="1" height="1" />]]></content:encoded>
+	<enclosure url="http://1.gravatar.com/avatar/74c39fd4d2c3b09efbea8c5db637c57c?s=96&amp;amp;d=identicon" length="" type="" />
+<enclosure url="http://jtlog.files.wordpress.com/2012/10/webcams.png?w=300" length="" type="" />
+		</item>
+	</channel>
+</rss>

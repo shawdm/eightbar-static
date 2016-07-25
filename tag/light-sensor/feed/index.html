@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>light sensor &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/light-sensor/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>MQTT Joggler</title>
+		<link>http://eightbar.co.uk/2013/02/07/mqtt-joggler/</link>
+		<pubDate>Thu, 07 Feb 2013 09:44:09 +0000</pubDate>
+		<dc:creator><![CDATA[James Taylor]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[Eclipse]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[home automation]]></category>
+		<category><![CDATA[Joggler]]></category>
+		<category><![CDATA[light sensor]]></category>
+		<category><![CDATA[mosquitto]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[O2 Joggler]]></category>
+		<category><![CDATA[Ones and Zeros]]></category>
+		<category><![CDATA[Paho]]></category>
+		<category><![CDATA[pubsub]]></category>
+		<category><![CDATA[sensor]]></category>
+		<category><![CDATA[SqueezePlay OS]]></category>
+
+		<guid isPermaLink="false">http://jtlog.wordpress.com/?p=2171</guid>
+		<description><![CDATA[Spurred on by the success of getting Mosquitto working on a Raspberry Pi, I recently had a play with MQTT on the Joggler. The O2 Joggler is still a great device for hacking&#160;and I currently have SqeezePlay OS&#160;running on it. &#8230; <a href="http://jtlog.wordpress.com/2013/02/07/mqtt-joggler/">Continue reading <span>&#8594;</span></a><img alt="" border="0" src="http://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#38;blog=1751515&#38;post=2171&#38;subd=jtlog&#38;ref=&#38;feed=1" width="1" height="1"/> <a href="http://eightbar.co.uk/2013/02/07/mqtt-joggler/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Spurred on by the success of <a href="http://jtlog.wordpress.com/2013/01/04/raspberry-pi-mosquitto/">getting Mosquitto working on a Raspberry Pi</a>, I recently had a play with MQTT on the Joggler. The <a href="http://www.jogglerwiki.com/wiki/Main_Page">O2 Joggler is still a great device for hacking</a> and I currently have <a href="http://birdslikewires.co.uk/articles/squeezeplay-os">SqeezePlay OS</a> running on it.</p>
+<p>The reason I wanted to try and get MQTT on the Joggler was to make use of its light sensor, and publish light levels over MQTT. It all turned out to be pretty simple since most of the work has already been done by other people!</p>
+<ul>
+<li>Andrew de Quincey has <a href="http://code.google.com/p/adqmisc/source/browse/trunk/joggler/readlightsensor.c">code to read the Joggler&#8217;s light sensor</a></li>
+<li>Andy Piper has a <a href="http://andypiper.co.uk/2012/03/10/paho-gets-started/">handy quick start guide for Paho</a></li>
+<li>The <a href="http://www.eclipse.org/paho/files/mqttdoc/Cclient/">MQTT C client documentation</a> has simple publish examples</li>
+</ul>
+<p>First thing to do was read the light sensor and get that working with an MQTT client. I had to skip some of Andy&#8217;s instructions and just built the client code rather than attempting to get doxygen working. Once I&#8217;d mashed up the light sensor code and publish example I could compile the worlds most pointless MQTT publisher:</p>
+<pre>gcc -Wall publightsensor.c -L../bin/linux_ia32 -I../src -lmqttv3c -lpthread -o publightsensor</pre>
+<p>Next it was time to check the results. This too was quick and easy thanks to the <a href="http://m2m.eclipse.org/sandbox.html">MQTT sandbox server</a>, which has a handy HTTP bridge. And the final result... was a completely unscientific and <a href="http://m2m-eclipse.cloudfoundry.com/jttest">slightly dingy light level 4</a>! Now I'll be able to turn on a lamp using an unreliable RF controlled socket and see whether it worked or not!</p>
+<p><strong>Update:</strong> the code really is all in the existing examples but I've created a Github Gist in case it's any help: <a href="https://gist.github.com/anonymous/4753409">mqttjogglermashup.c</a> (11 February 2013)</p><br />  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/jtlog.wordpress.com/2171/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/jtlog.wordpress.com/2171/" /></a> <img alt="" border="0" src="http://pixel.wp.com/b.gif?host=jtlog.wordpress.com&#038;blog=1751515&%23038;post=2171&%23038;subd=jtlog&%23038;ref=&%23038;feed=1" width="1" height="1" />]]></content:encoded>
+	<enclosure url="http://1.gravatar.com/avatar/74c39fd4d2c3b09efbea8c5db637c57c?s=96&amp;amp;d=identicon" length="" type="" />
+		</item>
+	</channel>
+</rss>

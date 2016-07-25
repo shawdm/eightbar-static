@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>uima &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/uima/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Text analytics in BlueMix using UIMA</title>
+		<link>http://eightbar.co.uk/2014/04/13/text-analytics-in-bluemix-using-uima/</link>
+		<pubDate>Sun, 13 Apr 2014 21:41:14 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[bluemix]]></category>
+		<category><![CDATA[cloudfoundry]]></category>
+		<category><![CDATA[code]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[uima]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=3073</guid>
+		<description><![CDATA[In this post, I want to explain how to create a text analytics application in BlueMix using UIMA, and share sample code to show how to get started. First, some background if you&#8217;re unfamiliar with the jargon. What is UIMA? UIMA (Unstructured Information Management Architecture) is an Apache framework for building analytics applications for unstructured [&#8230;] <a href="http://eightbar.co.uk/2014/04/13/text-analytics-in-bluemix-using-uima/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>In this post, I want to explain <strong>how to create a text analytics application in BlueMix using UIMA</strong>, and share <a href="http://uimahelloworld.mybluemix.net/">sample code to show how to get started</a>.  </p>
+<p>First, some background if you&#8217;re unfamiliar with the jargon. </p>
+<p><strong>What is UIMA?</strong></p>
+<p><a href="http://uima.apache.org/">UIMA</a> (Unstructured Information Management Architecture) is an Apache framework for building analytics applications for unstructured information and the OASIS standard for content analytics. </p>
+<p>I&#8217;ve <a href="http://dalelane.co.uk/blog/?tag=uima">written about it before</a>, having used it on <a href="http://cv.dalelane.co.uk/index.php/employment/ets/projects/">a few projects when I was in ETS</a>, and on other side projects since such as building <a href="http://dalelane.co.uk/blog/?p=2277">a conversational interface to web pages</a>. </p>
+<p>It&#8217;s perhaps better known for providing the architecture for the question answering system <a href="http://ibmwatson.com/">IBM Watson</a>. </p>
+<p><strong>What is BlueMix?</strong></p>
+<p><img src="http://dalelane.co.uk/blog/post-images/140413-bluemixlogo.jpg" hspace=10 vspace=10 border=0 align="left"/><a href="http://bluemix.net/">BlueMix</a> is IBM&#8217;s new Platform-as-a-Service (PaaS) offering, built on top of <a href="http://cloudfoundry.org/">Cloud Foundry</a> to provide a cloud development platform. </p>
+<p>It&#8217;s in open beta at the moment, so you can sign up and have a play. </p>
+<p>I&#8217;ve never used BlueMix before, or Cloud Foundry for that matter, so this was a chance for me to write my first app for it. </p>
+<p><strong>A UIMA &#8220;Hello World&#8221; for BlueMix</strong></p>
+<p>I&#8217;ve written a small sample to show how UIMA and BlueMix can work together. It provides a REST API that you can submit text to, and get back a JSON response with some attributes found in the text (long words, capitalised words, and strings that look like email addresses). </p>
+<p>The &#8220;analytics&#8221; that the app is doing is trivial at best, but this is just a Hello World. For now my aim isn&#8217;t to produce a useful analytics solution, but to walk through the configuration needed to define a UIMA analytics pipeline, wrap it in a REST API using <a href="http://wink.apache.org/">Wink</a>, and deploy it as a BlueMix application. </p>
+<p>When I get a chance, I&#8217;ll write a follow-up post on making something more useful. </p>
+<p>You can try out the sample on BlueMix as it&#8217;s deployed to <a href="http://uimahelloworld.mybluemix.net/">bluemix.net</a> </p>
+<p>The source is on GitHub at <a href="https://github.com/dalelane/bluemixuima">github.com/dalelane/bluemixuima</a>. </p>
+<p>In the rest of this post, I&#8217;ll walk through some of the implementation details. </p>
+<p><strong>Runtimes and services</strong></p>
+<p>Creating an application in BlueMix is already <a href="http://bluemix.net/docs">well documented</a> so I won&#8217;t reiterate those steps, other than to say that as Apache UIMA is a Java SDK and framework, I use the <strong>Liberty for Java</strong> runtime. </p>
+<p><img src="http://dalelane.co.uk/blog/post-images/140413-bluemixruntime.png" border=0 vspace=5/></p>
+<p>I&#8217;m not using any of the services in this simple sample. </p>
+<p><strong>Manifest</strong></p>
+<p>The app is bundled up in a war file, which is what we deploy. This is specified in <a href="https://github.com/dalelane/bluemixuima/blob/master/manifest.yml">manifest.yml</a>.</p>
+<p><strong>Building</strong></p>
+<p>The war file is built by an <a href="https://github.com/dalelane/bluemixuima/blob/master/build.xml">ant task</a> which has to <a href="https://github.com/dalelane/bluemixuima/blob/master/build.xml#L16">include the UIMA jar in the classpath</a>, and <a href="https://github.com/dalelane/bluemixuima/blob/master/build.xml#L49">copy my UIMA descriptor XML files into the war</a>. </p>
+<p>I&#8217;m developing in eclipse, so I set up an <a href="https://github.com/dalelane/bluemixuima/blob/master/.externalToolBuilders/BlueMix%20builder.launch">ant builder to run the build</a>, and <a href="https://github.com/dalelane/bluemixuima/blob/master/.project">configured the project to do it automatically</a>. </p>
+<p>I&#8217;m deploying from eclipse, too, using the <a href="http://dist.springsource.com/release/TOOLS/cloudfoundry">Cloud Foundry plugins for eclipse</a>. </p>
+<p><strong>XML descriptors</strong></p>
+<p>The type system is defined in <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/typeSystemDescriptor.xml">an XML descriptor file</a> and specifies the different annotations that can be created by this pipeline, and the attributes that they have. </p>
+<p>Running JCasGen in eclipse on that descriptor generates <a href="https://github.com/dalelane/bluemixuima/tree/master/src/com/dalelane/uima/bluemixhelloworld/annotations">Java classes representing those types</a>. </p>
+<p>The pipeline is also defined in XML descriptors: one <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/aggregateAnalysisEngineDescriptor.xml">overall aggregate descriptor</a> which imports three primitive descriptors for each of the three annotators in my sample pipeline : <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/primitiveAeDescriptorEmailAddresses.xml">one to find email addresses</a>, <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/primitiveAeDescriptorWordCase.xml">one to find capitalised words</a> and <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/primitiveAeDescriptorWordLengths.xml">one to find long words</a>. </p>
+<p>Note that <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/aggregateAnalysisEngineDescriptor.xml#L7">the imports in the aggregate descriptor</a> need to be relative so that they keep working once you deploy to BlueMix. </p>
+<p>These XML descriptor files are all added to the war file by being included in the <a href="https://github.com/dalelane/bluemixuima/blob/master/build.xml#L49">build.xml with a fileset include</a>. </p>
+<p><strong>Annotators</strong></p>
+<p>Each of the primitive descriptor files <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/primitiveAeDescriptorEmailAddresses.xml#L5">specifies the fully qualified class name</a> for the Java implementation of the annotator. </p>
+<p>There are <a href="https://github.com/dalelane/bluemixuima/tree/master/src/com/dalelane/uima/bluemixhelloworld/annotators">three annotators in this sample</a>. (XML files with names starting &#8220;primitiveAeDescriptor&#8221;).</p>
+<p>Each one is <a href="https://github.com/dalelane/bluemixuima/tree/master/src/com/dalelane/uima/bluemixhelloworld/annotators">implemented by a Java class</a> that extends <a href="http://uima.apache.org/d/uimaj-2.5.0/apidocs/org/apache/uima/analysis_component/JCasAnnotator_ImplBase.html">JCasAnnotator_ImplBase</a>.</p>
+<p>Each uses a regular expression to find things to annotate in the text. This isn&#8217;t intended to be an indication that this is how things should be done, just that it makes for a simple and stateless demonstration without any additional dependencies. </p>
+<p>The simplest is the regex used to find capitalised words in <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/annotators/WordCaseAnnotator.java#L31">WordCaseAnnotator</a> and the most complex is the ridiculously painful one used to find email addresses in <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/annotators/EmailAnnotator.java#L33">EmailAnnotator</a>. </p>
+<p>Note that the regexes are prepared in the <a href="http://uima.apache.org/d/uimaj-2.5.0/apidocs/org/apache/uima/analysis_component/AnalysisComponent_ImplBase.html#initialize(org.apache.uima.UimaContext)">annotator initializer</a>, and reused for each <a href="http://uima.apache.org/d/uimaj-2.5.0/apidocs/org/apache/uima/analysis_component/JCasAnnotator_ImplBase.html#process(org.apache.uima.jcas.JCas)">new CAS to process</a>, to improve performance. </p>
+<p><strong>UIMA pipeline</strong></p>
+<p>The UIMA pipeline is defined in <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java">a single Java class</a>. </p>
+<p>It finds <a href="https://github.com/dalelane/bluemixuima/blob/master/com.dalelane.uima.bluemixhelloworld/aggregateAnalysisEngineDescriptor.xml">the XML descriptor for the pipeline</a> by <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java#L67">looking in the location where BlueMix will unpack the war</a>. </p>
+<p>It <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java#L80">creates a CAS pool</a> to make it easier to handle multiple concurrent requests, and avoid the overhead of creating a CAS for every request.  </p>
+<p>Once the pipeline is <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java#L83">initialised</a>, it is ready to <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java#L108">handle incoming analysis requests</a>. </p>
+<p>Once the CAS has passed through the pipeline, <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java#L150">the annotations are immediately copied out of the CAS into a POJO</a>, so that the CAS can be returned to the pool. </p>
+<p><strong>REST API</strong></p>
+<p>The war file deployed to BlueMix contains a <a href="https://github.com/dalelane/bluemixuima/blob/master/WebContent/WEB-INF/web.xml#L7">web.xml which specifies the servlet</a> that implements the REST API.</p>
+<p>I&#8217;m using <a href="http://wink.apache.org/">Wink</a> to implement the API. The servlet definition in the web.xml specifies <a href="https://github.com/dalelane/bluemixuima/blob/master/WebContent/WEB-INF/web.xml#L12">where to find the list of API endpoints</a> and the <a href="https://github.com/dalelane/bluemixuima/blob/master/WebContent/WEB-INF/web.xml#L18">URL where the API should be</a>.</p>
+<p>The <a href="https://github.com/dalelane/bluemixuima/blob/master/WebContent/WEB-INF/resources">list of API endpoints</a> is a list of classes that Wink uses. There is only one API endpoint, so only one class listed. </p>
+<p>The <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/api/UimaResource.java">API implementation</a> is a very thin wrapper around the <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/Pipeline.java">Pipeline class</a>. </p>
+<p>Everything is defined using <a href="https://github.com/dalelane/bluemixuima/blob/master/src/com/dalelane/uima/bluemixhelloworld/api/UimaResource.java#L28">annotations</a>, and Wink handles turning the response into a JSON payload. </p>
+<p><strong>That&#8217;s it</strong></p>
+<p>I think that&#8217;s pretty much it. </p>
+<p><a href="http://uimahelloworld.mybluemix.net/"><img src="http://dalelane.co.uk/blog/post-images/140413-samplescreenshot.png" border=0 vspace=5/></a></p>
+<p>I&#8217;ve added a <a href="https://github.com/dalelane/bluemixuima/blob/master/WebContent/index.html">simple front-end webpage</a>, with <a href="https://github.com/dalelane/bluemixuima/blob/master/WebContent/apitester.js">a script to submit API requests</a> for people who don&#8217;t want to do it with something like curl. </p>
+<p>It&#8217;s live at <a href="http://uimahelloworld.mybluemix.net/">uimahelloworld.mybluemix.net</a>.</p>
+<p>Like I said, it&#8217;s very simple. The Java itself isn&#8217;t particularly complex. My reason for sharing it was to provide a boilerplate config for defining a UIMA analytics pipeline, wrapping it in a REST API, and deploying it to BlueMix. </p>
+<p>Once you&#8217;ve got that working, you can do text analytics in BlueMix as complex as whatever you can dream up for your annotators. </p>
+<p>When I get time, I&#8217;ll write a follow-up post sharing what that could look like. </p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3073">"Text analytics in BlueMix using UIMA"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3073">http://dalelane.co.uk/blog/?p=3073</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Conversational Internet</title>
+		<link>http://eightbar.co.uk/2012/10/05/conversational-internet-a-prototype/</link>
+		<pubDate>Fri, 05 Oct 2012 00:45:14 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[Extreme Blue]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[tech]]></category>
+		<category><![CDATA[uima]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=2277</guid>
+		<description><![CDATA[tl;dr We&#8217;ve built a prototype to show how we could interact with the Internet using a command-driven approach. A screen reader, but one that uses machine learning and natural language processing, in order to better understand both what the user wants to do, and what the web page says. One that can offer a conversational [...] <a href="http://eightbar.co.uk/2012/10/05/conversational-internet-a-prototype/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<blockquote style="border: thin black solid; padding: 1em; background-color: #bbbbbb; color: black; padding-bottom: 0; margin-bottom: 1em;"><p><strong>tl;dr</strong></p>
+<p>We&#8217;ve built a prototype to show how we could interact with the Internet using a command-driven approach.</p>
+<ul>
+<li>A screen reader, but one that uses machine learning and natural language processing, in order to better understand both what the user wants to do, and what the web page says.</li>
+<li>One that can offer a conversational interface instead of just reading out everything on the page.</li>
+</ul>
+<p>It&#8217;s a proof-of-concept, but it&#8217;s an exciting idea with a lot of potential and we&#8217;ve got a demo that shows it in action.</p></blockquote>
+<p><strong>The problem : screen readers today</strong></p>
+<p>I&#8217;ve <a href="http://dalelane.co.uk/blog/?p=1858">written about this before</a> but here is a recap. </p>
+<p>Visually impaired people can interact with the web using screen readers. These <a href="http://dalelane.co.uk/blog/?p=2192">read out every element on a page</a>.</p>
+<p>The user has to make a mental model of the structure of the page as it&#8217;s read out, and keep this in their head as they arrow-key around the page.</p>
+<p>For example, on a news site&#8217;s front page, once the screen reader has read out the page, you have to remember if the story you want is the fifth or sixth story in the list so you can tab the right number of times to get to it.</p>
+<p>Imagine an automated telephone menu:<br />
+&#8220;for blah-blah-blah, press 1, for blather-blather-blather, press 2, for something-or-other, press 3 &#8230; for something-else-vague, press 9 &#8230;”</p>
+<p>Imagine this menu was so long it took <a href="http://dalelane.co.uk/blog/?p=2192">15 minutes or more</a> to read.</p>
+<p>Imagine none of the options are an exact match for what you want. But by the time you get to the end, you can&#8217;t remember whether the closest match was the third or fourth, or fiftieth option.</p>
+<p><strong>The vision : a Conversational Internet</strong></p>
+<p>Software could be smarter.</p>
+<p>If it understood more about the web page, it could describe it at a higher, task-oriented level. It could read out the relevant bits, instead of everything.</p>
+<p>If it understood more about what the user wants to do, the user could just say that, instead of working out the manual navigation steps themselves.</p>
+<p>The vision is software that can interpret web pages and offer a conversational interface to web browsing.</p>
+<span id="more-1372"></span><p><strong>Making the vision a reality</strong></p>
+<p>This idea came from <a href="http://dalelane.co.uk/blog/?p=1858">a meeting that I wrote about last year</a> with the RLSB : a charity for the blind.</p>
+<p>I was convinced that we could do something amazing here. Earlier this year, I proposed it as an <a href="http://www.ibm.com/employment/uk/extreme-blue/">Extreme Blue</a> project. It was accepted, and this summer I&#8217;ve mentored <a href="http://chattyweb.wordpress.com/about/">a group of interns</a> who did amazing work on turning the vision into a prototype.</p>
+<p>I want to talk about Extreme Blue, but I&#8217;ll save that for another post. </p>
+<p><strong>The prototype : what it does</strong></p>
+<p>We&#8217;ve developed a prototype that shows what the Conversational Internet could be like.</p>
+<p>It is a proof-of-concept that can interpret many websites. In response to commands, it can navigate around them, and identify areas of the page, and the types of text and media. It can use this to provide a speech response with the information that the user wanted.</p>
+<p>Commands can be typed, or provided as speech input. </p>
+<p><a name="videodemo"></a><iframe width="450" height="253" src="http://www.youtube.com/embed/tSGyPCcO-bY?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="http://youtu.be/tSGyPCcO-bY?hd=1">a video of some of the capabilities of the prototype</a></small></p>
+<p><strong>The prototype : what it is</strong></p>
+<p>Our prototype is built using a <a href="http://dalelane.co.uk/blog/?tag=uima">UIMA architecture</a>. It is made up of pipelines of discrete annotators, each using a different strategy to try and identify meaning behind areas of the web page the user is viewing.</p>
+<p>Some of these strategies include using natural language processing (using IBM&#8217;s LanguageWare) to interpret meaning behind text.</p>
+<p>Some use machine learning (using IBM&#8217;s <a href="http://www.ibm.com/software/analytics/spss/products/modeler/">SPSS Modeler</a>) to learn from patterns in trends in the way web pages are structured and organised.</p>
+<p><strong>Architecture : the idea</strong></p>
+<p>There are two main tasks here.</p>
+<ol>
+<li>Interpreting the web page that the user has just visited.
+</li>
+<li>Responding to commands about the page</li>
+</ol>
+<p>Firstly: <strong>Understanding the web page</strong></p>
+<p>When the user visits a webpage, the system needs to try and interpret it.</p>
+<p>The contents of the web page &#8211; both the text contents, and the DOM structure of the HTML markup, including any semantic tags used &#8211; go through a UIMA analysis engine. It goes through a pipeline made up of several annotators, each of which is looking for something different in the page.</p>
+<p><a href="http://dalelane.co.uk/blog/post-images/120912-uima-pipeline-1.png" ><img src="http://dalelane.co.uk/blog/post-images/120912-uima-pipeline-1-small.png" alt="architecture diagram"/></a></p>
+<p>By itself, no one of these strategies are fool-proof. But they&#8217;re not stand-alone applications. As elements in a pipeline, contributing a strategy to a collection of results, they&#8217;re each useful indicators. Each of the annotators in each stage of analysis contributes it&#8217;s own metadata, building up our picture of what the page contains.</p>
+<p>Secondly: <strong>Responding to commands</strong></p>
+<p>Once analysed, the system is ready to react to commands about the web page.</p>
+<p><a href="http://dalelane.co.uk/blog/post-images/120912-uima-pipeline-2.png" ><img src="http://dalelane.co.uk/blog/post-images/120912-uima-pipeline-2-small.png" alt="architecture diagram"/></a></p>
+<p><strong>The prototype : status</strong></p>
+<p>This is not a finished, fully-implemented product. It&#8217;s an early work-in-progress. It&#8217;s not yet truly general purpose, and many of the key components are hard-coded or stubbed out. </p>
+<p>However, there are real example implementations of each of the concepts and ideas in the vision, showing that the basic idea has potential and that these technologies are a good fit for this challenge. And the UIMA pipelines are real and coordinating the work, demonstrating that the architecture is sound.</p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #bbbbbb;"><a href="http://dalelane.co.uk/blog/?p=2277" style="color: #082567">"Conversational Internet : A prototype"</a> was posted by <a style="color: #082567" href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a style="color: #082567" href="http://dalelane.co.uk/blog/?p=2277">http://dalelane.co.uk/blog/?p=2277</a>.<br /><em>Feed footer idea <a style="color: #082567" href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a style="color: #082567" href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Ben Hardill &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/author/hardillb/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Unpacking binary data from MQTT in Javascript</title>
+		<link>http://eightbar.co.uk/2014/08/29/unpacking-binary-data-from-mqtt-in-javascript/</link>
+		<pubDate>Fri, 29 Aug 2014 21:19:54 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[javascript]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[tech]]></category>
+		<category><![CDATA[websockets]]></category>
+
+		<guid isPermaLink="false">http://www.hardill.me.uk/wordpress/?p=1837</guid>
+		<description><![CDATA[While doing trawl of Stackoverflow for questions I might be able to help out with I came across this interesting looking question: Receive binary with paho mqttws31.js The question was how to unpack binary MQTT payloads into double precision floating point numbers in javascript when using the Paho MQTT over WebSockets client. Normally I would [&#8230;] <a href="http://eightbar.co.uk/2014/08/29/unpacking-binary-data-from-mqtt-in-javascript/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>While doing trawl of <a href="http://stackoverflow.com/">Stackoverflow</a> for questions I might be able to help out with I came across this interesting looking question:</p>
+<h2><a title="Receive binary with paho mqttws31.js" href="http://stackoverflow.com/questions/25547653/receive-binary-with-paho-mqttws31-js">Receive binary with paho mqttws31.js</a></h2>
+<p>The question was how to unpack binary <a href="http://mqtt.org/">MQTT</a> payloads into double precision floating point numbers in javascript when using the <a href="http://www.eclipse.org/paho/clients/js/">Paho MQTT</a> over WebSockets client.</p>
+<p>Normally I would just send floating point numbers as strings and parse them on the receiving end, but sending them as raw binary means much smaller messages, so I thought I&#8217;d see if I could help to find a solution.</p>
+<p>A little bit of Googling turned up this link to the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">Javascript typed arrays</a> which looked like it probably be in the right direction. At that point I got called away to look at something else so I stuck a quick answer in with a link and the following code snippet.</p>
+<pre class="brush: javascript; gutter: true">function onMessageArrived(message) {
+  var payload = message.payloadByte()
+  var doubleView = new Float64Array(payload);
+  var number = doubleView[0];
+  console.log(number);
+}</pre>
+<p>Towards the end of the day I managed to have a look back and there was a comment from the original poster saying that the sample didn&#8217;t work. At that point I decided to write a simple little testcase.</p>
+<p>First up quick little Java app to generate the messages.</p>
+<pre class="brush: java; gutter: true">import java.nio.ByteBuffer;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+
+public class MessageSource {
+
+  public static void main(String[] args) {
+    try {
+      MqttClient client = new MqttClient(&quot;tcp://localhost:1883&quot;, &quot;doubleSource&quot;);
+      client.connect();
+
+      MqttMessage message = new MqttMessage();
+      ByteBuffer buffer = ByteBuffer.allocate(8);
+      buffer.putDouble(Math.PI);
+      System.err.println(buffer.position() + &quot;/&quot; + buffer.limit());
+      message.setPayload(buffer.array());
+      client.publish(&quot;doubles&quot;, message);
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+      client.disconnect();
+    } catch (MqttException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+}
+</pre>
+<p>It turns out that using typed arrays is a little more complicated and requires a bit of work to populate the data structures properly. First you need to create an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays/ArrayBuffer">ArrayBuffer</a> of the right size, then wrap it in a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Uint8Array">Uint8Array</a> in order to populate it, before changing to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Float64Array">Float64Array</a>. After a little bit of playing around I got to this:</p>
+<pre class="brush: javascript; gutter: true">function onMessageArrived(message) {
+  var payload = message.payloadBytes
+  var length = payload.length;
+  var buffer = new ArrayBuffer(length);
+  uint = new Uint8Array(buffer);
+  for (var i=0; i&lt;length; i++) {
+	  uint[i] = payload[i];
+  }
+  var doubleView = new Float64Array(uint.buffer);
+  var number = doubleView[0];
+  console.log(&quot;onMessageArrived:&quot;+number);
+};</pre>
+<p>But this was returning <em>3.207375630676366e-192</em> instead of Pi. A little more head scratching and the idea of checking the byte order kicked in:</p>
+<pre class="brush: javascript; gutter: true">function onMessageArrived(message) {
+  var payload = message.payloadBytes
+  var length = payload.length;
+  var buffer = new ArrayBuffer(length);
+  uint = new Uint8Array(buffer);
+  for (var i=0; i&lt;length; i++) {
+	  uint[(length-1)-i] = payload[i];
+  }
+  var doubleView = new Float64Array(uint.buffer);
+  var number = doubleView[0];
+  console.log(&quot;onMessageArrived:&quot;+number);
+};</pre>
+<p>This now gave an answer of <em>3.141592653589793</em> which looked a lot better. I still think there may be a cleaner way to do with using a <a href="https://developer.mozilla.org/en-US/docs/Web/API/DataView">DataView</a> object, but that&#8217;s enough for a Friday night.</p>
+<p>EDIT:</p>
+<p>Got up this morning having slept on it and came up with this:</p>
+<pre class="brush: javascript; gutter: true">function onMessageArrived(message) {
+  var payload = message.payloadBytes
+  var length = payload.length;
+  var buffer = new ArrayBuffer(length);
+  uint = new Uint8Array(buffer);
+  for (var i=0; i&lt;length; i++) {
+	  uint[i] = payload[i];
+  }
+  var dataView = new DataView(uint.buffer);
+  for (var i=0; i&lt;length/8; i++) {
+      console.log(dataView.getFloat64((i*8), false));
+  }
+};</pre>
+<p>This better fits the original question in that it will decode an arbitrary length array of doubles and since we know that Java is big endian, we can set the little endian flag to false to get the right conversion without having to re-order the array as we copy it into the buffer (which I&#8217;m pretty sure wouldn&#8217;t have worked for more than one value).</p>
+]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>developerWorks Days Zurich 2012</title>
+		<link>http://eightbar.co.uk/2012/11/14/developerworks-days-zurich-2012/</link>
+		<pubDate>Wed, 14 Nov 2012 13:44:14 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[Android]]></category>
+		<category><![CDATA[conference]]></category>
+		<category><![CDATA[developerWorks]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[Work]]></category>
+
+		<guid isPermaLink="false">http://www.hardill.me.uk/wordpress/?p=1085</guid>
+		<description><![CDATA[This week I had a day out of the office to go to Zurich to talk at this years IBM developerWorks Days. I had 2 sessions back to back in the mobile stream, the first an introduction to Android Development and the second on MQTT. The slots were only 35mins long (well 45mins, but we [&#8230;] <a href="http://eightbar.co.uk/2012/11/14/developerworks-days-zurich-2012/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><a href="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/11/screenshot.png"><img src="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/11/screenshot.png" alt="" title="screenshot" width="169" height="300" class="alignright size-medium wp-image-1159" /></a></p>
+<p>This week I had a day out of the office to go to Zurich to talk at this years IBM developerWorks Days. I had 2 sessions back to back in the mobile stream, the first an introduction to Android Development and the second on MQTT.</p>
+<p>The slots were only 35mins long (well 45mins, but we had to leave 5 mins on each end to let people move round) so there was a limit to how much detail I could go into. With this in mind I decided the best way to give people a introduction to Android Development in that amount of time was to quickly walk through writing reasonably simple application. The application had to be at least somewhat practical, but also very simple so after a little bit of thinking about I settled on an app to download the latest image from the web comic <a href="http://xkcd.org/">XKCD</a>. There are a number apps on Google Play that already do this (and a lot better) but it does show a little Activity GUI design. I got through about 95% of the app live on stage and only had to copy &#038; paste the details for the onPostExecute method to clear the progress dialog and update the image in the last minute to get it to the point I could run it in the emulator.</p>
+<p>Here are the slides for this session</p>
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/15172901" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></p>
+<p>And here is the Eclipse project for the Application I created live on stage:<br />
+<a href="http://www.hardill.me.uk/XKCD-demo-android-app.zip">http://www.hardill.me.uk/XKCD-demo-android-app.zip</a></p>
+<p>The MQTT pitch was a little easier to set up, there is loads of great content on <a href="http://mqtt.org/">MQTT.org</a> to use as a source and of course I remembered to include the section on the MQTT enabled mouse traps and twittering ferries from <a href="http://twitter.com/andysc">Andy Stanford-Clark</a>.</p>
+<p>Here are the slides for the MQTT session:</p>
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/15172934" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></p>
+<p>For the Demo I used the Javascript d3 topic tree viewer I <a href="http://www.hardill.me.uk/wordpress/?p=1111" title="d3 MQTT topic tree visualiser">blogged about</a> last week and my Raspberry Pi running a <a href="http://mosquitto.org/">Mosquitto</a> broker and a little script to publish the core temperature, load and uptime values. The broker was also bridged to my home broker to show the feed from my weather centre and some other sensors.</p>
+]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Man vs Horse</title>
+		<link>http://eightbar.co.uk/2012/09/29/man-vs-horse/</link>
+		<pubDate>Sat, 29 Sep 2012 21:39:31 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[8bar]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[Exercise]]></category>
+		<category><![CDATA[running]]></category>
+
+		<guid isPermaLink="false">http://www.hardill.me.uk/wordpress/?p=1023</guid>
+		<description><![CDATA[Today I did something a little different, instead of going to the local park to run 5km at Parkrun I set off to the New Forest to take part in a little event that Helen Bowyer had put together. The plan was to run 15km across the New Forest broken up in to 3 5km [&#8230;] <a href="http://eightbar.co.uk/2012/09/29/man-vs-horse/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Today I did something a little different, instead of going to the local park to run 5km at <a href="http://parkrun.org.uk/">Parkrun</a> I set off to the New Forest to take part in a little event that Helen Bowyer had put together. The plan was to run 15km across the New Forest broken up in to 3 5km between pubs in a race against Helen on her horse Muttley. There where 7 runners from the ETS team, Me, James, Luke, Graham, Joe, Dominic and Peter also Rob on his road bike.</p>
+<p>The runners and the Helen would be taking the same route with the runners getting a 10min head start on each leg. Rob had a route that was about twice as long and set off at the same time as Helen.</p>
+<p><strong>Leg 1</strong></p>
+<p>From <a href="http://www.therockarms.co.uk/">The Rock</a> at Canada Common to The Lamb at Nomansland. We set off across Canada Common from the back gate of The Rock, reasonably early on myself, James and Luke hit the front. Luckily Luke had run the route for this leg before so we didn&#8217;t have to do any looking at the map and managed to make our way to the Dealze Wood easily enough. We could probably have cut the corner a bit at the end and shaved some more time off. We had about a 5 min lead on Rob and another 3 over Helen (though she did have to detour a little to point Peter in the right direction).</p>
+<p><iframe width="575" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps/ms?msa=0&amp;msid=212606752425625365801.0004cadd108d11691acc0&amp;ie=UTF8&amp;t=p&amp;ll=50.956913,-1.615505&amp;spn=0.037846,0.098705&amp;z=13&amp;output=embed"></iframe><br /><small>View <a href="https://maps.google.co.uk/maps/ms?msa=0&amp;msid=212606752425625365801.0004cadd108d11691acc0&amp;ie=UTF8&amp;t=m&amp;ll=50.956913,-1.615505&amp;spn=0.037846,0.098705&amp;z=13&amp;source=embed" style="color:#0000FF;text-align:left">Leg 1</a> in a larger map</small></p>
+<p><strong>Leg 2</strong></p>
+<p>From <a href="http://www.the-lamb-inn-nomansland.co.uk/">The Lamb</a> to The Royal Oak at Fritham. This was the shortest leg, but after a short climb through Bramshaw Wood it was across the open plain. The good view meant that Helen could see us and helped by the soft ground meant Muttley could go faster and caught us up with about 800m to go. Rob arrived pretty much at the same time as well.</p>
+<p><iframe width="575" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps/ms?msa=0&amp;msid=212606752425625365801.0004cadd1432571c34742&amp;ie=UTF8&amp;t=p&amp;ll=50.940258,-1.656017&amp;spn=0.037859,0.098705&amp;z=13&amp;output=embed"></iframe><br /><small>View <a href="https://maps.google.co.uk/maps/ms?msa=0&amp;msid=212606752425625365801.0004cadd1432571c34742&amp;ie=UTF8&amp;t=m&amp;ll=50.940258,-1.656017&amp;spn=0.037859,0.098705&amp;z=13&amp;source=embed" style="color:#0000FF;text-align:left">Leg 2</a> in a larger map</small></p>
+<p><strong>Leg 3</strong></p>
+<p>From <a href="http://www.thegoodpubguide.co.uk/pub/view/Royal-Oak-SO43-7HJ">The Royal Oak</a> to <a href="http://www.highcornerinn.co.uk/home.php">The High Corner Inn</a>. Jame, Luke and me hit the front again setting off, but the fact I&#8217;ve not been doing much more than 5ks recently really started to bite. I managed to stick with them both for the first half until we crossed the stream then we started to spread out.  The spread ended up big enough that I lost site of Luke and James was long gone. I had a small nav failure at the bottom of the last climb up to the High Corner Inn, I think it was just my subconscious not wanting to climb, as I went past by about 400m and had to turn round and come back. Rob was first back this time.</p>
+<p><iframe width="575" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps/ms?msa=0&amp;msid=212606752425625365801.0004cadd17b3a24fc23ed&amp;ie=UTF8&amp;t=p&amp;ll=50.911151,-1.699104&amp;spn=0.037883,0.098705&amp;z=13&amp;output=embed"></iframe><br /><small>View <a href="https://maps.google.co.uk/maps/ms?msa=0&amp;msid=212606752425625365801.0004cadd17b3a24fc23ed&amp;ie=UTF8&amp;t=m&amp;ll=50.911151,-1.699104&amp;spn=0.037883,0.098705&amp;z=13&amp;source=embed" style="color:#0000FF;text-align:left">Leg 3</a> in a larger map</small></p>
+<p>After we&#8217;ve finished we all went back to The Royal Oak for some lunch. It was a really good day out and I&#8217;m really up for having another go next year and maybe even have a look at the <a href="http://www.green-events.co.uk/events.html?id=54">full marathon version</a> at some point.</p>
+]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Man vs Horse</title>
+		<link>http://eightbar.co.uk/2012/09/29/man-vs-horse-2/</link>
+		<pubDate>Sat, 29 Sep 2012 21:39:31 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[8bar]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[Exercise]]></category>
+		<category><![CDATA[running]]></category>
+
+		<guid isPermaLink="false">http://www.hardill.me.uk/wordpress/?p=1023</guid>
+		<description><![CDATA[Today I did something a little different, instead of going to the local park to run 5km at Parkrun I set off to the New Forest to take part in a little event that Helen Bowyer had put together. The plan was to run 15km across the New Forest broken up in to 3 5km &#8230; <a href="http://www.hardill.me.uk/wordpress/2012/09/29/man-vs-horse/">Continue reading <span>Man vs Horse</span> <span>&#8594;</span></a> <a href="http://eightbar.co.uk/2012/09/29/man-vs-horse-2/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Today I did something a little different, instead of going to the local park to run 5km at <a href="http://parkrun.org.uk/">Parkrun</a> I set off to the New Forest to take part in a little event that Helen Bowyer had put together. The plan was to run 15km across the New Forest broken up in to 3 5km between pubs in a race against Helen on her horse Muttley. There where 7 runners from the ETS team, Me, James, Luke, Graham, Joe, Dominic and Peter also Rob on his road bike.</p>
+<p>The runners and the Helen would be taking the same route with the runners getting a 10min head start on each leg. Rob had a route that was about twice as long and set off at the same time as Helen.</p>
+<p><strong>Leg 1</strong></p>
+<p>From <a href="http://www.therockarms.co.uk/">The Rock</a> at Canada Common to The Lamb at Nomansland. We set off across Canada Common from the back gate of The Rock, reasonably early on myself, James and Luke hit the front. Luckily Luke had run the route for this leg before so we didn&#8217;t have to do any looking at the map and managed to make our way to the Dealze Wood easily enough. We could probably have cut the corner a bit at the end and shaved some more time off. We had about a 5 min lead on Rob and another 3 over Helen (though she did have to detour a little to point Peter in the right direction).</p>
+<p><iframe width="575" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps/ms?msa=0&amp;msid=212606752425625365801.0004cadd108d11691acc0&amp;ie=UTF8&amp;t=p&amp;ll=50.956913,-1.615505&amp;spn=0.037846,0.098705&amp;z=13&amp;output=embed"></iframe><br /><small>View <a href="https://maps.google.co.uk/maps/ms?msa=0&amp;msid=212606752425625365801.0004cadd108d11691acc0&amp;ie=UTF8&amp;t=m&amp;ll=50.956913,-1.615505&amp;spn=0.037846,0.098705&amp;z=13&amp;source=embed" style="color:#0000FF;text-align:left">Leg 1</a> in a larger map</small></p>
+<p><strong>Leg 2</strong></p>
+<p>From <a href="http://www.the-lamb-inn-nomansland.co.uk/">The Lamb</a> to The Royal Oak at Fritham. This was the shortest leg, but after a short climb through Bramshaw Wood it was across the open plain. The good view meant that Helen could see us and helped by the soft ground meant Muttley could go faster and caught us up with about 800m to go. Rob arrived pretty much at the same time as well.</p>
+<p><iframe width="575" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps/ms?msa=0&amp;msid=212606752425625365801.0004cadd1432571c34742&amp;ie=UTF8&amp;t=p&amp;ll=50.940258,-1.656017&amp;spn=0.037859,0.098705&amp;z=13&amp;output=embed"></iframe><br /><small>View <a href="https://maps.google.co.uk/maps/ms?msa=0&amp;msid=212606752425625365801.0004cadd1432571c34742&amp;ie=UTF8&amp;t=m&amp;ll=50.940258,-1.656017&amp;spn=0.037859,0.098705&amp;z=13&amp;source=embed" style="color:#0000FF;text-align:left">Leg 2</a> in a larger map</small></p>
+<p><strong>Leg 3</strong></p>
+<p>From <a href="http://www.thegoodpubguide.co.uk/pub/view/Royal-Oak-SO43-7HJ">The Royal Oak</a> to <a href="http://www.highcornerinn.co.uk/home.php">The High Corner Inn</a>. Jame, Luke and me hit the front again setting off, but the fact I&#8217;ve not been doing much more than 5ks recently really started to bite. I managed to stick with them both for the first half until we crossed the stream then we started to spread out.  The spread ended up big enough that I lost site of Luke and James was long gone. I had a small nav failure at the bottom of the last climb up to the High Corner Inn, I think it was just my subconscious not wanting to climb, as I went past by about 400m and had to turn round and come back. Rob was first back this time.</p>
+<p><iframe width="575" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps/ms?msa=0&amp;msid=212606752425625365801.0004cadd17b3a24fc23ed&amp;ie=UTF8&amp;t=p&amp;ll=50.911151,-1.699104&amp;spn=0.037883,0.098705&amp;z=13&amp;output=embed"></iframe><br /><small>View <a href="https://maps.google.co.uk/maps/ms?msa=0&amp;msid=212606752425625365801.0004cadd17b3a24fc23ed&amp;ie=UTF8&amp;t=m&amp;ll=50.911151,-1.699104&amp;spn=0.037883,0.098705&amp;z=13&amp;source=embed" style="color:#0000FF;text-align:left">Leg 3</a> in a larger map</small></p>
+<p>After we&#8217;ve finished we all went back to The Royal Oak for some lunch. It was a really good day out and I&#8217;m really up for having another go next year and maybe even have a look at the <a href="http://www.green-events.co.uk/events.html?id=54">full marathon version</a> at some point.</p>
+]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Even More MQTT enabled TVs</title>
+		<link>http://eightbar.co.uk/2012/06/08/even-more-mqtt-enabled-tvs/</link>
+		<pubDate>Fri, 08 Jun 2012 14:17:57 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[8bar]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[Projects]]></category>
+		<category><![CDATA[redrat]]></category>
+		<category><![CDATA[TV]]></category>
+		<category><![CDATA[Work]]></category>
+
+		<guid isPermaLink="false">http://www.hardill.me.uk/wordpress/?p=944</guid>
+		<description><![CDATA[A project at work recently came up to do with using one of the Emotiv headsets to help out a former Italian IBMer who was suffering from locked in syndrome. The project was being led by Kevin Brown who was looking for ways to use the headset to drive things sending email and browsing the [&#8230;] <a href="http://eightbar.co.uk/2012/06/08/even-more-mqtt-enabled-tvs/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><a class="alignright" title="Kevin with the Headset by shawdm, on Flickr" href="http://www.flickr.com/photos/shawdm/4652324438/"><img src="http://farm5.staticflickr.com/4050/4652324438_2e5e0cab06_n.jpg" alt="Kevin Modelling the headset" width="320" height="213" /></a></p>
+<p>A project at work recently came up to do with using one of the <a href="http://emotiv.com/">Emotiv</a> headsets to help out a former Italian IBMer who was suffering from <a href="http://en.wikipedia.org/wiki/Locked-in_syndrome">locked in syndrome</a>. The project was being led by <a href="http://kevinxbrown.blogspot.com/">Kevin Brown</a> who was looking for ways to use the headset to drive things sending email and browsing the web but he was also looking for a way to interact with some other tech around the house. The TV was the first on the list.</p>
+<p>Continuing on from my previous work with <a href="http://www.hardill.me.uk/wordpress/?p=25">controlling TVs</a> and <a href="http://eightbar.co.uk/2011/09/16/mqtt-powered-video-wall/">video walls</a> with <a href="http://mqtt.org/">MQTT</a> I said I would have a crack at this. My earlier solution was limited to LG TVs with serial ports and this needed to work with any make so a different approach was needed. It also needed to run on Windows so it was also a chance to play with C# and .Net.</p>
+<p>To be TV agnostic it was decided to use a USB IR remote from a company called <a href="http://www.redrat.co.uk/index.html">RedRat</a>. They make a number of solutions, but their RedRat III was perfect for what was needed.</p>
+<p><a class="alignleft" title="RedRat IR transmitter &amp; receiver by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/7136002505/"><img src="http://farm8.staticflickr.com/7066/7136002505_cbfced5a8a_n.jpg" alt="RedRat IR transmitter &amp; receiver" width="240" height="320" /></a></p>
+<p>The <a href="http://www.redrat.co.uk/software/SDK/index.html">RedRat API</a> comes with bindings for C++, .Net on Windows (and a <a href="http://www.lirc.org/">LIRC</a> plugin for Linux). The RedRat III is not just a IR transmitter, it is also a receiver which means it can &#8220;learn&#8221; from existing remote controls so it can be used with any TV.</p>
+<p>Kevin is using Emotiv headset to drive <a href="http://www.inference.phy.cam.ac.uk/dasher/">Dasher</a> as the input device. Dasher is a sort of keyboard replacement that allows the user to build up words using at a minimum a single input e.g. a single push button. As well as building words other actions can be added to the selector, Kevin added actions for browsing and also to control the TV. These actions publish MQTT messages to a topic with payloads like &#8220;volUp&#8221;, &#8220;chanDown&#8221; or &#8220;power&#8221;.</p>
+<p>So now we had the inputs it was time to get round to writing the code to turn those messages into IR signals. There are 2 MQTT .NET libraries listed on the MQTT.org software page. I grabbed the first off the list <a href="http://sourceforge.net/projects/mqttdotnet/">MqttDotNet</a> and got things working pretty quickly.</p>
+<p>The following few lines sets up a connection and subscribes to a topic.</p>
+<pre class="brush: csharp; gutter: true">String connectionString = &quot;tcp://&quot; + 
+  Properties.Settings.Default.host.Trim() + &quot;:&quot; +
+  Properties.Settings.Default.port;
+IMqtt client = MqttClientFactory.CreateClient(connectionString, &quot;mqtt2ir&quot;);
+try
+{
+	client.Connect(true);
+	client.PublishArrived += new PublishArrivedDelegate(onMessage);
+	client.ConnectionLost += new ConnectionDelegate(connectionLost);
+	client.Subscribe(Properties.Settings.Default.topic.Trim(), 
+	  QoS.BestEfforts);
+}</pre>
+<p>Where the onMessage callback looks like this:</p>
+<pre class="brush: csharp; gutter: true">bool onMessage(object sender, PublishArrivedArgs msg)
+{
+	String command = msg.Payload.ToString().Trim();
+	IRPacket packet = loadSignal(command);
+	if (packet != null) 
+	{
+		redrat.OutputModulatedSignal(packet);
+	}
+	return true;
+}</pre>
+<p><a href="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/06/MQTT2IR.png"><img class="alignright size-medium wp-image-986" title="MQTT2IR Settings Window" src="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/06/MQTT2IR.png" alt="MQTT2IR Settings Window" width="300" height="249" /></a></p>
+<p>And that is pretty much the meat of the whole application, the rest was just some code to initialise the RedRat and to turn it into a System Tray application with a window for entering the broker details and training the commands.</p>
+<p>Unfortunately just a few days before we were due to have delivered this project we learned that the intended recipient had picked up a respiratory infection and had passed away. I would like to extend my thoughts to their family and I hope we can find somebody who may find this work useful in the future.</p>
+]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Even More MQTT enabled TVs</title>
+		<link>http://eightbar.co.uk/2012/06/08/even-more-mqtt-enabled-tvs-2/</link>
+		<pubDate>Fri, 08 Jun 2012 14:17:57 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[8bar]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[Projects]]></category>
+		<category><![CDATA[redrat]]></category>
+		<category><![CDATA[TV]]></category>
+		<category><![CDATA[Work]]></category>
+
+		<guid isPermaLink="false">http://www.hardill.me.uk/wordpress/?p=944</guid>
+		<description><![CDATA[A project at work recently came up to do with using one of the Emotiv headsets to help out a former Italian IBMer who was suffering from locked in syndrome. The project was being led by Kevin Brown who was looking for ways to use the headset to drive things sending email and browsing the &#8230; <a href="http://www.hardill.me.uk/wordpress/2012/06/08/even-more-mqtt-enabled-tvs/">Continue reading <span>Even More MQTT enabled TVs</span> <span>&#8594;</span></a> <a href="http://eightbar.co.uk/2012/06/08/even-more-mqtt-enabled-tvs-2/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><a class="alignright" title="Kevin with the Headset by shawdm, on Flickr" href="http://www.flickr.com/photos/shawdm/4652324438/"><img src="http://farm5.staticflickr.com/4050/4652324438_2e5e0cab06_n.jpg" alt="Kevin Modelling the headset" width="320" height="213" /></a></p>
+<p>A project at work recently came up to do with using one of the <a href="http://emotiv.com/">Emotiv</a> headsets to help out a former Italian IBMer who was suffering from <a href="http://en.wikipedia.org/wiki/Locked-in_syndrome">locked in syndrome</a>. The project was being led by <a href="http://kevinxbrown.blogspot.com/">Kevin Brown</a> who was looking for ways to use the headset to drive things sending email and browsing the web but he was also looking for a way to interact with some other tech around the house. The TV was the first on the list.</p>
+<p>Continuing on from my previous work with <a href="http://www.hardill.me.uk/wordpress/?p=25">controlling TVs</a> and <a href="http://eightbar.co.uk/2011/09/16/mqtt-powered-video-wall/">video walls</a> with <a href="http://mqtt.org/">MQTT</a> I said I would have a crack at this. My earlier solution was limited to LG TVs with serial ports and this needed to work with any make so a different approach was needed. It also needed to run on Windows so it was also a chance to play with C# and .Net.</p>
+<p>To be TV agnostic it was decided to use a USB IR remote from a company called <a href="http://www.redrat.co.uk/index.html">RedRat</a>. They make a number of solutions, but their RedRat III was perfect for what was needed.</p>
+<p><a class="alignleft" title="RedRat IR transmitter &amp; receiver by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/7136002505/"><img src="http://farm8.staticflickr.com/7066/7136002505_cbfced5a8a_n.jpg" alt="RedRat IR transmitter &amp; receiver" width="240" height="320" /></a></p>
+<p>The <a href="http://www.redrat.co.uk/software/SDK/index.html">RedRat API</a> comes with bindings for C++, .Net on Windows (and a <a href="http://www.lirc.org/">LIRC</a> plugin for Linux). The RedRat III is not just a IR transmitter, it is also a receiver which means it can &#8220;learn&#8221; from existing remote controls so it can be used with any TV.</p>
+<p>Kevin is using Emotiv headset to drive <a href="http://www.inference.phy.cam.ac.uk/dasher/">Dasher</a> as the input device. Dasher is a sort of keyboard replacement that allows the user to build up words using at a minimum a single input e.g. a single push button. As well as building words other actions can be added to the selector, Kevin added actions for browsing and also to control the TV. These actions publish MQTT messages to a topic with payloads like &#8220;volUp&#8221;, &#8220;chanDown&#8221; or &#8220;power&#8221;.</p>
+<p>So now we had the inputs it was time to get round to writing the code to turn those messages into IR signals. There are 2 MQTT .NET libraries listed on the MQTT.org software page. I grabbed the first off the list <a href="http://sourceforge.net/projects/mqttdotnet/">MqttDotNet</a> and got things working pretty quickly.</p>
+<p>The following few lines sets up a connection and subscribes to a topic.</p>
+<pre class="brush: csharp; gutter: true">String connectionString = &quot;tcp://&quot; + 
+  Properties.Settings.Default.host.Trim() + &quot;:&quot; +
+  Properties.Settings.Default.port;
+IMqtt client = MqttClientFactory.CreateClient(connectionString, &quot;mqtt2ir&quot;);
+try
+{
+	client.Connect(true);
+	client.PublishArrived += new PublishArrivedDelegate(onMessage);
+	client.ConnectionLost += new ConnectionDelegate(connectionLost);
+	client.Subscribe(Properties.Settings.Default.topic.Trim(), 
+	  QoS.BestEfforts);
+}</pre>
+<p>Where the onMessage callback looks like this:</p>
+<pre class="brush: csharp; gutter: true">bool onMessage(object sender, PublishArrivedArgs msg)
+{
+	String command = msg.Payload.ToString().Trim();
+	IRPacket packet = loadSignal(command);
+	if (packet != null) 
+	{
+		redrat.OutputModulatedSignal(packet);
+	}
+	return true;
+}</pre>
+<p><a href="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/06/MQTT2IR.png"><img class="alignright size-medium wp-image-986" title="MQTT2IR Settings Window" src="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/06/MQTT2IR.png" alt="MQTT2IR Settings Window" width="300" height="249" /></a></p>
+<p>And that is pretty much the meat of the whole application, the rest was just some code to initialise the RedRat and to turn it into a System Tray application with a window for entering the broker details and training the commands.</p>
+<p>Unfortunately just a few days before we were due to have delivered this project we learned that the intended recipient had picked up a respiratory infection and had passed away. I would like to extend my thoughts to their family and I hope we can find somebody who may find this work useful in the future.</p>
+]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>BBC looking at mind control</title>
+		<link>http://eightbar.co.uk/2011/10/10/bbc-looking-at-mind-control/</link>
+		<pubDate>Mon, 10 Oct 2011 11:51:09 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[ETS]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[Mind control]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1067</guid>
+		<description><![CDATA[Katia Moskvitch from the BBC has just published a nice article on using the mind to control technology. As part of the article as well as trying out the Emotive headset* she interviewed Ed Jellard and Kevin Brown from the &#8230; <a href="http://eightbar.co.uk/2011/10/10/bbc-looking-at-mind-control/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><a style="float: left; padding-right: 5px" href="http://www.flickr.com/photos/shawdm/4652324438/" title="Untitled by shawdm, on Flickr"><img src="http://farm5.static.flickr.com/4050/4652324438_2e5e0cab06_m.jpg" width="240" height="159" alt=""/></a> Katia Moskvitch from the BBC has just published a nice <a href="http://www.bbc.co.uk/news/technology-15200386">article</a> on using the mind to control technology.</p>
+<p>As part of the article as well as trying out the Emotive headset* she interviewed <a href="http://www.jellard.co.uk/">Ed Jellard</a> and <a href="http://kevinxbrown.blogspot.com/">Kevin Brown</a> from the IBM ETS team based in Hursley.</p>
+<p>* This is the same headset used for the <a href="http://eightbar.co.uk/2010/04/23/bang-went-the-theory/" title="Bang went the theory…">Bang Goes The Theory Taxi racing</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>MQTT powered video wall</title>
+		<link>http://eightbar.co.uk/2011/09/16/mqtt-powered-video-wall/</link>
+		<pubDate>Fri, 16 Sep 2011 10:20:22 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[IBM Projects]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[arduino]]></category>
+		<category><![CDATA[ETS]]></category>
+		<category><![CDATA[IBM Forum]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[South Bank]]></category>
+		<category><![CDATA[video]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1065</guid>
+		<description><![CDATA[Scaling things up a little from my first eightbar post. This was one of those projects that just sort of &#8220;turned up&#8221;. About 3 weeks ago one of the managers for the ETS department in Hursley got a call from &#8230; <a href="http://eightbar.co.uk/2011/09/16/mqtt-powered-video-wall/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Scaling things up a little from <a href="http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/">my first eightbar post</a>.</p>
+<p>This was one of those projects that just sort of &#8220;turned up&#8221;. About 3 weeks ago one of the managers for the ETS department in Hursley got a call from the team building the new IBM Forum in <a href="http://www-05.ibm.com/uk/locations/sbnk.html">IBM South Bank</a>. IBM Forums are locations where IBM can showcase technologies and solutions for customers. The team were looking for a way to control a video wall and a projector to make them show specific videos on request. The requests will come from pedestals known as &#8220;provokers&#8221;, each having a perspex dome holding a thought-provoking item. The initial suggestions had been incredibility expensive and we were asked if we could come up with a solution.</p>
+<p><a title="Provoker by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/6150090094/"><img src="http://farm7.static.flickr.com/6080/6150090094_170bde8686.jpg" alt="Provoker" width="299" height="500" /></a></p>
+<p>The provokers have access to power and an Ethernet connection. Taking all that into account a few ideas came to mind but the best seamed to be an Arduino board with Ethernet support and a button/sensor to trigger the video. There is a relatively new arduino board available that has a <a href="http://arduino.cc/en/Main/ArduinoBoardEthernet">built in Ethernet</a> shield which seemed perfect for this project. Also, since a number of the items in the provokers would be related to IBM&#8217;s Smarter Planet initiative, it made sense to use <a href="http://mqtt.org">MQTT</a> as a messaging layer as this has been used to implement a number of solutions in this space.</p>
+<p><a href="http://knolleary.net/">Nick O&#8217;Leary</a> was enlisted to put together the hardware and also the sketch for the Arduino as he had already written a <a href="http://knolleary.net/arduino-client-for-mqtt/">MQTT client for Arduino</a> in the past.</p>
+<p>Each provoker will publish a message containing a playload of &#8220;play&#8221; to a topic like</p>
+<p><em>provoker/{n}/action</em></p>
+<p>Where &#8216;{n}&#8217; is the unique number identifying which of the 6 provokers sent the message.</p>
+<p>To provide some feedback to the guest that pressed the button, the LED has been made to pulse while one of the provoker-specific videos is playing. This is controlled by each provoker subscribing to the following topic</p>
+<p><em>provoker/{n}/ack</em></p>
+<p>Sending &#8220;play&#8221; to this topic causes the LED pluse, sending &#8220;stop&#8221; turns the LED solid again.</p>
+<p>The video wall will be driven by software called Scala InfoChannel which has a scripting interface supporting (among other things) Python. So a short script to subscribe to the &#8216;action&#8217; topics and to publish on on the &#8216;ack&#8217; got the videos changing on demand.</p>
+<p>And sat in the middle is an instance of the <a href="https://www.ibm.com/developerworks/community/groups/service/html/communityview?communityUuid=d5bedadd-e46f-4c97-af89-22d65ffee070">Really Small Message Broker</a> to tie everything together.</p>
+<p><a title="Arduino in a box by knolleary, on Flickr" href="http://www.flickr.com/photos/knolleary/6123416370/"><img src="http://farm7.static.flickr.com/6185/6123416370_ba88cde8ee.jpg" alt="Arduino in a box" width="500" height="299" /></a></p>
+<p>This was also the perfect place to use some of <a href="http://www.flickr.com/photos/hardillb/6127193305/in/photostream">my new &#8220;MQTT Inside&#8221; stickers</a>.</p>
+<p><a title="First sticker deployed by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/6143434166/"><img src="http://farm7.static.flickr.com/6189/6143434166_4cf426ac18.jpg" alt="First sticker deployed" width="299" height="500" /></a></p>
+<p>This project only used one of the digital channels (for the button) and one of the analogue channels (for the LED) available on the Arduino &#8211; which leaves a lot of room for expansion for these type of devices. I can see them being used for future projects.</p>
+<p><strong>Parts list</strong></p>
+<ol>
+<li>Arduino Ethernet</li>
+<li>Blue LED Illuminated Button</li>
+<li>A single resistor to protect the LED</li>
+<li>9v power supply</li>
+<li>Sparkfun Case</li>
+</ol>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Parrot AR.Drone</title>
+		<link>http://eightbar.co.uk/2010/09/08/parrot-ar-drone/</link>
+		<comments>http://eightbar.co.uk/2010/09/08/parrot-ar-drone/#comments</comments>
+		<pubDate>Wed, 08 Sep 2010 20:37:53 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[augmented reality]]></category>
+		<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[AR]]></category>
+		<category><![CDATA[drone]]></category>
+		<category><![CDATA[UAV]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1017</guid>
+		<description><![CDATA[Andy Piper brought his new toy to the lab today. While on a whistle stop tour of China recently he called in at Hong Kong on the way back, where he picked up one of the a Parrot AR.Drones which &#8230; <a href="http://eightbar.co.uk/2010/09/08/parrot-ar-drone/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><a href="http://andypiper.co.uk/">Andy Piper</a> brought his new toy to the lab today. While on a whistle stop tour of China recently he called in at Hong Kong on the way back, where he picked up one of the a <a href="http://ardrone.parrot.com/parrot-ar-drone/">Parrot AR.Drones</a> which have been released this month.</p>
+<p>The AR.Drone is a quadricopter with 2 video cameras, one mounted in the nose and one downward-facing. The drone that acts as an ad-hock Wi-Fi access point allowing it to be controlled from any device with Wi-Fi. At the moment Parrot are only shipping a client for the iPhone, but there is an <a href="https://projects.ardrone.org/">API</a> available and there is already <a href="http://www.youtube.com/watch?v=oT_OSblo-Og&amp;feature=related" target="_blank">footage</a> on the net using an Android Nexus One to control one. It&#8217;s loaded with a bunch of other sensors as well, an accelerometer to help keep it stable and a ultrasound altimeter to help it maintain altitude over changing ground.</p>
+<p>The iPhone interface for flying the drone uses the accelerometer and is a bit tricky to start with, but I think with a little bit of practice it shouldn&#8217;t take too long to get the hang of it. The feed from the video cameras is fed back to the handset allowing you to get a pilot&#8217;s eye view. At the moment none of the software allows you to capture this video, but it&#8217;s expected to be added soon. You can also use the camera to play AR games or have the it hover and hold station over markers on the floor.</p>
+<p>The whole thing runs a embedded Linux build on a ARM chip and you can even telnet into the thing. It comes with 2 chassis, one for outside and one with some protective shrouds for the propellers to use indoors. </p>
+<p>I think some very cool stuff should be possible with a platform like this.</p>
+<p>Here are 2 short videos I short of a few of us having a go with it on the lawn in front of Hursley House.</p>
+<p><object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/SnXjEO_0wEw?fs=1&amp;hl=en_GB&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/SnXjEO_0wEw?fs=1&amp;hl=en_GB&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object></p>
+<p><object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/73cx9J9D608?fs=1&amp;hl=en_GB&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/73cx9J9D608?fs=1&amp;hl=en_GB&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object></p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2010/09/08/parrot-ar-drone/feed/</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>TV &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/tv/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Even More MQTT enabled TVs</title>
+		<link>http://eightbar.co.uk/2012/06/08/even-more-mqtt-enabled-tvs/</link>
+		<pubDate>Fri, 08 Jun 2012 14:17:57 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[8bar]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[Projects]]></category>
+		<category><![CDATA[redrat]]></category>
+		<category><![CDATA[TV]]></category>
+		<category><![CDATA[Work]]></category>
+
+		<guid isPermaLink="false">http://www.hardill.me.uk/wordpress/?p=944</guid>
+		<description><![CDATA[A project at work recently came up to do with using one of the Emotiv headsets to help out a former Italian IBMer who was suffering from locked in syndrome. The project was being led by Kevin Brown who was looking for ways to use the headset to drive things sending email and browsing the [&#8230;] <a href="http://eightbar.co.uk/2012/06/08/even-more-mqtt-enabled-tvs/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><a class="alignright" title="Kevin with the Headset by shawdm, on Flickr" href="http://www.flickr.com/photos/shawdm/4652324438/"><img src="http://farm5.staticflickr.com/4050/4652324438_2e5e0cab06_n.jpg" alt="Kevin Modelling the headset" width="320" height="213" /></a></p>
+<p>A project at work recently came up to do with using one of the <a href="http://emotiv.com/">Emotiv</a> headsets to help out a former Italian IBMer who was suffering from <a href="http://en.wikipedia.org/wiki/Locked-in_syndrome">locked in syndrome</a>. The project was being led by <a href="http://kevinxbrown.blogspot.com/">Kevin Brown</a> who was looking for ways to use the headset to drive things sending email and browsing the web but he was also looking for a way to interact with some other tech around the house. The TV was the first on the list.</p>
+<p>Continuing on from my previous work with <a href="http://www.hardill.me.uk/wordpress/?p=25">controlling TVs</a> and <a href="http://eightbar.co.uk/2011/09/16/mqtt-powered-video-wall/">video walls</a> with <a href="http://mqtt.org/">MQTT</a> I said I would have a crack at this. My earlier solution was limited to LG TVs with serial ports and this needed to work with any make so a different approach was needed. It also needed to run on Windows so it was also a chance to play with C# and .Net.</p>
+<p>To be TV agnostic it was decided to use a USB IR remote from a company called <a href="http://www.redrat.co.uk/index.html">RedRat</a>. They make a number of solutions, but their RedRat III was perfect for what was needed.</p>
+<p><a class="alignleft" title="RedRat IR transmitter &amp; receiver by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/7136002505/"><img src="http://farm8.staticflickr.com/7066/7136002505_cbfced5a8a_n.jpg" alt="RedRat IR transmitter &amp; receiver" width="240" height="320" /></a></p>
+<p>The <a href="http://www.redrat.co.uk/software/SDK/index.html">RedRat API</a> comes with bindings for C++, .Net on Windows (and a <a href="http://www.lirc.org/">LIRC</a> plugin for Linux). The RedRat III is not just a IR transmitter, it is also a receiver which means it can &#8220;learn&#8221; from existing remote controls so it can be used with any TV.</p>
+<p>Kevin is using Emotiv headset to drive <a href="http://www.inference.phy.cam.ac.uk/dasher/">Dasher</a> as the input device. Dasher is a sort of keyboard replacement that allows the user to build up words using at a minimum a single input e.g. a single push button. As well as building words other actions can be added to the selector, Kevin added actions for browsing and also to control the TV. These actions publish MQTT messages to a topic with payloads like &#8220;volUp&#8221;, &#8220;chanDown&#8221; or &#8220;power&#8221;.</p>
+<p>So now we had the inputs it was time to get round to writing the code to turn those messages into IR signals. There are 2 MQTT .NET libraries listed on the MQTT.org software page. I grabbed the first off the list <a href="http://sourceforge.net/projects/mqttdotnet/">MqttDotNet</a> and got things working pretty quickly.</p>
+<p>The following few lines sets up a connection and subscribes to a topic.</p>
+<pre class="brush: csharp; gutter: true">String connectionString = &quot;tcp://&quot; + 
+  Properties.Settings.Default.host.Trim() + &quot;:&quot; +
+  Properties.Settings.Default.port;
+IMqtt client = MqttClientFactory.CreateClient(connectionString, &quot;mqtt2ir&quot;);
+try
+{
+	client.Connect(true);
+	client.PublishArrived += new PublishArrivedDelegate(onMessage);
+	client.ConnectionLost += new ConnectionDelegate(connectionLost);
+	client.Subscribe(Properties.Settings.Default.topic.Trim(), 
+	  QoS.BestEfforts);
+}</pre>
+<p>Where the onMessage callback looks like this:</p>
+<pre class="brush: csharp; gutter: true">bool onMessage(object sender, PublishArrivedArgs msg)
+{
+	String command = msg.Payload.ToString().Trim();
+	IRPacket packet = loadSignal(command);
+	if (packet != null) 
+	{
+		redrat.OutputModulatedSignal(packet);
+	}
+	return true;
+}</pre>
+<p><a href="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/06/MQTT2IR.png"><img class="alignright size-medium wp-image-986" title="MQTT2IR Settings Window" src="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/06/MQTT2IR.png" alt="MQTT2IR Settings Window" width="300" height="249" /></a></p>
+<p>And that is pretty much the meat of the whole application, the rest was just some code to initialise the RedRat and to turn it into a System Tray application with a window for entering the broker details and training the commands.</p>
+<p>Unfortunately just a few days before we were due to have delivered this project we learned that the intended recipient had picked up a respiratory infection and had passed away. I would like to extend my thoughts to their family and I hope we can find somebody who may find this work useful in the future.</p>
+]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Even More MQTT enabled TVs</title>
+		<link>http://eightbar.co.uk/2012/06/08/even-more-mqtt-enabled-tvs-2/</link>
+		<pubDate>Fri, 08 Jun 2012 14:17:57 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[8bar]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[Projects]]></category>
+		<category><![CDATA[redrat]]></category>
+		<category><![CDATA[TV]]></category>
+		<category><![CDATA[Work]]></category>
+
+		<guid isPermaLink="false">http://www.hardill.me.uk/wordpress/?p=944</guid>
+		<description><![CDATA[A project at work recently came up to do with using one of the Emotiv headsets to help out a former Italian IBMer who was suffering from locked in syndrome. The project was being led by Kevin Brown who was looking for ways to use the headset to drive things sending email and browsing the &#8230; <a href="http://www.hardill.me.uk/wordpress/2012/06/08/even-more-mqtt-enabled-tvs/">Continue reading <span>Even More MQTT enabled TVs</span> <span>&#8594;</span></a> <a href="http://eightbar.co.uk/2012/06/08/even-more-mqtt-enabled-tvs-2/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><a class="alignright" title="Kevin with the Headset by shawdm, on Flickr" href="http://www.flickr.com/photos/shawdm/4652324438/"><img src="http://farm5.staticflickr.com/4050/4652324438_2e5e0cab06_n.jpg" alt="Kevin Modelling the headset" width="320" height="213" /></a></p>
+<p>A project at work recently came up to do with using one of the <a href="http://emotiv.com/">Emotiv</a> headsets to help out a former Italian IBMer who was suffering from <a href="http://en.wikipedia.org/wiki/Locked-in_syndrome">locked in syndrome</a>. The project was being led by <a href="http://kevinxbrown.blogspot.com/">Kevin Brown</a> who was looking for ways to use the headset to drive things sending email and browsing the web but he was also looking for a way to interact with some other tech around the house. The TV was the first on the list.</p>
+<p>Continuing on from my previous work with <a href="http://www.hardill.me.uk/wordpress/?p=25">controlling TVs</a> and <a href="http://eightbar.co.uk/2011/09/16/mqtt-powered-video-wall/">video walls</a> with <a href="http://mqtt.org/">MQTT</a> I said I would have a crack at this. My earlier solution was limited to LG TVs with serial ports and this needed to work with any make so a different approach was needed. It also needed to run on Windows so it was also a chance to play with C# and .Net.</p>
+<p>To be TV agnostic it was decided to use a USB IR remote from a company called <a href="http://www.redrat.co.uk/index.html">RedRat</a>. They make a number of solutions, but their RedRat III was perfect for what was needed.</p>
+<p><a class="alignleft" title="RedRat IR transmitter &amp; receiver by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/7136002505/"><img src="http://farm8.staticflickr.com/7066/7136002505_cbfced5a8a_n.jpg" alt="RedRat IR transmitter &amp; receiver" width="240" height="320" /></a></p>
+<p>The <a href="http://www.redrat.co.uk/software/SDK/index.html">RedRat API</a> comes with bindings for C++, .Net on Windows (and a <a href="http://www.lirc.org/">LIRC</a> plugin for Linux). The RedRat III is not just a IR transmitter, it is also a receiver which means it can &#8220;learn&#8221; from existing remote controls so it can be used with any TV.</p>
+<p>Kevin is using Emotiv headset to drive <a href="http://www.inference.phy.cam.ac.uk/dasher/">Dasher</a> as the input device. Dasher is a sort of keyboard replacement that allows the user to build up words using at a minimum a single input e.g. a single push button. As well as building words other actions can be added to the selector, Kevin added actions for browsing and also to control the TV. These actions publish MQTT messages to a topic with payloads like &#8220;volUp&#8221;, &#8220;chanDown&#8221; or &#8220;power&#8221;.</p>
+<p>So now we had the inputs it was time to get round to writing the code to turn those messages into IR signals. There are 2 MQTT .NET libraries listed on the MQTT.org software page. I grabbed the first off the list <a href="http://sourceforge.net/projects/mqttdotnet/">MqttDotNet</a> and got things working pretty quickly.</p>
+<p>The following few lines sets up a connection and subscribes to a topic.</p>
+<pre class="brush: csharp; gutter: true">String connectionString = &quot;tcp://&quot; + 
+  Properties.Settings.Default.host.Trim() + &quot;:&quot; +
+  Properties.Settings.Default.port;
+IMqtt client = MqttClientFactory.CreateClient(connectionString, &quot;mqtt2ir&quot;);
+try
+{
+	client.Connect(true);
+	client.PublishArrived += new PublishArrivedDelegate(onMessage);
+	client.ConnectionLost += new ConnectionDelegate(connectionLost);
+	client.Subscribe(Properties.Settings.Default.topic.Trim(), 
+	  QoS.BestEfforts);
+}</pre>
+<p>Where the onMessage callback looks like this:</p>
+<pre class="brush: csharp; gutter: true">bool onMessage(object sender, PublishArrivedArgs msg)
+{
+	String command = msg.Payload.ToString().Trim();
+	IRPacket packet = loadSignal(command);
+	if (packet != null) 
+	{
+		redrat.OutputModulatedSignal(packet);
+	}
+	return true;
+}</pre>
+<p><a href="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/06/MQTT2IR.png"><img class="alignright size-medium wp-image-986" title="MQTT2IR Settings Window" src="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/06/MQTT2IR.png" alt="MQTT2IR Settings Window" width="300" height="249" /></a></p>
+<p>And that is pretty much the meat of the whole application, the rest was just some code to initialise the RedRat and to turn it into a System Tray application with a window for entering the broker details and training the commands.</p>
+<p>Unfortunately just a few days before we were due to have delivered this project we learned that the intended recipient had picked up a respiratory infection and had passed away. I would like to extend my thoughts to their family and I hope we can find somebody who may find this work useful in the future.</p>
+]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Why Doctor Who Confidential mattered</title>
+		<link>http://eightbar.co.uk/2012/04/02/why-doctor-who-confidential-mattered/</link>
+		<pubDate>Mon, 02 Apr 2012 21:31:12 +0000</pubDate>
+		<dc:creator><![CDATA[Laura Cowen]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[education]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[TV]]></category>
+
+		<guid isPermaLink="false">http://www.lauracowen.co.uk/blog/?p=1296</guid>
+		<description><![CDATA[<p>Behind-the-scenes documentaries, like Doctor Who Confidential, matter. They matter because they show viewers, in particular children still deciding what to do with their lives, that it takes more to produce a high-class TV programme than just a few actors who become famous. It shows what other creative and/or technical jobs there are in television. A &#8230; <a href="http://lauracowen.co.uk/blog/2012/04/02/why-doctor-who-confidential-mattered/">Continue reading <span>Why Doctor Who Confidential mattered</span> <span>&#8594;</span></a></p>
+<p>The post <a rel="nofollow" href="http://lauracowen.co.uk/blog/2012/04/02/why-doctor-who-confidential-mattered/">Why Doctor Who Confidential mattered</a> appeared first on <a rel="nofollow" href="http://lauracowen.co.uk/blog">LauraCowen.co.uk</a>.</p> <a href="http://eightbar.co.uk/2012/04/02/why-doctor-who-confidential-mattered/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Behind-the-scenes documentaries, like <a title="Doctor Who Confidential on Wikipedia" href="http://en.wikipedia.org/wiki/Doctor_Who_Confidential" >Doctor Who Confidential</a>, matter. They matter because they show viewers, in particular children still deciding what to do with their lives, that it takes more to produce a high-class TV programme than just a few actors who become famous. It shows what other creative and/or technical jobs there are in television.</p>
+<p>A couple of weekends ago, we went to the <a title="Doctor Who Official Convention website" href="http://dwconvention.com/" >Doctor Who Official Convention</a> (<a title="#dwcuk Twitter search" href="https://twitter.com/#!/search/%23dwcuk" >#dwcuk</a>) in Cardiff. While one of the three main panels featured the three stars, Matt Smith, Karen Gillan and Arthur Darvill (along with executive producers Stephen Moffat and Caroline Skinner), most of the other scheduled events were focused on how Doctor Who is made.</p>
+<p><img class="aligncenter size-medium wp-image-2024" src="http://lauracowen.co.uk/blog/wp-content/uploads/2012/04/dwc-danny-snow-300x200.jpg" alt="dwc-danny-snow" width="300" height="200" /></p>
+<p>At the very start of the day, we went to see Danny Hargreaves <del>blow things up</del> talk about the Special Effects on Doctor Who. In his Q&amp;A session (after making it snow indoors), the first question asked was &#8220;How did you get into special effects work?&#8221; and, between questions like how he blew up the Torchwood Hub and how he makes the Doctor&#8217;s hands and head fiery during a regeneration, a later question was &#8220;When did you realise you wanted to work in special effects?&#8221;. Attendees were interested not just in the fictional stories and characters but in how the programme is made and the interesting careers they might not otherwise have come across.</p>
+<p><img class="aligncenter size-medium wp-image-2025" src="http://lauracowen.co.uk/blog/wp-content/uploads/2012/04/2012-03-24-14.26.38-179x300.jpg" alt="2012-03-24 14.26.38" width="179" height="300" /></p>
+<p>Throughout the day, I heard audience members ask how to become costume and prosthetics designers and how to become script writers. Danny described how his team designs and creates the effects, assess the risks of blowing things up, and who they work with to make it all happen. He also explained how he came to be a trainee in the nascent world of special effects before studying Mechanical Engineering so that he could build the devices they need for Doctor Who (and the other shows he&#8217;s worked on, like Coronation Street). Directors of photography, set designers, executive producers, writers, and directors went on to talk about what their own jobs entailed day-to-day and how it all comes together to make an episode of Doctor Who.</p>
+<p>These discussions continued the story that used to be told after each new episode of Doctor Who by Doctor Who Confidential on BBC3. Doctor Who Confidential started in 2005 with the return of Doctor Who. As well as talking about some interesting perspective on making that night&#8217;s episode of Doctor Who, it featured interviews with, and &#8216;day-in-the-life&#8217; documentaries about, the actors (including showing the less glamorous side of shivering in tents and quilted coats between takes), the casting directors, the producers, the writers, the choreographers, the costume designers, the special effects supervisors, the monster designers, the prosthetics experts, the directors, the assistant directors, and many, many others. It also held competitions for children to write a mini episode and then see the process of making it, which would&#8217;ve been an amazing experience!</p>
+<p><iframe src="http://www.youtube.com/embed/pkTSoigcM08?rel=0" width="560" height="315" frameborder="0"></iframe></p>
+<p>Yes, it took a slightly odd turn in the last series when it turned a bit Top Gear by showing Karen Gillan having a driving lesson and Arthur Darvill swimming with sharks; possibly a misguided attempt to increase its popularity before it got canned anyway to cut costs.</p>
+<p>I think it&#8217;s a real shame to lose Doctor Who Confidential and its insights into the skill, hard work, and opportunities in TV and film production.</p>
+<hr />
+<p>Cool photo of Danny in the snow by <a href="http://lauracowen.co.uk/blog/2012/04/02/why-doctor-who-confidential-mattered/tonywhitmoreweddings.com">Tony Whitmore</a>.</p>
+<p>The post <a rel="nofollow" href="http://lauracowen.co.uk/blog/2012/04/02/why-doctor-who-confidential-mattered/">Why Doctor Who Confidential mattered</a> appeared first on <a rel="nofollow" href="http://lauracowen.co.uk/blog">LauraCowen.co.uk</a>.</p>
+]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+	</channel>
+</rss>

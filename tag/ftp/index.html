@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>FTP | eightbar</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/style.css" />
+<link rel="pingback" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Feed" href="https://eightbar.eu-gb.mybluemix.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Comments Feed" href="https://eightbar.eu-gb.mybluemix.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; FTP Tag Feed" href="https://eightbar.eu-gb.mybluemix.net/tag/ftp/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/eightbar.eu-gb.mybluemix.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='dark-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/colors/dark.css' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/css/jetpack.css?ver=3.3.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://eightbar.eu-gb.mybluemix.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://eightbar.eu-gb.mybluemix.net/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.5.3" />
+	<style>
+		/* Link color */
+		a,
+		#site-title a:focus,
+		#site-title a:hover,
+		#site-title a:active,
+		.entry-title a:hover,
+		.entry-title a:focus,
+		.entry-title a:active,
+		.widget_twentyeleven_ephemera .comments-link a:hover,
+		section.recent-posts .other-recent-posts a[rel="bookmark"]:hover,
+		section.recent-posts .other-recent-posts .comments-link a:hover,
+		.format-image footer.entry-meta a:hover,
+		#site-generator a:hover {
+			color: #b4d1f3;
+		}
+		section.recent-posts .other-recent-posts .comments-link a:hover {
+			border-color: #b4d1f3;
+		}
+		article.feature-image.small .entry-summary p a:hover,
+		.entry-header .comments-link a:hover,
+		.entry-header .comments-link a:focus,
+		.entry-header .comments-link a:active,
+		.feature-slider a.active {
+			background-color: #b4d1f3;
+		}
+	</style>
+
+<!-- All in One SEO Pack 2.2.4.1 by Michael Torbert of Semper Fi Web Design[355,376] -->
+<meta name="keywords"  content="car,extreme blue,ftp,hursley,innovation,internship,uk,voting,technology" />
+
+<link rel="canonical" href="https://eightbar.eu-gb.mybluemix.net/tag/ftp/" />
+<!-- /all in one seo pack -->
+	<style type="text/css">
+			#site-title,
+		#site-description {
+			position: absolute !important;
+			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+		</style>
+	<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #E3E3E3; }
+</style>
+</head>
+
+<body class="archive tag tag-ftp tag-172 custom-background two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="https://eightbar.eu-gb.mybluemix.net/" title="eightbar" rel="home">eightbar</a></span></h1>
+				<h2 id="site-description">Raising The Eight Bar</h2>
+			</hgroup>
+
+						<a href="https://eightbar.eu-gb.mybluemix.net/">
+									<img src="https://eightbar.eu-gb.mybluemix.net/wp-content/uploads/2012/02/eightbargrass.jpg" width="1000" height="288" alt="" />
+							</a>
+			
+							<div class="only-search with-image">
+					<form method="get" id="searchform" action="https://eightbar.eu-gb.mybluemix.net/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+				</div>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-eightbar-main-menu-container"><ul id="menu-eightbar-main-menu" class="menu"><li id="menu-item-1192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1192"><a href="https://eightbar.eu-gb.mybluemix.net/">Home</a></li>
+<li id="menu-item-1193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1193"><a href="https://eightbar.eu-gb.mybluemix.net/about/">About</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<section id="primary">
+			<div id="content" role="main">
+
+			
+				<header class="page-header">
+					<h1 class="page-title">Tag Archives: <span>FTP</span></h1>
+
+									</header>
+
+				
+								
+					
+	<article id="post-1052" class="post-1052 post type-post status-publish format-standard hentry category-hursley category-technology tag-car tag-extreme-blue tag-ftp tag-hursley tag-innovation tag-internship tag-uk tag-voting">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/" title="Permalink to Hursley Extreme Blue 2011 Presentations" rel="bookmark">Hursley Extreme Blue 2011 Presentations</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/" title="13:31" rel="bookmark"><time class="entry-date" datetime="2011-09-06T13:31:18+00:00">September 6, 2011</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/" title="View all posts by Graham White" rel="author">Graham White</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><a href="https://eightbar.eu-gb.mybluemix.net/wp-content/uploads/2011/09/xblogo.gif"><img class="alignright size-full wp-image-1060" style="margin-left: 10px; margin-right: 10px;" title="xblogo" src="https://eightbar.eu-gb.mybluemix.net/wp-content/uploads/2011/09/xblogo.gif" alt="Extreme Blue logo" width="150" height="102" /></a>Extreme Blue is IBM&#8217;s summer intern scheme. Students can <a href="http://www-01.ibm.com/employment/us/extremeblue/">apply to IBM</a> to be part of the scheme and those lucky enough to be selected are brought into various IBM locations worldwide to be mentored by IBM staff who have proposed an idea and small project for them to work on.</p>
+<p>This morning I went along to listen to what the 16 students in the UK have been doing with their summer. These students were split into four groups of four, working on projects for an improved voting system, a smart cursor, smarter vehicles and FTP discovery.</p>
+<p>You know you&#8217;re getting old when all the students seem rather young, I think &#8220;green&#8221; is the term people used to use when I was starting in IBM, they do remind me of my early days at work. However, they all presented themselves beautifully, spoke very well using slick rehearsed presentations they&#8217;ve put a lot of effort into, and (barring one or two stutters) seemed entirely confident in what they were doing up at the front of what must seem an intimidating auditorium full of knowledgeable IBM professionals. They handled questions well too, I don&#8217;t necessarily have to agree with all the answers, but the way they each went about receiving the questions and providing thoughtful answers was good.</p>
+<p>Each team had 7 minutes to present their 12 weeks&#8217; work with every person in the team getting a chance to pitch in at some point, so they didn&#8217;t get very long to put their projects across. The audience were asked to keep questions until the end of the pitch, which allowed them to flow easily through their material. The range of presentations was interesting, some chose to manually click through PowerPoint-style, while other groups came up with stories or monologuing through a video they had created. This range kept the audience interested with each style of presentation being effective for its purpose.</p>
+<p>It was interesting to see how each of the projects has been clearly influenced by the four members of the team. Each team of four contained one business student and three technical students, and the range of skills came through in the presentations. Some groups had &#8220;deep-dived&#8221; straight into technical work while others had spent more time thinking about use cases, business cases, how their project might fit in with IBM or be sold. I suspect this has a direct relationship to both how the team was lead by the IBM staff but also by the particular characters of each team and reminded me of Myers-Briggs or Belbin style studies I&#8217;ve done in the past.</p>
+<p>Now I&#8217;ll have a little look at each project in (very) brief&#8230; I&#8217;ll stress in advance that I&#8217;ve heard a small snippet of 12 weeks of hard work and any opinion here is mine alone and based solely on today&#8217;s pitches:</p>
+<p><strong>Improved voting system</strong><br />
+The team gave an introduction to their solution involving a three phase voting system followed by an example of the problem they were trying to solve and how their solution tackled these. The team had been working with a local council to identify requirements for such a system, so were able to work with real-world examples and solicit feedback. Questions followed and feedback from the council seemed to have been good. Some doubts were expressed by the audience about the security of such a system which whilst possibly valid, it seemed to me that these could be addressed should the solution be implemented live. The team presented the solution as having environmental benefits which might seem obvious at first but I thought were rather questionable given the requirement to use computer hardware and power, a further study would be required here to determine whether the current system using sustainably-sourced paper could be bettered on the environmental front. Verification of voters appears to be vastly improved using their system with less room from fraudulent votes with connection to other systems for authentication such as the DVLA. Clearly any such automated voting system would have huge benefits for the speed of counting after voting has completed.</p>
+<p><strong>Smart Cursor</strong><br />
+A new input device to control an on screen cursor using any sort of body movement aimed at improving human-computer interaction (primarily for disabled people). The system involves a hardware sensor strapped to the part of the body that has movement. Initial calibration for any new part of the body is required which is run once to set up 4 movements (up/down/left/right). Other movements and gestures would also be possible such as a mouse click and the combination of sensors on multiple parts of the body. The hardware technology could be built small enough to be permanently wearable without distress or difficulty to the user. Other uses of the technology appear to be for rehabilitation or monitoring a condition whilst wearing the hardware device. Lots of room for customisation brought out during questioning as well as a few issues about how to set up the device in the first place. However, this seemed like a really worthwhile (if low usage) piece of research that could be immensely useful to its target audience and at low cost too.</p>
+<p><strong>Smarter Vehicles</strong><br />
+The aim of this project is to personalise the driving experience for car users by attempting to add three things to a car (1) identifying which user is driving, (2) providing the car with knowledge about where it&#8217;s going, and (3) permanently connecting the car to a network. The team used a video style presentation and monologue they had story-boarded which was clearly well produced and rehearsed. It was unclear what the project had achieved, however, as no specifics were mentioned on what had been achieved but there were certainly plenty of good ideas as to what could be done in this area. The team do appear to have a demonstration available which I&#8217;m looking forward to going to see in Hursley tomorrow and the Extreme Blue demonstration expo after which I&#8217;m sure it will be a lot clearer which ideas they&#8217;ve followed through into something tangible and which are still in progress. Another great plus for this team was they were aligned with an automotive manufacturer and will be presenting their ideas back to the board at a later date which will be a fabulous experience to get for them all.</p>
+<p><strong>FTP Discovery</strong><br />
+Tackles the problem of escalating FTP network complexity in enterprises. The project attempts to map FTP files on the network in flight and automatically provides a visualisation of the network in a node graph style format. This network can be annotated manually with things such adding the cost of various transfers and links to allow the users to build up a visual picture and cost to the company of their FTP services. The team advocate the use of managed file transfers (as provided by <a href="https://www-01.ibm.com/software/integration/wmq/filetransfer/">WMQ File Transfer Edition</a>, for example) but failed to clearly state what the problem with FTP as a service is. That said, they seem to have a very clever way of detecting FTP traffic by sniffing the network and could easily extend their architecture to include all sorts of other protocols. They have also thought carefully about how their work might be used in the future, for example as a tool for IBM pre-sales, a saleable IBM product or (most likely) a component of one or more existing IBM products.</p>
+<p>Congratulations to all the teams and people involved. The presentations were great, a very entertaining hour, and it seems like some really useful work has come out of Extreme Blue in the UK again this year. Well done!</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1052" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1052" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1052" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1052" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="https://eightbar.eu-gb.mybluemix.net/tag/car/" rel="tag">car</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/extreme-blue/" rel="tag">Extreme Blue</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/ftp/" rel="tag">FTP</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/hursley/" rel="tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/innovation/" rel="tag">innovation</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/internship/" rel="tag">internship</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/uk/" rel="tag">uk</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/voting/" rel="tag">voting</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-1052 -->
+				
+				
+			
+			</div><!-- #content -->
+		</section><!-- #primary -->
+
+		<div id="secondary" class="widget-area" role="complementary">
+			<aside id="text-3" class="widget widget_text">			<div class="textwidget"><a href="http://www.twitter.com/eightbar"><img height="16px" alt="Eightbar Twitter" src="https://si0.twimg.com/a/1329413806/images/logos/logo_twitter_withbird_1000_white_blue.png"/></a></div>
+		</aside><aside id="linkcat-196" class="widget widget_links"><h3 class="widget-title">Authors</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://stanford-clark.com/" title="About Andy Stanford-Clark">Andy Stanford-Clark</a></li>
+<li><a href="http://www.hardill.me.uk/wordpress/?page_id=2" title="About Ben Hardill">Ben Hardill</a></li>
+<li><a href="http://dalelane.co.uk/blog/?page_id=9">Dale Lane</a></li>
+<li><a href="https://eightbar.eu-gb.mybluemix.net/about/gwhite" title="About Graham White">Graham White</a></li>
+<li><a href="http://jtlog.wordpress.com/about/">James Taylor</a></li>
+<li><a href="https://eightbar.eu-gb.mybluemix.net/about/josie-messa/">Josie Messa</a></li>
+<li><a href="http://www.lauracowen.co.uk/blog/about/" title="About Laura Cowen">Laura Cowen</a></li>
+<li><a href="http://knolleary.net/about" title="About Nick O&#8217;Leary">Nick O&#039;Leary</a></li>
+<li><a href="https://eightbar.eu-gb.mybluemix.net/about/robsmart/" title="About Rob Smart">Rob Smart</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-197" class="widget widget_links"><h3 class="widget-title">Past Authors</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://andypiper.co.uk/about/" title="About Andy Piper">Andy Piper</a></li>
+<li><a href="http://www.feedingedge.co.uk/blog/epredator-bio/" title="About Ian Hughes">Ian Hughes</a></li>
+<li><a href="http://rooreynolds.com/bio/" title="About Roo Reynolds">Roo Reynolds</a></li>
+
+	</ul>
+</aside>
+<aside id="archives-3" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+			<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/06/'>June 2016</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/02/'>February 2016</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/04/'>April 2015</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/02/'>February 2015</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/01/'>January 2015</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/12/'>December 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/11/'>November 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/10/'>October 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/09/'>September 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/08/'>August 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/07/'>July 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/05/'>May 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/04/'>April 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/02/'>February 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/01/'>January 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/12/'>December 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/08/'>August 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/06/'>June 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/04/'>April 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/03/'>March 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/02/'>February 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/11/'>November 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/10/'>October 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/09/'>September 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/06/'>June 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/05/'>May 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/04/'>April 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/03/'>March 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/02/'>February 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2011/11/'>November 2011</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2011/10/'>October 2011</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2011/09/'>September 2011</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2011/02/'>February 2011</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/11/'>November 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/09/'>September 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/07/'>July 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/04/'>April 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/03/'>March 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/12/'>December 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/11/'>November 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/09/'>September 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/08/'>August 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/07/'>July 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/06/'>June 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/05/'>May 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/04/'>April 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/03/'>March 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/02/'>February 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/01/'>January 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/12/'>December 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/11/'>November 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/10/'>October 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/09/'>September 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/08/'>August 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/07/'>July 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/06/'>June 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/05/'>May 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/04/'>April 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/03/'>March 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/02/'>February 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/01/'>January 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/12/'>December 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/11/'>November 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/10/'>October 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/09/'>September 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/08/'>August 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/07/'>July 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/06/'>June 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/05/'>May 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/04/'>April 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/03/'>March 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/02/'>February 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/01/'>January 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/12/'>December 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/11/'>November 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/10/'>October 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/09/'>September 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/08/'>August 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/07/'>July 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/06/'>June 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/05/'>May 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/04/'>April 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/03/'>March 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/02/'>February 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/01/'>January 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2005/11/'>November 2005</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2005/10/'>October 2005</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2005/09/'>September 2005</a></li>
+		</ul>
+		</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-37"><a href="https://eightbar.eu-gb.mybluemix.net/category/3d-printing/" >3d printing</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="https://eightbar.eu-gb.mybluemix.net/category/augmented-reality/" >augmented reality</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="https://eightbar.eu-gb.mybluemix.net/category/branding/" >branding</a>
+</li>
+	<li class="cat-item cat-item-184"><a href="https://eightbar.eu-gb.mybluemix.net/category/conferences/" title="Energy-related technology stuff">conferences</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://eightbar.eu-gb.mybluemix.net/category/events/" title="Events.">Events</a>
+</li>
+	<li class="cat-item cat-item-36"><a href="https://eightbar.eu-gb.mybluemix.net/category/games/" >games</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" title="Hursley, site and location. ">Hursley</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://eightbar.eu-gb.mybluemix.net/category/ibm-projects/" title="IBM projects we are working on">IBM Projects</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://eightbar.eu-gb.mybluemix.net/category/life/" >Life</a>
+</li>
+	<li class="cat-item cat-item-53"><a href="https://eightbar.eu-gb.mybluemix.net/category/messaging/" >messaging</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://eightbar.eu-gb.mybluemix.net/category/news/" >News</a>
+</li>
+	<li class="cat-item cat-item-282"><a href="https://eightbar.eu-gb.mybluemix.net/category/node-red/" >Node-RED</a>
+</li>
+	<li class="cat-item cat-item-199"><a href="https://eightbar.eu-gb.mybluemix.net/category/planet/" >Planet</a>
+</li>
+	<li class="cat-item cat-item-188"><a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/qdg/" >QDG</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" >Second Life</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" >Technology</a>
+</li>
+	<li class="cat-item cat-item-54"><a href="https://eightbar.eu-gb.mybluemix.net/category/twitter/" >twitter</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://eightbar.eu-gb.mybluemix.net/category/uncategorized/" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" >Virtual worlds</a>
+</li>
+		</ul>
+</aside><aside id="tag_cloud-3" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><a href='https://eightbar.eu-gb.mybluemix.net/tag/8bar/' class='tag-link-108 tag-link-position-1' title='5 topics' style='font-size: 10.153846153846pt;'>8bar</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/addresses/' class='tag-link-296 tag-link-position-2' title='3 topics' style='font-size: 8pt;'>addresses</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/arduino/' class='tag-link-159 tag-link-position-3' title='4 topics' style='font-size: 9.1965811965812pt;'>arduino</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/bluemix/' class='tag-link-284 tag-link-position-4' title='3 topics' style='font-size: 8pt;'>bluemix</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/code/' class='tag-link-214 tag-link-position-5' title='6 topics' style='font-size: 10.991452991453pt;'>code</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/conference/' class='tag-link-97 tag-link-position-6' title='6 topics' style='font-size: 10.991452991453pt;'>conference</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/data/' class='tag-link-297 tag-link-position-7' title='3 topics' style='font-size: 8pt;'>data</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/data-quality/' class='tag-link-298 tag-link-position-8' title='3 topics' style='font-size: 8pt;'>data quality</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/education/' class='tag-link-88 tag-link-position-9' title='5 topics' style='font-size: 10.153846153846pt;'>education</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/eightbar/' class='tag-link-113 tag-link-position-10' title='58 topics' style='font-size: 22pt;'>eightbar</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/energy/' class='tag-link-203 tag-link-position-11' title='3 topics' style='font-size: 8pt;'>energy</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/energy-and-environment/' class='tag-link-235 tag-link-position-12' title='4 topics' style='font-size: 9.1965811965812pt;'>Energy and Environment</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/events/' class='tag-link-307 tag-link-position-13' title='4 topics' style='font-size: 9.1965811965812pt;'>Events</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/extreme-blue/' class='tag-link-31 tag-link-position-14' title='3 topics' style='font-size: 8pt;'>Extreme Blue</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/green/' class='tag-link-205 tag-link-position-15' title='3 topics' style='font-size: 8pt;'>green</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hackday/' class='tag-link-244 tag-link-position-16' title='3 topics' style='font-size: 8pt;'>hackday</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hacking/' class='tag-link-167 tag-link-position-17' title='3 topics' style='font-size: 8pt;'>hacking</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hampshire/' class='tag-link-125 tag-link-position-18' title='5 topics' style='font-size: 10.153846153846pt;'>hampshire</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hci-usability/' class='tag-link-201 tag-link-position-19' title='3 topics' style='font-size: 8pt;'>HCI &amp; Usability</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/homecamp/' class='tag-link-69 tag-link-position-20' title='3 topics' style='font-size: 8pt;'>homecamp</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hursley/' class='tag-link-309 tag-link-position-21' title='14 topics' style='font-size: 14.940170940171pt;'>Hursley</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/ibm/' class='tag-link-76 tag-link-position-22' title='23 topics' style='font-size: 17.333333333333pt;'>IBM</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/innovation/' class='tag-link-171 tag-link-position-23' title='3 topics' style='font-size: 8pt;'>innovation</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/life-the-universe-and-everything/' class='tag-link-242 tag-link-position-24' title='3 topics' style='font-size: 8pt;'>Life, the Universe, and Everything</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/linux/' class='tag-link-123 tag-link-position-25' title='4 topics' style='font-size: 9.1965811965812pt;'>linux</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/making-things/' class='tag-link-202 tag-link-position-26' title='4 topics' style='font-size: 9.1965811965812pt;'>Making Things</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/mqtt/' class='tag-link-70 tag-link-position-27' title='15 topics' style='font-size: 15.179487179487pt;'>MQTT</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/odcamp/' class='tag-link-299 tag-link-position-28' title='3 topics' style='font-size: 8pt;'>odcamp</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/open-data/' class='tag-link-300 tag-link-position-29' title='3 topics' style='font-size: 8pt;'>open-data</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/opensim/' class='tag-link-45 tag-link-position-30' title='3 topics' style='font-size: 8pt;'>opensim</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/running/' class='tag-link-189 tag-link-position-31' title='3 topics' style='font-size: 8pt;'>running</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/second-life/' class='tag-link-310 tag-link-position-32' title='4 topics' style='font-size: 9.1965811965812pt;'>Second Life</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/smarter-planet/' class='tag-link-80 tag-link-position-33' title='4 topics' style='font-size: 9.1965811965812pt;'>smarter planet</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/southackton/' class='tag-link-250 tag-link-position-34' title='3 topics' style='font-size: 8pt;'>southackton</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/southampton/' class='tag-link-251 tag-link-position-35' title='3 topics' style='font-size: 8pt;'>Southampton</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/tech/' class='tag-link-240 tag-link-position-36' title='11 topics' style='font-size: 13.74358974359pt;'>tech</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/tv/' class='tag-link-213 tag-link-position-37' title='3 topics' style='font-size: 8pt;'>TV</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/uk/' class='tag-link-126 tag-link-position-38' title='6 topics' style='font-size: 10.991452991453pt;'>uk</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/uncategorized/' class='tag-link-295 tag-link-position-39' title='3 topics' style='font-size: 8pt;'>Uncategorized</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/unconference/' class='tag-link-115 tag-link-position-40' title='5 topics' style='font-size: 10.153846153846pt;'>unconference</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/usability/' class='tag-link-271 tag-link-position-41' title='3 topics' style='font-size: 8pt;'>usability</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/w4a2013/' class='tag-link-276 tag-link-position-42' title='6 topics' style='font-size: 10.991452991453pt;'>w4a2013</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/wasdev/' class='tag-link-281 tag-link-position-43' title='5 topics' style='font-size: 10.153846153846pt;'>WASdev</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/watson/' class='tag-link-287 tag-link-position-44' title='6 topics' style='font-size: 10.991452991453pt;'>watson</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/work/' class='tag-link-237 tag-link-position-45' title='3 topics' style='font-size: 8pt;'>Work</a></div>
+</aside><aside id="rss_links-3" class="widget widget_rss_links"><h3 class="widget-title">Feeds</h3><ul><li><a href="https://eightbar.eu-gb.mybluemix.net/feed/" title="Subscribe to Posts">RSS - Posts</a></li><li><a href="https://eightbar.eu-gb.mybluemix.net/comments/feed/" title="Subscribe to Comments">RSS - Comments</a></li></ul>
+</aside>		</div><!-- #secondary .widget-area -->
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+	<div style="display:none">
+	</div>
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"https:\/\/eightbar.eu-gb.mybluemix.net\/2011\/09\/06\/hursley-extreme-blue-2011-presentations\/":1052}	</script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+			<div id="sharing_email" style="display: none;">
+		<form action="https://eightbar.eu-gb.mybluemix.net/tag/ftp/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="" />
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="" />
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="" />
+
+			
+			
+			<img style="float: right; display: none" class="loading" src="https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/images/loading.gif" alt="loading" width="16" height="16" />
+			<input type="submit" value="Send Email" class="sharing_send" />
+			<a href="#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-linkedin' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+		<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201630'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2016Julaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.5.3'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/wp-embed.min.js?ver=4.5.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/sharing.js?ver=3.3.3'></script>
+
+	<script src="http://stats.wp.com/e-201630.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:3.3.3',blog:'9013531',post:'0',tz:'1'});
+	var load_cmc = function(){linktracker_init(9013531,0,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+</body>
+</html>

@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Virtual worlds | eightbar - Part 15</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/style.css" />
+<link rel="pingback" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Feed" href="https://eightbar.eu-gb.mybluemix.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Comments Feed" href="https://eightbar.eu-gb.mybluemix.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Virtual worlds Category Feed" href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/eightbar.eu-gb.mybluemix.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='dark-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/colors/dark.css' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/css/jetpack.css?ver=3.3.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://eightbar.eu-gb.mybluemix.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://eightbar.eu-gb.mybluemix.net/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.5.3" />
+	<style>
+		/* Link color */
+		a,
+		#site-title a:focus,
+		#site-title a:hover,
+		#site-title a:active,
+		.entry-title a:hover,
+		.entry-title a:focus,
+		.entry-title a:active,
+		.widget_twentyeleven_ephemera .comments-link a:hover,
+		section.recent-posts .other-recent-posts a[rel="bookmark"]:hover,
+		section.recent-posts .other-recent-posts .comments-link a:hover,
+		.format-image footer.entry-meta a:hover,
+		#site-generator a:hover {
+			color: #b4d1f3;
+		}
+		section.recent-posts .other-recent-posts .comments-link a:hover {
+			border-color: #b4d1f3;
+		}
+		article.feature-image.small .entry-summary p a:hover,
+		.entry-header .comments-link a:hover,
+		.entry-header .comments-link a:focus,
+		.entry-header .comments-link a:active,
+		.feature-slider a.active {
+			background-color: #b4d1f3;
+		}
+	</style>
+
+<!-- All in One SEO Pack 2.2.4.1 by Michael Torbert of Semper Fi Web Design[355,397] -->
+<meta name="keywords"  content="hursley,second life,virtual worlds,technology,3d printing,life" />
+<meta name="robots" content="noindex,follow" />
+<link rel='prev' href='https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/page/14/' />
+<link rel='next' href='https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/page/16/' />
+
+<link rel="canonical" href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/page/15/" />
+<!-- /all in one seo pack -->
+	<style type="text/css">
+			#site-title,
+		#site-description {
+			position: absolute !important;
+			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+		</style>
+	<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #E3E3E3; }
+</style>
+</head>
+
+<body class="archive paged category category-virtual-worlds category-10 custom-background paged-15 category-paged-15 two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="https://eightbar.eu-gb.mybluemix.net/" title="eightbar" rel="home">eightbar</a></span></h1>
+				<h2 id="site-description">Raising The Eight Bar</h2>
+			</hgroup>
+
+						<a href="https://eightbar.eu-gb.mybluemix.net/">
+									<img src="https://eightbar.eu-gb.mybluemix.net/wp-content/uploads/2012/02/eightbargrass.jpg" width="1000" height="288" alt="" />
+							</a>
+			
+							<div class="only-search with-image">
+					<form method="get" id="searchform" action="https://eightbar.eu-gb.mybluemix.net/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+				</div>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-eightbar-main-menu-container"><ul id="menu-eightbar-main-menu" class="menu"><li id="menu-item-1192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1192"><a href="https://eightbar.eu-gb.mybluemix.net/">Home</a></li>
+<li id="menu-item-1193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1193"><a href="https://eightbar.eu-gb.mybluemix.net/about/">About</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<section id="primary">
+			<div id="content" role="main">
+
+			
+				<header class="page-header">
+					<h1 class="page-title">Category Archives: <span>Virtual worlds</span></h1>
+
+									</header>
+
+						<nav id="nav-above">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"><a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/page/16/" ><span class="meta-nav">&larr;</span> Older posts</a></div>
+			<div class="nav-next"><a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/page/14/" >Newer posts <span class="meta-nav">&rarr;</span></a></div>
+		</nav><!-- #nav-above -->
+	
+								
+					
+	<article id="post-425" class="post-425 post type-post status-publish format-standard hentry category-hursley category-second-life category-virtual-worlds">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2008/01/14/molecules-and-supercomputers-in-second-life/" title="Permalink to Molecules and supercomputers in Second Life" rel="bookmark">Molecules and supercomputers in Second Life</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2008/01/14/molecules-and-supercomputers-in-second-life/" title="10:43" rel="bookmark"><time class="entry-date" datetime="2008-01-14T10:43:15+00:00">January 14, 2008</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/epredator/" title="View all posts by epredator" rel="author">epredator</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>It is strange as we talk about this project all the time, yet as Ugotrade was looking for a link to it on eightbar it turns out we had not covered it well enought. So here we go.<br />
+We have said before about taking things from one place and regerenating them in another to find interesting ways to visualize data and system architectures and workflows in a business.<br />
+This project by our collegues in Watson took the result of some complex protein folding on a blue gene supercomputer and then injected the result of those calculations on the structure of a rhodopsin molecule into a scripted object in Second Life which then built a huge representation of that molecule.<br />
+The guys have an interview <a href="http://www.slnn.com/article/ibmrhodopsin/">here over on SLNN.com</a> Rez Tone and Zha Ewry are the main contacts.<br />
+The interesting thing is that as well as being a scientific visualization it has a place as an art installation and a though provoking place to gather. Inventiably when people gather there they tend to ask so what is this then? This leads to much deeper conversations about life sciences and supercomputing at IBM.<br />
+I tend to use this little clip of me sitting in the molecule to deomstrate the scale of this. Remember its all generated, not a manual build.<br />
+<object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/9N7rnDgeHcI"></param><embed src="http://www.youtube.com/v/9N7rnDgeHcI" type="application/x-shockwave-flash" width="425" height="350"></embed></object></p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-425" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/14/molecules-and-supercomputers-in-second-life/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-425" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/14/molecules-and-supercomputers-in-second-life/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-425" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/14/molecules-and-supercomputers-in-second-life/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/14/molecules-and-supercomputers-in-second-life/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/14/molecules-and-supercomputers-in-second-life/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/14/molecules-and-supercomputers-in-second-life/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-425" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/14/molecules-and-supercomputers-in-second-life/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" rel="category tag">Virtual worlds</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-425 -->
+				
+					
+	<article id="post-424" class="post-424 post type-post status-publish format-standard hentry category-hursley category-second-life category-technology category-virtual-worlds">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2008/01/09/data-portability-08-is-the-year/" title="Permalink to Data portability &#8211; 08 is the year?" rel="bookmark">Data portability &#8211; 08 is the year?</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2008/01/09/data-portability-08-is-the-year/" title="16:16" rel="bookmark"><time class="entry-date" datetime="2008-01-09T16:16:09+00:00">January 9, 2008</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/epredator/" title="View all posts by epredator" rel="author">epredator</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>Last year I kept using a &#8220;catchy&#8221; phrase Web 2 is Web Do which still stands. This year it would seem that <a href="http://dataportability.org/">data portability </a>with all the talk of openid, Scoble and facebook, plaxo etc combined with the conversations in October about virtual world data interchange means that this year the phrase will have to be about migration and interoperability on social media of all sorts. Being able to have the stuff you own and need where you are when you need it.<br />
+&#8220;08 is about how to migrate&#8221; or migr8te or even&#8230;..<br />
+we may have to become Migr8tebar 🙂<br />
+I suspect it will not happen to quite the level anyone expects though technically moving data around and providing services is not overly tricky the complexity lies in the social fabric too. If I move to a place, 2d, 3d, 4d etc. How do I determine what I need or would like with me. How does what I take with me alter those around me. e.g. friend links in one arena may not be appropriate in another. Equally I think we might surprise ourselves by what happens when/if things do become more portable.<br />
+This ability to access things we already have will need to spread to the virtual worlds, in particular when used in a business of consumer context. Being able to re-use existing web applications and sites within a virtual world adding the benefit of avatar interactions will make a huge difference in a mass market.<br />
+That is less about data portability, but does introduce data access. It does happen in some of the virtual worlds, but we tend not to see embedded web browsing the massive public worlds. There are some security implications obviously but ot use the Second Life Parlence &#8220;web of a prim&#8221; would make a massive difference if it can be solved safely. </p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-424" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/09/data-portability-08-is-the-year/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-424" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/09/data-portability-08-is-the-year/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-424" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/09/data-portability-08-is-the-year/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/09/data-portability-08-is-the-year/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/09/data-portability-08-is-the-year/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/09/data-portability-08-is-the-year/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-424" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/09/data-portability-08-is-the-year/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" rel="category tag">Virtual worlds</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-424 -->
+				
+					
+	<article id="post-423" class="post-423 post type-post status-publish format-standard hentry category-hursley category-second-life category-virtual-worlds">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2008/01/08/and-now-a-rhino-this-time-a-sculpty/" title="Permalink to And now a Rhino! This time a sculpty" rel="bookmark">And now a Rhino! This time a sculpty</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2008/01/08/and-now-a-rhino-this-time-a-sculpty/" title="11:57" rel="bookmark"><time class="entry-date" datetime="2008-01-08T11:57:27+00:00">January 8, 2008</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/epredator/" title="View all posts by epredator" rel="author">epredator</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>It seems to be safari week here on eightbar. The guys over at archipelis told me about their new sculpty exporter for second life. They have some sample files <a href="http://www.archipelis.com/slexporter/index.html">here</a>. I wrote about <a href="https://eightbar.eu-gb.mybluemix.net/2007/08/24/quick-2d-to-3d-with-archipelis/">Archipelis a little while ago </a>as it is such a simple way to draw and create complex objects I really enjoyed using it. Now that there is the potential to create sculpties, and quite complex ones at that it has got even better.<br />
+I created the rhino from the sample whilst I sort out my own models just to see it work. I think you will all agree it is very good.<br />
+UPDATE***** If you want to save the upload cost and own a sample rhino I have put one on <a href="http://shop.onrez.com/item/469792">ONREZ </a><br />
+<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/dnucl0SJHOg&#038;rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/dnucl0SJHOg&#038;rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object><br />
+I was showing it to a few people and Patchouli Woollahra asked me to rez a hippo. That of course reminded Roo and I of the Flight of the Conchords.Hiphopapottamus vs. Rhymenocerous </p>
+<p><object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/XuPQGaT4UVg&#038;rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/XuPQGaT4UVg&#038;rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object></p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-423" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/08/and-now-a-rhino-this-time-a-sculpty/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-423" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/08/and-now-a-rhino-this-time-a-sculpty/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-423" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/08/and-now-a-rhino-this-time-a-sculpty/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/08/and-now-a-rhino-this-time-a-sculpty/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/08/and-now-a-rhino-this-time-a-sculpty/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/08/and-now-a-rhino-this-time-a-sculpty/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-423" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/08/and-now-a-rhino-this-time-a-sculpty/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" rel="category tag">Virtual worlds</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-423 -->
+				
+					
+	<article id="post-422" class="post-422 post type-post status-publish format-standard hentry category-hursley category-second-life category-virtual-worlds">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/more-metaverse-animals-this-time-a-zebra-a-clever-one-2/" title="Permalink to More metaverse animals, this time a zebra a clever one" rel="bookmark">More metaverse animals, this time a zebra a clever one</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/more-metaverse-animals-this-time-a-zebra-a-clever-one-2/" title="20:25" rel="bookmark"><time class="entry-date" datetime="2008-01-04T20:25:26+00:00">January 4, 2008</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/epredator/" title="View all posts by epredator" rel="author">epredator</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>This video by Nick Wilson is doing the rounds. A free open source enterprise style toolkit for creating a Second Life presence. Of course I have not seen it, <a href="http://cleverzebra.com/">I have no idea what it can do</a> in any detail, but as Nick has been a rising force in virtual worlds he knows his stuff and what is missing. He has closed metaversed and moved onto Clever Zebra with Onder Skall and Lordfly Digeridoo<br />
+So, lets see how this one goes its an exciting prospect.<br />
+<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/xhzIiuTqj0s&#038;rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/xhzIiuTqj0s&#038;rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object><br />
+So we have electric sheep, a mysterious turtle with Wello Horld and now a Clever Zebra. Its all good</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-422" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/more-metaverse-animals-this-time-a-zebra-a-clever-one-2/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-422" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/more-metaverse-animals-this-time-a-zebra-a-clever-one-2/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-422" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/more-metaverse-animals-this-time-a-zebra-a-clever-one-2/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/more-metaverse-animals-this-time-a-zebra-a-clever-one-2/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/more-metaverse-animals-this-time-a-zebra-a-clever-one-2/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/more-metaverse-animals-this-time-a-zebra-a-clever-one-2/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-422" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/more-metaverse-animals-this-time-a-zebra-a-clever-one-2/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" rel="category tag">Virtual worlds</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-422 -->
+				
+					
+	<article id="post-420" class="post-420 post type-post status-publish format-standard hentry category-hursley category-second-life category-technology category-virtual-worlds">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/if-you-thought-that-was-good-look-at-this/" title="Permalink to If you thought that was good look at this" rel="bookmark">If you thought that was good look at this</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/if-you-thought-that-was-good-look-at-this/" title="14:16" rel="bookmark"><time class="entry-date" datetime="2008-01-04T14:16:01+00:00">January 4, 2008</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/epredator/" title="View all posts by epredator" rel="author">epredator</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The last post showed some of the work Johnny Lee is showing with wiimotes, this one is with projectors. Calibrating to a surface regardless of angle and in some case shape (watch it until the end).<br />
+<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/XgrGjJUBF_I&#038;rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/XgrGjJUBF_I&#038;rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object><br />
+It seems that the various URL&#8217;s including http://www.johnnylee.net are currently dead probably due to the insane amount of traffic generated by being in the top 30 on youtube!<br />
+The other thing to note is that IBM has its everywhere display a commercial way of targetting projection onto surfaces and dealing with scale etc.<br />
+The original research site is <a href="http://www.research.ibm.com/ed/">here</a>, the brochure is <a href="http://www-03.ibm.com/industries/retail/doc/content/resource/business/1246913101.html?g_type=rssfeed_leaf">here</a> and a recent article in fortune, around retail is <a href="http://money.cnn.com/magazines/fortune/fortune_archive/2006/11/27/8394323/index.htm">here</a><br />
+I have always wanted to be able to project things, it woudl be great to have a small device like a PDA or smartphone be able to project onto a table or wall to show someone something.<br />
+I know we have an everywhere display installation in Zurich, it is there with the other project I have a soft spot for, Blueeyes. This is a camera and sensors that senses your mood happy, sad etc. Back in 2000 we were trying to get that installed in out UK innovation centres as part of our time and emotion project. using clever sensors to help instrument buildings and capture the atmosphere in order to be able to represent it elsewhere. An ongoing theme as you will have noticed with the metaverse work and things like Wimbledon 🙂<br />
+If I can find some everywhere display footage I will try and post it on Youtube or see if <a href="http://www.youtube.com/profile?user=IBMtveditor">IBMtv</a> have any</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-420" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/if-you-thought-that-was-good-look-at-this/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-420" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/if-you-thought-that-was-good-look-at-this/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-420" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/if-you-thought-that-was-good-look-at-this/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/if-you-thought-that-was-good-look-at-this/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/if-you-thought-that-was-good-look-at-this/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/if-you-thought-that-was-good-look-at-this/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-420" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/04/if-you-thought-that-was-good-look-at-this/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" rel="category tag">Virtual worlds</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-420 -->
+				
+					
+	<article id="post-419" class="post-419 post type-post status-publish format-standard hentry category-hursley category-second-life category-technology category-virtual-worlds">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2008/01/03/using-the-wiimote-for-tracking/" title="Permalink to Using the Wiimote for tracking" rel="bookmark">Using the Wiimote for tracking</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2008/01/03/using-the-wiimote-for-tracking/" title="19:46" rel="bookmark"><time class="entry-date" datetime="2008-01-03T19:46:17+00:00">January 3, 2008</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/epredator/" title="View all posts by epredator" rel="author">epredator</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>For a little while I have been trying to find the time to give the wiimote a try as a PC interface. Roo had some things things running last year. Today as the first day back at work 2 people Gareth and Tim both pointed me to some youtube videos by Johnny Chung Lee.<br />
+<a href="http://www.cs.cmu.edu/~johnny/projects/wii/">His website has all the code and instructions you need</a>, but I am putting this video on here because I think it is stunning.<br />
+1. Its a great idea, 2. its very well presented yet homebrew, 3. It gets the effect across so well.<br />
+<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/Jd3-eiid-Uw&#038;rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/Jd3-eiid-Uw&#038;rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object><br />
+So now if we combine ArtTag and the other camera based thing what on earth will we come up with?</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-419" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/03/using-the-wiimote-for-tracking/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-419" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/03/using-the-wiimote-for-tracking/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-419" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/03/using-the-wiimote-for-tracking/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/03/using-the-wiimote-for-tracking/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/03/using-the-wiimote-for-tracking/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/03/using-the-wiimote-for-tracking/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-419" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2008/01/03/using-the-wiimote-for-tracking/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" rel="category tag">Virtual worlds</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-419 -->
+				
+					
+	<article id="post-418" class="post-418 post type-post status-publish format-standard hentry category-3d-printing category-hursley category-second-life category-technology category-virtual-worlds">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2007/12/15/paper-3d-printing/" title="Permalink to Paper 3d printing" rel="bookmark">Paper 3d printing</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2007/12/15/paper-3d-printing/" title="20:34" rel="bookmark"><time class="entry-date" datetime="2007-12-15T20:34:23+00:00">December 15, 2007</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/epredator/" title="View all posts by epredator" rel="author">epredator</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>You may have noticed a good few references to another pet subject of 3d printers here on eightbar. Well here is another one.<br />
+<a href="http://www.mcortechnologies.com/">Mcor use the principle of printing out layers</a> of paper that are then bonded together to create a 3d model. That is a really interesting approach, especially given the lower cost of paper versus the plastic based printers.<br />
+The other interesting point is the way I got introduced to this. <a href="http://www.guykawasaki.com/">Guy Kawasaki</a>, one of the original evangelists posted it on <a href="http://www.twitter.com/guykawasaki">twitter</a> refering to <a href="http://truemors.com/?p=20637">his truemors website</a>. I follow his twitters and saw 3d printer, so it was a natural conclusion to then post it on eightbar.</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-418" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/15/paper-3d-printing/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-418" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/15/paper-3d-printing/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-418" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/15/paper-3d-printing/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/15/paper-3d-printing/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/15/paper-3d-printing/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/15/paper-3d-printing/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-418" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/15/paper-3d-printing/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/3d-printing/" rel="category tag">3d printing</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" rel="category tag">Virtual worlds</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-418 -->
+				
+					
+	<article id="post-417" class="post-417 post type-post status-publish format-standard hentry category-hursley category-life category-second-life category-technology category-virtual-worlds">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2007/12/14/performing-showing-off-postitive-feedback-and-recycled-content/" title="Permalink to Performing, showing off ,positive feedback and recycled content" rel="bookmark">Performing, showing off ,positive feedback and recycled content</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2007/12/14/performing-showing-off-postitive-feedback-and-recycled-content/" title="18:30" rel="bookmark"><time class="entry-date" datetime="2007-12-14T18:30:32+00:00">December 14, 2007</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/epredator/" title="View all posts by epredator" rel="author">epredator</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>Back in august over on <a href="http://terranova.blogs.com/terra_nova/2007/08/what-a-performa.html">terranova I wrote a post &#8220;What a performance Live Vs Recorded in a multi player world&#8221;</a> I have been revisiting the concepts around performance and the ability to interact with people and content in a live sense even more.<br />
+The driver for this has been two very interesting mainstream games. Guitar Hero (now at version iii) and Singstar (the PS3 version). The premise behind both these games is as players and users we interact with existing content but add a performance element to that interaction. Guitar hero uses a seemingly amusing plastic guitar, using the buttons on the guitar an pushing the strumming button you are able to play along with songs. The peripheral based bemani (short for beat mania) where you provide responses in time to some sort of music and on screen prompts comes in all sorts of shapes, the dance mat games, bongos, maracas, you name it.<br />
+<a href="http://www.flickr.com/photos/epredator/2057032866/" title="Lets rock by epredator, on Flickr"><img src="http://farm3.static.flickr.com/2015/2057032866_ef9715d82b.jpg" width="500" height="375" alt="Lets rock" /></a><br />
+<a href="http://www.flickr.com/photos/epredator/460610347/" title="guitar hero II by epredator, on Flickr"><img src="http://farm1.static.flickr.com/243/460610347_3f47709ffb.jpg" width="500" height="375" alt="guitar hero II" /></a><br />
+Also Singstar uses the same principle but instead of pressing buttons to a beat and the tune coming out accordingly it has mics and you sing along with songs. You get a visual feedback of how in tune you are. I had been writing about this over on <a href="http://epredator.blogspot.com/2007/12/singstar-ps3-who-would-have-thought-it.html">epredator.com</a> too as its had some surprising results<br />
+<a href="http://www.flickr.com/photos/epredator/2103826233/" title="Singstar Ps3 by epredator, on Flickr"><img src="http://farm3.static.flickr.com/2416/2103826233_50777f59ab.jpg" width="500" height="375" alt="Singstar Ps3" /></a><br />
+The point that struck me is that people, normal people not gamers, can see and hear the results of a players performance and really understand if someone is good or bad or just trying very hard. Most things we all do, especially in the tech world are under the covers or obscure enough that people do not understand the artistry. Even regular games, non-gamers will see the top player in the world dispatch several enemies with a single shot before dashing to a new point of cover, and it will look easy. Only other game players see the skill.<br />
+These bemani performance games highlight mistakes, highlight perfection but in a field that most people can relate too. In many ways this is reflected in the virtual worlds and metaverses. Here people are starting to see the skill of the build both from trying themselves and also from relating to real life.<br />
+If we can make live performance and skills in a business context as identifiable as a good singer on singstar, combined with the ability for people to have a continuous way to practice and refine I think we have some really good results. I am by no means a singer, but I now appreciate the structure of some of the songs I have been singing at a much deeper level than a pure passive listener. It is this ability to delve deeper into existing content, e.g. mr brightside by the killers on Singstar or Anarchy in the UK on guitar hero III, also having repurchased the content for its enhanced involvement. All that music back catalog, fighting to deal with file sharing and without a moments thought I was more than happy to spend another 99p to buy a Singstar version of a Duran Duran song that I am sure we already have on multiple CD&#8217;s and MP3 playlists.<br />
+So we get to understand content by immersing in it in a very public way and people get to understand our various talents through seeing the performance. It seems an interesting pattern?</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-417" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/14/performing-showing-off-postitive-feedback-and-recycled-content/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-417" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/14/performing-showing-off-postitive-feedback-and-recycled-content/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-417" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/14/performing-showing-off-postitive-feedback-and-recycled-content/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/14/performing-showing-off-postitive-feedback-and-recycled-content/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/14/performing-showing-off-postitive-feedback-and-recycled-content/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/14/performing-showing-off-postitive-feedback-and-recycled-content/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-417" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/14/performing-showing-off-postitive-feedback-and-recycled-content/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/life/" rel="category tag">Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" rel="category tag">Virtual worlds</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-417 -->
+				
+					
+	<article id="post-416" class="post-416 post type-post status-publish format-standard hentry category-hursley category-second-life category-virtual-worlds">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2007/12/10/holiday-building-project-in-second-life/" title="Permalink to Holiday building project in second life" rel="bookmark">Holiday building project in second life</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2007/12/10/holiday-building-project-in-second-life/" title="12:03" rel="bookmark"><time class="entry-date" datetime="2007-12-10T12:03:15+00:00">December 10, 2007</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/epredator/" title="View all posts by epredator" rel="author">epredator</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>One of the wider eightbar group Anita Cassini in SL told me about a &#8220;build a better bauble&#8221; project she has got going with some other residents. The basic premise is you build a christmas tree ornanament to represent you or your brand and these all get placed on various trees around SL. The idea is that content creators come together both to show their talents and to also say no to stealing of others work.</p>
+<p><a href="http://www.flickr.com/photos/epredator/2095379379/" title="Build competition by epredator, on Flickr"><img src="http://farm3.static.flickr.com/2192/2095379379_5d0941f67f.jpg" width="500" height="279" alt="Build competition" /></a><br />
+Photos originally <a href="http://www.sluniverse.com/pics/Default.aspx?Name=epredator+Potato">captured on snapzilla</a></p>
+<p>There is a tree <a href="http://slurl.com/secondlife/SOA%20Adventure%20Island/214/214/23">here </a>with a notecard giver that says the following</p>
+<p>Merry Xmas! </p>
+<p>The holiday season has started..  </p>
+<p>To celebrate we are launching phase I of a campaign to build awareness of how important intellectual property is for the growth and health of the Second life community.</p>
+<p>Lets spread the word by showing everyone in SL how good it is to be creative.</p>
+<p>How can you participate?</p>
+<p>Phase I   &#8211; Spread the message spread the joy  (Launch – Dec 1)</p>
+<p>1) Build an ornament Christmas, Chanukah, Kwanza or any thing that makes you want to celebrate this time of year.</p>
+<p>2) Requirements<br />
+a) Must reflect you and/or your brand can be as sophisticated or simple as you want.<br />
+b) You must be the creator<br />
+c) Must be only one object linked  minimum 1 prim  &#8211; max 254 prims<br />
+d) Maximum size 0.05 x 0.05 x 0.05 (size of a regular block)<br />
+e) Must have an IP message as part of the script (one included here) or in a notecard inside the document.</p>
+<p>3) You can participate if you have created unique content in SL and/or belong to one of following groups:<br />
+a) You are a scripter, builder, artist, designer, machimaniaographer, and or participate in the performing arts.<br />
+b) You are a blogger, writer,<br />
+c ) Art promoter, museum owner or  represent a RL corporation.<br />
+c) You are a Secondlife mentor, a tutor or a teacher<br />
+d) If you have a created a group that has 50+ members</p>
+<p>What to do with it.<br />
+a)  Send your ornament  (named  &#8220;[Your Name} Ornament&#8221;to Anita Cassini in a folder<br />
+      1)  Notecard with brief description of who you are and what you do for everyone to see it   (Holiday message would be cool too)<br />
+       2) Ornament – no mod is ok – but needs to have copy/transfer perms for it to be distributed and placed in the vendor  (will be sold at 0L)<br />
+-Add the script to include IP message<br />
+you can add a notecard giver and a landmark if you wish.<br />
+       3) A photo of your ornament with you or without you in it.</p>
+<p>b) You are encouraged to display and distribute your ornament at your store, in shop_on_ rez  and in slexchange, and any other way you wish to make available to the community. </p>
+<p>Add a poster of your oranament</p>
+<p>Additionally exhibit halls will be placed at IBM SOA Adventure  , Nicky Ree – Tropical Orchard sim,  Sarg Bjornson&#8217;s Prim Heart Amusment Park   Matika Textures AM Pro Rides<br />
+If you wish to host and exhibit hall please IM Anita Cassini, so she can make the ornaments received available to you.</p>
+<p>And remember<br />
+*A community message : Copying and Stealing of creative content and using it without permission of its original creator is wrong and illegal. Please do not encourage such activities and do not buy stolen goods.*</p>
+<p><a href="http://www.flickr.com/photos/epredator/2095394649/" title="Anita Cassini on SOA island by epredator, on Flickr"><img src="http://farm3.static.flickr.com/2364/2095394649_49756d5752.jpg" width="500" height="279" alt="Anita Cassini on SOA island" /></a></p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-416" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/10/holiday-building-project-in-second-life/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-416" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/10/holiday-building-project-in-second-life/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-416" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/10/holiday-building-project-in-second-life/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/10/holiday-building-project-in-second-life/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/10/holiday-building-project-in-second-life/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/10/holiday-building-project-in-second-life/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-416" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/10/holiday-building-project-in-second-life/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" rel="category tag">Virtual worlds</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-416 -->
+				
+					
+	<article id="post-415" class="post-415 post type-post status-publish format-standard hentry category-hursley category-second-life category-virtual-worlds">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2007/12/05/metaverse-chess/" title="Permalink to Metaverse Chess" rel="bookmark">Metaverse Chess</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2007/12/05/metaverse-chess/" title="17:19" rel="bookmark"><time class="entry-date" datetime="2007-12-05T17:19:29+00:00">December 5, 2007</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/epredator/" title="View all posts by epredator" rel="author">epredator</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>Every now and then we like to give out some sneak peaks of our internal metaverse. Here is one of a little torque based chess game I have been working on. I thought I would never solve the final bug, but at last it worked. This is film of it running on my local machine and server, but it will be deployed into the main corporate one very soon.<br />
+The premise was to not enforce any rules other than 2 pieces cant be on 1 square. The underlying development is really a model view controller one. There is aserver state to determine what piece is where. That model is changed by actions in the world.<br />
+The player walks to sqaure, waits 2 seconds and is allowed to select that piece, then walks to another space and waits 2 seconds and is allowed to place the piece. The delay is because triggers are used on each square to determine relative positions. I had to stop those triggers going off straight away as it meant you could not walk across the board without getting spammed.<br />
+The pieces are just letter based place holders, a selection of sets will be available.<br />
+We can of course apply the actual rules of chess and validation to the underlying model, but you dont in real life do you 🙂 I also need to make it multi threaded, at the moment it relies on people taking turns and moving off the board, but a free for all where more than one piece can be moved at a time allows for all sorts of user generated games with an ordinary chess set.<br />
+<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/9CqT8RV23ig&#038;rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/9CqT8RV23ig&#038;rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object></p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-415" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/05/metaverse-chess/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-415" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/05/metaverse-chess/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-415" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/05/metaverse-chess/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/05/metaverse-chess/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/05/metaverse-chess/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/05/metaverse-chess/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-415" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2007/12/05/metaverse-chess/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" rel="category tag">Virtual worlds</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-415 -->
+				
+						<nav id="nav-below">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"><a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/page/16/" ><span class="meta-nav">&larr;</span> Older posts</a></div>
+			<div class="nav-next"><a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/page/14/" >Newer posts <span class="meta-nav">&rarr;</span></a></div>
+		</nav><!-- #nav-above -->
+	
+			
+			</div><!-- #content -->
+		</section><!-- #primary -->
+
+		<div id="secondary" class="widget-area" role="complementary">
+			<aside id="text-3" class="widget widget_text">			<div class="textwidget"><a href="http://www.twitter.com/eightbar"><img height="16px" alt="Eightbar Twitter" src="https://si0.twimg.com/a/1329413806/images/logos/logo_twitter_withbird_1000_white_blue.png"/></a></div>
+		</aside><aside id="linkcat-196" class="widget widget_links"><h3 class="widget-title">Authors</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://stanford-clark.com/" title="About Andy Stanford-Clark">Andy Stanford-Clark</a></li>
+<li><a href="http://www.hardill.me.uk/wordpress/?page_id=2" title="About Ben Hardill">Ben Hardill</a></li>
+<li><a href="http://dalelane.co.uk/blog/?page_id=9">Dale Lane</a></li>
+<li><a href="https://eightbar.eu-gb.mybluemix.net/about/gwhite" title="About Graham White">Graham White</a></li>
+<li><a href="http://jtlog.wordpress.com/about/">James Taylor</a></li>
+<li><a href="https://eightbar.eu-gb.mybluemix.net/about/josie-messa/">Josie Messa</a></li>
+<li><a href="http://www.lauracowen.co.uk/blog/about/" title="About Laura Cowen">Laura Cowen</a></li>
+<li><a href="http://knolleary.net/about" title="About Nick O&#8217;Leary">Nick O&#039;Leary</a></li>
+<li><a href="https://eightbar.eu-gb.mybluemix.net/about/robsmart/" title="About Rob Smart">Rob Smart</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-197" class="widget widget_links"><h3 class="widget-title">Past Authors</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://andypiper.co.uk/about/" title="About Andy Piper">Andy Piper</a></li>
+<li><a href="http://www.feedingedge.co.uk/blog/epredator-bio/" title="About Ian Hughes">Ian Hughes</a></li>
+<li><a href="http://rooreynolds.com/bio/" title="About Roo Reynolds">Roo Reynolds</a></li>
+
+	</ul>
+</aside>
+<aside id="archives-3" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+			<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/06/'>June 2016</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/02/'>February 2016</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/04/'>April 2015</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/02/'>February 2015</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/01/'>January 2015</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/12/'>December 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/11/'>November 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/10/'>October 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/09/'>September 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/08/'>August 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/07/'>July 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/05/'>May 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/04/'>April 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/02/'>February 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/01/'>January 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/12/'>December 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/08/'>August 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/06/'>June 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/04/'>April 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/03/'>March 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/02/'>February 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/11/'>November 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/10/'>October 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/09/'>September 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/06/'>June 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/05/'>May 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/04/'>April 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/03/'>March 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/02/'>February 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2011/11/'>November 2011</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2011/10/'>October 2011</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2011/09/'>September 2011</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2011/02/'>February 2011</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/11/'>November 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/09/'>September 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/07/'>July 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/04/'>April 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/03/'>March 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/12/'>December 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/11/'>November 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/09/'>September 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/08/'>August 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/07/'>July 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/06/'>June 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/05/'>May 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/04/'>April 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/03/'>March 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/02/'>February 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/01/'>January 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/12/'>December 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/11/'>November 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/10/'>October 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/09/'>September 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/08/'>August 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/07/'>July 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/06/'>June 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/05/'>May 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/04/'>April 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/03/'>March 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/02/'>February 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/01/'>January 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/12/'>December 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/11/'>November 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/10/'>October 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/09/'>September 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/08/'>August 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/07/'>July 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/06/'>June 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/05/'>May 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/04/'>April 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/03/'>March 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/02/'>February 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/01/'>January 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/12/'>December 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/11/'>November 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/10/'>October 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/09/'>September 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/08/'>August 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/07/'>July 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/06/'>June 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/05/'>May 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/04/'>April 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/03/'>March 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/02/'>February 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/01/'>January 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2005/11/'>November 2005</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2005/10/'>October 2005</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2005/09/'>September 2005</a></li>
+		</ul>
+		</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-37"><a href="https://eightbar.eu-gb.mybluemix.net/category/3d-printing/" >3d printing</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="https://eightbar.eu-gb.mybluemix.net/category/augmented-reality/" >augmented reality</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="https://eightbar.eu-gb.mybluemix.net/category/branding/" >branding</a>
+</li>
+	<li class="cat-item cat-item-184"><a href="https://eightbar.eu-gb.mybluemix.net/category/conferences/" title="Energy-related technology stuff">conferences</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://eightbar.eu-gb.mybluemix.net/category/events/" title="Events.">Events</a>
+</li>
+	<li class="cat-item cat-item-36"><a href="https://eightbar.eu-gb.mybluemix.net/category/games/" >games</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" title="Hursley, site and location. ">Hursley</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://eightbar.eu-gb.mybluemix.net/category/ibm-projects/" title="IBM projects we are working on">IBM Projects</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://eightbar.eu-gb.mybluemix.net/category/life/" >Life</a>
+</li>
+	<li class="cat-item cat-item-53"><a href="https://eightbar.eu-gb.mybluemix.net/category/messaging/" >messaging</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://eightbar.eu-gb.mybluemix.net/category/news/" >News</a>
+</li>
+	<li class="cat-item cat-item-282"><a href="https://eightbar.eu-gb.mybluemix.net/category/node-red/" >Node-RED</a>
+</li>
+	<li class="cat-item cat-item-199"><a href="https://eightbar.eu-gb.mybluemix.net/category/planet/" >Planet</a>
+</li>
+	<li class="cat-item cat-item-188"><a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/qdg/" >QDG</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" >Second Life</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" >Technology</a>
+</li>
+	<li class="cat-item cat-item-54"><a href="https://eightbar.eu-gb.mybluemix.net/category/twitter/" >twitter</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://eightbar.eu-gb.mybluemix.net/category/uncategorized/" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-10 current-cat"><a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" >Virtual worlds</a>
+</li>
+		</ul>
+</aside><aside id="tag_cloud-3" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><a href='https://eightbar.eu-gb.mybluemix.net/tag/8bar/' class='tag-link-108 tag-link-position-1' title='5 topics' style='font-size: 10.153846153846pt;'>8bar</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/addresses/' class='tag-link-296 tag-link-position-2' title='3 topics' style='font-size: 8pt;'>addresses</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/arduino/' class='tag-link-159 tag-link-position-3' title='4 topics' style='font-size: 9.1965811965812pt;'>arduino</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/bluemix/' class='tag-link-284 tag-link-position-4' title='3 topics' style='font-size: 8pt;'>bluemix</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/code/' class='tag-link-214 tag-link-position-5' title='6 topics' style='font-size: 10.991452991453pt;'>code</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/conference/' class='tag-link-97 tag-link-position-6' title='6 topics' style='font-size: 10.991452991453pt;'>conference</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/data/' class='tag-link-297 tag-link-position-7' title='3 topics' style='font-size: 8pt;'>data</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/data-quality/' class='tag-link-298 tag-link-position-8' title='3 topics' style='font-size: 8pt;'>data quality</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/education/' class='tag-link-88 tag-link-position-9' title='5 topics' style='font-size: 10.153846153846pt;'>education</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/eightbar/' class='tag-link-113 tag-link-position-10' title='58 topics' style='font-size: 22pt;'>eightbar</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/energy/' class='tag-link-203 tag-link-position-11' title='3 topics' style='font-size: 8pt;'>energy</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/energy-and-environment/' class='tag-link-235 tag-link-position-12' title='4 topics' style='font-size: 9.1965811965812pt;'>Energy and Environment</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/events/' class='tag-link-307 tag-link-position-13' title='4 topics' style='font-size: 9.1965811965812pt;'>Events</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/extreme-blue/' class='tag-link-31 tag-link-position-14' title='3 topics' style='font-size: 8pt;'>Extreme Blue</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/green/' class='tag-link-205 tag-link-position-15' title='3 topics' style='font-size: 8pt;'>green</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hackday/' class='tag-link-244 tag-link-position-16' title='3 topics' style='font-size: 8pt;'>hackday</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hacking/' class='tag-link-167 tag-link-position-17' title='3 topics' style='font-size: 8pt;'>hacking</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hampshire/' class='tag-link-125 tag-link-position-18' title='5 topics' style='font-size: 10.153846153846pt;'>hampshire</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hci-usability/' class='tag-link-201 tag-link-position-19' title='3 topics' style='font-size: 8pt;'>HCI &amp; Usability</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/homecamp/' class='tag-link-69 tag-link-position-20' title='3 topics' style='font-size: 8pt;'>homecamp</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hursley/' class='tag-link-309 tag-link-position-21' title='14 topics' style='font-size: 14.940170940171pt;'>Hursley</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/ibm/' class='tag-link-76 tag-link-position-22' title='23 topics' style='font-size: 17.333333333333pt;'>IBM</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/innovation/' class='tag-link-171 tag-link-position-23' title='3 topics' style='font-size: 8pt;'>innovation</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/life-the-universe-and-everything/' class='tag-link-242 tag-link-position-24' title='3 topics' style='font-size: 8pt;'>Life, the Universe, and Everything</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/linux/' class='tag-link-123 tag-link-position-25' title='4 topics' style='font-size: 9.1965811965812pt;'>linux</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/making-things/' class='tag-link-202 tag-link-position-26' title='4 topics' style='font-size: 9.1965811965812pt;'>Making Things</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/mqtt/' class='tag-link-70 tag-link-position-27' title='15 topics' style='font-size: 15.179487179487pt;'>MQTT</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/odcamp/' class='tag-link-299 tag-link-position-28' title='3 topics' style='font-size: 8pt;'>odcamp</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/open-data/' class='tag-link-300 tag-link-position-29' title='3 topics' style='font-size: 8pt;'>open-data</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/opensim/' class='tag-link-45 tag-link-position-30' title='3 topics' style='font-size: 8pt;'>opensim</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/running/' class='tag-link-189 tag-link-position-31' title='3 topics' style='font-size: 8pt;'>running</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/second-life/' class='tag-link-310 tag-link-position-32' title='4 topics' style='font-size: 9.1965811965812pt;'>Second Life</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/smarter-planet/' class='tag-link-80 tag-link-position-33' title='4 topics' style='font-size: 9.1965811965812pt;'>smarter planet</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/southackton/' class='tag-link-250 tag-link-position-34' title='3 topics' style='font-size: 8pt;'>southackton</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/southampton/' class='tag-link-251 tag-link-position-35' title='3 topics' style='font-size: 8pt;'>Southampton</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/tech/' class='tag-link-240 tag-link-position-36' title='11 topics' style='font-size: 13.74358974359pt;'>tech</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/tv/' class='tag-link-213 tag-link-position-37' title='3 topics' style='font-size: 8pt;'>TV</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/uk/' class='tag-link-126 tag-link-position-38' title='6 topics' style='font-size: 10.991452991453pt;'>uk</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/uncategorized/' class='tag-link-295 tag-link-position-39' title='3 topics' style='font-size: 8pt;'>Uncategorized</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/unconference/' class='tag-link-115 tag-link-position-40' title='5 topics' style='font-size: 10.153846153846pt;'>unconference</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/usability/' class='tag-link-271 tag-link-position-41' title='3 topics' style='font-size: 8pt;'>usability</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/w4a2013/' class='tag-link-276 tag-link-position-42' title='6 topics' style='font-size: 10.991452991453pt;'>w4a2013</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/wasdev/' class='tag-link-281 tag-link-position-43' title='5 topics' style='font-size: 10.153846153846pt;'>WASdev</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/watson/' class='tag-link-287 tag-link-position-44' title='6 topics' style='font-size: 10.991452991453pt;'>watson</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/work/' class='tag-link-237 tag-link-position-45' title='3 topics' style='font-size: 8pt;'>Work</a></div>
+</aside><aside id="rss_links-3" class="widget widget_rss_links"><h3 class="widget-title">Feeds</h3><ul><li><a href="https://eightbar.eu-gb.mybluemix.net/feed/" title="Subscribe to Posts">RSS - Posts</a></li><li><a href="https://eightbar.eu-gb.mybluemix.net/comments/feed/" title="Subscribe to Comments">RSS - Comments</a></li></ul>
+</aside>		</div><!-- #secondary .widget-area -->
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+	<div style="display:none">
+	</div>
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"https:\/\/eightbar.eu-gb.mybluemix.net\/2008\/01\/14\/molecules-and-supercomputers-in-second-life\/":425,"https:\/\/eightbar.eu-gb.mybluemix.net\/2008\/01\/09\/data-portability-08-is-the-year\/":424,"https:\/\/eightbar.eu-gb.mybluemix.net\/2008\/01\/08\/and-now-a-rhino-this-time-a-sculpty\/":423,"https:\/\/eightbar.eu-gb.mybluemix.net\/2008\/01\/04\/more-metaverse-animals-this-time-a-zebra-a-clever-one-2\/":422,"https:\/\/eightbar.eu-gb.mybluemix.net\/2008\/01\/04\/if-you-thought-that-was-good-look-at-this\/":420,"https:\/\/eightbar.eu-gb.mybluemix.net\/2008\/01\/03\/using-the-wiimote-for-tracking\/":419,"https:\/\/eightbar.eu-gb.mybluemix.net\/2007\/12\/15\/paper-3d-printing\/":418,"https:\/\/eightbar.eu-gb.mybluemix.net\/2007\/12\/14\/performing-showing-off-postitive-feedback-and-recycled-content\/":417,"https:\/\/eightbar.eu-gb.mybluemix.net\/2007\/12\/10\/holiday-building-project-in-second-life\/":416,"https:\/\/eightbar.eu-gb.mybluemix.net\/2007\/12\/05\/metaverse-chess\/":415}	</script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+			<div id="sharing_email" style="display: none;">
+		<form action="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/page/15/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="" />
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="" />
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="" />
+
+			
+			
+			<img style="float: right; display: none" class="loading" src="https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/images/loading.gif" alt="loading" width="16" height="16" />
+			<input type="submit" value="Send Email" class="sharing_send" />
+			<a href="#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-linkedin' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+		<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201630'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2016Julaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.5.3'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/wp-embed.min.js?ver=4.5.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/sharing.js?ver=3.3.3'></script>
+
+	<script src="http://stats.wp.com/e-201630.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:3.3.3',blog:'9013531',post:'0',tz:'1'});
+	var load_cmc = function(){linktracker_init(9013531,0,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+</body>
+</html>

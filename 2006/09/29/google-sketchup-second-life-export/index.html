@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Google Sketchup -> Second Life export | eightbar</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/style.css" />
+<link rel="pingback" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Feed" href="https://eightbar.eu-gb.mybluemix.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Comments Feed" href="https://eightbar.eu-gb.mybluemix.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Google Sketchup -&gt; Second Life export Comments Feed" href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/eightbar.eu-gb.mybluemix.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='dark-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/colors/dark.css' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/css/jetpack.css?ver=3.3.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://eightbar.eu-gb.mybluemix.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://eightbar.eu-gb.mybluemix.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='New Media Knowledge &#8211; &#8220;My So-called 2nd Life&#8221; conference' href='https://eightbar.eu-gb.mybluemix.net/2006/09/25/new-media-knowledge-my-so-called-2nd-life-conference/' />
+<link rel='next' title='More Travel, now in NY and geeking out at the Wired NextFest' href='https://eightbar.eu-gb.mybluemix.net/2006/10/02/more-travel-now-is-ny-and-geeking-out-at-the-wired-nextfest/' />
+<meta name="generator" content="WordPress 4.5.3" />
+<link rel='shortlink' href='http://wp.me/pBOPx-3b' />
+<link rel="alternate" type="application/json+oembed" href="https://eightbar.eu-gb.mybluemix.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Feightbar.co.uk%2F2006%2F09%2F29%2Fgoogle-sketchup-second-life-export%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://eightbar.eu-gb.mybluemix.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Feightbar.co.uk%2F2006%2F09%2F29%2Fgoogle-sketchup-second-life-export%2F&#038;format=xml" />
+	<style>
+		/* Link color */
+		a,
+		#site-title a:focus,
+		#site-title a:hover,
+		#site-title a:active,
+		.entry-title a:hover,
+		.entry-title a:focus,
+		.entry-title a:active,
+		.widget_twentyeleven_ephemera .comments-link a:hover,
+		section.recent-posts .other-recent-posts a[rel="bookmark"]:hover,
+		section.recent-posts .other-recent-posts .comments-link a:hover,
+		.format-image footer.entry-meta a:hover,
+		#site-generator a:hover {
+			color: #b4d1f3;
+		}
+		section.recent-posts .other-recent-posts .comments-link a:hover {
+			border-color: #b4d1f3;
+		}
+		article.feature-image.small .entry-summary p a:hover,
+		.entry-header .comments-link a:hover,
+		.entry-header .comments-link a:focus,
+		.entry-header .comments-link a:active,
+		.feature-slider a.active {
+			background-color: #b4d1f3;
+		}
+	</style>
+
+<!-- All in One SEO Pack 2.2.4.1 by Michael Torbert of Semper Fi Web Design[355,413] -->
+<meta name="description"  content="Roo" />
+
+<meta name="keywords"  content="second life,technology" />
+
+<link rel="canonical" href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/" />
+<!-- /all in one seo pack -->
+	<style type="text/css">
+			#site-title,
+		#site-description {
+			position: absolute !important;
+			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+		</style>
+	<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #E3E3E3; }
+</style>
+</head>
+
+<body class="single single-post postid-197 single-format-standard custom-background singular two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="https://eightbar.eu-gb.mybluemix.net/" title="eightbar" rel="home">eightbar</a></span></h1>
+				<h2 id="site-description">Raising The Eight Bar</h2>
+			</hgroup>
+
+						<a href="https://eightbar.eu-gb.mybluemix.net/">
+									<img src="https://eightbar.eu-gb.mybluemix.net/wp-content/uploads/2012/02/eightbargrass.jpg" width="1000" height="288" alt="" />
+							</a>
+			
+							<div class="only-search with-image">
+					<form method="get" id="searchform" action="https://eightbar.eu-gb.mybluemix.net/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+				</div>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-eightbar-main-menu-container"><ul id="menu-eightbar-main-menu" class="menu"><li id="menu-item-1192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1192"><a href="https://eightbar.eu-gb.mybluemix.net/">Home</a></li>
+<li id="menu-item-1193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1193"><a href="https://eightbar.eu-gb.mybluemix.net/about/">About</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="https://eightbar.eu-gb.mybluemix.net/2006/09/25/new-media-knowledge-my-so-called-2nd-life-conference/" rel="prev"><span class="meta-nav">&larr;</span> Previous</a></span>
+						<span class="nav-next"><a href="https://eightbar.eu-gb.mybluemix.net/2006/10/02/more-travel-now-is-ny-and-geeking-out-at-the-wired-nextfest/" rel="next">Next <span class="meta-nav">&rarr;</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-197" class="post-197 post type-post status-publish format-standard hentry category-second-life category-technology">
+	<header class="entry-header">
+		<h1 class="entry-title">Google Sketchup -> Second Life export</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/" title="11:27" rel="bookmark"><time class="entry-date" datetime="2006-09-29T11:27:59+00:00">September 29, 2006</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/roo/" title="View all posts by Roo" rel="author">Roo</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><a href="http://sketchup.google.com/">SketchUp</a> is great. Not only is it free, but it supports Ruby as a scripting language, and provides plenty of <a href="http://download.sketchup.com/OnlineDoc/GoogleSketchUpHelp.htm#M-Technical_Reference/Tech-Ruby.htm">interesting APIs</a>  and reasonable (though not very well inter-linked) documentation too. It&#8217;s long been <a href="http://radar.oreilly.com/archives/2006/06/google_earth_and_sketchup.html">discussed</a>, in conjunction with Google Earth, as a potential virtual world, and rival to Second Life. While it will be fascinating to see how that develops, and whether they become more comparable over time, what interested me much more in the short term was some way of getting 3D data from SketchUp into Second Life. <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/04/generating-secondlife-structures-from-powerpoint/">Dave did this recently with PowerPoint</a>, which and it reminded me just how much I wanted to do the same thing in SketchUp. </p>
+<p>What I really wanted was SketchUp -> Second Life exporter. I didn&#8217;t want to buy SketchUp pro (though I thought about it), because even that wouldn&#8217;t solve my problem. More recently, I saw that <a href="http://www.blender3d.org/">Blender</a> 2.4.2 makes it possible to <a href="http://www.ogleearth.com/2006/06/short_news_run.html">import SketchUp&#8217;s (proprietary, binary) .kmz file format</a>. This is cool and potentially very useful, especially when you consider the <a href="http://sourceforge.net/projects/primdotblender">Prim.Blender</a> project allows you to draw SL prims and export them. Ideally, it would also do the hard work of creating simple SL style prims from the complex 3D data. This is not an easy project though, as <a href="http://www.3pointd.com/20060626/sketchup-blender-second-life/">discussed at 3pointD recently</a>. </p>
+<p>Eventually I gave up my search for a basic SketchUp -> Second Life exporter and realised I was going to have to write one. I&#8217;m really not a Ruby guru, but I surprised myself by knocking something up in 20 lines and no time flat. Ok, so it&#8217;s not very good, and it doesn&#8217;t bring us any closer to the nirvana of complex models being automagically generated using the minimum number of prims, but it was so easy that I&#8217;m very surprised not to be able to find anyone else taking this approach already. (Perhaps someone will fill me in it has already been done and I&#8217;ve simply missed it.)</p>
+<p align="center"><img align="center" width="319" height="317" src='https://eightbar.eu-gb.mybluemix.net/wp-content/importing.jpg' alt='Importing into SL as a notecard' /></p>
+<p><strong>So, what is it?</strong></p>
+<p>What I wrote was a short Ruby plugin for SketchUp. It writes out basic model information to a text file, allowing it to be imported again (as a notecard) into Second Life. From there, an object parses the notecard and re-generates the model in-world. It does not support the full power of SketchUp by any means, and takes some judicious short-cuts to avoid generating zillions of prims. In erring very heavily on the side of simplicity, I&#8217;ve made something that you&#8217;ll either find delightful or frustrating. Each face in your SketchUp model, you end up with a flat, rectangular prim which represents the bounds of that face. Imagine if every face of every shape in SketchUp was simplified down to a rectangle which marked it extents. That&#8217;s what my script does.  It&#8217;s not perfect, but it&#8217;s a start.  The interesting bit of the Ruby plugin looks something like this&#8230;</p>
+<blockquote><pre>model = Sketchup.active_model
+file = File.new(&quot;/testfile&quot;, &quot;w&quot;)
+model.active_entities.each do |entity|    
+   if entity.typename == &quot;Face&quot; <i>#ignore everything but faces </i>
+      <i># (e.g. we won't pay any attention to edges, points, etc)</i>
+      face = entity.bounds <i># For now, make a rectangular prim</i>
+      ...
+...</pre>
+</blockquote>
+<p>While it works very well for fairly basic models&#8230;</p>
+<p><img src='https://eightbar.eu-gb.mybluemix.net/wp-content/sketchupSL_simple.jpg' alt='SketchUp - SL export (simple)' /></p>
+<p>Something more complex ends up being made to look fairly ugly. Curves and non-regular faces are particularly badly hit&#8230;</p>
+<p><img src='https://eightbar.eu-gb.mybluemix.net/wp-content/sketchupSL_complex.jpg' alt='SketchUp - SL export (complex)' /></p>
+<p>Future developments will include colour/texture support, as well a bit more thought about the mapping between the SketchUp model and Second Life prims. I&#8217;m sure there are loads of things that can be done to improve it. I&#8217;m already enjoying it as a faster way to put simple things together though.</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-197" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-197" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-197" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-197" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a> by <a href="https://eightbar.eu-gb.mybluemix.net/author/roo/">Roo</a>. Bookmark the <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/" title="Permalink to Google Sketchup -&gt; Second Life export" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-197 -->
+						<div id="comments">
+	
+	
+			<h2 id="comments-title">
+			123 thoughts on &ldquo;<span>Google Sketchup -> Second Life export</span>&rdquo;		</h2>
+
+				<nav id="comment-nav-above">
+			<h1 class="assistive-text">Comment navigation</h1>
+			<div class="nav-previous"><a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-2/#comments" >&larr; Older Comments</a></div>
+			<div class="nav-next"></div>
+		</nav>
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-241622">
+		<article id="comment-241622" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/06aa6875926b5aa964d7eee1946c07dd?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/06aa6875926b5aa964d7eee1946c07dd?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Litterlad</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-241622"><time datetime="2009-02-01T15:10:33+00:00">February 1, 2009 at 15:10</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I was wondering, if it is going to be a difficulty writing an export mod from &#8216;SketchUp&#8217; to &#8216;SecondLife&#8217;&#8230; would it be easier to export object files created from SketchUp to another external program? For exsample SketchUp to Blender?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-241701">
+		<article id="comment-241701" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/ab75ab1dfbed6330bac9f85e493c5625?s=68&#038;d=retro&#038;r=g' srcset='http://1.gravatar.com/avatar/ab75ab1dfbed6330bac9f85e493c5625?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Tampa</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-241701"><time datetime="2009-02-08T13:11:56+00:00">February 8, 2009 at 13:11</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>So where can i get this?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-241911">
+		<article id="comment-241911" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/376ffd1dacaf766024a22a88e700da26?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/376ffd1dacaf766024a22a88e700da26?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">salma</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-241911"><time datetime="2009-03-05T11:21:19+00:00">March 5, 2009 at 11:21</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>can people acyually download this for real. please do so.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-242315">
+		<article id="comment-242315" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/7547604be85f8b9605e7d2d2fb65fe4b?s=68&#038;d=retro&#038;r=g' srcset='http://1.gravatar.com/avatar/7547604be85f8b9605e7d2d2fb65fe4b?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://supowertools.wordpress.com' rel='external nofollow' class='url'>August</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242315"><time datetime="2009-07-01T21:39:54+00:00">July 1, 2009 at 21:39</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I have used Blender to get from SketchUp Free to 3DS many times.  If Blender will export to SL, that&#8217;s all you need, and Blender is free.  If SL will import 3DS or there are free 3DS-to-SL converters, it&#8217;s extra steps, but still easy.</p>
+<p>I hope this helps,<br />
+August</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-242372">
+		<article id="comment-242372" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/bf11af111cab6e513d68e5e30762deb5?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/bf11af111cab6e513d68e5e30762deb5?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://vrshed.com/sketchlife/' rel='external nofollow' class='url'>Mrs Brandi</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242372"><time datetime="2009-07-18T06:22:49+00:00">July 18, 2009 at 06:22</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>This comment-posting software seems to be broken.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-242373">
+		<article id="comment-242373" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/bf11af111cab6e513d68e5e30762deb5?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/bf11af111cab6e513d68e5e30762deb5?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://vrshed.com/sketchlife/' rel='external nofollow' class='url'>Mrs Brandi</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242373"><time datetime="2009-07-18T06:24:32+00:00">July 18, 2009 at 06:24</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Ok, not it&#8217;s not broken. Therefore &#8230;</p>
+<p>This seems like a good place to announce that I have written a tool called Sketchlife, that can be used to model in SketchUp, and upload to Second Life using an easy, wizard-like process. It took a lot of time to get right, but I have also spent an enormous amount of time testing it, so it is by now quite a solid tool.</p>
+<p>If you would like to get to know it, there is comprehensive information, including videos and detailed documentation of each of the tools, and the process, on the following website:</p>
+<p>    vrshed.com/sketchlife/</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-242374">
+		<article id="comment-242374" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/bf11af111cab6e513d68e5e30762deb5?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/bf11af111cab6e513d68e5e30762deb5?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://vrshed.com/sketchlife/' rel='external nofollow' class='url'>Mrs Brandi</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242374"><time datetime="2009-07-18T06:25:32+00:00">July 18, 2009 at 06:25</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Further on to the above &#8230;</p>
+<p>In the context of this article and comment thread, I would like to say that:<br />
+&#8211; As Chip Poutine points out above, SketchUp is a state-of-the art tool with intuitive inferencing and snapping capabilities. It is available free, thanks to the financial mammoth that is Google: they bought it and made it free to help populate Google Earth with user-created content.<br />
+&#8211; Lining up prims in SL is a major nightmare.<br />
+&#8211; However, after doing some comparative assessment of SL and SketchUp, I came to the conclusion that any automatic conversion from SketchUp, or any other mesh-based too, into simple SL prims, is doomed to not work for a model of any non-trivial complexity (anything other than rectangles and certain types of triangles). What can be seen in the third image on the top of this page cannot be improved upon &#8211; using simple SL prims.<br />
+&#8211; Using sculpted prims for this can be made to work, but such a tool does not exist at this point in time.<br />
+&#8211; Hence Sketchlife was written to allow a user to re-express a mesh model using SL prims. Judgement and common sense are required in how the prims are placed &#8211; this is something that cannot be automated in software &#8211; but the models will appear in Second Life exactly as seen in SketchUp. Textures are supported, they will be mapped exactly, except for curved faces of cylinders, which will be mapped approximately only. However, note that most prims in buildings are Box-type prims.<br />
+&#8211; Sketchlife is aimed at buildings. Organic shapes are better made through the use of sculpties.<br />
+&#8211; This is similar to what Wilfred was talking about earlier in the thread, but the important thing to stress is that the tools used to make prims in SketchUp/Sketchlife are different and are much easier to use, than those found in the Second Life Viewer.</p>
+<p>As an example of what can be done, I have imported the model of Saint Basil&#8217;s Cathedral from Google Earth/SketchUp into Second Life. Here is a screenshot of it inside Second Life:<br />
+<a href="http://vrshed.com/sketchlife/examples/vasiliy_018.jpg" rel="nofollow">http://vrshed.com/sketchlife/examples/vasiliy_018.jpg</a></p>
+<p>Evgeni<br />
+(Mrs Brandi in SL)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-242375">
+		<article id="comment-242375" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/bf11af111cab6e513d68e5e30762deb5?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/bf11af111cab6e513d68e5e30762deb5?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://vrshed.com/sketchlife/' rel='external nofollow' class='url'>Mrs Brandi</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242375"><time datetime="2009-07-18T06:29:24+00:00">July 18, 2009 at 06:29</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I couldn&#8217;t post the comment before, because of some problem with including a URL. Here should be a clickable one:<br />
+<a href="http://vrshed.com/sketchlife/index.html" rel="nofollow">http://vrshed.com/sketchlife/index.html</a></p>
+<p>Evgeni Sergeev</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-242376">
+		<article id="comment-242376" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/bf11af111cab6e513d68e5e30762deb5?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/bf11af111cab6e513d68e5e30762deb5?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://vrshed.com/sketchlife/' rel='external nofollow' class='url'>Mrs Brandi</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242376"><time datetime="2009-07-18T06:30:29+00:00">July 18, 2009 at 06:30</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>(To anyone else who is experiencing difficulties posting here, it seems that comments are only accepted if they end with an extension like &#8220;.html&#8221;.)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-242383">
+		<article id="comment-242383" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/80087f450283fa02e39b9492dcd35150?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/80087f450283fa02e39b9492dcd35150?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.vrshed.com' rel='external nofollow' class='url'>Anthony Livingstone</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242383"><time datetime="2009-07-20T15:13:31+00:00">July 20, 2009 at 15:13</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Evgeni Sergeev has worked out out a brilliant solution (called sketchlife) to this problem, by creating a set of free tools (ruby scripted plugins) that you simply load into sketchup, that enables the modeler to create equivalent prims that are then imported into second life&#8230;see the video at <a href="http://vrshed.com/sketchlife" rel="nofollow">http://vrshed.com/sketchlife</a></p>
+<p>Currently you need users need to pay for the service set to L$1 per prim + L$1 per each textured face on each prim inside Second Life.</p>
+<p>The most impressive demonstration of the power of sketchlife is the  increadible St. Basil&#8217;s Cathedral, originally modelled by Arrigo Silva and featured on Google Earth.</p>
+<p>Teleport: click here (this is a SL-URL).</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-242396">
+		<article id="comment-242396" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/bf11af111cab6e513d68e5e30762deb5?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/bf11af111cab6e513d68e5e30762deb5?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://vrshed.com/sketchlife/' rel='external nofollow' class='url'>Mrs Brandi</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242396"><time datetime="2009-07-25T13:31:26+00:00">July 25, 2009 at 13:31</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Anthony, just a note that I changed the price to L$1 per prim (no extra cost for texture) after some experimentation. It should now be cheap enough for everyone.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-242408">
+		<article id="comment-242408" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/80087f450283fa02e39b9492dcd35150?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/80087f450283fa02e39b9492dcd35150?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Anthony Livingstone</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242408"><time datetime="2009-08-04T17:44:13+00:00">August 4, 2009 at 17:44</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Ms Brandi, ive imported a couple of my new architectural designs into second life with your application, and it works like a charm&#8230;I can walk my clients through my virtual spaces now&#8230;without the hassle of learning SL modeling, which was seriously freaking me out.</p>
+<p>cheers Bro!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-242409">
+		<article id="comment-242409" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/80087f450283fa02e39b9492dcd35150?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/80087f450283fa02e39b9492dcd35150?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Anthony Livingstone</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242409"><time datetime="2009-08-04T17:45:40+00:00">August 4, 2009 at 17:45</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>sorry Mrs Brandi&#8230;.not Ms.<br />
+Hey if we import more polys using sketchlife do we get a discount?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-242411">
+		<article id="comment-242411" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/9b6c8ee86afa0f43602e2ad6a3511f47?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/9b6c8ee86afa0f43602e2ad6a3511f47?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Tom</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242411"><time datetime="2009-08-05T17:47:56+00:00">August 5, 2009 at 17:47</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Any chance sketchlife can be supported on other grids as well, such as OS Grid which is based on open simulator?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-242417">
+		<article id="comment-242417" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/80087f450283fa02e39b9492dcd35150?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/80087f450283fa02e39b9492dcd35150?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Anthony Livingstone</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242417"><time datetime="2009-08-11T04:03:24+00:00">August 11, 2009 at 04:03</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p><a href="http://www.youtube.com/watch?v=LjboDgzdh0A" rel="nofollow">http://www.youtube.com/watch?v=LjboDgzdh0A</a><br />
+i used sketchlife to model the University of Western Australian Arts Faculty to import into Second Life.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-242628">
+		<article id="comment-242628" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/365b8c31ba446ce988f53870304e28d0?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/365b8c31ba446ce988f53870304e28d0?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">636</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242628"><time datetime="2010-01-30T21:57:07+00:00">January 30, 2010 at 21:57</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Very nice, I love using Sketch up as well as other 3D programs but the export on most is so damn stressing it makes you want to punch your computer. Tack Wings 3d for example, every uv map I have made has turned out looking lick crap in Second Life and other programs you get lost in, some tack up to much space on your computer and the good ones do not let you export, convert, or import and a few are made for a sirten kind of computer. I knew that Sketch up pro could upload to SL but I don&#8217;t want to buy it ether as well as other 3D programs. I always wondered if there was a way to export Sketch up models to SL, I wanted to make a way myself but I do not have the skills to do so. I think it is pretty damn cool that you found a way to do it. I look forward to see how far you get with it.   Good luck:)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-242638">
+		<article id="comment-242638" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/f890725f2c3e7281c38b06d6b134b2b9?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/f890725f2c3e7281c38b06d6b134b2b9?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://blackcard.knows.it' rel='external nofollow' class='url'>Visa Blackcard</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242638"><time datetime="2010-02-07T15:37:43+00:00">February 7, 2010 at 15:37</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hey check out my computer blog, yours is good too!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-242661">
+		<article id="comment-242661" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/3165c517bb951690bd01c5b13852bd2d?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/3165c517bb951690bd01c5b13852bd2d?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.pearl-repro.co.uk' rel='external nofollow' class='url'>craig</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242661"><time datetime="2010-02-17T17:59:10+00:00">February 17, 2010 at 17:59</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>This looks useful and very user friendly! Do you think it would be useful in the world of CAD or AutoCAD? As we do many CAD conversions for customers. <a href="http://www.pearl-scan.co.uk" rel="nofollow">http://www.pearl-scan.co.uk</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-242676">
+		<article id="comment-242676" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/32af47f12397db724aa183e2a33c34dd?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/32af47f12397db724aa183e2a33c34dd?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">2006</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242676"><time datetime="2010-02-26T13:34:00+00:00">February 26, 2010 at 13:34</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Well i know that this blog was made in 2006 but yes very nice.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-242720">
+		<article id="comment-242720" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/74f94dcf4d22d5de895dce4f0b55d007?s=68&#038;d=retro&#038;r=g' srcset='http://1.gravatar.com/avatar/74f94dcf4d22d5de895dce4f0b55d007?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Nick</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242720"><time datetime="2010-03-28T22:44:29+00:00">March 28, 2010 at 22:44</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>How do i use this?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-242823">
+		<article id="comment-242823" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/df018392b5c8b3f0a0510c16a2a37252?s=68&#038;d=retro&#038;r=g' srcset='http://1.gravatar.com/avatar/df018392b5c8b3f0a0510c16a2a37252?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.paramountbathrooms.com/Kitchens.html' rel='external nofollow' class='url'>Barbera Wolanski</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-242823"><time datetime="2010-05-25T15:30:22+00:00">May 25, 2010 at 15:30</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Lindelof and Cuse should be embarrassed. They pandered to our basest emotions and gave us an absolutely hollow piece of religious allegory in place of an actual story.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-243401">
+		<article id="comment-243401" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/8b71c48aafecebb19f0c9fbb9312f84a?s=68&#038;d=retro&#038;r=g' srcset='http://2.gravatar.com/avatar/8b71c48aafecebb19f0c9fbb9312f84a?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Stephen Venkman</span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-243401"><time datetime="2010-10-19T19:58:19+00:00">October 19, 2010 at 19:58</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>With the introduction to mesh to Second Life, my understanding is that importing will be possible. Mesh is currently in beta testing. Let me know if anyone has tried it yet.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-243613">
+		<article id="comment-243613" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/f0112622cba21306efe1884f46b3f777?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/f0112622cba21306efe1884f46b3f777?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.boxit.co.uk/' rel='external nofollow' class='url'>DM</a></span> on <a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-3/#comment-243613"><time datetime="2010-11-26T13:51:54+00:00">November 26, 2010 at 13:51</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Nice work with the exporter!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+				<nav id="comment-nav-below">
+			<h1 class="assistive-text">Comment navigation</h1>
+			<div class="nav-previous"><a href="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/comment-page-2/#comments" >&larr; Older Comments</a></div>
+			<div class="nav-next"></div>
+		</nav>
+		
+				<p class="nocomments">Comments are closed.</p>
+		
+	
+	
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+	<div style="display:none">
+	<div class="grofile-hash-map-06aa6875926b5aa964d7eee1946c07dd">
+	</div>
+	<div class="grofile-hash-map-ab75ab1dfbed6330bac9f85e493c5625">
+	</div>
+	<div class="grofile-hash-map-376ffd1dacaf766024a22a88e700da26">
+	</div>
+	<div class="grofile-hash-map-7547604be85f8b9605e7d2d2fb65fe4b">
+	</div>
+	<div class="grofile-hash-map-bf11af111cab6e513d68e5e30762deb5">
+	</div>
+	<div class="grofile-hash-map-80087f450283fa02e39b9492dcd35150">
+	</div>
+	<div class="grofile-hash-map-9b6c8ee86afa0f43602e2ad6a3511f47">
+	</div>
+	<div class="grofile-hash-map-365b8c31ba446ce988f53870304e28d0">
+	</div>
+	<div class="grofile-hash-map-f890725f2c3e7281c38b06d6b134b2b9">
+	</div>
+	<div class="grofile-hash-map-3165c517bb951690bd01c5b13852bd2d">
+	</div>
+	<div class="grofile-hash-map-c8431a5da7335ccea85a01ec9954860f">
+	</div>
+	<div class="grofile-hash-map-74f94dcf4d22d5de895dce4f0b55d007">
+	</div>
+	<div class="grofile-hash-map-1f34b74ad9479905ab443786603510e0">
+	</div>
+	<div class="grofile-hash-map-8b71c48aafecebb19f0c9fbb9312f84a">
+	</div>
+	<div class="grofile-hash-map-f0112622cba21306efe1884f46b3f777">
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/09\/29\/google-sketchup-second-life-export\/":197}	</script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+			<div id="sharing_email" style="display: none;">
+		<form action="https://eightbar.eu-gb.mybluemix.net/2006/09/29/google-sketchup-second-life-export/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="" />
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="" />
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="" />
+
+			
+			
+			<img style="float: right; display: none" class="loading" src="https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/images/loading.gif" alt="loading" width="16" height="16" />
+			<input type="submit" value="Send Email" class="sharing_send" />
+			<a href="#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-linkedin' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+		<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/comment-reply.min.js?ver=4.5.3'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201630'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2016Julaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.5.3'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/wp-embed.min.js?ver=4.5.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/sharing.js?ver=3.3.3'></script>
+
+	<script src="http://stats.wp.com/e-201630.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:3.3.3',blog:'9013531',post:'197',tz:'1'});
+	var load_cmc = function(){linktracker_init(9013531,197,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+</body>
+</html>

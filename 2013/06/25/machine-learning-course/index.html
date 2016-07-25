@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Machine Learning Course | eightbar</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/style.css" />
+<link rel="pingback" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Feed" href="https://eightbar.eu-gb.mybluemix.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Comments Feed" href="https://eightbar.eu-gb.mybluemix.net/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/eightbar.eu-gb.mybluemix.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='dark-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/colors/dark.css' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/css/jetpack.css?ver=3.3.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://eightbar.eu-gb.mybluemix.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://eightbar.eu-gb.mybluemix.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='W4A : Accessibility of the web' href='https://eightbar.eu-gb.mybluemix.net/2013/06/06/w4a-accessibility-of-the-web-2/' />
+<link rel='next' title='Why am I still at IBM?' href='https://eightbar.eu-gb.mybluemix.net/2013/08/06/why-am-i-still-at-ibm/' />
+<meta name="generator" content="WordPress 4.5.3" />
+<link rel='shortlink' href='http://wp.me/pBOPx-nm' />
+<link rel="alternate" type="application/json+oembed" href="https://eightbar.eu-gb.mybluemix.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Feightbar.co.uk%2F2013%2F06%2F25%2Fmachine-learning-course%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://eightbar.eu-gb.mybluemix.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Feightbar.co.uk%2F2013%2F06%2F25%2Fmachine-learning-course%2F&#038;format=xml" />
+	<style>
+		/* Link color */
+		a,
+		#site-title a:focus,
+		#site-title a:hover,
+		#site-title a:active,
+		.entry-title a:hover,
+		.entry-title a:focus,
+		.entry-title a:active,
+		.widget_twentyeleven_ephemera .comments-link a:hover,
+		section.recent-posts .other-recent-posts a[rel="bookmark"]:hover,
+		section.recent-posts .other-recent-posts .comments-link a:hover,
+		.format-image footer.entry-meta a:hover,
+		#site-generator a:hover {
+			color: #b4d1f3;
+		}
+		section.recent-posts .other-recent-posts .comments-link a:hover {
+			border-color: #b4d1f3;
+		}
+		article.feature-image.small .entry-summary p a:hover,
+		.entry-header .comments-link a:hover,
+		.entry-header .comments-link a:focus,
+		.entry-header .comments-link a:active,
+		.feature-slider a.active {
+			background-color: #b4d1f3;
+		}
+	</style>
+
+<!-- All in One SEO Pack 2.2.4.1 by Michael Torbert of Semper Fi Web Design[355,396] -->
+<meta name="description"  content="Enough time has passed since I undertook the Stanford University Natural Language Processing Course&nbsp;for me to forget just how much hard work it was for me" />
+
+<meta name="keywords"  content="education,eightbar,machine learning,planet" />
+
+<link rel="canonical" href="https://eightbar.eu-gb.mybluemix.net/2013/06/25/machine-learning-course/" />
+<!-- /all in one seo pack -->
+	<style type="text/css">
+			#site-title,
+		#site-description {
+			position: absolute !important;
+			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+		</style>
+	<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #E3E3E3; }
+</style>
+</head>
+
+<body class="single single-post postid-1448 single-format-standard custom-background singular two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="https://eightbar.eu-gb.mybluemix.net/" title="eightbar" rel="home">eightbar</a></span></h1>
+				<h2 id="site-description">Raising The Eight Bar</h2>
+			</hgroup>
+
+						<a href="https://eightbar.eu-gb.mybluemix.net/">
+									<img src="https://eightbar.eu-gb.mybluemix.net/wp-content/uploads/2012/02/eightbargrass.jpg" width="1000" height="288" alt="" />
+							</a>
+			
+							<div class="only-search with-image">
+					<form method="get" id="searchform" action="https://eightbar.eu-gb.mybluemix.net/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+				</div>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-eightbar-main-menu-container"><ul id="menu-eightbar-main-menu" class="menu"><li id="menu-item-1192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1192"><a href="https://eightbar.eu-gb.mybluemix.net/">Home</a></li>
+<li id="menu-item-1193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1193"><a href="https://eightbar.eu-gb.mybluemix.net/about/">About</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="https://eightbar.eu-gb.mybluemix.net/2013/06/06/w4a-accessibility-of-the-web-2/" rel="prev"><span class="meta-nav">&larr;</span> Previous</a></span>
+						<span class="nav-next"><a href="https://eightbar.eu-gb.mybluemix.net/2013/08/06/why-am-i-still-at-ibm/" rel="next">Next <span class="meta-nav">&rarr;</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-1448" class="post-1448 post type-post status-publish format-standard hentry category-planet tag-education tag-eightbar tag-machine-learning">
+	<header class="entry-header">
+		<h1 class="entry-title">Machine Learning Course</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2013/06/25/machine-learning-course/" title="21:21" rel="bookmark"><time class="entry-date" datetime="2013-06-25T21:21:00+00:00">June 25, 2013</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/" title="View all posts by Graham White" rel="author">Graham White</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<div class="separator" style="clear: both; text-align: center;"><a href="https://s3.amazonaws.com/coursera/topics/ml/small-icon.hover.png" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"><img border="0" src="https://s3.amazonaws.com/coursera/topics/ml/small-icon.hover.png" /></a></div>Enough time has passed since I undertook the Stanford University <a href="http://gibbalog.blogspot.co.uk/2012/05/natural-language-processing-course.html">Natural Language Processing Course</a>&nbsp;for me to forget just how much hard work it was for me to start all over again. &nbsp;This year I decided to have a go at the <a href="https://www.coursera.org/">coursera</a>&nbsp;Machine Learning Course.<br /><br />Unlike the 12 week NLP course last year which estimated 10 hours a week and turned out to be more like 15-20 hours a week, this course was much more realistic in estimation at 10 weeks of 8 hours. &nbsp;I think I more or less hit the mark on that point spending about 1 day every week for the past 10 weeks studying machine learning - so around half the time required for the NLP course.<br /><br />The course was written and presented by <a href="http://ai.stanford.edu/~ang/">Andrew Ng</a>&nbsp;who seems to be rather prolific and somewhat of an academic star in his fields of machine learning and artificial intelligence. &nbsp;He is one of the co-founders of the coursera site which along with their main rival, <a href="https://www.udacity.com/">Udacity</a>, have brought about the popular rise of <a href="http://en.wikipedia.org/wiki/Massive_open_online_course">Massive Open Online Learning</a>.<br /><br />The Machine Learning Course followed the same format as the NLP course from last year which I can only assume is the standard coursera format, at least for technical courses anyway. &nbsp;Each week there were 1 or two main topic areas to study which were presented in a series of videos featuring Andrew talking through a set of slides on which he's able to hand write notes for demonstration purposes, just as if you're sitting in a real lecture hall at university. &nbsp;To check your understanding of the content of the videos there are questions which must be answered on each topic against which you're graded. &nbsp;The second main component each week is a programming exercise which for the Machine Learning Course must be completed in Octave - so yet another programming language to add to your list. &nbsp;Achieving a mark of 80% or above across all the questions and programming exercises results in a course pass. &nbsp;I appear to have done that with relative ease for this course.<br /><br />The 18 topics covered were:<br /><br /><ul><li>Introduction</li><li>Linear Regression with One Variable</li><li>Linear Algebra Review</li><li>Linear Regression with Multiple Variables</li><li>Octave Tutorial</li><li>Logistic Regression</li><li>Regularisation</li><li>Neural Networks Representation</li><li>Neural Networks Learning</li><li>Advice for Applying Machine Learning</li><li>Machine Learning System Design</li><li>Support Vector Machines</li><li>Clustering</li><li>Dimensionality Reduction</li><li>Anomaly Detection</li><li>Recommender Systems</li><li>Large Scale Machine Learning</li><li>Application Example Photo OCR</li></ul>The course served as a good revision of some maths I haven't used in quite some time, lots of Linear Algebra for which you need a pretty good understanding and lots of calculus which you didn't really need to understand if all you care about is implementing the algorithms rather than working out how they're derived or proven. &nbsp;Being quite maths based, the course used matrices and vectorisation very heavily rather than using the loop structures that most of us would use as a go-to framework for writing complex algorithms. &nbsp;Again, this was some good revision as I've not programmed in this fashion for quite some time. &nbsp;You're definitely reminded of just how efficient you can make complex tasks on modern processors if you stand back from your algorithm for a bit and work out how best to utilise the hardware (via the appropriately optimised libraries) you have.<br /><br />The major thought behind the course seems to be to teach as many different algorithms as possible. &nbsp;There really is a great range. &nbsp;Starting of simply with linear algorithms and progressing right up to the current state-of-the-art Neural Networks and the ever fashionable map-reduce stuff.<br /><br />I didn't find the course terribly difficult, I'm no expert in any of the topics but have studied enough maths not to struggle with that side of things and don't struggle with programming either. &nbsp;I didn't need to use the forums or any of the other social elements offered during the course so I don't really have a feel for how others found the course. &nbsp;I can certainly imagine someone finding it a real struggle if they don't have a particularly deep background in either maths or programming.<br /><br />There was, as far as I can think right now, one (or maybe two depending on how you count) omission from the course. &nbsp;Most of the programming exercises were heavily frameworked for you in advance, you just have to fill in the gaps. &nbsp;This is great for learning the various different algorithms presented during the course but does leave a couple of areas at the end of the course you're not so confident with (aside from not really having a wide grasp of the Octave programming language). &nbsp;The omission of which I speak is that of storing and bootstrapping the models you've trained with the algorithm. &nbsp;All the exercises concentrated on training a model, storing it in memory, using it and as the program terminates then so your model disappears. &nbsp;It would have been great to have another module on the best ways to persist models between program runs, and how to continue training (bootstrap) a model that you have already persisted. &nbsp;I'll feed that thought back to Andrew when the opportunity arises over the next couple of weeks.<br /><br />The problem going forward wont so much be applying what has been offered here but working out what to apply it to. &nbsp;The range of problems that can be tackled with these techniques is mind-blowing, just look at the rise of analytics we're seeing in all areas of business and technology.<br /><br />Overall then, a really nice introduction into the world of machine learning. &nbsp;Recommended!<br /><br /><br />			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		<p>This is a <a href="http://gibbalog.blogspot.com/2013/06/machine-learning-course.html">syndicated entry</a> please make comments on the original post.</p>This entry was posted in <a href="https://eightbar.eu-gb.mybluemix.net/category/planet/" rel="category tag">Planet</a> and tagged <a href="https://eightbar.eu-gb.mybluemix.net/tag/education/" rel="tag">education</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/eightbar/" rel="tag">eightbar</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/machine-learning/" rel="tag">machine learning</a> by <a href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/">Graham White</a>. Bookmark the <a href="https://eightbar.eu-gb.mybluemix.net/2013/06/25/machine-learning-course/" title="Permalink to Machine Learning Course" rel="bookmark">permalink</a>.		
+				<div id="author-info">
+			<div id="author-avatar">
+				<img alt='' src='http://0.gravatar.com/avatar/60458ba172c5d65e324985782d2992f7?s=68&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/60458ba172c5d65e324985782d2992f7?s=136&amp;d=retro&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' />			</div><!-- #author-avatar -->
+			<div id="author-description">
+				<h2>About Graham White</h2>
+				You can read <a href="https://eightbar.eu-gb.mybluemix.net/about/gwhite/">my Eightbar bio</a>.				<div id="author-link">
+					<a href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/" rel="author">
+						View all posts by Graham White <span class="meta-nav">&rarr;</span>					</a>
+				</div><!-- #author-link	-->
+			</div><!-- #author-description -->
+		</div><!-- #author-info -->
+			</footer><!-- .entry-meta -->
+</article><!-- #post-1448 -->
+						<div id="comments">
+	
+	
+	
+	
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+	<div style="display:none">
+	<div class="grofile-hash-map-60458ba172c5d65e324985782d2992f7">
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"https:\/\/eightbar.eu-gb.mybluemix.net\/2013\/06\/25\/machine-learning-course\/":1448}	</script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+			<div id="sharing_email" style="display: none;">
+		<form action="https://eightbar.eu-gb.mybluemix.net/2013/06/25/machine-learning-course/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="" />
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="" />
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="" />
+
+			
+			
+			<img style="float: right; display: none" class="loading" src="https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/images/loading.gif" alt="loading" width="16" height="16" />
+			<input type="submit" value="Send Email" class="sharing_send" />
+			<a href="#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-linkedin' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+		<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/comment-reply.min.js?ver=4.5.3'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201630'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2016Julaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.5.3'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/wp-embed.min.js?ver=4.5.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/sharing.js?ver=3.3.3'></script>
+
+	<script src="http://stats.wp.com/e-201630.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:3.3.3',blog:'9013531',post:'1448',tz:'1'});
+	var load_cmc = function(){linktracker_init(9013531,1448,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>automation &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/automation/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>A different kind of TV remote control</title>
+		<link>http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/</link>
+		<comments>http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/#comments</comments>
+		<pubDate>Mon, 22 Jun 2009 13:57:51 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Piper]]></dc:creator>
+				<category><![CDATA[messaging]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[automation]]></category>
+		<category><![CDATA[hardware]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[serial]]></category>
+		<category><![CDATA[television]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/</guid>
+		<description><![CDATA[I’m very excited to be welcoming another Hursley innovator as a guest here on eightbar – Benjamin Hardill (you can find him on Twitter as @hardillb). Here’s some insight into what he’s been up to lately! More home automation, hardware &#8230; <a href="http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>I’m very excited to be welcoming another Hursley innovator as a guest here on eightbar – Benjamin Hardill (you can find him on Twitter as <a href="http://twitter.com/hardillb">@hardillb</a>). Here’s some insight into what he’s been up to lately! More home automation, hardware hacking, and MQTT messaging adventures follow <img src="https://s.w.org/images/core/emoji/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p style="border-top-width: thin; border-top-style: dotted; border-top-color: #FFFFFF;"/>
+<p>I got a new TV around Christmas last year and while unpacking it I noticed along with the HDMI, SCART and other sockets on the back it had a 9-pin socket labelled &quot;RS232C IN CONTROL&amp;SERVICE&quot;. I didn&#8217;t think that much of it at the time, but I remembered it last week while thinking about a couple of problems that had come up.</p>
+<p><a href="http://www.flickr.com/photos/hardillb/1653622846/"><img style="margin: 5px 15px 5px 0px; display: inline" alt="Tidy TV setup" align="left" src="http://farm3.static.flickr.com/2374/1653622846_61e502aafd_m.jpg" width="240" height="180" /></a> The first of these was that I had got home twice recently to find I&#8217;d left the TV turned on while I was at work, this was mainly because I use <a href="http://www.mythtv.org/">MythTV</a> and I&#8217;d left it at the menu screen rather than turning the screen off as well. This had left shadow on the menu on the screen for a day or so afterwards (luckily no permanent damage as would have happened with a plasma or CRT TV).</p>
+<p>The other point was from when we all first got hold of our Current Cost meters, there had been a lot of thought about how to work out exactly what appliances were on at any given time. While spotting when things like an electric water heater turned on was relatively easy, it was proving difficult to spot some of the lower power devices.</p>
+<p>A plan started to form and I ordered a null modem cable from <a href="http://www.amazon.co.uk/Female-RS232-Serial-Modem-Cable/dp/B000Q8HO7I/ref=sr_1_1?ie=UTF8&amp;s=electronics&amp;qid=1245499991&amp;sr=8-1">Amazon</a> (£2.18 with free shipping) and went looking for some documentation on the protocol. The manual that came with the TV while being nearly an inch thick just covers the basics of how to plug it in and turn it on, but there was a CD-ROM with a much more detailed PDF document. The version for my TV is <a href="http://www.in.lge.com/XCanvas/images/26LC2R-TJ.pdf">here</a>. While searching round I found manuals for several other LG LCD/plasma TVs and they all seem to use the same basic protocol. </p>
+<p>The protocol is relatively simple</p>
+<p><code>[cmd1][cmd2] [setid] [data]</code></p>
+<p>Where the <i>cmd1</i> &amp; <i>cmd2</i> are 1 letter code, <i>setid</i> is for if you have multiple TVs connected to the same cable, the default id is 01 but you can change if needed, using 00 will work for all connected TVs. And <i>data</i> is a hex value of the option to pass the command.</p>
+<p>The response from the TV looks like this for a success</p>
+<p><code>[cmd2] [setid] OK[data]x</code></p>
+<p>and like this for a failure</p>
+<p><code>[cmd2] [setid] NG[data]x</code></p>
+<p>The command to turn the TV on and off is &quot;ka&quot; so sending</p>
+<p><code>ka 00 1</code></p>
+<p>turns the TV on and sending</p>
+<p><code>ka 00 0</code></p>
+<p>turns it off. Most of the commands will reply with the current status if they are passed <i>ff</i> as the data. So sending</p>
+<p><code>ka 00 ff</code></p>
+<p>gets the following when the TV is off</p>
+<p><code>a 00 OK0x</code></p>
+<p>So now I had a way to turn the TV on and off along with checking its current status. The next step was to surface this some way and given the fascination we all seem to have with messaging, MQTT seemed like a good idea. A little bit of Java and the Java COMM API later and I had 2 topics <i>TV/Commands</i> &amp; <i>TV/Status</i>.</p>
+<p>I already have a topic that publishes if my mobile phone is in the flat by pinging it with Bluetooth. Combining this with the two new topics I can ensure that the TV is turned off when I leave. I&#8217;m also wondering if I should start to log the amount of time the TV is on, but I think the results may scare me a little…</p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+	</channel>
+</rss>

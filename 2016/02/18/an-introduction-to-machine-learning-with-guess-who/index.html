@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>An introduction to machine learning with Guess Who | eightbar</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/style.css" />
+<link rel="pingback" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Feed" href="https://eightbar.eu-gb.mybluemix.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Comments Feed" href="https://eightbar.eu-gb.mybluemix.net/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/eightbar.eu-gb.mybluemix.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='dark-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/colors/dark.css' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/css/jetpack.css?ver=3.3.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://eightbar.eu-gb.mybluemix.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://eightbar.eu-gb.mybluemix.net/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='The skills implications of Cognitive Computing' href='https://eightbar.eu-gb.mybluemix.net/2015/04/29/the-skills-implications-of-cognitive-computing/' />
+<link rel='next' title='Watson Rock, Paper, Scissors' href='https://eightbar.eu-gb.mybluemix.net/2016/06/26/watson-rock-paper-scissors/' />
+<meta name="generator" content="WordPress 4.5.3" />
+<link rel='shortlink' href='http://wp.me/pBOPx-qG' />
+<link rel="alternate" type="application/json+oembed" href="https://eightbar.eu-gb.mybluemix.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Feightbar.co.uk%2F2016%2F02%2F18%2Fan-introduction-to-machine-learning-with-guess-who%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://eightbar.eu-gb.mybluemix.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Feightbar.co.uk%2F2016%2F02%2F18%2Fan-introduction-to-machine-learning-with-guess-who%2F&#038;format=xml" />
+	<style>
+		/* Link color */
+		a,
+		#site-title a:focus,
+		#site-title a:hover,
+		#site-title a:active,
+		.entry-title a:hover,
+		.entry-title a:focus,
+		.entry-title a:active,
+		.widget_twentyeleven_ephemera .comments-link a:hover,
+		section.recent-posts .other-recent-posts a[rel="bookmark"]:hover,
+		section.recent-posts .other-recent-posts .comments-link a:hover,
+		.format-image footer.entry-meta a:hover,
+		#site-generator a:hover {
+			color: #b4d1f3;
+		}
+		section.recent-posts .other-recent-posts .comments-link a:hover {
+			border-color: #b4d1f3;
+		}
+		article.feature-image.small .entry-summary p a:hover,
+		.entry-header .comments-link a:hover,
+		.entry-header .comments-link a:focus,
+		.entry-header .comments-link a:active,
+		.feature-slider a.active {
+			background-color: #b4d1f3;
+		}
+	</style>
+
+<!-- All in One SEO Pack 2.2.4.1 by Michael Torbert of Semper Fi Web Design[355,423] -->
+<meta name="description"  content="I tried introducing my two kids to machine learning by helping them make a game this week. In this post, I&rsquo;ll try and explain why, how we did it, and how" />
+
+<meta name="keywords"  content="code,eightbar,ibm,kids,planet" />
+
+<link rel="canonical" href="https://eightbar.eu-gb.mybluemix.net/2016/02/18/an-introduction-to-machine-learning-with-guess-who/" />
+<!-- /all in one seo pack -->
+	<style type="text/css">
+			#site-title,
+		#site-description {
+			position: absolute !important;
+			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+		</style>
+	<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #E3E3E3; }
+</style>
+</head>
+
+<body class="single single-post postid-1654 single-format-standard custom-background singular two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="https://eightbar.eu-gb.mybluemix.net/" title="eightbar" rel="home">eightbar</a></span></h1>
+				<h2 id="site-description">Raising The Eight Bar</h2>
+			</hgroup>
+
+						<a href="https://eightbar.eu-gb.mybluemix.net/">
+									<img src="https://eightbar.eu-gb.mybluemix.net/wp-content/uploads/2012/02/eightbargrass.jpg" width="1000" height="288" alt="" />
+							</a>
+			
+							<div class="only-search with-image">
+					<form method="get" id="searchform" action="https://eightbar.eu-gb.mybluemix.net/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+				</div>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-eightbar-main-menu-container"><ul id="menu-eightbar-main-menu" class="menu"><li id="menu-item-1192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1192"><a href="https://eightbar.eu-gb.mybluemix.net/">Home</a></li>
+<li id="menu-item-1193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1193"><a href="https://eightbar.eu-gb.mybluemix.net/about/">About</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="https://eightbar.eu-gb.mybluemix.net/2015/04/29/the-skills-implications-of-cognitive-computing/" rel="prev"><span class="meta-nav">&larr;</span> Previous</a></span>
+						<span class="nav-next"><a href="https://eightbar.eu-gb.mybluemix.net/2016/06/26/watson-rock-paper-scissors/" rel="next">Next <span class="meta-nav">&rarr;</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-1654" class="post-1654 post type-post status-publish format-standard hentry category-planet tag-code tag-eightbar tag-ibm tag-kids">
+	<header class="entry-header">
+		<h1 class="entry-title">An introduction to machine learning with Guess Who</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2016/02/18/an-introduction-to-machine-learning-with-guess-who/" title="19:50" rel="bookmark"><time class="entry-date" datetime="2016-02-18T19:50:40+00:00">February 18, 2016</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/dalelane/" title="View all posts by Dale Lane" rel="author">Dale Lane</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><strong>I tried introducing my two kids to machine learning by helping them make a game this week. </strong></p>
+<p>In this post, I&#8217;ll try and explain why, how we did it, and how it went. And if you make it all the way to an end, I&#8217;ve got some videos and a link to a demo to show you what we made.</p>
+<h3>Why</h3>
+<p>I think we need to introduce the basic concept of machine learning to children.</p>
+<p>I think the current approach to introducing coding using things like <a href="http://dalelane.co.uk/blog/?tag=scratch">Scratch</a> aren&#8217;t enough. This isn&#8217;t to say Scratch isn&#8217;t great (I&#8217;ve been running a <a href="http://dalelane.co.uk/blog/?tag=codeclub">Code Club</a> every week for the last couple of years, delivered almost entirely using Scratch, so I&#8217;d be the last person to say it isn&#8217;t a fantastic tool). It lets you snap together blocks representing actions to teach the programming mindset of getting a computer to do something by you breaking the task down into a series of steps.</p>
+<p>I think we need to add to this with something that introduces the model of machine learning &#8211; getting a computer to do something by training it with examples of doing that task.</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/150428-slides/image-0055.jpg" style="border: thin black solid"/></p>
+<p>I&#8217;ve been saying this for a while &#8211; I gave a talk about it at <a href="http://www.stemtechconference.com/past-events/conference-2015/showcase">an education conference</a> last year, I&#8217;ve <a href="http://dalelane.co.uk/blog/?p=3299">written about it</a> here before, and it was the theme of a <a href="https://twitter.com/dalelane/status/690250594813153280">lecture I gave at a science society</a> in London last month.</p>
+<p>This week is half-term and I have the week off work, so I thought I&#8217;d finally spend a bit of time trying it out by experimenting on my own two daughters (Faith and Grace, who are aged 7 and 11).</p>
+<p>In Code Club, I mostly try to introduce programming concepts by helping the kids to create games. Sticking with what seems to work, I&#8217;ve helped them to make a game by training an ML system how to play it.</p>
+<h3>How</h3>
+<p>We&#8217;ve been making a sort of <a href="https://en.wikipedia.org/wiki/Guess_Who%3F">Guess Who?</a> game &#8211; a game that I&#8217;ve played with the kids for years and that they know inside out. </p>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/generationbass/5686663807" title="Guess-Who-Closeup.jpg"><img src="https://farm6.staticflickr.com/5223/5686663807_da29ff3852.jpg" width="448" height="368" alt="Guess-Who-Closeup.jpg"/></a><script async src="http://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<p>The idea is that the computer shows a bunch of faces and chooses one of them at random. You have to work out which one it&#8217;s chosen by asking Yes/No questions about their appearance.</p>
+<p>I introduced this to Grace and Faith mostly using analogies and anthropomorphising. </p>
+<blockquote><p>&#8220;We need to teach the computer how to play the game instead of telling it how to&#8221;.</p></blockquote>
+<blockquote><p>&#8220;We&#8217;ll do it the same way that you teach a small child to do something, not by telling it the series of steps to take but by showing it examples of how it should be done, over and over, until it learns how to do it&#8221;.</p></blockquote>
+<p>And so on.</p>
+<p>I went with a couple of opportunities for trying out machine learning approaches.</p>
+<p><strong>Understanding the question</strong></p>
+<p>As a player, we let you <strong>ask questions in natural language</strong>. You&#8217;ve just got a text box to type in anything you want to ask. In practice though, there&#8217;s a reasonably predictable set of questions you might ask &#8211; it&#8217;s a very constrained domain. So it lends itself well to <strong>using a text classifier</strong>.</p>
+<p>I got the kids to make a list of all the types of questions they ask in a Guess Who game. These were the <em>classes</em> we&#8217;d train the system with (e.g. &#8220;has brown hair&#8221; or &#8220;is wearing a hat&#8221;). Then for each class, they had to come up with as many ways as they could think of to ask that question.</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/20160217-nlc.jpg" alt="the kids using Watson NLC" style="border: thin black solid"/></p>
+<p>We used this to train <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/nl-classifier.html">IBM Watson Natural Language Classifier</a>.</p>
+<p>I chose it mostly because I&#8217;m familiar with it, it&#8217;s a hosted readily available service so there was nothing to install or configure, it has a simple web interface for training that the kids could use to enter the classes and texts they thought of, and for this sort of kicking-the-tyres-with-minimal-usage it&#8217;s free.</p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/h1ZiUIvYdD8?rel=0" frameborder="0" allowfullscreen></iframe></p>
+<p>With a little training, they had a trained classifier that would be able to take a question from the player and map it to one of the classes they&#8217;d come up with for the questions they ask when they play Guess Who.</p>
+<p><strong>Answering the question</strong></p>
+<p>The next step was to train the system to be able to answer the questions. We needed it to be able to <strong>recognise visual characteristics in a photo</strong>. Again, this is a constrained domain, although less so than for classifying questions. But still, this was basically <strong>a classifying task</strong>, albeit with the extra challenge of using images.</p>
+<p>We looked for a collection of face images that we could use, both for training, and for the game itself. We initially started trying out <a href="http://www.info.polymtl.ca/~mdhas/LWF/">Labeled Wikipedia Faces</a>, but ultimately settled on using <a href="http://vis-www.cs.umass.edu/lfw/">Labeled Faces in the Wild</a> &#8211; a set of over 13,000 photos of faces.</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/20160217-visrec.jpg" alt="Grace, preparing the training for Visual Recognition" style="border: thin black solid"/></p>
+<p>I got the kids to group examples of the faces based on the characteristics they’d come up with in their list of text classes. We just used the built-in OSX Finder to do this. </p>
+<p>One folder open on the left with all the unsorted faces in, and a bunch of folders open to the right &#8211; e.g. &#8220;short-hair&#8221;, &#8220;long-hair&#8221;, &#8220;bald&#8221;, &#8220;hat&#8221;. They scrolled through the unsorted pictures, and trained by dragging the photos across into the relevant folder.</p>
+<p>We used an IBM Watson API with this, too : <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/visual-recognition.html">IBM Watson Visual Recognition</a> </p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/F6oaA6fauzY?rel=0" frameborder="0" allowfullscreen></iframe></p>
+<p>Again, I chose it because I’m familiar with it, and it’s a hosted service I didn’t need to install or run, and while it’s in beta it’s all free to use.</p>
+<p><strong>Putting it all together</strong></p>
+<p>While they did that, I hacked together up a quick game to drive it. They were in charge of training, I wrote a simple REST API to make the requests to the Watson APIs, and a UI to let the player interact with it.</p>
+<p>We had our game!</p>
+<p><img src="http://dalelane.co.uk/blog/post-images/20160217-guesswho.jpg" style="border: thin black solid"/></p>
+<h3>How it went</h3>
+<p>I asked them what they&#8217;d learned from doing it, and they came up with things like:</p>
+<blockquote><p><strong>&#8220;You need a lot of training data&#8221;</strong></p></blockquote>
+<p>When I explained how we&#8217;d train the visual recognition classifiers to recognise characteristics in photos, Faith said &#8220;We could take photos of each other and use those!&#8221;. I said that we&#8217;d need more than that, so she said &#8220;I could take photos of my friends as well!&#8221;.</p>
+<p>But we needed so many more than that. We started by looking to <a href="http://www.info.polymtl.ca/~mdhas/LWF/">Wikipedia</a> (always a good starting point for getting data!), before eventually settling on <a href="http://vis-www.cs.umass.edu/lfw/">the LFW set</a>.</p>
+<p>Getting them to help me find the training data gave them an idea of the sort of scale you need for these sorts of projects, as well as giving them an insight into ideas like gathering existing data rather than trying to manually create it.</p>
+<blockquote><p><strong>&#8220;The more training you give it, the better it gets&#8221;</strong></p></blockquote>
+<p>We did this project off-and-on throughout half-term week rather than all in one sitting. And we re-ran the training after each go. It was really clear the way that the results improved the more that we did.</p>
+<p>I&#8217;m a big fan of learning by doing, and I think that seeing that for themselves was more effective than if I&#8217;d just told them. Trying it out with virtually no training, and seeing that it&#8217;s rubbish. Then trying it out with a bit of training, and see it start to get better. Then trying it again after a few days and see it really improving &#8211; there was a definite light bulb moment.</p>
+<blockquote><p><strong>&#8220;Training is fun at first, but can get a bit boring after a while&#8221;</strong></p></blockquote>
+<p>This was more an issue with the visual recognition training rather than the NLC text classifier training. Even after the first afternoon they&#8217;d already come up with a classifier that was doing a decent job of most questions. But grouping the photos into the training sets took much longer. And to be honest, it really needs more training than they did if you wanted to turn this into a proper demo or game &#8211; I let them do enough to get the idea, but stopped them before it became a miserable chore!</p>
+<p>But this was a positive thing. As a takeaway, that&#8217;s a really valid and valuable insight. I&#8217;ve seen commercial ML projects fail to recognise this at the outset! Training ML systems is a repetitive, manual and very time-consuming task that does get boring for the people involved.</p>
+<p>We talked about ways that people try and get around that, like trying to turn it into a game. Grace thought that if we did this as a school activity, with all her class helping out with the training, then split between 30 kids, it wouldn&#8217;t take as long.</p>
+<p>All of these points &#8211; the amount of time and work needed to train, approaches like getting a large number of people to train, etc. &#8211; these are all great lessons about the practicalities of using machine learning.</p>
+<blockquote><p><strong>&#8220;It&#8217;s a bit like magic&#8221;</strong></p></blockquote>
+<p>If you had to describe the steps involved in working out if a photo included a face that has a moustache, that would be pretty complicated. But dividing 100 photos into two groups &#8211; faces with a moustache, and faces without a moustache &#8211; that&#8217;s easy.</p>
+<p>There were a bunch of things they talked about here that was really positive &#8211; that doing this is easy, and you don&#8217;t need you to understand the deep detail behind how it works. With Faith (my youngest) we didn&#8217;t go into too much detail about how the training works, but Grace and I did find some videos on YouTube that explained the principles behind deep learning which were interesting.</p>
+<p>More generally, what I wanted them to learn was that computers can spot patterns in data, without you needing to be able to specify rules that they should follow. And I think that&#8217;s a more effective lesson as something they saw and did for themselves rather than just reading or hearing about it.</p>
+<h3>The result</h3>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/oguzXlRT4NQ?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/oguzXlRT4NQ</a></small></p>
+<p>I&#8217;ve put what we came up with on Bluemix at <a href="http://guesswho.eu-gb.mybluemix.net/">http://guesswho.eu-gb.mybluemix.net</a></p>
+<p>I&#8217;ve also put some more videos below to show us trying it out.</p>
+<p>As I explained above, it&#8217;s not really &#8220;finished&#8221; &#8211; I think it needs more training, and the UI was hacked together in a hurry. But even as a quick half-term project, I think it already shows a glimmer of what is possible.</p>
+<p>More importantly, it shows that you can give kids a hands-on introduction to machine learning.</p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/1AkSVBzE5io?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/1AkSVBzE5io</a></small></p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/6ay7MqhW53g?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/6ay7MqhW53g</a></small></p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/Z3UReJzzY4Q?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/Z3UReJzzY4Q</a></small></p>
+<p><iframe width="450" height="253" src="https://www.youtube.com/embed/GNcz_D62_0w?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="https://youtu.be/Z3UReJzzY4Q">https://youtu.be/GNcz_D62_0w</a></small></p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=3330">"An introduction to machine learning with Guess Who"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=3330">http://dalelane.co.uk/blog/?p=3330</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		<p>This is a <a href="http://dalelane.co.uk/blog/?p=3330">syndicated entry</a> please make comments on the original post.</p>This entry was posted in <a href="https://eightbar.eu-gb.mybluemix.net/category/planet/" rel="category tag">Planet</a> and tagged <a href="https://eightbar.eu-gb.mybluemix.net/tag/code/" rel="tag">code</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/eightbar/" rel="tag">eightbar</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/ibm/" rel="tag">IBM</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/kids/" rel="tag">kids</a> by <a href="https://eightbar.eu-gb.mybluemix.net/author/dalelane/">Dale Lane</a>. Bookmark the <a href="https://eightbar.eu-gb.mybluemix.net/2016/02/18/an-introduction-to-machine-learning-with-guess-who/" title="Permalink to An introduction to machine learning with Guess Who" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-1654 -->
+						<div id="comments">
+	
+	
+	
+	
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+	<div style="display:none">
+	</div>
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"https:\/\/eightbar.eu-gb.mybluemix.net\/2016\/02\/18\/an-introduction-to-machine-learning-with-guess-who\/":1654}	</script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+			<div id="sharing_email" style="display: none;">
+		<form action="https://eightbar.eu-gb.mybluemix.net/2016/02/18/an-introduction-to-machine-learning-with-guess-who/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="" />
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="" />
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="" />
+
+			
+			
+			<img style="float: right; display: none" class="loading" src="https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/images/loading.gif" alt="loading" width="16" height="16" />
+			<input type="submit" value="Send Email" class="sharing_send" />
+			<a href="#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-linkedin' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+		<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/comment-reply.min.js?ver=4.5.3'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201630'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2016Julaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.5.3'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/wp-embed.min.js?ver=4.5.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/sharing.js?ver=3.3.3'></script>
+
+	<script src="http://stats.wp.com/e-201630.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:3.3.3',blog:'9013531',post:'1654',tz:'1'});
+	var load_cmc = function(){linktracker_init(9013531,1654,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+</body>
+</html>

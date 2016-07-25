@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>hacking &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/hacking/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Node-RED Flows that make flows</title>
+		<link>http://eightbar.co.uk/2014/01/19/node-red-flows-that-make-flows/</link>
+		<pubDate>Sun, 19 Jan 2014 16:39:41 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Stanford-Clark]]></dc:creator>
+				<category><![CDATA[IBM Projects]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[Node-RED]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[hacking]]></category>
+		<category><![CDATA[MQTT]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1493</guid>
+		<description><![CDATA[Executive Summary When a mummy function node and a daddy function node love each other very much, the daddy node injects a payload into the mummy node through a wire between them, and a new baby message flow is made, &#8230; <a href="http://eightbar.co.uk/2014/01/19/node-red-flows-that-make-flows/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<h2>Executive Summary</h2>
+<p>When a mummy function node and a daddy function node love each other very much, the daddy node injects a payload into the mummy node through a wire between them, and a new baby message flow is made, which comes out of mummy&#8217;s output terminal. The baby&#8217;s name is Jason.</p>
+<h2>Where did this idea come from?</h2>
+<p>In <a title="Node-RED" href="http://nodered.org" target="_blank">Node-RED</a>, if you export some nodes to the clipboard, you will see the flow and its connections use a JSON wire format.</p>
+<p>For a few weeks I&#8217;ve been thinking about generating that JSON programmatically, in order to create flows which encode various input and output capabilities and functions, according to some input parameters which give the specific details of what the flow is to do.</p>
+<p>I think there&#8217;s been an alignment of planets that&#8217;s occurred, which led to this idea:</p>
+<p><a title="Stefan Kwiatkowski" href="http://twitter.com/stef_k_uk" target="_blank">@stef_k_uk</a> has been talking to me about deploying applications onto &#8220;slave&#8221; Raspberry Pis from a master Pi.</p>
+<p>Dritan Kaleshi and Terence Song from Bristol University have been discussing using the Node-RED GUI as a configurator tool for a system we&#8217;re working on together, and also we&#8217;ve been working on representing <a title="HyperCat" href="http://wiki.1248.io/doku.php?id=hypercat" target="_blank">HyperCat</a> catalogues in Node-RED, as part of our Technology Strategy Board Internet of Things project, <a title="IoT-Bay" href="http://iot-bay.org" target="_blank">IoT-Bay</a>.</p>
+<p><a title="James Macfarlane" href="http://twitter.com/rocketengines" target="_blank">@rocketengines</a> and I were cooking up cool ideas for cross-compiling Node-RED flows into other languages, a while back, and</p>
+<p>in a very productive ideas afternoon last week, <a title="Prof Jeremy Frey" href="http://twitter.com/profechem" target="_blank">@profechem</a> and I stumbled upon an idea for carrying the parser for a data stream along with the data itself, as part of its meta-data description.</p>
+<p>All of the above led me to think &#8220;wouldn&#8217;t it be cool if you could write a flow in Node-RED which produced as output another flow.&#8221; And for this week&#8217;s #ThinkFriday afternoon, I gave it a try.</p>
+<h2>First experiment</h2>
+<p>The first experiment was a flow which had an injector node feeding a JSON object of parameters into a flow which generated the JSON for an MQTT input node, a function node to process the incoming data in some way, and an MQTT output node. So it was the classic <em>subscribe &#8211; process &#8211; publish</em> pattern which occurs so often in our everday lives (if you live the kind of life that I do!).<br />
+<img class="aligncenter" alt="first Node-RED flow" src="http://stanford-clark.com/nodeRED/flow1.png" />And here&#8217;s the Node-RED flow which generates that: <a title="flow that makes a new flow" href="http://flows.nodered.org/flow/7887838b33139c673ad2" target="_blank">flow-generator</a></p>
+<p>So if you sent in<br />
+<code>{<br />
+"broker": "localhost",<br />
+"input": "source_topic",<br />
+"output": "destination_topic",<br />
+"process": "msg.payload = \"* \"+msg.payload+\" *\";\nreturn msg;"<br />
+}</code></p>
+<p>the resulting JSON would be the wire format for a three-node flow which has an MQTT input node subscribed to &#8220;<code>source_topic</code>&#8221; on the broker on &#8220;localhost&#8221;, a function node which applies a transformation to the data: in this case, wrapping it with an asterisk at each end, and finally an MQTT publish node sending it to &#8220;<code>destination_topic</code>&#8221; on &#8220;localhost&#8221;.<br />
+<strong>N.B.</strong> make sure you escape any double quotes in the &#8220;process&#8221; string, as shown above.</p>
+<p>The JSON appears in the debug window. If you highlight it, right-mouse &#8211; Copy, and then do Import from&#8230; Clipboard in Node-RED and ctrl-V the JSON into the text box and click OK, you get the three node flow described above ready to park on your Node-RED worksheet and then Deploy.<br />
+<img class="aligncenter" alt="the resulting " src="http://stanford-clark.com/nodeRED/flow4.png" />And it works!!</p>
+<h2>So what?</h2>
+<p>So far so cool. But what can we do with it?</p>
+<p>The next insight was that the configuration message (supplied by the injector) could come from somewhere else. An MQTT topic, for example. So now we have the ability for a data stream to be accompanied not only by meta-data describing what it is, but also have the code which parses it.<br />
+<img class="aligncenter" alt="flow with added MQTT configurator" src="http://stanford-clark.com/nodeRED/flow2.png" />My thinking is that if you subscribe to a data topic, say:<br />
+<code>andy/house/kitchen/temperature</code><br />
+there could be two additional topics, published &#8220;retained&#8221; so you get them when you first subscribe, and then any updates thereafter:</p>
+<p>A metadata topic which describes, in human and/or machine readable form, what the data is about, for example:<br />
+<code>andy/house/kitchen/temperature/meta</code> with content<br />
+&#8220;temperature in degrees Celcius in the kitchen at Andy&#8217;s house&#8221;</p>
+<p>And a parser topic which contains the code which enables the data to be parsed:<br />
+<code>andy/house/kitchen/temperature/parser</code> with content<br />
+&#8220;<code>msg.value = Math.round(msg.payload) + \" C\"; return msg;</code>&#8221;<br />
+(that&#8217;s probably a rubbish example of a useful parser, but it&#8217;s just for illustration!)</p>
+<p>If you&#8217;re storing your data in a <a title="HyperCat" href="http://wiki.1248.io/doku.php?id=hypercat" target="_blank">HyperCat</a> metadata catalogue (and you should think about doing so if you&#8217;re not &#8211; see <a title="Pilgrim Beart" href="http://twitter.com/pilgrimbeart" target="_blank">@pilgrimbeart</a>&#8216;s excellent <a title="HyperCat in 15 mins" href="http://www.slideshare.net/1248_io/hypercat-introduction-15-mins" target="_blank">HyperCat in 15 minutes presentation</a>), then the catalogue entry for the data point could include the URI of the parser function along with the other meta-data.</p>
+<h2>And then&#8230;</h2>
+<p>Now things get really interesting&#8230; what if we could deploy that flow we&#8217;ve created to a node.js run-time and set it running, as if we&#8217;d created the flow by hand in the Node-RED GUI and clicked &#8220;Deploy&#8221;?<br />
+Well we can!</p>
+<p>When you click Deploy, the Node-RED GUI does an HTTP POST to &#8220;<code>/flows</code>&#8221; in the node.js run-time that&#8217;s running the Node-RED server (red.js), and sends it the list of JSON objects which describe the flow that you&#8217;ve made.<br />
+So&#8230; if we hang an HTTP request node off the end of the flow which generates the JSON for our little flow, then it should look like a Deploy from a GUI.</p>
+<p>Et voila!<br />
+<img class="aligncenter" alt="flow that deploys to a remote Node-RED" src="http://stanford-clark.com/nodeRED/flow3.png" /><br />
+Note that you have to be careful not to nuke your flow-generating-flow by posting to your own Node-RED run-time! I am posting the JSON to Node-RED on my nearby Raspberry Pi. When you publish a configuration message to the configuration topic of this flow, the appropriate set of nodes is created &#8211; <em>input &#8211; process &#8211; output</em> &#8211; and then deployed to Node-RED on the Pi, which dutifully starts running the flow, subscribing to the specified topic, transforming the data according to the prescribed processing function, and publishing it to the specified output topic.</p>
+<p>I have to say, I think this is all rather exciting!</p>
+<p><a title="Andy Stanford-Clark" href="http://twitter.com/andysc" target="_blank">@andysc</a></p>
+<h3>Footnote:</h3>
+<p>It&#8217;s worth mentioning, that Node-RED generates unique IDs for nodes that look like &#8220;8cf45583.109bf8&#8221;. I&#8217;m not sure how it does that, so I went for a simple monotonically increasing number instead (1, 2 &#8230;). It seems to work fine, but there might be good reasons (which I&#8217;m sure <a title="Nick O'leary" href="http://twitter.com/knolleary" target="_blank">@knolleary</a> will tell me about) why I should do it the &#8220;proper&#8221; way.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Homecamp 4</title>
+		<link>http://eightbar.co.uk/2011/10/30/homecamp-4/</link>
+		<pubDate>Sun, 30 Oct 2011 21:41:30 +0000</pubDate>
+		<dc:creator><![CDATA[Laura Cowen]]></dc:creator>
+				<category><![CDATA[conferences]]></category>
+		<category><![CDATA[arduino]]></category>
+		<category><![CDATA[behaviour_change]]></category>
+		<category><![CDATA[hacking]]></category>
+		<category><![CDATA[homecamp]]></category>
+		<category><![CDATA[home_automation]]></category>
+		<category><![CDATA[psychology]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1131</guid>
+		<description><![CDATA[DC power, electricity monitoring, gas monitoring, data gathering, solar panels, hardware hacking, software hacking, behaviour change, open source, home energy, energy visualisations, cows&#8230; Just some of the things we talked about this weekend at Homecamp 4 at the Centre for &#8230; <a href="http://eightbar.co.uk/2011/10/30/homecamp-4/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>DC power, electricity monitoring, gas monitoring, data gathering, solar panels, hardware hacking, software hacking, behaviour change, open source, home energy, energy visualisations, cows&#8230;</p>
+<p>Just some of the things we talked about this weekend at <a title="Homecamp 4 website" href="http://homecamp.org.uk/2011/09/01/announcing-home-camp-4-hack-the-house/" target="_blank">Homecamp 4 </a>at the <a title="C4CC website" href="http://www.creativecollaboration.org.uk/" target="_blank">Centre for Creative Collaboration</a> near King&#8217;s Cross in London.</p>
+<p>A two-day event this year, Homecamp 4 (thanks to organiser <a title="Ken on Twitter" href="http://twitter.com/#!/monsonite" target="_blank">Ken Boak</a>) brought together hardware hackers, software hackers, home automation fans, energy and sustainability people, designers, and loads of enthusiasm and energy for sharing skills and experiences. And, thanks to the generous sponsorship by <a title="Amee website" href="http://www.amee.com/" target="_blank">Amee</a> and the support of Manager <a title="Debbie Davies" href="http://twitter.com/#!/debbiedavies" target="_blank">Debbie Davies</a> at C4CC, we had lovely breakfasts, lunches, and Saturday evening drinks.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0026.jpg"><img class="aligncenter size-medium wp-image-1162" title="C4CC" src="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0026-300x199.jpg" alt="C4CC" width="300" height="199" srcset="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0026-300x199.jpg 300w, http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0026.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>Saturday morning was dedicated to a series of presentations that had been scheduled in advance. It kicked off with a fascinating presentation by Simon Daniel from <a title="Moixa Technology website" href="http://www.moixatechnology.com/" target="_blank">Moixa</a> (inventor of the Palm folding keyboard and the USB rechargeable batteries) about how we could, and should, power all our lighting and computing at home off a couple of solar panels. By storing the solar power in batteries and then using it as DC power, rather than converting it to AC power, we&#8217;d not only avoid unsightly power bricks on everything, but we&#8217;d double the efficiency of the solar energy over converting it to the usual AC power to match our ordinary home electricity circuits and then convert it back to DC for consumption by LED lighting, laptops, mobile phones, and the like.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9993.jpg"><img class="aligncenter size-medium wp-image-1154" title="Simon from Moixa" src="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9993-300x199.jpg" alt="Simon from Moixa" width="300" height="199" srcset="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9993-300x199.jpg 300w, http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9993.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>Another interesting point he made was that most young people either don&#8217;t own their own homes or they&#8217;re not likely to stay in their current house for the next 15 years so they&#8217;re unlikely to invest in solar panels. So the company is working out a way to produce essentially portable solar panel, battery, and control packages that could be installed (and transported when you move house) as easily as Sky.</p>
+<p>Next up was <a title="James Smith on Twitter" href="http://twitter.com/#!/floppy" target="_blank">James Smith</a> from <a title="Amee website" href="http://www.amee.com/" target="_blank">Amee</a> to demo what you can do with the Amee API. Amee collect data about energy consumption and carbon emissions, most of which is publicly available but usually not in a form that&#8217;s easy to consume. A team of scientists search out data from all over the world about the carbon emissions of anything you can think of. The team reviews the data, corrects any errors they find, and then turns the data into code. Developers can then write applications that use the data through the Amee API.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9995.jpg"><img class="aligncenter size-medium wp-image-1155" title="James from Amee" src="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9995-300x199.jpg" alt="James from Amee" width="300" height="199" srcset="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9995-300x199.jpg 300w, http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_9995.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>James and <a title="Chris on Twitter" href="http://twitter.com/#!/mrchrisadams" target="_blank">Chris Adams</a>, also from Amee, demo&#8217;d how to use one of the toolkits that Amee provides to developers to show how quick it is to generate a web form that calculates the carbon emissions of cows from &#8216;enteric fermentation&#8217; (burping and farting, to you and me). His favourite Amee hack, though, was to display the carbon emissions of setting fire to things in Minecraft.</p>
+<p>After a brief pitch by <a title="Casper on Twitter" href="http://twitter.com/#!/cspr72" target="_blank">Casper Koomen</a> from Amsterdam about <a title="Pachube's website" href="https://pachube.com/" target="_blank">Pachube</a>, and an update from organiser Ken on his Nanode (previously seen, discussed, and built at Oggcamp 11!), Trystan Lea and Glyn Hudson (from North Wales) described and demo&#8217;d their neat open source, Arduino-based energy monitoring project, the <a title="OpenEnergyMonitor website" href="http://openenergymonitor.org/emon/" target="_blank">OpenEnergyMonitor</a> (first presented at Homecamp 2).</p>
+<p>After a novel but tasty free lunch of Vietnamese baguettes, the afternoon proceeded in a more unconference-style format. In a mix of formal presentations and informal discussions, we had talks on a range of topics, including getting your hardware ideas produced commercially, home energy monitoring experiences and visualisations, home-grown wind turbines, 3D printing, and I gave a short introduction/overview on the psychology of energy behaviour change. Most talks got several questions and I was really pleased that my talk, despite having a fairly different focus from many of the others, generated quite a lot of interest and discussion both at the time and over the rest of the weekend.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0035.jpg"><img class="aligncenter size-medium wp-image-1156" title="Evidence I was there!" src="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0035-199x300.jpg" alt="Evidence I was there!" width="199" height="300" srcset="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0035-199x300.jpg 199w, http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0035.jpg 533w" sizes="(max-width: 199px) 100vw, 199px" /></a></p>
+<p>The Saturday evening pub was unfortunately closed for a private party so <a title="Tony on Twitter" href="http://twitter.com/#!/tonywhitmore" target="_blank">Tony</a> and I encouraged everyone back to the lovely <a title="Harrison Bar website" href="http://harrisonbar.co.uk/" target="_blank">Harrison Bar</a> where we were staying and had already eaten a good dinner and noticed an interesting list of beers. If you like ginger beer, I recommend the Crabbie&#8217;s Ginger Beer (4%).</p>
+<p>Sunday took on a more hackday feel and the attendees either hacked on <a title="Nanode website" href="http://nanode.eu/" target="_blank">Nanodes</a> and similar hardware, played with software APIs, or wandered/sat around discussing cool ideas.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0069.jpg"><img class="aligncenter size-medium wp-image-1158" title="Hacking" src="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0069-300x199.jpg" alt="Hacking" width="300" height="199" srcset="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0069-300x199.jpg 300w, http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0069.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>In all it was a very fun weekend. We had some great conversations and met some very cool people. Hopefully, there&#8217;ll be a Homecamp 5.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0014.jpg"><img class="aligncenter size-medium wp-image-1159" title="Conversing" src="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0014-300x199.jpg" alt="Conversing" width="300" height="199" srcset="http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0014-300x199.jpg 300w, http://eightbar.co.uk/wp-content/uploads/2011/10/IMG_0014.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>During the weekend, Tony and I, ever on the lookout for interesting content for the <a title="UUPC website" href="http://podcast.ubuntu-uk.org/" target="_blank">Ubuntu-UK Podcast</a>, interviewed James about Amee, and Tristan and Glynn about their OpenEnergyMonitor project. Look out for them in upcoming episodes of <a title="UUPC on Twitter" href="http://twitter.com/#!/uupc" target="_blank">UUPC</a>.</p>
+<p>Photos thanks to <a title="Tony's website" href="http://tonywhitmore.co.uk/" target="_blank">Tony Whitmore</a></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Minihacks and Open Technologies</title>
+		<link>http://eightbar.co.uk/2011/02/20/minihacks-and-open-technologies/</link>
+		<pubDate>Sun, 20 Feb 2011 18:33:54 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Piper]]></dc:creator>
+				<category><![CDATA[Events]]></category>
+		<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[guruplug]]></category>
+		<category><![CDATA[hacking]]></category>
+		<category><![CDATA[minihack]]></category>
+		<category><![CDATA[openclient]]></category>
+		<category><![CDATA[ubuntu]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1045</guid>
+		<description><![CDATA[It&#8217;s not all about process, software development, and quadricopters&#8230; 🙂 This week we&#8217;ve had what could be described as a &#8220;mini Hackday&#8221;, instigated by an idea from Andy Stanford-Clark and organised by Hursley newcomer Vaibhavi Joshi. The idea was to &#8230; <a href="http://eightbar.co.uk/2011/02/20/minihacks-and-open-technologies/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>It&#8217;s not all about process, software development, and quadricopters&#8230; <img src="https://s.w.org/images/core/emoji/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p><a title="Guruplug by andyp uk, on Flickr" href="http://www.flickr.com/photos/andypiper/5450609876/"><img class="alignleft" style="margin: 10px;" src="http://farm6.static.flickr.com/5251/5450609876_0dea88acf0_m.jpg" alt="Guruplug" width="180" height="240" /></a> This week we&#8217;ve had what could be described as a &#8220;mini Hackday&#8221;, instigated by an idea from <a href="http://twitter.com/andysc">Andy Stanford-Clark</a> and organised by Hursley newcomer <a href="http://twitter.com/vaij">Vaibhavi Joshi</a>. The idea was to spend a few hours exploring the world of plug computers (in this case, a model called a <a href="http://www.plugcomputer.org/plugwiki/index.php/GuruPlug">Guruplug</a>); to brainstorm some ideas around utility computers; and to generally see what we could do with this kind of a form factor.</p>
+<p>Some great ideas emerged, and quite a few of us were severely tempted to order our new shiny gadgets on the spot&#8230; by the end of the morning the <a href="http://www.alphaworks.ibm.com/tech/rsmb">Really Small Message Broker</a> was built and running on the Guruplug and some exciting <a href="http://mqtt.org">MQTT</a>-related thoughts were flying around. A nice break from the norm for all of us!</p>
+<p>Inspired by some of the &#8220;social technologies for internal communications&#8221; discussions I&#8217;d had with <a href="http://abisignorelli.com/">Abi Signorelli</a> at <a href="http://andypiper.co.uk/2011/02/20/a-very-social-week-in-london/">Social Media Week London the previous week</a> &#8211; in particular, the ease of capturing a brief audio snippet on any particular topic &#8211; I thought I&#8217;d ask Vaibhavi what she thought &#8211; here&#8217;s a quick interview:<br />
+<object id="boo_player_1" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="400" height="129" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="data" value="http://boos.audioboo.fm/swf/fullsize_player.swf" /><param name="scale" value="noscale" /><param name="salign" value="lt" /><param name="bgColor" value="#FFFFFF" /><param name="allowScriptAccess" value="always" /><param name="wmode" value="window" /><param name="FlashVars" value="mp3=http%3A%2F%2Faudioboo.fm%2Fboos%2F278549-the-minihack-in-hursley-with-vaij.mp3%3Fsource%3Dembed&amp;mp3Author=andypiper&amp;mp3LinkURL=http%3A%2F%2Faudioboo.fm%2Fboos%2F278549-the-minihack-in-hursley-with-vaij&amp;mp3Title=The+%23minihack+in+Hursley+with+%40vaij&amp;rootID=boo_player_1&amp;mp3Time=11.44am+15+Feb+2011" /><param name="src" value="http://boos.audioboo.fm/swf/fullsize_player.swf" /><param name="bgcolor" value="#FFFFFF" /><param name="flashvars" value="mp3=http%3A%2F%2Faudioboo.fm%2Fboos%2F278549-the-minihack-in-hursley-with-vaij.mp3%3Fsource%3Dembed&amp;mp3Author=andypiper&amp;mp3LinkURL=http%3A%2F%2Faudioboo.fm%2Fboos%2F278549-the-minihack-in-hursley-with-vaij&amp;mp3Title=The+%23minihack+in+Hursley+with+%40vaij&amp;rootID=boo_player_1&amp;mp3Time=11.44am+15+Feb+2011" /><embed id="boo_player_1" type="application/x-shockwave-flash" width="400" height="129" src="http://boos.audioboo.fm/swf/fullsize_player.swf" flashvars="mp3=http%3A%2F%2Faudioboo.fm%2Fboos%2F278549-the-minihack-in-hursley-with-vaij.mp3%3Fsource%3Dembed&amp;mp3Author=andypiper&amp;mp3LinkURL=http%3A%2F%2Faudioboo.fm%2Fboos%2F278549-the-minihack-in-hursley-with-vaij&amp;mp3Title=The+%23minihack+in+Hursley+with+%40vaij&amp;rootID=boo_player_1&amp;mp3Time=11.44am+15+Feb+2011" wmode="window" allowscriptaccess="always" bgcolor="#FFFFFF" salign="lt" scale="noscale" data="http://boos.audioboo.fm/swf/fullsize_player.swf"></embed></object></p>
+<p>Straight after the hacking, it was time to move on to the Open Technologies event that was being run to promote Linux, Firefox and Symphony. I&#8217;m a user and a big fan of all of these tools so it was nice to see a local Hursley event as part of IBM&#8217;s global awareness month dedicated to helping those within the internal community not yet up-to-speed on what people were using. The best part? Free stickers <img src="https://s.w.org/images/core/emoji/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p><a title="Open Technologies by andyp uk, on Flickr" href="http://www.flickr.com/photos/andypiper/5451657145/"><img src="http://farm6.static.flickr.com/5218/5451657145_19725cb4e1.jpg" alt="Open Technologies" width="500" height="374" /></a></p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>gadgets &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/gadgets/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>The amazing MQTT-enabled ducks!</title>
+		<link>http://eightbar.co.uk/2009/03/12/the-amazing-mqtt-enabled-ducks/</link>
+		<comments>http://eightbar.co.uk/2009/03/12/the-amazing-mqtt-enabled-ducks/#comments</comments>
+		<pubDate>Thu, 12 Mar 2009 16:13:29 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Piper]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[cminion]]></category>
+		<category><![CDATA[ducks]]></category>
+		<category><![CDATA[gadgets]]></category>
+		<category><![CDATA[hacks]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[rsmb]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/2009/03/12/the-amazing-mqtt-enabled-ducks/</guid>
+		<description><![CDATA[This is a guest post by Hursley’s Chris Phillips (aka @cminion on Twitter). Take it away, Chris… and you’ll find more from him on his blog. Many eightbar readers may have received one of those gadget catalogues you get through &#8230; <a href="http://eightbar.co.uk/2009/03/12/the-amazing-mqtt-enabled-ducks/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>This is a guest post by Hursley’s Chris Phillips (aka <a href="http://twitter.com/cminion">@cminion</a> on Twitter). Take it away, Chris… and you’ll find more from him <a href="http://www.cminion.com/">on his blog</a>.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2009/03/flashyduck300x225.jpg"><img title="flashyduck-300x225" style="border-top-width: 0px; display: block; border-left-width: 0px; float: none; border-bottom-width: 0px; margin-left: auto; margin-right: auto; border-right-width: 0px" height="225" alt="flashyduck-300x225" src="http://eightbar.co.uk/wp-content/uploads/2009/03/flashyduck300x225-thumb.jpg" width="300" border="0" /></a> </p>
+<p>Many eightbar readers may have received one of those gadget catalogues you get through the door, with weird and wonderful widgets to ostensibly help with everyday life. “How have I ever coped without a Wifi Fondue set?” and similar thoughts may have run your mind. However, one thing these catalogues aim to promise is the integration of technology into everyday life; the dream that if technology is pervasive enough, it could remove all those little annoyances that we experience: forgetting a recipe, not knowing when our friends are turning up at the pub, having to get up twice to make a cup of tea, and so on… missing a phone call, because the phone is not loud enough, or set to vibrate, or other such vagaries of the modern telecommunications device. If only one could make a normally unobtrusive device that would alert one to a phone call, or a doorbell, or a new email, in fact pretty much anything!</p>
+<p>Back in January I made some <a href="http://mqtt.org/">MQTT</a> ducks. The aim was to make them flash on or off when receiving signals from my Ubuntu server.</p>
+<p>Now, you may wonder why I would want 20 rubber ducks to flash when my phone goes off. Well, this was about the same time as I decided I wanted to make a unobtrusive alerting device. There is no scientific or technical reason in itself. I just had a Mini Cooper&#8217;s worth of rubber ducks sitting around, unemployed. Therefore I designed a simple project to get to grips with the world of Arduinos not only educating me but also putting the lazy mallards to use. I found some cheap fairylights just before Christmas and had the aforementioned large supply of rubber ducks (as you do). </p>
+<p><b>Components</b></p>
+<ul>
+<li>1 x Freeduino </li>
+<li>1 x 20 LED Fairy lights (£3) </li>
+<li>1 x USB Printer Cable (via theattick.tv)</li>
+<li>20 x Rubber Ducks </li>
+</ul>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2009/03/img-51451.jpg"><img title="IMG_5145" style="border-right: 0px; border-top: 0px; display: block; float: none; margin-left: auto; border-left: 0px; margin-right: auto; border-bottom: 0px" height="160" alt="IMG_5145" src="http://eightbar.co.uk/wp-content/uploads/2009/03/img-5145-thumb1.jpg" width="240" border="0" /></a> </p>
+<p><b>Tools</b></p>
+<ul>
+<li>GlueGun (£1.50 from Woolworths during the closing down sale) </li>
+<li>Scissors </li>
+</ul>
+<p>The construction was very simple. Making a small hole in the bottom of each duck, I inserted an LED and glue gunned it into place. I checked the effect with the batteries to see the result.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2009/03/10977431.jpg"><img title="1097743" style="border-right: 0px; border-top: 0px; display: block; float: none; margin-left: auto; border-left: 0px; margin-right: auto; border-bottom: 0px" height="180" alt="1097743" src="http://eightbar.co.uk/wp-content/uploads/2009/03/1097743-thumb1.jpg" width="240" border="0" /></a> </p>
+<p>Removing the battery component with a pair of scissors and stripping the wire coating revealed the multi-core ends. These were plugged into the digital pin thirteen and the digital ground on the Arduino. To confirm the wires were plugged into the correct pin I pressed the reset button. The ducks and LED thirteen on the Arduino would then quickly flash.</p>
+<p><a href="http://eightbar.co.uk/wp-content/uploads/2009/03/img-5148.jpg"><img title="IMG_5148" style="border-top-width: 0px; display: block; border-left-width: 0px; float: none; border-bottom-width: 0px; margin-left: auto; margin-right: auto; border-right-width: 0px" height="240" alt="IMG_5148" src="http://eightbar.co.uk/wp-content/uploads/2009/03/img-5148-thumb.jpg" width="360" border="0" /></a> </p>
+<p>Coding for Arduinos is very basic. The program I wrote received a 1 or a 0 down the USB cable. When it received a 1 (49 in ASCII) it turned the ducks on. When it received a 0 (48 in ASCII) it turned them off.</p>
+<pre>int LEDPin  = 13;
+int inByte =0;
+
+void setup() {
+    pinMode(LEDPin,OUTPUT);
+    Serial.begin(9600);
+}
+void loop(){
+    if (Serial.available() &gt; 0) {
+      inByte = Serial.read();
+      Serial.print(inByte);
+    }
+    if (inByte == 49 ) {
+      digitalWrite(LEDPin,HIGH);
+    }
+    if (inByte == 48 ) {
+      digitalWrite(LEDPin,LOW);
+    }
+}</pre>
+<p>To connect this to my <a href="http://www.alphaworks.ibm.com/tech/rsmb">Really Small Message Broker</a> using MQTT, I modified an excellent &amp; simple Perl script written by Andy Stanford-Clark. His script reads RSMB topics for specific entries. I created a listener that watched for messages being passed on to the Ducks/ topic. If the content of the message was on it sent 1 down the wire to the Arduino, and if it received off it sent 0.</p>
+<p>Next move… well someone at <a href="http://www.pachube.com/">Pachube</a> put forward the idea <a href="http://twitter.com/pachube">on Twitter</a> of controlling with their infrastructure. Now, I can send an on or off message to a Pachube feed using Twitter. My server at home then checks this feed every 15 seconds for any changes and sends a message to my RSMB as required.</p>
+<p>Thanks to the guys from <b><a href="http://greatduckcaper.com/">http://greatduckcaper.com/</a></b> for providing their leftover ducks and theAttick.tv for providing the USB cable!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2009/03/12/the-amazing-mqtt-enabled-ducks/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Mad scientists?</title>
+		<link>http://eightbar.co.uk/2009/02/12/mad-scientists/</link>
+		<pubDate>Thu, 12 Feb 2009 17:28:10 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Piper]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[currentcost]]></category>
+		<category><![CDATA[gadgets]]></category>
+		<category><![CDATA[home automation]]></category>
+		<category><![CDATA[homecamp]]></category>
+		<category><![CDATA[mousetraps]]></category>
+		<category><![CDATA[MQTT]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=822</guid>
+		<description><![CDATA[Just an average day in the Hursley tea bar! Martin Dix from CurrentCost visited to deliver a bunch of meters for people who had attended Home Camp 08. Whilst he was with us, Andy Stanford-Clark hooked up a (battery-powered) meter &#8230; <a href="http://eightbar.co.uk/2009/02/12/mad-scientists/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<div align="center">
+<table border="0">
+<tr>
+<td cellspacing="5"><a href="http://eightbar.co.uk/wp-content/uploads/2009/02/img-3669-4.jpg"><img src="http://eightbar.co.uk/wp-content/uploads/2009/02/img-3669-4.jpg" alt="IMG_3669 4.JPG" border="0" width="194" height="146" align="left" /></a></td>
+<td cellspacing="5"><a href="http://eightbar.co.uk/wp-content/uploads/2009/02/img-3670-4.jpg"><img src="http://eightbar.co.uk/wp-content/uploads/2009/02/img-3670-4.jpg" alt="IMG_3670 4.JPG" border="0" width="194" height="146" /></a></td>
+</tr>
+</table>
+</div>
+<p align="center">Just an average day in the Hursley tea bar!</p>
+<p>Martin Dix from <a href="http://currentcost.co.uk">CurrentCost</a> visited to deliver a bunch of meters for people who had attended <a href="http://homecamp.org.uk">Home Camp</a> 08. Whilst he was with us, Andy Stanford-Clark hooked up a (battery-powered) meter to one of his mousetraps to show how it is possible to detect traps going off using the meter &#8211; this is the same technique he uses in his automated home system. He also showed the same message arriving in his MQTT broker on his Ubuntu laptop. The table was soon awash with gadgets, wires and tools. I brought along a camera or two, Dale brought along some questions about the software internals of the new devices, and a great time was had by a bunch of geeks over tea&#8230;</p>
+<p>No mice were harmed during this meetup, but a few wooden coffee stirrers were put through their paces in some vicious mousetraps.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

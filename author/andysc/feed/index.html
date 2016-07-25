@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Andy Stanford-Clark &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/author/andysc/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Node-RED Flows that make flows</title>
+		<link>http://eightbar.co.uk/2014/01/19/node-red-flows-that-make-flows/</link>
+		<pubDate>Sun, 19 Jan 2014 16:39:41 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Stanford-Clark]]></dc:creator>
+				<category><![CDATA[IBM Projects]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[Node-RED]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[hacking]]></category>
+		<category><![CDATA[MQTT]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1493</guid>
+		<description><![CDATA[Executive Summary When a mummy function node and a daddy function node love each other very much, the daddy node injects a payload into the mummy node through a wire between them, and a new baby message flow is made, &#8230; <a href="http://eightbar.co.uk/2014/01/19/node-red-flows-that-make-flows/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<h2>Executive Summary</h2>
+<p>When a mummy function node and a daddy function node love each other very much, the daddy node injects a payload into the mummy node through a wire between them, and a new baby message flow is made, which comes out of mummy&#8217;s output terminal. The baby&#8217;s name is Jason.</p>
+<h2>Where did this idea come from?</h2>
+<p>In <a title="Node-RED" href="http://nodered.org" target="_blank">Node-RED</a>, if you export some nodes to the clipboard, you will see the flow and its connections use a JSON wire format.</p>
+<p>For a few weeks I&#8217;ve been thinking about generating that JSON programmatically, in order to create flows which encode various input and output capabilities and functions, according to some input parameters which give the specific details of what the flow is to do.</p>
+<p>I think there&#8217;s been an alignment of planets that&#8217;s occurred, which led to this idea:</p>
+<p><a title="Stefan Kwiatkowski" href="http://twitter.com/stef_k_uk" target="_blank">@stef_k_uk</a> has been talking to me about deploying applications onto &#8220;slave&#8221; Raspberry Pis from a master Pi.</p>
+<p>Dritan Kaleshi and Terence Song from Bristol University have been discussing using the Node-RED GUI as a configurator tool for a system we&#8217;re working on together, and also we&#8217;ve been working on representing <a title="HyperCat" href="http://wiki.1248.io/doku.php?id=hypercat" target="_blank">HyperCat</a> catalogues in Node-RED, as part of our Technology Strategy Board Internet of Things project, <a title="IoT-Bay" href="http://iot-bay.org" target="_blank">IoT-Bay</a>.</p>
+<p><a title="James Macfarlane" href="http://twitter.com/rocketengines" target="_blank">@rocketengines</a> and I were cooking up cool ideas for cross-compiling Node-RED flows into other languages, a while back, and</p>
+<p>in a very productive ideas afternoon last week, <a title="Prof Jeremy Frey" href="http://twitter.com/profechem" target="_blank">@profechem</a> and I stumbled upon an idea for carrying the parser for a data stream along with the data itself, as part of its meta-data description.</p>
+<p>All of the above led me to think &#8220;wouldn&#8217;t it be cool if you could write a flow in Node-RED which produced as output another flow.&#8221; And for this week&#8217;s #ThinkFriday afternoon, I gave it a try.</p>
+<h2>First experiment</h2>
+<p>The first experiment was a flow which had an injector node feeding a JSON object of parameters into a flow which generated the JSON for an MQTT input node, a function node to process the incoming data in some way, and an MQTT output node. So it was the classic <em>subscribe &#8211; process &#8211; publish</em> pattern which occurs so often in our everday lives (if you live the kind of life that I do!).<br />
+<img class="aligncenter" alt="first Node-RED flow" src="http://stanford-clark.com/nodeRED/flow1.png" />And here&#8217;s the Node-RED flow which generates that: <a title="flow that makes a new flow" href="http://flows.nodered.org/flow/7887838b33139c673ad2" target="_blank">flow-generator</a></p>
+<p>So if you sent in<br />
+<code>{<br />
+"broker": "localhost",<br />
+"input": "source_topic",<br />
+"output": "destination_topic",<br />
+"process": "msg.payload = \"* \"+msg.payload+\" *\";\nreturn msg;"<br />
+}</code></p>
+<p>the resulting JSON would be the wire format for a three-node flow which has an MQTT input node subscribed to &#8220;<code>source_topic</code>&#8221; on the broker on &#8220;localhost&#8221;, a function node which applies a transformation to the data: in this case, wrapping it with an asterisk at each end, and finally an MQTT publish node sending it to &#8220;<code>destination_topic</code>&#8221; on &#8220;localhost&#8221;.<br />
+<strong>N.B.</strong> make sure you escape any double quotes in the &#8220;process&#8221; string, as shown above.</p>
+<p>The JSON appears in the debug window. If you highlight it, right-mouse &#8211; Copy, and then do Import from&#8230; Clipboard in Node-RED and ctrl-V the JSON into the text box and click OK, you get the three node flow described above ready to park on your Node-RED worksheet and then Deploy.<br />
+<img class="aligncenter" alt="the resulting " src="http://stanford-clark.com/nodeRED/flow4.png" />And it works!!</p>
+<h2>So what?</h2>
+<p>So far so cool. But what can we do with it?</p>
+<p>The next insight was that the configuration message (supplied by the injector) could come from somewhere else. An MQTT topic, for example. So now we have the ability for a data stream to be accompanied not only by meta-data describing what it is, but also have the code which parses it.<br />
+<img class="aligncenter" alt="flow with added MQTT configurator" src="http://stanford-clark.com/nodeRED/flow2.png" />My thinking is that if you subscribe to a data topic, say:<br />
+<code>andy/house/kitchen/temperature</code><br />
+there could be two additional topics, published &#8220;retained&#8221; so you get them when you first subscribe, and then any updates thereafter:</p>
+<p>A metadata topic which describes, in human and/or machine readable form, what the data is about, for example:<br />
+<code>andy/house/kitchen/temperature/meta</code> with content<br />
+&#8220;temperature in degrees Celcius in the kitchen at Andy&#8217;s house&#8221;</p>
+<p>And a parser topic which contains the code which enables the data to be parsed:<br />
+<code>andy/house/kitchen/temperature/parser</code> with content<br />
+&#8220;<code>msg.value = Math.round(msg.payload) + \" C\"; return msg;</code>&#8221;<br />
+(that&#8217;s probably a rubbish example of a useful parser, but it&#8217;s just for illustration!)</p>
+<p>If you&#8217;re storing your data in a <a title="HyperCat" href="http://wiki.1248.io/doku.php?id=hypercat" target="_blank">HyperCat</a> metadata catalogue (and you should think about doing so if you&#8217;re not &#8211; see <a title="Pilgrim Beart" href="http://twitter.com/pilgrimbeart" target="_blank">@pilgrimbeart</a>&#8216;s excellent <a title="HyperCat in 15 mins" href="http://www.slideshare.net/1248_io/hypercat-introduction-15-mins" target="_blank">HyperCat in 15 minutes presentation</a>), then the catalogue entry for the data point could include the URI of the parser function along with the other meta-data.</p>
+<h2>And then&#8230;</h2>
+<p>Now things get really interesting&#8230; what if we could deploy that flow we&#8217;ve created to a node.js run-time and set it running, as if we&#8217;d created the flow by hand in the Node-RED GUI and clicked &#8220;Deploy&#8221;?<br />
+Well we can!</p>
+<p>When you click Deploy, the Node-RED GUI does an HTTP POST to &#8220;<code>/flows</code>&#8221; in the node.js run-time that&#8217;s running the Node-RED server (red.js), and sends it the list of JSON objects which describe the flow that you&#8217;ve made.<br />
+So&#8230; if we hang an HTTP request node off the end of the flow which generates the JSON for our little flow, then it should look like a Deploy from a GUI.</p>
+<p>Et voila!<br />
+<img class="aligncenter" alt="flow that deploys to a remote Node-RED" src="http://stanford-clark.com/nodeRED/flow3.png" /><br />
+Note that you have to be careful not to nuke your flow-generating-flow by posting to your own Node-RED run-time! I am posting the JSON to Node-RED on my nearby Raspberry Pi. When you publish a configuration message to the configuration topic of this flow, the appropriate set of nodes is created &#8211; <em>input &#8211; process &#8211; output</em> &#8211; and then deployed to Node-RED on the Pi, which dutifully starts running the flow, subscribing to the specified topic, transforming the data according to the prescribed processing function, and publishing it to the specified output topic.</p>
+<p>I have to say, I think this is all rather exciting!</p>
+<p><a title="Andy Stanford-Clark" href="http://twitter.com/andysc" target="_blank">@andysc</a></p>
+<h3>Footnote:</h3>
+<p>It&#8217;s worth mentioning, that Node-RED generates unique IDs for nodes that look like &#8220;8cf45583.109bf8&#8221;. I&#8217;m not sure how it does that, so I went for a simple monotonically increasing number instead (1, 2 &#8230;). It seems to work fine, but there might be good reasons (which I&#8217;m sure <a title="Nick O'leary" href="http://twitter.com/knolleary" target="_blank">@knolleary</a> will tell me about) why I should do it the &#8220;proper&#8221; way.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Sending, not taking, the biscuit</title>
+		<link>http://eightbar.co.uk/2010/11/13/sending-not-taking-the-biscuit/</link>
+		<comments>http://eightbar.co.uk/2010/11/13/sending-not-taking-the-biscuit/#comments</comments>
+		<pubDate>Sat, 13 Nov 2010 18:28:02 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Stanford-Clark]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1038</guid>
+		<description><![CDATA[Teleportation becomes one step closer as UK scientists collaborate. A team of astronomers have joined forces with IBM's software engineers and taken tentative steps to transfer material across the Internet.
+ <a href="http://eightbar.co.uk/2010/11/13/sending-not-taking-the-biscuit/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>﻿Teleportation becomes one step closer as UK scientists collaborate. A team of astronomers have joined forces with IBM&#8217;s software engineers and taken tentative steps to transfer material across the Internet.</p>
+<p>Being unable to take up the offer of a biscuit at a recent meeting of a sub-group of the Isle of Wight&#8217;s Vectis Astronomical Society, <a title="Andy S-C" href="http://stanford-clark.com">Dr Andy Stanford-Clark</a>, IBM Master Inventor, who was at home at the time, accepted instead the offer of a Virtual Biscuit.</p>
+<p>He then laid down a challenge to the team of astronomers, led by Dr Lucy Rogers (<a title="@drlucyrogers" href="http://twitter.com/drlucyrogers">@drlucyrogers</a>), to deliver the biscuit to him using IBM&#8217;s Smarter Planet messaging middleware technology, <a title="MQTT" href="http://mqtt.org">MQTT</a>.</p>
+<p>This challenge was enthusiastically accepted, and the next day, Andy took the biscuit by subscribing to the appropriate topic on an IBM message broker and downloading the confectionery &#8211; <a title="Picture" href="http://twitpic.com/35tcqz/full">picture</a>.</p>
+<p>In an interesting twist, not unusual in the early stages of the invention of new technology, the image arrived intact, but subtly altered &#8211; it is horizontally flipped. This is reminiscent of some of the teething problems in the matter transportation technology described in Michael Crichton&#8217;s book TimeLine.</p>
+<p>Stanford-Clark said: &#8220;clearly there&#8217;s a very long way to go before we can transfer an ACTUAL biscuit across the Internet using MQTT, but this is an exciting first step, and a great motivation for further research.&#8221;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2010/11/13/sending-not-taking-the-biscuit/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Long Live the infocenter !</title>
+		<link>http://eightbar.co.uk/2008/02/11/long-live-the-infocenter/</link>
+		<comments>http://eightbar.co.uk/2008/02/11/long-live-the-infocenter/#comments</comments>
+		<pubDate>Mon, 11 Feb 2008 14:23:00 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Stanford-Clark]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[IBM Projects]]></category>
+		<category><![CDATA[Technology]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=431</guid>
+		<description><![CDATA[The Eclipse infocenter has always seemed a strange and complex beast. But a bit of hacking has shown that there's hope for it yet, in particular for use on plain old HTTP servers. And we get some nice stand-alone documentation for Lotus Expeditor microbroker into the bargain! <a href="http://eightbar.co.uk/2008/02/11/long-live-the-infocenter/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>I&#8217;ve always been a bit scared of infocenters &#8211; even though, deep down, I know they&#8217;re &#8220;just HTML&#8221;; they never quite seem that way. Javascript and to-the-pixel object placement is just getting too good these days. You could almost mistake it for a java applet or at least some kind of fancy AJAX application. </p>
+<p>But no, it&#8217;s just a set of good-old framesets, frames, HTML content, hyperlinks and images, bound together with some javascript eggwhite and stirred vigorously for a few minutes to make the infocenters we know and (some, I hear) love.</p>
+<p>However, to make it seem like it&#8217;s &#8220;alive&#8221;, there is a Java servlet lurking back at the server, generating parts of the Infocenter dynamically, including rendering the Table of Contents from a behind-the-scenes XML description, and running search and bookmarks and things like that.</p>
+<p>What I became curious about, then, were two things: </p>
+<ul>
+<li>Could we extract  a sub-set of an infocenter and just display that, rather than having to wade through everything we were given? For example, I might only be interested in the administration section of a product, or might only need to know about one component of a toolkit of many components. Having a more navigable and less intimidating sub-set would greatly improve productivity.
+</li>
+<li>Rather than having to install an Eclipse infocenter run time on a server to host a set of documentation, is there a way to run it on any plain old HTTPd (e.g. Apache)? I accept that search, bookmarks, and other dynamic features won&#8217;t work, but the <i>real</i> information &#8211; the useful stuff in the right-hand window, which we use to do our jobs with the products we&#8217;re trying to understand; and the all-important navigational Table of Contents structure in the left-hand window &#8211; would be available to us &#8220;anywhere&#8221; we can put an HTTPd.
+</li>
+</ul>
+<p>With a ThinkFriday afternoon ahead of me, I thought I&#8217;d see what could be done. And the outcome (to save you having to read the rest of this!) is rather pleasing: <a href="http://mqtt.org/infocenter" target="_blank">Lotus Expeditor micro  broker infocenter</a>. </p>
+<p>This is a subset of the Lotus Expeditor infocenter containing just the microbroker component, being served as static pages from an Apache web server.</p>
+<p>First the information content. The challenge I set was to extract the sections of the Lotus Expeditor documentation which relate to the microbroker component. It has always been a bit of a struggle to find these sections hidden amongst all the other information, as it&#8217;s in rather non-obvious places, and somewhat spread around. This means creating a new navigation tree for the left-hand pane of the Infocenter. When you click on a link in the navigation tree, that particular topic of information is loaded into the right-hand window. </p>
+<p>However, it quickly became apparent that just picking the microbroker references from the existing nav tree would yield an unsatisfactory result: the topics need to be arranged into a sensible structure so that someone looking for information on how to perform a particular task would be guided to the right information topic. Just picking leaf nodes from the Lotus Expeditor navigation tree would leave us with some oddly dangling information topics.</p>
+<p>Fortunately <a href="http://lauracowen.co.uk" target="_blank">Laura Cowen</a>, a colleague in the Hursley User Technologies department for messaging products, does this for a living, and so was able to separate out the microbroker wheat from the rest of the Expeditor documentation and reorganise the topics into a structure that makes sense out of the context of the bigger Expeditor Toolkit, but also, to be honest, into a much more meaningful and sensible shape for micro broker users</p>
+<p>First we needed to recreate the XML which the infocenter runtime server uses to serve up the HTML of the navigation tree. Laura gave me a sample of the XML, which contains the title and URL topic link. From the HTML source of the full Expeditor navigation tree, using a few lines of Perl, I was able to re-create XML stanzas for the entries in the navigation tree. Laura then restructured these into the shape we wanted, throwing out the ones we didn&#8217;t want, and adding in extra non-leaf nodes in the tree to achieve the information architecture she wanted to create.</p>
+<p>Wave a magic wand, and that XML file becomes a plug-in zip file that can be offered-up to an infocenter run time, and the resulting HTML content viewed. After some iterative reviews with potential future users of the micobroker infocenter, we finalised a navigation tree that balanced usability with not having to create new information topics, apart from a few placeholders for non-leaf nodes in the new navigation tree.</p>
+<p>So far so good &#8211; we had an infocenter for just the microbroker component of Expeditor, and it was nicely restructured into a useful information architecture.</p>
+<p>Now for phase two of the cunning plan: can we host that on a plain-old HTTPd without the infocenter run time behind it? The information topics (the pages that appear in the right-hand window) are static already, and didn&#8217;t need to be rehosted &#8211; the existing server for the Lotus Expeditor product documentation does a perfectly good job of serving up those HTML pages. It&#8217;s the rest of the Infocenter, the multiple nested framesets which make up the Infocenter &#8220;app&#8221;, and the all-important navigation tree, which are dynamically served, from a set of Java Server Pages (JSPs).</p>
+<p>A quick peek at the HTML source revealed that several JSPs were being used with different parameter sets to create different parts of the displayed HTML. These would have to be &#8220;flattened&#8221; to something that a regular web server could host. A few <code>wget</code>s against the infocenter server produced most of the static HTML we would need, but quite a few URLs needed changing to make them unique when converted to flat filenames. A bit of Perl and a bit of hand editing sorted that lot out.</p>
+<p>Then it transpired there is a &#8220;basic&#8221; and an &#8220;advanced&#8221; mode which the back-end servlet makes use of to (presumably) support lesser browsers (like <code>wget</code> <img src="https://s.w.org/images/core/emoji/72x72/1f610.png" alt="😐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> ). Having realised what was going on, and a bit of tweaking of the <code>wget</code> parameters to make it pretend to be Firefox, and the &#8220;advanced&#8221; content came through from the server.</p>
+<p>Then we had to bulk get the images &#8211; there are lots of little icons for pages, twisties, and various bits of window dressing for the infocenter window structure. All of this was assembled into a directory structure and made visible to an Apache HTTPd. </p>
+<p>Et voila! It worked! Very cool! An infocenter for the microbroker running on a straight HTTPd. Flushed with success, we moved it over to <a href="http://mqtt.org" target="_blank">MQTT.org</a> (the friendly fan-zine web site for the MQ Telemetry Transport and related products like microbroker). Tried it there&#8230; </p>
+<p>Didn&#8217;t work. Lots of broken links, empty windows and error loading page stuff. Seems the HTTPd on MQTT.org isn&#8217;t quite as forgiving as mine: files with a .jsp extension were being served back with the MIME type <code>text/plain</code> rather than <code>text/html</code>, which may not look like much, but makes all the difference. So a set of symlinks of .jsp files to .html files, and another quick wave of a perl script over the HTML files put everything right.</p>
+<p>So with an afternoon&#8217;s work, we were able to demonstrate to our considerable satisfaction, that we could excise a sub-set of an Infocenter from a larger book, restructure it into a new shape, and take the resulting Infocenter content and flatten it to a set of HTML pages which can be served from a regular HTTP server.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2008/02/11/long-live-the-infocenter/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Film Star for a day</title>
+		<link>http://eightbar.co.uk/2006/01/30/film-star-for-a-day/</link>
+		<comments>http://eightbar.co.uk/2006/01/30/film-star-for-a-day/#comments</comments>
+		<pubDate>Mon, 30 Jan 2006 15:59:24 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Stanford-Clark]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=49</guid>
+		<description><![CDATA[The peace and tranquility of life on the Isle of Wight was briefly interrupted for IBM Master Inventor Andy Stanford-Clark, by the arrival of an 11-person film crew at his front door on Friday! <a href="http://eightbar.co.uk/2006/01/30/film-star-for-a-day/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>On Friday, a film crew came to visit me at home for the day to film some of my home automation inventions, and talk to me about the process of innovation and how it sometimes leads to products and solutions for IBM.</p>
+<p>The background to this is that our ad agency were hunting round the Corporation to find something &#8220;cool&#8221; to talk about in some advertising material on the web. They heard about &#8220;this guy in the UK who has electronic mousetraps&#8221;, and knew immediately this was what they were looking for.</p>
+<p>A video conference and a few conference calls later, we&#8217;d scheduled a film shoot at my house on the Isle of Wight (a little island just off the coast of Southampton in the UK). I had been sent a &#8220;brief&#8221; about what they were planning, but I still didnt know exactly what would be entailed. So the key thing for me with regards to preparation was to make sure all the bits of my home automation system were up and running.</p>
+<p>I&#8217;ve been playing with home automation projects for a few years now, all based around the IBM &#8220;microbroker&#8221; and MQ Telemetry Transport (<a href="http://mqtt.org">MQTT</a>) protocol for publish/subscribe messaging, which is just perfect for hooking in wizzy new gadgets in a very short time to enable me to try out new ideas.</p>
+<p>So three car-loads of people showed up on Friday morning &#8211; 2 had flown in from the US just for the occasion &#8211; I felt very honoured already! There was the obligatory &#8220;IBM Minder&#8221; who lurks in the background making sure I don&#8217;t say anything &#8220;illegal&#8221;, or at least &#8220;highly regrettable&#8221;, or &#8220;significantly off-message&#8221;; the producer, interviewer, camera-person, sound-person, stills photographer, &#8220;key grip&#8221; (you always have to have one of those when you&#8217;re making a film, even though everyone knows that nobody fully understands the exact details of the job role!), um, er, oh, and a make up person to stop me being too shiny under the spotlights that were being assembled in my kitchen, and a few more people to make the number up to eleven.</p>
+<p>The theme was that the interviewer drops in on this inventor chap at his very English olde-worlde home, on the ever so quaint Isle of Wight, and amongst oak beams, stone walls, thatched roof, miscellaneous dogs, and a modest herd of llamas, he would explain these wizzy gadgets he&#8217;s implemented and experimented with at home, which are generally spring boards to solutions that IBM sells to customers across a range of different industries. Experimenting with the concepts in the home environment gives me a chance to work out all the issues that make it difficult, and (very importantly) give me a demonstrable system to show to people.</p>
+<p>So with lights blazing, cameras rolling, and fluffy boom mic being fluffy, I showed off my power monitoring system (live graph of how much power my house is consuming), X10 lighting system controlled using MQTT from my Java-enabled cellphone (how cool is THAT!), cellphone-activated Reindeer lights in the garden left over from Christmas, and my MQTT-enabled caller ID system that screen pops the name and a picture of the person who&#8217;s calling (if the system recognises the number) on the Kitchen Computer.</p>
+<p>Then some of the crew went out scavenging for food (you didn&#8217;t think I was going to attempt to feed an entire film crew do you!), and they came back with, well, what can I say &#8211; I think a picture is worthwhile at this point. I think &#8220;the contents of the local shop&#8221; would be the best description! We were still eating those sandwiches on Sunday!</p>
+<p><img src="http://eightbar.co.uk/wp-content/IMG_5313sm.jpg" alt="lunch for how many?" width="640" height="480" /></p>
+<p>After lunch we went out to see the llamas, which the film crew instantly decided were far more interesting than me. In fact, I suspect this might end up being a film about dogs and llamas, with a voice-over by Andy Stanford-Clark! I lost count of the number of stills the photographer took of the dogs, and the makeup person, not really having a huge task, spent most of the afternoon happily playing football with the Airedale on the lawn (&#8220;to keep her out of your way&#8221;&#8230;. yeah, right!). Holding a llama on a lead in one hand, I explained to the camera how my llama tracking system will work &#8211; &#8220;track the trek with MQTT&#8221;.</p>
+<p><img src="http://eightbar.co.uk/wp-content/IMG_5319sm.jpg" alt="llamas, camera, action!" width="640" height="480" /></p>
+<p>Then we went back in the house for more interviewing, and to demonstrate the system for which I&#8217;m most famous: the electronic mousetraps, which send a message to my cellphone when one of them catches a mouse, so I know to go and reset it and dispose of the &#8220;stiff&#8221; before it starts to decompose. This simple but effective system, which publishes a &#8220;mouse event&#8221; message over MQTT to a broker out on the internet, has been running in production for 5 years now, and so is the longest-running MQTT application!</p>
+<p><img src="http://eightbar.co.uk/wp-content/IMG_5331sm.jpg" alt="kitchen / film studio" width="640" height="480" /></p>
+<p>With a looming deadline of 5.30pm, the crew went into clean-up mode, packing tripods, cameras, lights, mics, dog toys (oops!), and packing them into the cars. By 5.25 they were standing in the kitchen in their coats, thanking me so much for allowing them into my home, and showing them such cool technology.</p>
+<p>I&#8217;m so glad I took a few photos of the day, because after they&#8217;d gone, there was not a trace that they had ever been there &#8211; I am in awe of the courtesy and professionalism that they showed throughout the day.</p>
+<p>So there you are&#8230; film star for a day!</p>
+<p>Andy Stanford-Clark, Master Inventor, Pervasive Messaging Technologies, IBM Hursley, UK</p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2006/01/30/film-star-for-a-day/feed/</wfw:commentRss>
+		<slash:comments>8</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Extreme Blue &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/tag/extreme-blue/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Conversational Internet</title>
+		<link>http://eightbar.co.uk/2012/10/05/conversational-internet-a-prototype/</link>
+		<pubDate>Fri, 05 Oct 2012 00:45:14 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[Extreme Blue]]></category>
+		<category><![CDATA[IBM]]></category>
+		<category><![CDATA[tech]]></category>
+		<category><![CDATA[uima]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=2277</guid>
+		<description><![CDATA[tl;dr We&#8217;ve built a prototype to show how we could interact with the Internet using a command-driven approach. A screen reader, but one that uses machine learning and natural language processing, in order to better understand both what the user wants to do, and what the web page says. One that can offer a conversational [...] <a href="http://eightbar.co.uk/2012/10/05/conversational-internet-a-prototype/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<blockquote style="border: thin black solid; padding: 1em; background-color: #bbbbbb; color: black; padding-bottom: 0; margin-bottom: 1em;"><p><strong>tl;dr</strong></p>
+<p>We&#8217;ve built a prototype to show how we could interact with the Internet using a command-driven approach.</p>
+<ul>
+<li>A screen reader, but one that uses machine learning and natural language processing, in order to better understand both what the user wants to do, and what the web page says.</li>
+<li>One that can offer a conversational interface instead of just reading out everything on the page.</li>
+</ul>
+<p>It&#8217;s a proof-of-concept, but it&#8217;s an exciting idea with a lot of potential and we&#8217;ve got a demo that shows it in action.</p></blockquote>
+<p><strong>The problem : screen readers today</strong></p>
+<p>I&#8217;ve <a href="http://dalelane.co.uk/blog/?p=1858">written about this before</a> but here is a recap. </p>
+<p>Visually impaired people can interact with the web using screen readers. These <a href="http://dalelane.co.uk/blog/?p=2192">read out every element on a page</a>.</p>
+<p>The user has to make a mental model of the structure of the page as it&#8217;s read out, and keep this in their head as they arrow-key around the page.</p>
+<p>For example, on a news site&#8217;s front page, once the screen reader has read out the page, you have to remember if the story you want is the fifth or sixth story in the list so you can tab the right number of times to get to it.</p>
+<p>Imagine an automated telephone menu:<br />
+&#8220;for blah-blah-blah, press 1, for blather-blather-blather, press 2, for something-or-other, press 3 &#8230; for something-else-vague, press 9 &#8230;”</p>
+<p>Imagine this menu was so long it took <a href="http://dalelane.co.uk/blog/?p=2192">15 minutes or more</a> to read.</p>
+<p>Imagine none of the options are an exact match for what you want. But by the time you get to the end, you can&#8217;t remember whether the closest match was the third or fourth, or fiftieth option.</p>
+<p><strong>The vision : a Conversational Internet</strong></p>
+<p>Software could be smarter.</p>
+<p>If it understood more about the web page, it could describe it at a higher, task-oriented level. It could read out the relevant bits, instead of everything.</p>
+<p>If it understood more about what the user wants to do, the user could just say that, instead of working out the manual navigation steps themselves.</p>
+<p>The vision is software that can interpret web pages and offer a conversational interface to web browsing.</p>
+<span id="more-1372"></span><p><strong>Making the vision a reality</strong></p>
+<p>This idea came from <a href="http://dalelane.co.uk/blog/?p=1858">a meeting that I wrote about last year</a> with the RLSB : a charity for the blind.</p>
+<p>I was convinced that we could do something amazing here. Earlier this year, I proposed it as an <a href="http://www.ibm.com/employment/uk/extreme-blue/">Extreme Blue</a> project. It was accepted, and this summer I&#8217;ve mentored <a href="http://chattyweb.wordpress.com/about/">a group of interns</a> who did amazing work on turning the vision into a prototype.</p>
+<p>I want to talk about Extreme Blue, but I&#8217;ll save that for another post. </p>
+<p><strong>The prototype : what it does</strong></p>
+<p>We&#8217;ve developed a prototype that shows what the Conversational Internet could be like.</p>
+<p>It is a proof-of-concept that can interpret many websites. In response to commands, it can navigate around them, and identify areas of the page, and the types of text and media. It can use this to provide a speech response with the information that the user wanted.</p>
+<p>Commands can be typed, or provided as speech input. </p>
+<p><a name="videodemo"></a><iframe width="450" height="253" src="http://www.youtube.com/embed/tSGyPCcO-bY?rel=0" frameborder="0" allowfullscreen></iframe><br />
+<small><a href="http://youtu.be/tSGyPCcO-bY?hd=1">a video of some of the capabilities of the prototype</a></small></p>
+<p><strong>The prototype : what it is</strong></p>
+<p>Our prototype is built using a <a href="http://dalelane.co.uk/blog/?tag=uima">UIMA architecture</a>. It is made up of pipelines of discrete annotators, each using a different strategy to try and identify meaning behind areas of the web page the user is viewing.</p>
+<p>Some of these strategies include using natural language processing (using IBM&#8217;s LanguageWare) to interpret meaning behind text.</p>
+<p>Some use machine learning (using IBM&#8217;s <a href="http://www.ibm.com/software/analytics/spss/products/modeler/">SPSS Modeler</a>) to learn from patterns in trends in the way web pages are structured and organised.</p>
+<p><strong>Architecture : the idea</strong></p>
+<p>There are two main tasks here.</p>
+<ol>
+<li>Interpreting the web page that the user has just visited.
+</li>
+<li>Responding to commands about the page</li>
+</ol>
+<p>Firstly: <strong>Understanding the web page</strong></p>
+<p>When the user visits a webpage, the system needs to try and interpret it.</p>
+<p>The contents of the web page &#8211; both the text contents, and the DOM structure of the HTML markup, including any semantic tags used &#8211; go through a UIMA analysis engine. It goes through a pipeline made up of several annotators, each of which is looking for something different in the page.</p>
+<p><a href="http://dalelane.co.uk/blog/post-images/120912-uima-pipeline-1.png" ><img src="http://dalelane.co.uk/blog/post-images/120912-uima-pipeline-1-small.png" alt="architecture diagram"/></a></p>
+<p>By itself, no one of these strategies are fool-proof. But they&#8217;re not stand-alone applications. As elements in a pipeline, contributing a strategy to a collection of results, they&#8217;re each useful indicators. Each of the annotators in each stage of analysis contributes it&#8217;s own metadata, building up our picture of what the page contains.</p>
+<p>Secondly: <strong>Responding to commands</strong></p>
+<p>Once analysed, the system is ready to react to commands about the web page.</p>
+<p><a href="http://dalelane.co.uk/blog/post-images/120912-uima-pipeline-2.png" ><img src="http://dalelane.co.uk/blog/post-images/120912-uima-pipeline-2-small.png" alt="architecture diagram"/></a></p>
+<p><strong>The prototype : status</strong></p>
+<p>This is not a finished, fully-implemented product. It&#8217;s an early work-in-progress. It&#8217;s not yet truly general purpose, and many of the key components are hard-coded or stubbed out. </p>
+<p>However, there are real example implementations of each of the concepts and ideas in the vision, showing that the basic idea has potential and that these technologies are a good fit for this challenge. And the UIMA pipelines are real and coordinating the work, demonstrating that the architecture is sound.</p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #bbbbbb;"><a href="http://dalelane.co.uk/blog/?p=2277" style="color: #082567">"Conversational Internet : A prototype"</a> was posted by <a style="color: #082567" href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a style="color: #082567" href="http://dalelane.co.uk/blog/?p=2277">http://dalelane.co.uk/blog/?p=2277</a>.<br /><em>Feed footer idea <a style="color: #082567" href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a style="color: #082567" href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+			</item>
+		<item>
+		<title>Hursley Extreme Blue 2011 Presentations</title>
+		<link>http://eightbar.co.uk/2011/09/06/hursley-extreme-blue-2011-presentations/</link>
+		<pubDate>Tue, 06 Sep 2011 12:31:18 +0000</pubDate>
+		<dc:creator><![CDATA[Graham White]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[car]]></category>
+		<category><![CDATA[Extreme Blue]]></category>
+		<category><![CDATA[FTP]]></category>
+		<category><![CDATA[innovation]]></category>
+		<category><![CDATA[internship]]></category>
+		<category><![CDATA[uk]]></category>
+		<category><![CDATA[voting]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1052</guid>
+		<description><![CDATA[Extreme Blue is IBM&#8217;s summer intern scheme. Students can apply to IBM to be part of the scheme and those lucky enough to be selected are brought into various IBM locations worldwide to be mentored by IBM staff who have &#8230; <a href="http://eightbar.co.uk/2011/09/06/hursley-extreme-blue-2011-presentations/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><a href="http://eightbar.co.uk/wp-content/uploads/2011/09/xblogo.gif"><img class="alignright size-full wp-image-1060" style="margin-left: 10px; margin-right: 10px;" title="xblogo" src="http://eightbar.co.uk/wp-content/uploads/2011/09/xblogo.gif" alt="Extreme Blue logo" width="150" height="102" /></a>Extreme Blue is IBM&#8217;s summer intern scheme. Students can <a href="http://www-01.ibm.com/employment/us/extremeblue/">apply to IBM</a> to be part of the scheme and those lucky enough to be selected are brought into various IBM locations worldwide to be mentored by IBM staff who have proposed an idea and small project for them to work on.</p>
+<p>This morning I went along to listen to what the 16 students in the UK have been doing with their summer. These students were split into four groups of four, working on projects for an improved voting system, a smart cursor, smarter vehicles and FTP discovery.</p>
+<p>You know you&#8217;re getting old when all the students seem rather young, I think &#8220;green&#8221; is the term people used to use when I was starting in IBM, they do remind me of my early days at work. However, they all presented themselves beautifully, spoke very well using slick rehearsed presentations they&#8217;ve put a lot of effort into, and (barring one or two stutters) seemed entirely confident in what they were doing up at the front of what must seem an intimidating auditorium full of knowledgeable IBM professionals. They handled questions well too, I don&#8217;t necessarily have to agree with all the answers, but the way they each went about receiving the questions and providing thoughtful answers was good.</p>
+<p>Each team had 7 minutes to present their 12 weeks&#8217; work with every person in the team getting a chance to pitch in at some point, so they didn&#8217;t get very long to put their projects across. The audience were asked to keep questions until the end of the pitch, which allowed them to flow easily through their material. The range of presentations was interesting, some chose to manually click through PowerPoint-style, while other groups came up with stories or monologuing through a video they had created. This range kept the audience interested with each style of presentation being effective for its purpose.</p>
+<p>It was interesting to see how each of the projects has been clearly influenced by the four members of the team. Each team of four contained one business student and three technical students, and the range of skills came through in the presentations. Some groups had &#8220;deep-dived&#8221; straight into technical work while others had spent more time thinking about use cases, business cases, how their project might fit in with IBM or be sold. I suspect this has a direct relationship to both how the team was lead by the IBM staff but also by the particular characters of each team and reminded me of Myers-Briggs or Belbin style studies I&#8217;ve done in the past.</p>
+<p>Now I&#8217;ll have a little look at each project in (very) brief&#8230; I&#8217;ll stress in advance that I&#8217;ve heard a small snippet of 12 weeks of hard work and any opinion here is mine alone and based solely on today&#8217;s pitches:</p>
+<p><strong>Improved voting system</strong><br />
+The team gave an introduction to their solution involving a three phase voting system followed by an example of the problem they were trying to solve and how their solution tackled these. The team had been working with a local council to identify requirements for such a system, so were able to work with real-world examples and solicit feedback. Questions followed and feedback from the council seemed to have been good. Some doubts were expressed by the audience about the security of such a system which whilst possibly valid, it seemed to me that these could be addressed should the solution be implemented live. The team presented the solution as having environmental benefits which might seem obvious at first but I thought were rather questionable given the requirement to use computer hardware and power, a further study would be required here to determine whether the current system using sustainably-sourced paper could be bettered on the environmental front. Verification of voters appears to be vastly improved using their system with less room from fraudulent votes with connection to other systems for authentication such as the DVLA. Clearly any such automated voting system would have huge benefits for the speed of counting after voting has completed.</p>
+<p><strong>Smart Cursor</strong><br />
+A new input device to control an on screen cursor using any sort of body movement aimed at improving human-computer interaction (primarily for disabled people). The system involves a hardware sensor strapped to the part of the body that has movement. Initial calibration for any new part of the body is required which is run once to set up 4 movements (up/down/left/right). Other movements and gestures would also be possible such as a mouse click and the combination of sensors on multiple parts of the body. The hardware technology could be built small enough to be permanently wearable without distress or difficulty to the user. Other uses of the technology appear to be for rehabilitation or monitoring a condition whilst wearing the hardware device. Lots of room for customisation brought out during questioning as well as a few issues about how to set up the device in the first place. However, this seemed like a really worthwhile (if low usage) piece of research that could be immensely useful to its target audience and at low cost too.</p>
+<p><strong>Smarter Vehicles</strong><br />
+The aim of this project is to personalise the driving experience for car users by attempting to add three things to a car (1) identifying which user is driving, (2) providing the car with knowledge about where it&#8217;s going, and (3) permanently connecting the car to a network. The team used a video style presentation and monologue they had story-boarded which was clearly well produced and rehearsed. It was unclear what the project had achieved, however, as no specifics were mentioned on what had been achieved but there were certainly plenty of good ideas as to what could be done in this area. The team do appear to have a demonstration available which I&#8217;m looking forward to going to see in Hursley tomorrow and the Extreme Blue demonstration expo after which I&#8217;m sure it will be a lot clearer which ideas they&#8217;ve followed through into something tangible and which are still in progress. Another great plus for this team was they were aligned with an automotive manufacturer and will be presenting their ideas back to the board at a later date which will be a fabulous experience to get for them all.</p>
+<p><strong>FTP Discovery</strong><br />
+Tackles the problem of escalating FTP network complexity in enterprises. The project attempts to map FTP files on the network in flight and automatically provides a visualisation of the network in a node graph style format. This network can be annotated manually with things such adding the cost of various transfers and links to allow the users to build up a visual picture and cost to the company of their FTP services. The team advocate the use of managed file transfers (as provided by <a href="https://www-01.ibm.com/software/integration/wmq/filetransfer/">WMQ File Transfer Edition</a>, for example) but failed to clearly state what the problem with FTP as a service is. That said, they seem to have a very clever way of detecting FTP traffic by sniffing the network and could easily extend their architecture to include all sorts of other protocols. They have also thought carefully about how their work might be used in the future, for example as a tool for IBM pre-sales, a saleable IBM product or (most likely) a component of one or more existing IBM products.</p>
+<p>Congratulations to all the teams and people involved. The presentations were great, a very entertaining hour, and it seems like some really useful work has come out of Extreme Blue in the UK again this year. Well done!</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>The Eightbar brand &#8211; part 3</title>
+		<link>http://eightbar.co.uk/2008/05/22/the-eightbar-brand-part-3/</link>
+		<comments>http://eightbar.co.uk/2008/05/22/the-eightbar-brand-part-3/#comments</comments>
+		<pubDate>Thu, 22 May 2008 09:33:15 +0000</pubDate>
+		<dc:creator><![CDATA[alice]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[IBM Projects]]></category>
+		<category><![CDATA[Second Life]]></category>
+		<category><![CDATA[eSign]]></category>
+		<category><![CDATA[Extreme Blue]]></category>
+		<category><![CDATA[gang sign]]></category>
+		<category><![CDATA[Sign Language]]></category>
+		<category><![CDATA[Sisi]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=482</guid>
+		<description><![CDATA[Following on from Ian&#8217;s posts about the Eightbar gang sign and large hands and sign language in Second Life I have created the Eightbar gang sign using my good friend Anna. Anna is an animated avatar developed by the University &#8230; <a href="http://eightbar.co.uk/2008/05/22/the-eightbar-brand-part-3/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Following on from Ian&#8217;s posts about the Eightbar <a href="http://eightbar.co.uk/2008/03/01/the-eightbar-brand-another-angle/">gang sign</a> and <a href="http://eightbar.co.uk/2007/05/01/experiments-with-large-hands-and-puppeteer/">large hands and sign language in Second Life</a><a href="http://eightbar.co.uk/2008/03/01/the-eightbar-brand-another-angle/"></a> I have created the Eightbar gang sign using my good friend Anna.</p>
+<p>Anna is an animated avatar developed by the University of East Anglia&#8217;s <a href="http://www.visicast.cmp.uea.ac.uk/eSIGN/">eSign</a> project to synthesize sign language, she was used as part of an Extreme Blue project to convert <a href="http://news.bbc.co.uk/1/hi/technology/6993326.stm">Speech to Sign</a> last summer. Anna is animated using Signing Gesture Mark up Language (SiGML) which is based on the internationally established notation for sign, HamNoSys. Currently, to create signs for Anna, eSign have provided an editor which is very good, but requires a reasonable amount of time to be able to use efficiently. For a few days per week I have been working on a way for people who are not familiar with the eSign editor to create signs for Anna, with the hope that creating signs can be the sort of thing you just dip into, when you have a spare minute and a sign you would like to create. With this in mind I decided, as a test, to create the EightBar gang sign using my interface.</p>
+<p>After 15 minutes of playing about, I had a gang sign! It took a few attempts to get there mind&#8230;</p>
+<p><img src="http://farm3.static.flickr.com/2046/2510967561_bd5db83a14_o.jpg" alt="" width="700" height="179" /></p>
+<p>But finally Anna was throwing the gang sign like a pro&#8230;</p>
+<p><img style="middle;" src="http://farm4.static.flickr.com/3145/2511773818_8cd8b21903_o.jpg" alt="Eightbar gang sign" width="287" height="457" /></p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2008/05/22/the-eightbar-brand-part-3/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

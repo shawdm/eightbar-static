@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>messaging &#8211; eightbar</title>
+	<atom:link href="http://eightbar.co.uk/category/messaging/feed/" rel="self" type="application/rss+xml" />
+	<link>http://eightbar.co.uk</link>
+	<description>Raising The Eight Bar</description>
+	<lastBuildDate>Sun, 26 Jun 2016 13:46:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.5.3</generator>
+	<item>
+		<title>Node-RED Flows that make flows</title>
+		<link>http://eightbar.co.uk/2014/01/19/node-red-flows-that-make-flows/</link>
+		<pubDate>Sun, 19 Jan 2014 16:39:41 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Stanford-Clark]]></dc:creator>
+				<category><![CDATA[IBM Projects]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[Node-RED]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[hacking]]></category>
+		<category><![CDATA[MQTT]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1493</guid>
+		<description><![CDATA[Executive Summary When a mummy function node and a daddy function node love each other very much, the daddy node injects a payload into the mummy node through a wire between them, and a new baby message flow is made, &#8230; <a href="http://eightbar.co.uk/2014/01/19/node-red-flows-that-make-flows/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<h2>Executive Summary</h2>
+<p>When a mummy function node and a daddy function node love each other very much, the daddy node injects a payload into the mummy node through a wire between them, and a new baby message flow is made, which comes out of mummy&#8217;s output terminal. The baby&#8217;s name is Jason.</p>
+<h2>Where did this idea come from?</h2>
+<p>In <a title="Node-RED" href="http://nodered.org" target="_blank">Node-RED</a>, if you export some nodes to the clipboard, you will see the flow and its connections use a JSON wire format.</p>
+<p>For a few weeks I&#8217;ve been thinking about generating that JSON programmatically, in order to create flows which encode various input and output capabilities and functions, according to some input parameters which give the specific details of what the flow is to do.</p>
+<p>I think there&#8217;s been an alignment of planets that&#8217;s occurred, which led to this idea:</p>
+<p><a title="Stefan Kwiatkowski" href="http://twitter.com/stef_k_uk" target="_blank">@stef_k_uk</a> has been talking to me about deploying applications onto &#8220;slave&#8221; Raspberry Pis from a master Pi.</p>
+<p>Dritan Kaleshi and Terence Song from Bristol University have been discussing using the Node-RED GUI as a configurator tool for a system we&#8217;re working on together, and also we&#8217;ve been working on representing <a title="HyperCat" href="http://wiki.1248.io/doku.php?id=hypercat" target="_blank">HyperCat</a> catalogues in Node-RED, as part of our Technology Strategy Board Internet of Things project, <a title="IoT-Bay" href="http://iot-bay.org" target="_blank">IoT-Bay</a>.</p>
+<p><a title="James Macfarlane" href="http://twitter.com/rocketengines" target="_blank">@rocketengines</a> and I were cooking up cool ideas for cross-compiling Node-RED flows into other languages, a while back, and</p>
+<p>in a very productive ideas afternoon last week, <a title="Prof Jeremy Frey" href="http://twitter.com/profechem" target="_blank">@profechem</a> and I stumbled upon an idea for carrying the parser for a data stream along with the data itself, as part of its meta-data description.</p>
+<p>All of the above led me to think &#8220;wouldn&#8217;t it be cool if you could write a flow in Node-RED which produced as output another flow.&#8221; And for this week&#8217;s #ThinkFriday afternoon, I gave it a try.</p>
+<h2>First experiment</h2>
+<p>The first experiment was a flow which had an injector node feeding a JSON object of parameters into a flow which generated the JSON for an MQTT input node, a function node to process the incoming data in some way, and an MQTT output node. So it was the classic <em>subscribe &#8211; process &#8211; publish</em> pattern which occurs so often in our everday lives (if you live the kind of life that I do!).<br />
+<img class="aligncenter" alt="first Node-RED flow" src="http://stanford-clark.com/nodeRED/flow1.png" />And here&#8217;s the Node-RED flow which generates that: <a title="flow that makes a new flow" href="http://flows.nodered.org/flow/7887838b33139c673ad2" target="_blank">flow-generator</a></p>
+<p>So if you sent in<br />
+<code>{<br />
+"broker": "localhost",<br />
+"input": "source_topic",<br />
+"output": "destination_topic",<br />
+"process": "msg.payload = \"* \"+msg.payload+\" *\";\nreturn msg;"<br />
+}</code></p>
+<p>the resulting JSON would be the wire format for a three-node flow which has an MQTT input node subscribed to &#8220;<code>source_topic</code>&#8221; on the broker on &#8220;localhost&#8221;, a function node which applies a transformation to the data: in this case, wrapping it with an asterisk at each end, and finally an MQTT publish node sending it to &#8220;<code>destination_topic</code>&#8221; on &#8220;localhost&#8221;.<br />
+<strong>N.B.</strong> make sure you escape any double quotes in the &#8220;process&#8221; string, as shown above.</p>
+<p>The JSON appears in the debug window. If you highlight it, right-mouse &#8211; Copy, and then do Import from&#8230; Clipboard in Node-RED and ctrl-V the JSON into the text box and click OK, you get the three node flow described above ready to park on your Node-RED worksheet and then Deploy.<br />
+<img class="aligncenter" alt="the resulting " src="http://stanford-clark.com/nodeRED/flow4.png" />And it works!!</p>
+<h2>So what?</h2>
+<p>So far so cool. But what can we do with it?</p>
+<p>The next insight was that the configuration message (supplied by the injector) could come from somewhere else. An MQTT topic, for example. So now we have the ability for a data stream to be accompanied not only by meta-data describing what it is, but also have the code which parses it.<br />
+<img class="aligncenter" alt="flow with added MQTT configurator" src="http://stanford-clark.com/nodeRED/flow2.png" />My thinking is that if you subscribe to a data topic, say:<br />
+<code>andy/house/kitchen/temperature</code><br />
+there could be two additional topics, published &#8220;retained&#8221; so you get them when you first subscribe, and then any updates thereafter:</p>
+<p>A metadata topic which describes, in human and/or machine readable form, what the data is about, for example:<br />
+<code>andy/house/kitchen/temperature/meta</code> with content<br />
+&#8220;temperature in degrees Celcius in the kitchen at Andy&#8217;s house&#8221;</p>
+<p>And a parser topic which contains the code which enables the data to be parsed:<br />
+<code>andy/house/kitchen/temperature/parser</code> with content<br />
+&#8220;<code>msg.value = Math.round(msg.payload) + \" C\"; return msg;</code>&#8221;<br />
+(that&#8217;s probably a rubbish example of a useful parser, but it&#8217;s just for illustration!)</p>
+<p>If you&#8217;re storing your data in a <a title="HyperCat" href="http://wiki.1248.io/doku.php?id=hypercat" target="_blank">HyperCat</a> metadata catalogue (and you should think about doing so if you&#8217;re not &#8211; see <a title="Pilgrim Beart" href="http://twitter.com/pilgrimbeart" target="_blank">@pilgrimbeart</a>&#8216;s excellent <a title="HyperCat in 15 mins" href="http://www.slideshare.net/1248_io/hypercat-introduction-15-mins" target="_blank">HyperCat in 15 minutes presentation</a>), then the catalogue entry for the data point could include the URI of the parser function along with the other meta-data.</p>
+<h2>And then&#8230;</h2>
+<p>Now things get really interesting&#8230; what if we could deploy that flow we&#8217;ve created to a node.js run-time and set it running, as if we&#8217;d created the flow by hand in the Node-RED GUI and clicked &#8220;Deploy&#8221;?<br />
+Well we can!</p>
+<p>When you click Deploy, the Node-RED GUI does an HTTP POST to &#8220;<code>/flows</code>&#8221; in the node.js run-time that&#8217;s running the Node-RED server (red.js), and sends it the list of JSON objects which describe the flow that you&#8217;ve made.<br />
+So&#8230; if we hang an HTTP request node off the end of the flow which generates the JSON for our little flow, then it should look like a Deploy from a GUI.</p>
+<p>Et voila!<br />
+<img class="aligncenter" alt="flow that deploys to a remote Node-RED" src="http://stanford-clark.com/nodeRED/flow3.png" /><br />
+Note that you have to be careful not to nuke your flow-generating-flow by posting to your own Node-RED run-time! I am posting the JSON to Node-RED on my nearby Raspberry Pi. When you publish a configuration message to the configuration topic of this flow, the appropriate set of nodes is created &#8211; <em>input &#8211; process &#8211; output</em> &#8211; and then deployed to Node-RED on the Pi, which dutifully starts running the flow, subscribing to the specified topic, transforming the data according to the prescribed processing function, and publishing it to the specified output topic.</p>
+<p>I have to say, I think this is all rather exciting!</p>
+<p><a title="Andy Stanford-Clark" href="http://twitter.com/andysc" target="_blank">@andysc</a></p>
+<h3>Footnote:</h3>
+<p>It&#8217;s worth mentioning, that Node-RED generates unique IDs for nodes that look like &#8220;8cf45583.109bf8&#8221;. I&#8217;m not sure how it does that, so I went for a simple monotonically increasing number instead (1, 2 &#8230;). It seems to work fine, but there might be good reasons (which I&#8217;m sure <a title="Nick O'leary" href="http://twitter.com/knolleary" target="_blank">@knolleary</a> will tell me about) why I should do it the &#8220;proper&#8221; way.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>MQTT powered video wall</title>
+		<link>http://eightbar.co.uk/2011/09/16/mqtt-powered-video-wall/</link>
+		<pubDate>Fri, 16 Sep 2011 10:20:22 +0000</pubDate>
+		<dc:creator><![CDATA[Ben Hardill]]></dc:creator>
+				<category><![CDATA[IBM Projects]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[arduino]]></category>
+		<category><![CDATA[ETS]]></category>
+		<category><![CDATA[IBM Forum]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[South Bank]]></category>
+		<category><![CDATA[video]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=1065</guid>
+		<description><![CDATA[Scaling things up a little from my first eightbar post. This was one of those projects that just sort of &#8220;turned up&#8221;. About 3 weeks ago one of the managers for the ETS department in Hursley got a call from &#8230; <a href="http://eightbar.co.uk/2011/09/16/mqtt-powered-video-wall/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Scaling things up a little from <a href="http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/">my first eightbar post</a>.</p>
+<p>This was one of those projects that just sort of &#8220;turned up&#8221;. About 3 weeks ago one of the managers for the ETS department in Hursley got a call from the team building the new IBM Forum in <a href="http://www-05.ibm.com/uk/locations/sbnk.html">IBM South Bank</a>. IBM Forums are locations where IBM can showcase technologies and solutions for customers. The team were looking for a way to control a video wall and a projector to make them show specific videos on request. The requests will come from pedestals known as &#8220;provokers&#8221;, each having a perspex dome holding a thought-provoking item. The initial suggestions had been incredibility expensive and we were asked if we could come up with a solution.</p>
+<p><a title="Provoker by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/6150090094/"><img src="http://farm7.static.flickr.com/6080/6150090094_170bde8686.jpg" alt="Provoker" width="299" height="500" /></a></p>
+<p>The provokers have access to power and an Ethernet connection. Taking all that into account a few ideas came to mind but the best seamed to be an Arduino board with Ethernet support and a button/sensor to trigger the video. There is a relatively new arduino board available that has a <a href="http://arduino.cc/en/Main/ArduinoBoardEthernet">built in Ethernet</a> shield which seemed perfect for this project. Also, since a number of the items in the provokers would be related to IBM&#8217;s Smarter Planet initiative, it made sense to use <a href="http://mqtt.org">MQTT</a> as a messaging layer as this has been used to implement a number of solutions in this space.</p>
+<p><a href="http://knolleary.net/">Nick O&#8217;Leary</a> was enlisted to put together the hardware and also the sketch for the Arduino as he had already written a <a href="http://knolleary.net/arduino-client-for-mqtt/">MQTT client for Arduino</a> in the past.</p>
+<p>Each provoker will publish a message containing a playload of &#8220;play&#8221; to a topic like</p>
+<p><em>provoker/{n}/action</em></p>
+<p>Where &#8216;{n}&#8217; is the unique number identifying which of the 6 provokers sent the message.</p>
+<p>To provide some feedback to the guest that pressed the button, the LED has been made to pulse while one of the provoker-specific videos is playing. This is controlled by each provoker subscribing to the following topic</p>
+<p><em>provoker/{n}/ack</em></p>
+<p>Sending &#8220;play&#8221; to this topic causes the LED pluse, sending &#8220;stop&#8221; turns the LED solid again.</p>
+<p>The video wall will be driven by software called Scala InfoChannel which has a scripting interface supporting (among other things) Python. So a short script to subscribe to the &#8216;action&#8217; topics and to publish on on the &#8216;ack&#8217; got the videos changing on demand.</p>
+<p>And sat in the middle is an instance of the <a href="https://www.ibm.com/developerworks/community/groups/service/html/communityview?communityUuid=d5bedadd-e46f-4c97-af89-22d65ffee070">Really Small Message Broker</a> to tie everything together.</p>
+<p><a title="Arduino in a box by knolleary, on Flickr" href="http://www.flickr.com/photos/knolleary/6123416370/"><img src="http://farm7.static.flickr.com/6185/6123416370_ba88cde8ee.jpg" alt="Arduino in a box" width="500" height="299" /></a></p>
+<p>This was also the perfect place to use some of <a href="http://www.flickr.com/photos/hardillb/6127193305/in/photostream">my new &#8220;MQTT Inside&#8221; stickers</a>.</p>
+<p><a title="First sticker deployed by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/6143434166/"><img src="http://farm7.static.flickr.com/6189/6143434166_4cf426ac18.jpg" alt="First sticker deployed" width="299" height="500" /></a></p>
+<p>This project only used one of the digital channels (for the button) and one of the analogue channels (for the LED) available on the Arduino &#8211; which leaves a lot of room for expansion for these type of devices. I can see them being used for future projects.</p>
+<p><strong>Parts list</strong></p>
+<ol>
+<li>Arduino Ethernet</li>
+<li>Blue LED Illuminated Button</li>
+<li>A single resistor to protect the LED</li>
+<li>9v power supply</li>
+<li>Sparkfun Case</li>
+</ol>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>A different kind of TV remote control</title>
+		<link>http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/</link>
+		<comments>http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/#comments</comments>
+		<pubDate>Mon, 22 Jun 2009 13:57:51 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Piper]]></dc:creator>
+				<category><![CDATA[messaging]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[automation]]></category>
+		<category><![CDATA[hardware]]></category>
+		<category><![CDATA[MQTT]]></category>
+		<category><![CDATA[serial]]></category>
+		<category><![CDATA[television]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/</guid>
+		<description><![CDATA[I’m very excited to be welcoming another Hursley innovator as a guest here on eightbar – Benjamin Hardill (you can find him on Twitter as @hardillb). Here’s some insight into what he’s been up to lately! More home automation, hardware &#8230; <a href="http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>I’m very excited to be welcoming another Hursley innovator as a guest here on eightbar – Benjamin Hardill (you can find him on Twitter as <a href="http://twitter.com/hardillb">@hardillb</a>). Here’s some insight into what he’s been up to lately! More home automation, hardware hacking, and MQTT messaging adventures follow <img src="https://s.w.org/images/core/emoji/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p style="border-top-width: thin; border-top-style: dotted; border-top-color: #FFFFFF;"/>
+<p>I got a new TV around Christmas last year and while unpacking it I noticed along with the HDMI, SCART and other sockets on the back it had a 9-pin socket labelled &quot;RS232C IN CONTROL&amp;SERVICE&quot;. I didn&#8217;t think that much of it at the time, but I remembered it last week while thinking about a couple of problems that had come up.</p>
+<p><a href="http://www.flickr.com/photos/hardillb/1653622846/"><img style="margin: 5px 15px 5px 0px; display: inline" alt="Tidy TV setup" align="left" src="http://farm3.static.flickr.com/2374/1653622846_61e502aafd_m.jpg" width="240" height="180" /></a> The first of these was that I had got home twice recently to find I&#8217;d left the TV turned on while I was at work, this was mainly because I use <a href="http://www.mythtv.org/">MythTV</a> and I&#8217;d left it at the menu screen rather than turning the screen off as well. This had left shadow on the menu on the screen for a day or so afterwards (luckily no permanent damage as would have happened with a plasma or CRT TV).</p>
+<p>The other point was from when we all first got hold of our Current Cost meters, there had been a lot of thought about how to work out exactly what appliances were on at any given time. While spotting when things like an electric water heater turned on was relatively easy, it was proving difficult to spot some of the lower power devices.</p>
+<p>A plan started to form and I ordered a null modem cable from <a href="http://www.amazon.co.uk/Female-RS232-Serial-Modem-Cable/dp/B000Q8HO7I/ref=sr_1_1?ie=UTF8&amp;s=electronics&amp;qid=1245499991&amp;sr=8-1">Amazon</a> (£2.18 with free shipping) and went looking for some documentation on the protocol. The manual that came with the TV while being nearly an inch thick just covers the basics of how to plug it in and turn it on, but there was a CD-ROM with a much more detailed PDF document. The version for my TV is <a href="http://www.in.lge.com/XCanvas/images/26LC2R-TJ.pdf">here</a>. While searching round I found manuals for several other LG LCD/plasma TVs and they all seem to use the same basic protocol. </p>
+<p>The protocol is relatively simple</p>
+<p><code>[cmd1][cmd2] [setid] [data]</code></p>
+<p>Where the <i>cmd1</i> &amp; <i>cmd2</i> are 1 letter code, <i>setid</i> is for if you have multiple TVs connected to the same cable, the default id is 01 but you can change if needed, using 00 will work for all connected TVs. And <i>data</i> is a hex value of the option to pass the command.</p>
+<p>The response from the TV looks like this for a success</p>
+<p><code>[cmd2] [setid] OK[data]x</code></p>
+<p>and like this for a failure</p>
+<p><code>[cmd2] [setid] NG[data]x</code></p>
+<p>The command to turn the TV on and off is &quot;ka&quot; so sending</p>
+<p><code>ka 00 1</code></p>
+<p>turns the TV on and sending</p>
+<p><code>ka 00 0</code></p>
+<p>turns it off. Most of the commands will reply with the current status if they are passed <i>ff</i> as the data. So sending</p>
+<p><code>ka 00 ff</code></p>
+<p>gets the following when the TV is off</p>
+<p><code>a 00 OK0x</code></p>
+<p>So now I had a way to turn the TV on and off along with checking its current status. The next step was to surface this some way and given the fascination we all seem to have with messaging, MQTT seemed like a good idea. A little bit of Java and the Java COMM API later and I had 2 topics <i>TV/Commands</i> &amp; <i>TV/Status</i>.</p>
+<p>I already have a topic that publishes if my mobile phone is in the flat by pinging it with Bluetooth. Combining this with the two new topics I can ensure that the TV is turned off when I leave. I&#8217;m also wondering if I should start to log the amount of time the TV is on, but I think the results may scare me a little…</p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2009/06/22/a-different-kind-of-tv-remote-control/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Mad scientists?</title>
+		<link>http://eightbar.co.uk/2009/02/12/mad-scientists/</link>
+		<pubDate>Thu, 12 Feb 2009 17:28:10 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Piper]]></dc:creator>
+				<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[currentcost]]></category>
+		<category><![CDATA[gadgets]]></category>
+		<category><![CDATA[home automation]]></category>
+		<category><![CDATA[homecamp]]></category>
+		<category><![CDATA[mousetraps]]></category>
+		<category><![CDATA[MQTT]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=822</guid>
+		<description><![CDATA[Just an average day in the Hursley tea bar! Martin Dix from CurrentCost visited to deliver a bunch of meters for people who had attended Home Camp 08. Whilst he was with us, Andy Stanford-Clark hooked up a (battery-powered) meter &#8230; <a href="http://eightbar.co.uk/2009/02/12/mad-scientists/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<div align="center">
+<table border="0">
+<tr>
+<td cellspacing="5"><a href="http://eightbar.co.uk/wp-content/uploads/2009/02/img-3669-4.jpg"><img src="http://eightbar.co.uk/wp-content/uploads/2009/02/img-3669-4.jpg" alt="IMG_3669 4.JPG" border="0" width="194" height="146" align="left" /></a></td>
+<td cellspacing="5"><a href="http://eightbar.co.uk/wp-content/uploads/2009/02/img-3670-4.jpg"><img src="http://eightbar.co.uk/wp-content/uploads/2009/02/img-3670-4.jpg" alt="IMG_3670 4.JPG" border="0" width="194" height="146" /></a></td>
+</tr>
+</table>
+</div>
+<p align="center">Just an average day in the Hursley tea bar!</p>
+<p>Martin Dix from <a href="http://currentcost.co.uk">CurrentCost</a> visited to deliver a bunch of meters for people who had attended <a href="http://homecamp.org.uk">Home Camp</a> 08. Whilst he was with us, Andy Stanford-Clark hooked up a (battery-powered) meter to one of his mousetraps to show how it is possible to detect traps going off using the meter &#8211; this is the same technique he uses in his automated home system. He also showed the same message arriving in his MQTT broker on his Ubuntu laptop. The table was soon awash with gadgets, wires and tools. I brought along a camera or two, Dale brought along some questions about the software internals of the new devices, and a great time was had by a bunch of geeks over tea&#8230;</p>
+<p>No mice were harmed during this meetup, but a few wooden coffee stirrers were put through their paces in some vicious mousetraps.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Just thinking out loud &#8211; Metaverse snapshot</title>
+		<link>http://eightbar.co.uk/2009/01/26/just-thinking-out-loud-metaverse-snapshot/</link>
+		<comments>http://eightbar.co.uk/2009/01/26/just-thinking-out-loud-metaverse-snapshot/#comments</comments>
+		<pubDate>Mon, 26 Jan 2009 14:29:09 +0000</pubDate>
+		<dc:creator><![CDATA[epredator]]></dc:creator>
+				<category><![CDATA[3d printing]]></category>
+		<category><![CDATA[augmented reality]]></category>
+		<category><![CDATA[branding]]></category>
+		<category><![CDATA[games]]></category>
+		<category><![CDATA[Hursley]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[Second Life]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[Virtual worlds]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=788</guid>
+		<description><![CDATA[I moved offices today and having a bright new whiteboard I could not leave it clean for long. Its not really a mindmap, just some association of thoughts and bits of linkages. I am sure it will alter, but right &#8230; <a href="http://eightbar.co.uk/2009/01/26/just-thinking-out-loud-metaverse-snapshot/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>I moved offices today and having a bright new whiteboard I could not leave it clean for long.<br />
+Its not really a mindmap, just some association of thoughts and bits of linkages. I am sure it will alter, but right now this is what was in my head in a mad flurry. The underlying red part is really the substrate of the whole thing. Just my personal thoughts linked to some of the things I have seen and been involved with one way and another.  </p>
+<p><a href="http://www.flickr.com/photos/epredator/3227984875/" title="Thoughts on the metaverse by epredator, on Flickr"><img src="http://farm4.static.flickr.com/3357/3227984875_2196d95125.jpg" width="313" height="500" alt="Thoughts on the metaverse" /></a><br />
+Note: edited to show smaller version of the board as it was cropping the right hand important side for those that did not click through to flickr. 3d printing FTW and high value professional social networks one there too !</p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2009/01/26/just-thinking-out-loud-metaverse-snapshot/feed/</wfw:commentRss>
+		<slash:comments>10</slash:comments>
+		</item>
+		<item>
+		<title>Rivers Run Red&#8217;s Retail Planogram in Second Life</title>
+		<link>http://eightbar.co.uk/2009/01/14/rivers-run-reds-retail-planogram-in-second-life/</link>
+		<comments>http://eightbar.co.uk/2009/01/14/rivers-run-reds-retail-planogram-in-second-life/#comments</comments>
+		<pubDate>Wed, 14 Jan 2009 10:38:34 +0000</pubDate>
+		<dc:creator><![CDATA[epredator]]></dc:creator>
+				<category><![CDATA[augmented reality]]></category>
+		<category><![CDATA[messaging]]></category>
+		<category><![CDATA[Second Life]]></category>
+		<category><![CDATA[Virtual worlds]]></category>
+
+		<guid isPermaLink="false">http://eightbar.co.uk/?p=776</guid>
+		<description><![CDATA[Thanks again to Malburns for spotting this and tweeting it. Rivers Run Red have released an example of an application layered onto immersive workspaces in Second Life. In this case it is around retail planning and visualization. This is an &#8230; <a href="http://eightbar.co.uk/2009/01/14/rivers-run-reds-retail-planogram-in-second-life/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p>Thanks again to <a href="http://www.twitter.com/malburns">Malburns</a> for spotting this and tweeting it. <a href="http://www.riversrunred.com">Rivers Run Red</a> have <a href="http://riversrunred.com/news/">released</a> an example of an application layered onto immersive workspaces in <a href="http://www.secondlife.com">Second Life</a>. In this case it is around retail planning and visualization.<br />
+<object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/vdq4QTO9sZY&#038;hl=en&#038;fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/vdq4QTO9sZY&#038;hl=en&#038;fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object><br />
+This is an example of the next layer of toolsets that we can expect to see across virtual worlds, as those virtual worlds become a platform not just a place.<br />
+Producing what if scenarios, or mirror world scenarios does need the ability to simply sketch and examine the possibilities whether its a retail store, a machine room or an intricate business model that cannot normally be visualized.<br />
+The exciting thing about this for us here at eightbar is that it makes it a step closer to be able to then instrument the model with real live data via publish subscribe methods such as <a href="http://mqtt.org/">MQTT</a>. Merging the data from a smart planet into immersive visualizations that can be explored together, not stand alone clearly is a direction we have been pushing since even before the 2006 Wimbledon. Hursley is (for those who dont know) <a href="http://www-01.ibm.com/software/integration/wmq/">the home of messaging, pub/sub reliable MQ messaging.</a> </p>
+]]></content:encoded>
+			<wfw:commentRss>http://eightbar.co.uk/2009/01/14/rivers-run-reds-retail-planogram-in-second-life/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

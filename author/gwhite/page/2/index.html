@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>- Part 2</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/style.css" />
+<link rel="pingback" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Feed" href="https://eightbar.eu-gb.mybluemix.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Comments Feed" href="https://eightbar.eu-gb.mybluemix.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="eightbar &raquo; Posts by Graham White Feed" href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/eightbar.eu-gb.mybluemix.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='dark-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/themes/twentyeleven/colors/dark.css' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/css/jetpack.css?ver=3.3.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://eightbar.eu-gb.mybluemix.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://eightbar.eu-gb.mybluemix.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://eightbar.eu-gb.mybluemix.net/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.5.3" />
+	<style>
+		/* Link color */
+		a,
+		#site-title a:focus,
+		#site-title a:hover,
+		#site-title a:active,
+		.entry-title a:hover,
+		.entry-title a:focus,
+		.entry-title a:active,
+		.widget_twentyeleven_ephemera .comments-link a:hover,
+		section.recent-posts .other-recent-posts a[rel="bookmark"]:hover,
+		section.recent-posts .other-recent-posts .comments-link a:hover,
+		.format-image footer.entry-meta a:hover,
+		#site-generator a:hover {
+			color: #b4d1f3;
+		}
+		section.recent-posts .other-recent-posts .comments-link a:hover {
+			border-color: #b4d1f3;
+		}
+		article.feature-image.small .entry-summary p a:hover,
+		.entry-header .comments-link a:hover,
+		.entry-header .comments-link a:focus,
+		.entry-header .comments-link a:active,
+		.feature-slider a.active {
+			background-color: #b4d1f3;
+		}
+	</style>
+
+<!-- All in One SEO Pack 2.2.4.1 by Michael Torbert of Semper Fi Web Design[355,394] -->
+<meta name="description"  content="You can read my Eightbar bio." />
+
+<meta name="keywords"  content="car,extreme blue,ftp,hursley,innovation,internship,uk,voting,technology,demo,eightbar,ibm,linux,linux sig,media centre,planet" />
+<meta name="robots" content="noindex,follow" />
+<link rel='prev' href='https://eightbar.eu-gb.mybluemix.net/author/gwhite/' />
+
+<link rel="canonical" href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/page/2/" />
+<!-- /all in one seo pack -->
+	<style type="text/css">
+			#site-title,
+		#site-description {
+			position: absolute !important;
+			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+		</style>
+	<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #E3E3E3; }
+</style>
+</head>
+
+<body class="archive paged author author-gwhite author-22 custom-background paged-2 author-paged-2 two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="https://eightbar.eu-gb.mybluemix.net/" title="eightbar" rel="home">eightbar</a></span></h1>
+				<h2 id="site-description">Raising The Eight Bar</h2>
+			</hgroup>
+
+						<a href="https://eightbar.eu-gb.mybluemix.net/">
+									<img src="https://eightbar.eu-gb.mybluemix.net/wp-content/uploads/2012/02/eightbargrass.jpg" width="1000" height="288" alt="" />
+							</a>
+			
+							<div class="only-search with-image">
+					<form method="get" id="searchform" action="https://eightbar.eu-gb.mybluemix.net/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+				</div>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-eightbar-main-menu-container"><ul id="menu-eightbar-main-menu" class="menu"><li id="menu-item-1192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1192"><a href="https://eightbar.eu-gb.mybluemix.net/">Home</a></li>
+<li id="menu-item-1193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1193"><a href="https://eightbar.eu-gb.mybluemix.net/about/">About</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<section id="primary">
+			<div id="content" role="main">
+
+			
+				
+				<header class="page-header">
+					<h1 class="page-title author">Author Archives: <span class="vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/" title="Graham White" rel="me">Graham White</a></span></h1>
+				</header>
+
+				
+						<nav id="nav-above">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"></div>
+			<div class="nav-next"><a href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/" >Newer posts <span class="meta-nav">&rarr;</span></a></div>
+		</nav><!-- #nav-above -->
+	
+								<div id="author-info">
+					<div id="author-avatar">
+						<img alt='' src='http://0.gravatar.com/avatar/60458ba172c5d65e324985782d2992f7?s=60&#038;d=retro&#038;r=g' srcset='http://0.gravatar.com/avatar/60458ba172c5d65e324985782d2992f7?s=120&amp;d=retro&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' />					</div><!-- #author-avatar -->
+					<div id="author-description">
+						<h2>About Graham White</h2>
+						You can read <a href="https://eightbar.eu-gb.mybluemix.net/about/gwhite/">my Eightbar bio</a>.					</div><!-- #author-description	-->
+				</div><!-- #author-info -->
+				
+								
+					
+	<article id="post-1052" class="post-1052 post type-post status-publish format-standard hentry category-hursley category-technology tag-car tag-extreme-blue tag-ftp tag-hursley tag-innovation tag-internship tag-uk tag-voting">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/" title="Permalink to Hursley Extreme Blue 2011 Presentations" rel="bookmark">Hursley Extreme Blue 2011 Presentations</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/" title="13:31" rel="bookmark"><time class="entry-date" datetime="2011-09-06T13:31:18+00:00">September 6, 2011</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/" title="View all posts by Graham White" rel="author">Graham White</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><a href="https://eightbar.eu-gb.mybluemix.net/wp-content/uploads/2011/09/xblogo.gif"><img class="alignright size-full wp-image-1060" style="margin-left: 10px; margin-right: 10px;" title="xblogo" src="https://eightbar.eu-gb.mybluemix.net/wp-content/uploads/2011/09/xblogo.gif" alt="Extreme Blue logo" width="150" height="102" /></a>Extreme Blue is IBM&#8217;s summer intern scheme. Students can <a href="http://www-01.ibm.com/employment/us/extremeblue/">apply to IBM</a> to be part of the scheme and those lucky enough to be selected are brought into various IBM locations worldwide to be mentored by IBM staff who have proposed an idea and small project for them to work on.</p>
+<p>This morning I went along to listen to what the 16 students in the UK have been doing with their summer. These students were split into four groups of four, working on projects for an improved voting system, a smart cursor, smarter vehicles and FTP discovery.</p>
+<p>You know you&#8217;re getting old when all the students seem rather young, I think &#8220;green&#8221; is the term people used to use when I was starting in IBM, they do remind me of my early days at work. However, they all presented themselves beautifully, spoke very well using slick rehearsed presentations they&#8217;ve put a lot of effort into, and (barring one or two stutters) seemed entirely confident in what they were doing up at the front of what must seem an intimidating auditorium full of knowledgeable IBM professionals. They handled questions well too, I don&#8217;t necessarily have to agree with all the answers, but the way they each went about receiving the questions and providing thoughtful answers was good.</p>
+<p>Each team had 7 minutes to present their 12 weeks&#8217; work with every person in the team getting a chance to pitch in at some point, so they didn&#8217;t get very long to put their projects across. The audience were asked to keep questions until the end of the pitch, which allowed them to flow easily through their material. The range of presentations was interesting, some chose to manually click through PowerPoint-style, while other groups came up with stories or monologuing through a video they had created. This range kept the audience interested with each style of presentation being effective for its purpose.</p>
+<p>It was interesting to see how each of the projects has been clearly influenced by the four members of the team. Each team of four contained one business student and three technical students, and the range of skills came through in the presentations. Some groups had &#8220;deep-dived&#8221; straight into technical work while others had spent more time thinking about use cases, business cases, how their project might fit in with IBM or be sold. I suspect this has a direct relationship to both how the team was lead by the IBM staff but also by the particular characters of each team and reminded me of Myers-Briggs or Belbin style studies I&#8217;ve done in the past.</p>
+<p>Now I&#8217;ll have a little look at each project in (very) brief&#8230; I&#8217;ll stress in advance that I&#8217;ve heard a small snippet of 12 weeks of hard work and any opinion here is mine alone and based solely on today&#8217;s pitches:</p>
+<p><strong>Improved voting system</strong><br />
+The team gave an introduction to their solution involving a three phase voting system followed by an example of the problem they were trying to solve and how their solution tackled these. The team had been working with a local council to identify requirements for such a system, so were able to work with real-world examples and solicit feedback. Questions followed and feedback from the council seemed to have been good. Some doubts were expressed by the audience about the security of such a system which whilst possibly valid, it seemed to me that these could be addressed should the solution be implemented live. The team presented the solution as having environmental benefits which might seem obvious at first but I thought were rather questionable given the requirement to use computer hardware and power, a further study would be required here to determine whether the current system using sustainably-sourced paper could be bettered on the environmental front. Verification of voters appears to be vastly improved using their system with less room from fraudulent votes with connection to other systems for authentication such as the DVLA. Clearly any such automated voting system would have huge benefits for the speed of counting after voting has completed.</p>
+<p><strong>Smart Cursor</strong><br />
+A new input device to control an on screen cursor using any sort of body movement aimed at improving human-computer interaction (primarily for disabled people). The system involves a hardware sensor strapped to the part of the body that has movement. Initial calibration for any new part of the body is required which is run once to set up 4 movements (up/down/left/right). Other movements and gestures would also be possible such as a mouse click and the combination of sensors on multiple parts of the body. The hardware technology could be built small enough to be permanently wearable without distress or difficulty to the user. Other uses of the technology appear to be for rehabilitation or monitoring a condition whilst wearing the hardware device. Lots of room for customisation brought out during questioning as well as a few issues about how to set up the device in the first place. However, this seemed like a really worthwhile (if low usage) piece of research that could be immensely useful to its target audience and at low cost too.</p>
+<p><strong>Smarter Vehicles</strong><br />
+The aim of this project is to personalise the driving experience for car users by attempting to add three things to a car (1) identifying which user is driving, (2) providing the car with knowledge about where it&#8217;s going, and (3) permanently connecting the car to a network. The team used a video style presentation and monologue they had story-boarded which was clearly well produced and rehearsed. It was unclear what the project had achieved, however, as no specifics were mentioned on what had been achieved but there were certainly plenty of good ideas as to what could be done in this area. The team do appear to have a demonstration available which I&#8217;m looking forward to going to see in Hursley tomorrow and the Extreme Blue demonstration expo after which I&#8217;m sure it will be a lot clearer which ideas they&#8217;ve followed through into something tangible and which are still in progress. Another great plus for this team was they were aligned with an automotive manufacturer and will be presenting their ideas back to the board at a later date which will be a fabulous experience to get for them all.</p>
+<p><strong>FTP Discovery</strong><br />
+Tackles the problem of escalating FTP network complexity in enterprises. The project attempts to map FTP files on the network in flight and automatically provides a visualisation of the network in a node graph style format. This network can be annotated manually with things such adding the cost of various transfers and links to allow the users to build up a visual picture and cost to the company of their FTP services. The team advocate the use of managed file transfers (as provided by <a href="https://www-01.ibm.com/software/integration/wmq/filetransfer/">WMQ File Transfer Edition</a>, for example) but failed to clearly state what the problem with FTP as a service is. That said, they seem to have a very clever way of detecting FTP traffic by sniffing the network and could easily extend their architecture to include all sorts of other protocols. They have also thought carefully about how their work might be used in the future, for example as a tool for IBM pre-sales, a saleable IBM product or (most likely) a component of one or more existing IBM products.</p>
+<p>Congratulations to all the teams and people involved. The presentations were great, a very entertaining hour, and it seems like some really useful work has come out of Extreme Blue in the UK again this year. Well done!</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1052" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1052" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1052" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1052" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2011/09/06/hursley-extreme-blue-2011-presentations/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="https://eightbar.eu-gb.mybluemix.net/tag/car/" rel="tag">car</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/extreme-blue/" rel="tag">Extreme Blue</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/ftp/" rel="tag">FTP</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/hursley/" rel="tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/innovation/" rel="tag">innovation</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/internship/" rel="tag">internship</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/uk/" rel="tag">uk</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/voting/" rel="tag">voting</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-1052 -->
+				
+					
+	<article id="post-1679" class="post-1679 post type-post status-publish format-standard hentry category-hursley category-planet tag-demo tag-eightbar tag-ibm tag-linux tag-linux-sig tag-media-centre">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2008/06/03/showing-off-linux-2/" title="Permalink to Showing Off Linux" rel="bookmark">Showing Off Linux</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2008/06/03/showing-off-linux-2/" title="13:18" rel="bookmark"><time class="entry-date" datetime="2008-06-03T13:18:00+00:00">June 3, 2008</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/" title="View all posts by Graham White" rel="author">Graham White</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<div style="float: right; margin-bottom: 10px; margin-left: 10px;"><a href="http://www.flickr.com/photos/epredator/2546054576/" title="photo sharing"><img alt="" src="http://farm4.static.flickr.com/3036/2546054576_0e5a45d76e_m.jpg" style="border: solid 2px #000000;" /></a></div>Thanks to <a href="http://epredator.com/">Ian Hughes</a> for the picture on <a href="http://www.flickr.com/photos/epredator">his flickr</a>. Yesterday, at work, the Hursley Linux Special Interest Group ran a little trade show type event for a couple of hours after lunch.  The idea was to provide a bit of away from your desk time for folks around the lab to see what we Linux geeks have been getting up to.  Various people interested in using Linux inside and outside work came along to demo their gadgets.  <br /><br />The picture shows me <i>showing off</i> my old Linux audio centre.  But, also at the event were the main organiser of the day <a href="http://www.coralbark.net/blog/">Jon Levell</a> (showing Fedora 9 and an eeepc), and <a href="http://knolleary.net/">Nick O'Leary</a> (showing his N800 and various arduino gadgets), <a href="http://blog.garethj.com/">Gareth Jones</a> (showing his accelerometer based USB rocket launcher and bluetooth tweetjects), <a href="http://twitter.com/andysc">Andy Stanford-Clark</a> (showing his NSLU2 driven house, and an OLPC), <a href="http://www.lauracowen.co.uk/">Laura Cowen</a> (showing an OLPC), <a href="http://twitter.com/SteveGodwin">Steve Godwin</a> (showing MythTV), and Chris law (showing Amora).<br /><br />I thought it was quite a nice little selection of Linux related stuff to look through for the masses of people turning up, plenty of other things we could have shown too of course.  The afternoon seemed very much a success, generating some real interest in the various demo items and lots of interesting questions too.  Thanks to everyone for taking part!					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/planet/" rel="category tag">Planet</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="https://eightbar.eu-gb.mybluemix.net/tag/demo/" rel="tag">demo</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/eightbar/" rel="tag">eightbar</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/ibm/" rel="tag">IBM</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/linux/" rel="tag">linux</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/linux-sig/" rel="tag">linux sig</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/media-centre/" rel="tag">media centre</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-1679 -->
+				
+					
+	<article id="post-1266" class="post-1266 post type-post status-publish format-standard hentry category-hursley category-planet tag-demo tag-eightbar tag-ibm tag-linux tag-linux-sig tag-media-centre">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2008/06/03/showing-off-linux/" title="Permalink to Showing Off Linux" rel="bookmark">Showing Off Linux</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2008/06/03/showing-off-linux/" title="13:18" rel="bookmark"><time class="entry-date" datetime="2008-06-03T13:18:00+00:00">June 3, 2008</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/" title="View all posts by Graham White" rel="author">Graham White</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<div style="float: right; margin-bottom: 10px; margin-left: 10px;"><a href="http://www.flickr.com/photos/epredator/2546054576/" title="photo sharing"><img alt="" src="http://farm4.static.flickr.com/3036/2546054576_0e5a45d76e_m.jpg" style="border: solid 2px #000000;" /></a></div>Thanks to <a href="http://epredator.com/">Ian Hughes</a> for the picture on <a href="http://www.flickr.com/photos/epredator">his flickr</a>. Yesterday, at work, the Hursley Linux Special Interest Group ran a little trade show type event for a couple of hours after lunch.  The idea was to provide a bit of away from your desk time for folks around the lab to see what we Linux geeks have been getting up to.  Various people interested in using Linux inside and outside work came along to demo their gadgets.  <br /><br />The picture shows me <i>showing off</i> my old Linux audio centre.  But, also at the event were the main organiser of the day <a href="http://www.coralbark.net/blog/">Jon Levell</a> (showing Fedora 9 and an eeepc), and <a href="http://knolleary.net/">Nick O'Leary</a> (showing his N800 and various arduino gadgets), <a href="http://blog.garethj.com/">Gareth Jones</a> (showing his accelerometer based USB rocket launcher and bluetooth tweetjects), <a href="http://twitter.com/andysc">Andy Stanford-Clark</a> (showing his NSLU2 driven house, and an OLPC), <a href="http://www.lauracowen.co.uk/">Laura Cowen</a> (showing an OLPC), <a href="http://twitter.com/SteveGodwin">Steve Godwin</a> (showing MythTV), and Chris law (showing Amora).<br /><br />I thought it was quite a nice little selection of Linux related stuff to look through for the masses of people turning up, plenty of other things we could have shown too of course.  The afternoon seemed very much a success, generating some real interest in the various demo items and lots of interesting questions too.  Thanks to everyone for taking part!					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/planet/" rel="category tag">Planet</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="https://eightbar.eu-gb.mybluemix.net/tag/demo/" rel="tag">demo</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/eightbar/" rel="tag">eightbar</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/ibm/" rel="tag">IBM</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/linux/" rel="tag">linux</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/linux-sig/" rel="tag">linux sig</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/media-centre/" rel="tag">media centre</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-1266 -->
+				
+					
+	<article id="post-181" class="post-181 post type-post status-publish format-standard hentry category-technology">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2006/09/08/linux-media-centre-heads-home/" title="Permalink to Linux Media Centre heads home" rel="bookmark">Linux Media Centre heads home</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2006/09/08/linux-media-centre-heads-home/" title="13:51" rel="bookmark"><time class="entry-date" datetime="2006-09-08T13:51:38+00:00">September 8, 2006</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/" title="View all posts by Graham White" rel="author">Graham White</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>So far I&#8217;ve written about the first couple of stages of my proof of concept idea about setting up a media PC under Linux on a thinkpad.  First, there was using my own laptop to check some functionality out such as using an infra-red remote control.  Then, I moved on to setting up another laptop with a fresh Linux installation with the prime purpose of being a media centre.  This has now got to such a stage, and good enough, that I now have the laptop at home; but there are more things to think about in this media PC lark, especially under Linux, thank you may think at first&#8230;..</p>
+<p>A nice perk about working at IBM is that we can buy old, unused, thinkpads from the company.  These are, of course, second hand and considered too old for good reuse with an employee.  Before anybody asks, no they&#8217;re not super cheap, and no I can&#8217;t get you one! So, the T23 I have been using so far, has now arrived home as my own property having purchased it from IBM &#8211; hence the choice for using an older machine if you wondered in an earlier post.</p>
+<p>As I said, there is a lot to think about in the configuration and what you want out of a media PC.  Fedora Linux doesn&#8217;t make it especially easy since a lot of the multi-media capabilities are removed for <em>legal</em> reasons such as MP3 support and encoded DVD reading.  All these have to be added in as extras after the initial install which means you have to work out where to get them from and add any sources into your add/remove application programs.  For those in the know, I mean sorting out all the yum repositories.  This can get quite tricky, especially given the digging around required to find local mirrors to speed things up a bit.  I think I&#8217;ve got there now though with a combination of the Fedora and extra repositories as well as a couple of the community based ones which are essential to easy Linux usage these days &#8211; what would we do without all those people putting stuff together for us?  On a completely different note: don&#8217;t forget to give something back to the community!</p>
+<p>Having arrived home with the laptop.  The first thing to do is to get it connected to the Internet.  I tried without success for an entire evening to set up the wireless adapter to connect to the access point, no joy.  At this point, I&#8217;m thinking it&#8217;s a good thing I know a trick or two with Linux.  I noticed that Fedora seem to ship an updated kernel that includes a wireless driver which has been compiled with different wireless extensions than the tool used to configure the driver &#8211; a problem I think!  Once I made this small, but signifiant (and difficult to notice) discovery, setting up wireless was a breeze as usual.  The solution, downgrade your kernel to the standard Fedora version so you go back to the old wireless driver version and things start to work again.  This is most definitely a bug in the way Fedora are handling their code updates right now. Of course, I&#8217;ll be feeding this back &#8211; a small way of contributing back into the community!</p>
+<p>I&#8217;m using KDE, which for those not familiar with Linux is a fairly MS Windows-like graphical interface onto a Linux desktop.  It comes with a whole bunch of handy utilities that I&#8217;ve never really bothered using before in all my years with Linux.  Things such as GUI screen resizing applets, and applets for switching between TV and laptop screens will be invaluable to one of the primary aims for this project &#8211; the wife acceptance factor! This stuff really has to be easy to use otherwise I stand not a chance of any longevity with this being in my living room.</p>
+<p>I still have a few things left to work out with this idea yet, I have not tested the S-Video link to the TV, and I need to start indexing music collections over the network into Amarok probably via Samba.  Neither of these should present a problem, however, if I fail it&#8217;s pretty much game over.  In good hackety-hack style I&#8217;ve not written a single thing down about what/how I&#8217;ve done all this (except this blog), my hope is when all is installed and running well I will write a page about what to do and how to do it.  I may even try reproducing the whole thing on another laptop!</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-181" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/08/linux-media-centre-heads-home/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-181" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/08/linux-media-centre-heads-home/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-181" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/08/linux-media-centre-heads-home/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/08/linux-media-centre-heads-home/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/08/linux-media-centre-heads-home/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/08/linux-media-centre-heads-home/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-181" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/09/08/linux-media-centre-heads-home/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-181 -->
+				
+					
+	<article id="post-164" class="post-164 post type-post status-publish format-standard hentry category-technology">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2006/08/14/ricetta-media-pc-alla-linux/" title="Permalink to Ricetta: Media PC alla Linux" rel="bookmark">Ricetta: Media PC alla Linux</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2006/08/14/ricetta-media-pc-alla-linux/" title="11:06" rel="bookmark"><time class="entry-date" datetime="2006-08-14T11:06:33+00:00">August 14, 2006</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/" title="View all posts by Graham White" rel="author">Graham White</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>Apologies for resorting to a pseudo-Italian title &#8230;my way of making this slightly interesting!  So, here&#8217;s how the IBM Thinkpad Linux Media PC is coming along so far, and if you have any ideas feel free to comment as I&#8217;d love to see what other useful stuff I can do too.</p>
+<p><span style="font-variant: small-caps;">Ingredients</span><br />
+1 <a href="http://www-307.ibm.com/pc/support/site.wss/document.do?sitestyle=lenovo&#038;lndocid=MIGR-4YTKB8">Thinkpad T23</a><br />
+1 cheap homebrew <a href="http://www.zapway.de/e_produkt1.htm">Serial IR Receiver</a><br />
+1 URF (thats right, radio) <a href="http://www.btc.com.tw/english/2-7-21keyboard.htm#9116urf">keyboard</a><br />
+1 remote control<br />
+1 <a href="http://static.flickr.com/28/103114113_8618f9775a_m.jpg" title="Evil Edna">television</a><br />
+1 Amplifier with Speakers<br />
+Spaghetti/Seasoning to taste (Cables, s-video, audio, etc)</p>
+<p><span style="font-variant: small-caps;">Method</span><br />
+If you follow what I&#8217;ve done so far, you start by thinking &#8220;Ooh, Ubuntu is all trendy right now, lets have a play&#8221;.  After a day or so you chicken out and run back to what you know with your tail between your legs and install Fedora.  Sadly, Ubuntu didn&#8217;t live up to its tag line, &#8220;it just works&#8221;, for my T23 as I couldn&#8217;t get a few things going, namely suspend to RAM and given I know Fedora/Redhat a lot better I reverted.  Fedora Core 5 is now installed and up-to-date so who needs apt-get anyway?</p>
+<p>I updated the bios and controller microcode on the T23 to the latest level before starting as a wise precaution having been bitten by these sorts of issues in the past.  All went well.  Fedora install went well.  Next I checked the Fedora extras repository had been added to the software update configuration and added another repository where I could download all the codecs and media packages that don&#8217;t get supplied by Redhat (for legal reasons they say).  So now, I have a fully updated T23 running the latest Fedora code and installed with all the browsers and media programs I think I&#8217;m going to need.</p>
+<p>Next on the menu is how to turn the thing on without waiting for an entire laptop and OS to boot?  Suspend to RAM as mentioned earlier.  All the ACPI code gets installed by default with Fedora so it&#8217;s just a case of understanding how it fits together and writing yourself a script to do the suspend.  A few experiments with suspending to RAM lead me to get a corrupted display on resume, but a bit more fiddling and I got there eventually.  So now I have a Linux box that will start up and shut down in just a few seconds.</p>
+<p>I thought autologin would be useful too.  This will help with (see my <a href="https://eightbar.eu-gb.mybluemix.net/2006/08/08/ibm-tp-lmc/">previous post</a>) wife acceptance factor number 2 &#8211; it has to be easy to use.  The less confusing and time taken to boot into the GUI the better.  So, I do what everybody would do, and completely forget Redhat screw around with the KDE display manager and use the KDE control center to set autologin &#8211; of course, it doesn&#8217;t work!  Some head scrating out of the way and I remember I&#8217;m actually using GDM so fire up gdmsetup and configure up the autologin easily for my mediapc user.</p>
+<p>In order to speed up Amarok for a large collection of media, it has been attached to a MySQL backend.  It uses SQLite by default which would be a lot slower in comparison.  There are probably going to be a thousand-and-one other little tweeks to make as I continue, even simple things you get used to on a PC you use regularly such as having your browser preferences set as you like, and downloading various firefox extensions, desktop setup, etc.  </p>
+<p>I don&#8217;t actually have the serial IR dongle yet.  However, it should work in exactly the same way from a software perspective as the IRDA port I&#8217;ve got working on my T41p but give a longer range for remote control reception.  However, the keyboard I do have.  It&#8217;s a wireless keyboard but it uses radio so is actually relatively long distance for a wireless keyboard, and has the added bonus of a built-in mouse and small size.  It&#8217;s perfect for home media PC use for simple browsing on your TV.  I got the recommendation for it from a guy here at Hursley so thanks to him for that!  I don&#8217;t want to go advertising any specific places but I&#8217;ll just say if you find it on-line you might want to check eBay buy-it-now items too as I got it for about a third of the price!</p>
+<p>Hopefully, a few cables and some spaghetti later it will all connect up nicely to a good amplifier and screen and all will be wonderful, having achieved all the aims I set out for in my <a href="https://eightbar.eu-gb.mybluemix.net/2006/08/08/ibm-tp-lmc/">previous post</a>.  Wireless or wired integration to the home network should be trivial, along with all the rest of the configuration.  Now I&#8217;m wondering if there&#8217;s anything I&#8217;ve missed?</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-164" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/14/ricetta-media-pc-alla-linux/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-164" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/14/ricetta-media-pc-alla-linux/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-164" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/14/ricetta-media-pc-alla-linux/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/14/ricetta-media-pc-alla-linux/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/14/ricetta-media-pc-alla-linux/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/14/ricetta-media-pc-alla-linux/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-164" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/14/ricetta-media-pc-alla-linux/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-164 -->
+				
+					
+	<article id="post-160" class="post-160 post type-post status-publish format-standard hentry category-technology">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2006/08/08/ibm-tp-lmc/" title="Permalink to IBM TP LMC" rel="bookmark">IBM TP LMC</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2006/08/08/ibm-tp-lmc/" title="14:17" rel="bookmark"><time class="entry-date" datetime="2006-08-08T14:17:04+00:00">August 8, 2006</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/" title="View all posts by Graham White" rel="author">Graham White</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>Roughly translated&#8230; IBM Thinkpad Linux Media Centre &#8211; while not a product IBM ships (or is likely to ship), is something I&#8217;ve been thinking about for a while and just started toying with recently.  I have an old Aiwa stereo at home that keeps asking me for retirement so this idea has been seeded by my need for something a little better.  As the other eightbar bloggers know, I&#8217;m completely in love with Linux and <a href="http://amarok.kde.org/">the media player I use</a>, in spite of much teasing about its capability and a longstanding comparison with iTunes.  </p>
+<p>Proof of concept time then&#8230; before shelling out a <a href="http://en.wiktionary.org/wiki/wonga">whole lotta wonga</a> on HTPC cases, wireless keyboards, IR receivers, new speakers and all that other good stuff, I thought I would try hacking around with what I have.  So far this consists of an IBM Thinkpad T41p and my current stereo remote control using the IRDA port of the laptop.  To illustrate the point of how old the stereo is, take a look at the remote I&#8217;ve hooked up to the laptop: <img align="left" style="padding-right:5px" src="http://www.replacementremotes.com/store/images/th/RC-7AS06.jpg" alt="Old Aiwa Remote Control" title="Old Aiwa Remote Control" /></p>
+<p>Unlike many home-brew media projects, I&#8217;m not bothered about PVR as I have a commercial one of these I&#8217;m already happy with so I just want something I can hook up to the TV to play music and do some simple web browsing, e-mail and maybe a few office type applications.  Thinkpads seem to fit the bill perfectly, especially for a proof of concept.  There are, of course, a few other factors involved in the design of this idea, needless to say it has to have quite a good wife acceptance factor so must be good on the budget front and easy to use, has to have a remote control, must be connected to the internet, and of course it absolutely has to run Linux otherwise the world might implode.</p>
+<p>Stage 1 seems to be complete now.  Conveniently enough, I just happen to have a laptop running Linux already and pretty much configured the way I want.  Add to this a bit of fiddling around to get the IRDA port working as an IR receiver for remote controls and a few simple config files and I have a daemon that is listening for IR signals from the port.  After that, it was a fairly simple job to hook up a client to execute commands on my system when a button is pressed on the remote, and once I was that far I was laughing all the way to hooking it up to my media player.</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-160" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/08/ibm-tp-lmc/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-160" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/08/ibm-tp-lmc/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-160" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/08/ibm-tp-lmc/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/08/ibm-tp-lmc/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/08/ibm-tp-lmc/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/08/ibm-tp-lmc/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-160" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/08/08/ibm-tp-lmc/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-160 -->
+				
+						<nav id="nav-below">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"></div>
+			<div class="nav-next"><a href="https://eightbar.eu-gb.mybluemix.net/author/gwhite/" >Newer posts <span class="meta-nav">&rarr;</span></a></div>
+		</nav><!-- #nav-above -->
+	
+			
+			</div><!-- #content -->
+		</section><!-- #primary -->
+
+		<div id="secondary" class="widget-area" role="complementary">
+			<aside id="text-3" class="widget widget_text">			<div class="textwidget"><a href="http://www.twitter.com/eightbar"><img height="16px" alt="Eightbar Twitter" src="https://si0.twimg.com/a/1329413806/images/logos/logo_twitter_withbird_1000_white_blue.png"/></a></div>
+		</aside><aside id="linkcat-196" class="widget widget_links"><h3 class="widget-title">Authors</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://stanford-clark.com/" title="About Andy Stanford-Clark">Andy Stanford-Clark</a></li>
+<li><a href="http://www.hardill.me.uk/wordpress/?page_id=2" title="About Ben Hardill">Ben Hardill</a></li>
+<li><a href="http://dalelane.co.uk/blog/?page_id=9">Dale Lane</a></li>
+<li><a href="https://eightbar.eu-gb.mybluemix.net/about/gwhite" title="About Graham White">Graham White</a></li>
+<li><a href="http://jtlog.wordpress.com/about/">James Taylor</a></li>
+<li><a href="https://eightbar.eu-gb.mybluemix.net/about/josie-messa/">Josie Messa</a></li>
+<li><a href="http://www.lauracowen.co.uk/blog/about/" title="About Laura Cowen">Laura Cowen</a></li>
+<li><a href="http://knolleary.net/about" title="About Nick O&#8217;Leary">Nick O&#039;Leary</a></li>
+<li><a href="https://eightbar.eu-gb.mybluemix.net/about/robsmart/" title="About Rob Smart">Rob Smart</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-197" class="widget widget_links"><h3 class="widget-title">Past Authors</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://andypiper.co.uk/about/" title="About Andy Piper">Andy Piper</a></li>
+<li><a href="http://www.feedingedge.co.uk/blog/epredator-bio/" title="About Ian Hughes">Ian Hughes</a></li>
+<li><a href="http://rooreynolds.com/bio/" title="About Roo Reynolds">Roo Reynolds</a></li>
+
+	</ul>
+</aside>
+<aside id="archives-3" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+			<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/06/'>June 2016</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/02/'>February 2016</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/04/'>April 2015</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/02/'>February 2015</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/01/'>January 2015</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/12/'>December 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/11/'>November 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/10/'>October 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/09/'>September 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/08/'>August 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/07/'>July 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/05/'>May 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/04/'>April 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/02/'>February 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2014/01/'>January 2014</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/12/'>December 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/08/'>August 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/06/'>June 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/04/'>April 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/03/'>March 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2013/02/'>February 2013</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/11/'>November 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/10/'>October 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/09/'>September 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/06/'>June 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/05/'>May 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/04/'>April 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/03/'>March 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2012/02/'>February 2012</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2011/11/'>November 2011</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2011/10/'>October 2011</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2011/09/'>September 2011</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2011/02/'>February 2011</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/11/'>November 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/09/'>September 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/07/'>July 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/04/'>April 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2010/03/'>March 2010</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/12/'>December 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/11/'>November 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/09/'>September 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/08/'>August 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/07/'>July 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/06/'>June 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/05/'>May 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/04/'>April 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/03/'>March 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/02/'>February 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2009/01/'>January 2009</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/12/'>December 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/11/'>November 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/10/'>October 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/09/'>September 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/08/'>August 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/07/'>July 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/06/'>June 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/05/'>May 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/04/'>April 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/03/'>March 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/02/'>February 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2008/01/'>January 2008</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/12/'>December 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/11/'>November 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/10/'>October 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/09/'>September 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/08/'>August 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/07/'>July 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/06/'>June 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/05/'>May 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/04/'>April 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/03/'>March 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/02/'>February 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2007/01/'>January 2007</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/12/'>December 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/11/'>November 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/10/'>October 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/09/'>September 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/08/'>August 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/07/'>July 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/06/'>June 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/05/'>May 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/04/'>April 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/03/'>March 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/02/'>February 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2006/01/'>January 2006</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2005/11/'>November 2005</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2005/10/'>October 2005</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2005/09/'>September 2005</a></li>
+		</ul>
+		</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-37"><a href="https://eightbar.eu-gb.mybluemix.net/category/3d-printing/" >3d printing</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="https://eightbar.eu-gb.mybluemix.net/category/augmented-reality/" >augmented reality</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="https://eightbar.eu-gb.mybluemix.net/category/branding/" >branding</a>
+</li>
+	<li class="cat-item cat-item-184"><a href="https://eightbar.eu-gb.mybluemix.net/category/conferences/" title="Energy-related technology stuff">conferences</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://eightbar.eu-gb.mybluemix.net/category/events/" title="Events.">Events</a>
+</li>
+	<li class="cat-item cat-item-36"><a href="https://eightbar.eu-gb.mybluemix.net/category/games/" >games</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" title="Hursley, site and location. ">Hursley</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://eightbar.eu-gb.mybluemix.net/category/ibm-projects/" title="IBM projects we are working on">IBM Projects</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://eightbar.eu-gb.mybluemix.net/category/life/" >Life</a>
+</li>
+	<li class="cat-item cat-item-53"><a href="https://eightbar.eu-gb.mybluemix.net/category/messaging/" >messaging</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://eightbar.eu-gb.mybluemix.net/category/news/" >News</a>
+</li>
+	<li class="cat-item cat-item-282"><a href="https://eightbar.eu-gb.mybluemix.net/category/node-red/" >Node-RED</a>
+</li>
+	<li class="cat-item cat-item-199"><a href="https://eightbar.eu-gb.mybluemix.net/category/planet/" >Planet</a>
+</li>
+	<li class="cat-item cat-item-188"><a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/qdg/" >QDG</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" >Second Life</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" >Technology</a>
+</li>
+	<li class="cat-item cat-item-54"><a href="https://eightbar.eu-gb.mybluemix.net/category/twitter/" >twitter</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://eightbar.eu-gb.mybluemix.net/category/uncategorized/" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://eightbar.eu-gb.mybluemix.net/category/virtual-worlds/" >Virtual worlds</a>
+</li>
+		</ul>
+</aside><aside id="tag_cloud-3" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><a href='https://eightbar.eu-gb.mybluemix.net/tag/8bar/' class='tag-link-108 tag-link-position-1' title='5 topics' style='font-size: 10.153846153846pt;'>8bar</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/addresses/' class='tag-link-296 tag-link-position-2' title='3 topics' style='font-size: 8pt;'>addresses</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/arduino/' class='tag-link-159 tag-link-position-3' title='4 topics' style='font-size: 9.1965811965812pt;'>arduino</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/bluemix/' class='tag-link-284 tag-link-position-4' title='3 topics' style='font-size: 8pt;'>bluemix</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/code/' class='tag-link-214 tag-link-position-5' title='6 topics' style='font-size: 10.991452991453pt;'>code</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/conference/' class='tag-link-97 tag-link-position-6' title='6 topics' style='font-size: 10.991452991453pt;'>conference</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/data/' class='tag-link-297 tag-link-position-7' title='3 topics' style='font-size: 8pt;'>data</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/data-quality/' class='tag-link-298 tag-link-position-8' title='3 topics' style='font-size: 8pt;'>data quality</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/education/' class='tag-link-88 tag-link-position-9' title='5 topics' style='font-size: 10.153846153846pt;'>education</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/eightbar/' class='tag-link-113 tag-link-position-10' title='58 topics' style='font-size: 22pt;'>eightbar</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/energy/' class='tag-link-203 tag-link-position-11' title='3 topics' style='font-size: 8pt;'>energy</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/energy-and-environment/' class='tag-link-235 tag-link-position-12' title='4 topics' style='font-size: 9.1965811965812pt;'>Energy and Environment</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/events/' class='tag-link-307 tag-link-position-13' title='4 topics' style='font-size: 9.1965811965812pt;'>Events</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/extreme-blue/' class='tag-link-31 tag-link-position-14' title='3 topics' style='font-size: 8pt;'>Extreme Blue</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/green/' class='tag-link-205 tag-link-position-15' title='3 topics' style='font-size: 8pt;'>green</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hackday/' class='tag-link-244 tag-link-position-16' title='3 topics' style='font-size: 8pt;'>hackday</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hacking/' class='tag-link-167 tag-link-position-17' title='3 topics' style='font-size: 8pt;'>hacking</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hampshire/' class='tag-link-125 tag-link-position-18' title='5 topics' style='font-size: 10.153846153846pt;'>hampshire</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hci-usability/' class='tag-link-201 tag-link-position-19' title='3 topics' style='font-size: 8pt;'>HCI &amp; Usability</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/homecamp/' class='tag-link-69 tag-link-position-20' title='3 topics' style='font-size: 8pt;'>homecamp</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/hursley/' class='tag-link-309 tag-link-position-21' title='14 topics' style='font-size: 14.940170940171pt;'>Hursley</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/ibm/' class='tag-link-76 tag-link-position-22' title='23 topics' style='font-size: 17.333333333333pt;'>IBM</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/innovation/' class='tag-link-171 tag-link-position-23' title='3 topics' style='font-size: 8pt;'>innovation</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/life-the-universe-and-everything/' class='tag-link-242 tag-link-position-24' title='3 topics' style='font-size: 8pt;'>Life, the Universe, and Everything</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/linux/' class='tag-link-123 tag-link-position-25' title='4 topics' style='font-size: 9.1965811965812pt;'>linux</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/making-things/' class='tag-link-202 tag-link-position-26' title='4 topics' style='font-size: 9.1965811965812pt;'>Making Things</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/mqtt/' class='tag-link-70 tag-link-position-27' title='15 topics' style='font-size: 15.179487179487pt;'>MQTT</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/odcamp/' class='tag-link-299 tag-link-position-28' title='3 topics' style='font-size: 8pt;'>odcamp</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/open-data/' class='tag-link-300 tag-link-position-29' title='3 topics' style='font-size: 8pt;'>open-data</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/opensim/' class='tag-link-45 tag-link-position-30' title='3 topics' style='font-size: 8pt;'>opensim</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/running/' class='tag-link-189 tag-link-position-31' title='3 topics' style='font-size: 8pt;'>running</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/second-life/' class='tag-link-310 tag-link-position-32' title='4 topics' style='font-size: 9.1965811965812pt;'>Second Life</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/smarter-planet/' class='tag-link-80 tag-link-position-33' title='4 topics' style='font-size: 9.1965811965812pt;'>smarter planet</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/southackton/' class='tag-link-250 tag-link-position-34' title='3 topics' style='font-size: 8pt;'>southackton</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/southampton/' class='tag-link-251 tag-link-position-35' title='3 topics' style='font-size: 8pt;'>Southampton</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/tech/' class='tag-link-240 tag-link-position-36' title='11 topics' style='font-size: 13.74358974359pt;'>tech</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/tv/' class='tag-link-213 tag-link-position-37' title='3 topics' style='font-size: 8pt;'>TV</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/uk/' class='tag-link-126 tag-link-position-38' title='6 topics' style='font-size: 10.991452991453pt;'>uk</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/uncategorized/' class='tag-link-295 tag-link-position-39' title='3 topics' style='font-size: 8pt;'>Uncategorized</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/unconference/' class='tag-link-115 tag-link-position-40' title='5 topics' style='font-size: 10.153846153846pt;'>unconference</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/usability/' class='tag-link-271 tag-link-position-41' title='3 topics' style='font-size: 8pt;'>usability</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/w4a2013/' class='tag-link-276 tag-link-position-42' title='6 topics' style='font-size: 10.991452991453pt;'>w4a2013</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/wasdev/' class='tag-link-281 tag-link-position-43' title='5 topics' style='font-size: 10.153846153846pt;'>WASdev</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/watson/' class='tag-link-287 tag-link-position-44' title='6 topics' style='font-size: 10.991452991453pt;'>watson</a>
+<a href='https://eightbar.eu-gb.mybluemix.net/tag/work/' class='tag-link-237 tag-link-position-45' title='3 topics' style='font-size: 8pt;'>Work</a></div>
+</aside><aside id="rss_links-3" class="widget widget_rss_links"><h3 class="widget-title">Feeds</h3><ul><li><a href="https://eightbar.eu-gb.mybluemix.net/feed/" title="Subscribe to Posts">RSS - Posts</a></li><li><a href="https://eightbar.eu-gb.mybluemix.net/comments/feed/" title="Subscribe to Comments">RSS - Comments</a></li></ul>
+</aside>		</div><!-- #secondary .widget-area -->
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+	<div style="display:none">
+	<div class="grofile-hash-map-60458ba172c5d65e324985782d2992f7">
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"https:\/\/eightbar.eu-gb.mybluemix.net\/2011\/09\/06\/hursley-extreme-blue-2011-presentations\/":1052,"https:\/\/eightbar.eu-gb.mybluemix.net\/2008\/06\/03\/showing-off-linux-2\/":1679,"https:\/\/eightbar.eu-gb.mybluemix.net\/2008\/06\/03\/showing-off-linux\/":1266,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/09\/08\/linux-media-centre-heads-home\/":181,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/08\/14\/ricetta-media-pc-alla-linux\/":164,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/08\/08\/ibm-tp-lmc\/":160}	</script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+			<div id="sharing_email" style="display: none;">
+		<form action="https://eightbar.eu-gb.mybluemix.net/author/gwhite/page/2/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="" />
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="" />
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="" />
+
+			
+			
+			<img style="float: right; display: none" class="loading" src="https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/images/loading.gif" alt="loading" width="16" height="16" />
+			<input type="submit" value="Send Email" class="sharing_send" />
+			<a href="#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-linkedin' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+		<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201630'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2016Julaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.5.3'></script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-includes/js/wp-embed.min.js?ver=4.5.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eightbar.eu-gb.mybluemix.net/wp-content/plugins/jetpack/modules/sharedaddy/sharing.js?ver=3.3.3'></script>
+
+	<script src="http://stats.wp.com/e-201630.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:3.3.3',blog:'9013531',post:'0',tz:'1'});
+	var load_cmc = function(){linktracker_init(9013531,0,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+</body>
+</html>
