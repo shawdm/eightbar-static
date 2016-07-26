@@ -12,7 +12,7 @@
 	<atom:link href="http://eightbar.co.uk/tag/w4a2013/feed/" rel="self" type="application/rss+xml" />
 	<link>http://eightbar.co.uk</link>
 	<description>Raising The Eight Bar</description>
-	<lastBuildDate>Tue, 26 Jul 2016 07:41:27 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 26 Jul 2016 09:38:58 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -204,66 +204,6 @@
 		</item>
 		<item>
 		<title>Web technologies I saw at W4A</title>
-		<link>http://eightbar.co.uk/2013/06/03/web-technologies-i-saw-at-w4a/</link>
-		<pubDate>Mon, 03 Jun 2013 08:14:39 +0000</pubDate>
-		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
-				<category><![CDATA[Planet]]></category>
-		<category><![CDATA[eightbar]]></category>
-		<category><![CDATA[tech]]></category>
-		<category><![CDATA[w4a2013]]></category>
-
-		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=2639</guid>
-		<description><![CDATA[Last month I went to the International World Wide Web Conference for w4a. I saw a lot of cool web technologies and accessibility projects while I was there, so thought I would share links to some of the more interesting bits. There are too many to put in a single post, so I&#8217;ll write a [&#8230;] <a href="http://eightbar.co.uk/2013/06/03/web-technologies-i-saw-at-w4a/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
-				<content:encoded><![CDATA[<p><a href="http://www.flickr.com/photos/dalelane/8877214939/"><img src="https://farm6.staticflickr.com/5452/8877214939_e5a278a208_n.jpg" alt="WWW2013" width="320" height="220" /></a></p>
-<p>Last month I went to the <a href="http://www2013.org/">International World Wide Web Conference</a> for <a href="http://www.w4a.info/2013/">w4a</a>. I saw a lot of cool web technologies and accessibility projects while I was there, so thought I would share links to some of the more interesting bits. </p>
-<p>There are too many to put in a single post, so I&#8217;ll write <a href="http://dalelane.co.uk/blog/?tag=w4a2013">a few posts</a> to cover them all. </p>
-<p><strong>Subtitles</strong> </p>
-<p>Subtitles and transcripts came up a few times. One study presented looked at online video, comparing <a href="https://www.dropbox.com/sh/giyw9zubmbsgjm2/VR6uUZ04CT/communications/p41-kushalnagar.pdf">single-line subtitle captions overlaid on the video with multi-line off-screen transcripts</a> adjacent to it. </p>
-<p>It examined which is more effective from a variety of perspectives, including readability, reader enjoyment, the effect on understanding and so on. In summary, it found that overlaid captions are generally better, although transcripts are better for content which is more technical. </p>
-<p><a href="http://www.flickr.com/photos/dalelane/8877797446/"><img src="http://farm4.staticflickr.com/3811/8877797446_653724341e_n.jpg" alt="Real-time transcription from a stenographer at W4A" width="320" height="157" /></a></p>
-<p>We had subtitles for all the talks and presentations. Impressively, a separate screen projected a live transcription of the speaker. For deaf attendees, it allowed them to follow what the speaker was saying. For talks given in Portuguese, the English subtitles allowed non-Portuguese speakers like me to understand. </p>
-<p>They did this by having live stenographers listening to an audio feed from the talks. This is apparently expensive as stenography is a skilled expertise, and it needs to be scheduled in advance. It&#8217;s perhaps only practical for larger conferences.</p>
-<p><strong>Legion Scribe</strong></p>
-<p>This was the motivation for one of the more impressive projects that I saw presented : <a href="https://www.dropbox.com/sh/giyw9zubmbsgjm2/jZZX7fXmiw/TPG-challenge/lasecki.pdf">Legion Scribe</a>, which <a href="http://hci.cs.rochester.edu/currentprojects.php?proj=scb">crowd-sourced real-time captioning</a> so that you wouldn&#8217;t need an expert stenographer. </p>
-<p>Instead, a real-time audio stream is chopped up into short bits, and divided amongst a number of people using <a href="https://www.mturk.com/">Mechanical Turk</a>. Each worker has to type the short phrase fragment they are given. The fragments overlap, so captions that each worker types can be stitched back together to form captions for the whole original audio stream.</p>
-<p><a href="http://hci.cs.rochester.edu/projectpages/pics/scribe_system.png"><img src="http://dalelane.co.uk/blog/post-images/130529-scribe-arch.png" border=0/></a></p>
-<p>All of this is done quickly enough to make the captions appear more or less in real-time. </p>
-<p>Seriously impressive. </p>
-<p>And they&#8217;re getting reasonable levels of coverage and accuracy. The system has been designed so that workers don&#8217;t need to be experts in the domain that they&#8217;re transcribing, as they&#8217;re only asked to type in a few words at a time not whole passages. With enough people, it works. If they have at least seven workers, it&#8217;s approaching the coverage you can get with a professional stenographer. </p>
-<p><a href="http://hci.cs.rochester.edu/projectpages/pics/scribe_graph.png"><img src="http://dalelane.co.uk/blog/post-images/130529-scribe-coverage.png" border=0/></a></p>
-<p>Assuming that Mechanical Turk can provide a plentiful supply of workers, then this would not only be cheaper than a stenographer, but also let you start captioning at a moments notice, rather than needing to arrange for a stenographer in advance. </p>
-<p><strong>Map Reduce in the browser</strong></p>
-<p>Speaking of crowd-sourcing, the idea of splitting up a large computing task between a large number of volunteer computers isn&#8217;t new. <a href="http://setiathome.berkeley.edu/">SETI@home</a> is perhaps the best known, while <a href="http://www.worldcommunitygrid.org/">World Community Grid</a> is a recent example from IBM. </p>
-<p>But these need users to install custom client software to receive the task, perform it and submit the results. </p>
-<p>One project showed how <a href="http://www2013.org/companion/p253.pdf">this could be done in web browsers</a>. A large computing task is divided up into map reduce jobs, which are made available through a website. Each web browser that visits the website becomes a map reduce worker, running their task in the background using <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Performance/Using_web_workers">web workers</a>. As long as the user remains on the site, their browser can continue to contribute to the overall task in the background, without the user having had to install custom client software. </p>
-<p><span class='embed-youtube' style='text-align:center; display: block;'><iframe class='youtube-player' type='text/html' width='450' height='284' src='http://www.youtube.com/embed/kRZ8E4FGlTw?version=3&#038;rel=1&%23038;fs=1&%23038;showsearch=0&%23038;showinfo=1&%23038;iv_load_policy=1&%23038;wmode=transparent' frameborder='0' allowfullscreen='true'></iframe></span></p>
-<p>It&#8217;s an elegant idea. Not all sites would be well suited to it, but there are plenty of web sites that I keep open all day (e.g. GMail, Remember The Milk, Google Calendar, etc.) so I think the idea has potential. </p>
-<p><strong>Migrating browser sessions</strong></p>
-<p>An interesting project I saw showed how <a href="http://www.cs.ubc.ca/~wohlstad/imagen.pdf">the state of a browser app could be migrated from one browser to another</a>, potentially a different browser running on a different machine even a different platform. </p>
-<p>This is more than just the client-server session, which you could migrate by transferring cookies. They&#8217;re transferring the entire state of dynamic AJAX-y pages: what bits are open, enabled, and so on, for any arbitrary web app. </p>
-<p>Essentially, they started by wanting to be able to serialize the contents of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window">window</a>, so that it could transferred to another browser where it could be used to restore from. </p>
-<p>That wouldn&#8217;t be enough. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window">window</a> doesn&#8217;t have access to local variables in functions, it wouldn&#8217;t have access to most event listeners such as those added with <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget.addEventListener">addEventListener</a>, it wouldn&#8217;t have access to the contents of some HTML5 tags like <a href="https://developer.mozilla.org/en/docs/HTML/Canvas">canvas</a>, it wouldn&#8217;t have access to events scheduled with <a href="https://developer.mozilla.org/en-US/docs/Web/API/window.setTimeout">setTimeout</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/window.setInterval">setInterval</a>, and so on. </p>
-<p>Serializing <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window">window</a> gets you the current state of the DOM which is a good start, but not sufficient to transfer the state for most web apps. </p>
-<p>A <a href="http://www.cs.ubc.ca/~wohlstad/imagenVideo.html">prototype system called Imagen</a> shows how this could be done. Looking at how they&#8217;ve implemented it, they&#8217;ve had to resort to using a proxy server which intercepts JavaScript going to the browser and instruments it with enough additional calls to let them access all of the stuff that wouldn&#8217;t normally be in scope. This is enough for them to be able to serialize the entire state of the page. </p>
-<p>I can see a lot of uses for this, such as in testing, debugging or service scenarios, as well as just the convenience of being able to resume work in progress as you move between devices. </p>
-<p><strong>Inferring constraints on REST API query parameters</strong></p>
-<p>Many web services include constraints and dependencies for the query parameters. For example: &#8220;this option is always required&#8221;, &#8220;that parameter is optional&#8221;, or &#8220;you have to specify at least one of this or that&#8221;. For example, the <a href="https://dev.twitter.com/docs/api/1.1/get/statuses/user_timeline">twitter API docs</a> explain how you have to specify a user_id or screen_name when requesting a user timeline. </p>
-<p>One project I saw was an attempt to <a href="http://people.engr.ncsu.edu/txie/publications/www13-constraints.pdf">automatically infer these rules and dependencies</a> through a combination of natural language processing to recognise them in API documentation, and automated source code analysis of sample code provided for web services. It combines these into an estimated model of the constraints in the REST APIs, which are then verified by submitting requests to the API. </p>
-<p>They demonstrated it on APIs like twitter, flickr, last.fm, and amazon, and it was surprisingly effective. </p>
-<p><strong>duolingo</strong></p>
-<p>Finally, there was a keynote talk on Wednesday by the founder of <a href="http://duolingo.com/">duolingo</a>.</p>
-<p><a href="http://www.google.com/recaptcha/whyrecaptcha">Captcha</a> is particularly interesting because it uses a task that people need to do anyway (verify that they&#8217;re human) to crowd-source the completion of a task that needs to be done (digitise the text of old books that cannot be read by automated OCR). </p>
-<p>Duolingo is similar. It takes a task that people need to do, which is to learn a new language, and uses that effort to translate texts into different languages. </p>
-<p>It&#8217;s better explained by their demo video.</p>
-<p><span class='embed-youtube' style='text-align:center; display: block;'><iframe class='youtube-player' type='text/html' width='450' height='284' src='http://www.youtube.com/embed/WyzJ2Qq9Abs?version=3&#038;rel=1&%23038;fs=1&%23038;showsearch=0&%23038;showinfo=1&%23038;iv_load_policy=1&%23038;wmode=transparent' frameborder='0' allowfullscreen='true'></iframe></span></p>
-<p>It&#8217;s been around for a little while, but I&#8217;d not come across it before. Since getting back from www, I&#8217;ve been trying it out. Even Grace has been using it to improve her French and seems to be getting on really well with it.</p>
-<p><strong>What else?</strong></p>
-<p>There were a lot of other cool projects and technologies that I saw, so I&#8217;ll follow this up with another post or two to share some more links.</p>
-<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=2639">"Web technologies I saw at W4A"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=2639">http://dalelane.co.uk/blog/?p=2639</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
-	<enclosure url="" length="" type="" />
-		</item>
-		<item>
-		<title>Web technologies I saw at W4A</title>
 		<link>http://eightbar.co.uk/2013/06/03/web-technologies-i-saw-at-w4a-2/</link>
 		<pubDate>Mon, 03 Jun 2013 08:14:39 +0000</pubDate>
 		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
@@ -316,6 +256,66 @@
 <p>Duolingo is similar. It takes a task that people need to do, which is to learn a new language, and uses that effort to translate texts into different languages. </p>
 <p>It&#8217;s better explained by their demo video.</p>
 <p><iframe class='youtube-player' type='text/html' width='450' height='284' src='http://www.youtube.com/embed/WyzJ2Qq9Abs?version=3&#038;rel=1&%23038;fs=1&%23038;autohide=2&%23038;showsearch=0&%23038;showinfo=1&%23038;iv_load_policy=1&%23038;wmode=transparent' allowfullscreen='true' style='border:0;'></iframe></p>
+<p>It&#8217;s been around for a little while, but I&#8217;d not come across it before. Since getting back from www, I&#8217;ve been trying it out. Even Grace has been using it to improve her French and seems to be getting on really well with it.</p>
+<p><strong>What else?</strong></p>
+<p>There were a lot of other cool projects and technologies that I saw, so I&#8217;ll follow this up with another post or two to share some more links.</p>
+<br clear=all/><div style="font-size: small; padding: 0px 10px 0px 10px; border: 1px solid #ccc; color: #333; background-color: #eee;"><a href="http://dalelane.co.uk/blog/?p=2639">"Web technologies I saw at W4A"</a> was posted by <a href="http://dalelane.co.uk/blog/">Dale Lane</a> to <a href="http://dalelane.co.uk/blog/?p=2639">http://dalelane.co.uk/blog/?p=2639</a>.<br /><em>Feed footer idea <a href="http://www.43folders.com/feedfooter">nicked from 43 Folders</a> using the <a href="http://www.scratch99.com/wordpress-plugin-feedentryheader/">FeedEntryHeader WordPress plugin</a>.</em></div>]]></content:encoded>
+	<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Web technologies I saw at W4A</title>
+		<link>http://eightbar.co.uk/2013/06/03/web-technologies-i-saw-at-w4a/</link>
+		<pubDate>Mon, 03 Jun 2013 08:14:39 +0000</pubDate>
+		<dc:creator><![CDATA[Dale Lane]]></dc:creator>
+				<category><![CDATA[Planet]]></category>
+		<category><![CDATA[eightbar]]></category>
+		<category><![CDATA[tech]]></category>
+		<category><![CDATA[w4a2013]]></category>
+
+		<guid isPermaLink="false">http://dalelane.co.uk/blog/?p=2639</guid>
+		<description><![CDATA[Last month I went to the International World Wide Web Conference for w4a. I saw a lot of cool web technologies and accessibility projects while I was there, so thought I would share links to some of the more interesting bits. There are too many to put in a single post, so I&#8217;ll write a [&#8230;] <a href="http://eightbar.co.uk/2013/06/03/web-technologies-i-saw-at-w4a/">Continue reading <span class="meta-nav">&#8594;</span></a>]]></description>
+				<content:encoded><![CDATA[<p><a href="http://www.flickr.com/photos/dalelane/8877214939/"><img src="https://farm6.staticflickr.com/5452/8877214939_e5a278a208_n.jpg" alt="WWW2013" width="320" height="220" /></a></p>
+<p>Last month I went to the <a href="http://www2013.org/">International World Wide Web Conference</a> for <a href="http://www.w4a.info/2013/">w4a</a>. I saw a lot of cool web technologies and accessibility projects while I was there, so thought I would share links to some of the more interesting bits. </p>
+<p>There are too many to put in a single post, so I&#8217;ll write <a href="http://dalelane.co.uk/blog/?tag=w4a2013">a few posts</a> to cover them all. </p>
+<p><strong>Subtitles</strong> </p>
+<p>Subtitles and transcripts came up a few times. One study presented looked at online video, comparing <a href="https://www.dropbox.com/sh/giyw9zubmbsgjm2/VR6uUZ04CT/communications/p41-kushalnagar.pdf">single-line subtitle captions overlaid on the video with multi-line off-screen transcripts</a> adjacent to it. </p>
+<p>It examined which is more effective from a variety of perspectives, including readability, reader enjoyment, the effect on understanding and so on. In summary, it found that overlaid captions are generally better, although transcripts are better for content which is more technical. </p>
+<p><a href="http://www.flickr.com/photos/dalelane/8877797446/"><img src="http://farm4.staticflickr.com/3811/8877797446_653724341e_n.jpg" alt="Real-time transcription from a stenographer at W4A" width="320" height="157" /></a></p>
+<p>We had subtitles for all the talks and presentations. Impressively, a separate screen projected a live transcription of the speaker. For deaf attendees, it allowed them to follow what the speaker was saying. For talks given in Portuguese, the English subtitles allowed non-Portuguese speakers like me to understand. </p>
+<p>They did this by having live stenographers listening to an audio feed from the talks. This is apparently expensive as stenography is a skilled expertise, and it needs to be scheduled in advance. It&#8217;s perhaps only practical for larger conferences.</p>
+<p><strong>Legion Scribe</strong></p>
+<p>This was the motivation for one of the more impressive projects that I saw presented : <a href="https://www.dropbox.com/sh/giyw9zubmbsgjm2/jZZX7fXmiw/TPG-challenge/lasecki.pdf">Legion Scribe</a>, which <a href="http://hci.cs.rochester.edu/currentprojects.php?proj=scb">crowd-sourced real-time captioning</a> so that you wouldn&#8217;t need an expert stenographer. </p>
+<p>Instead, a real-time audio stream is chopped up into short bits, and divided amongst a number of people using <a href="https://www.mturk.com/">Mechanical Turk</a>. Each worker has to type the short phrase fragment they are given. The fragments overlap, so captions that each worker types can be stitched back together to form captions for the whole original audio stream.</p>
+<p><a href="http://hci.cs.rochester.edu/projectpages/pics/scribe_system.png"><img src="http://dalelane.co.uk/blog/post-images/130529-scribe-arch.png" border=0/></a></p>
+<p>All of this is done quickly enough to make the captions appear more or less in real-time. </p>
+<p>Seriously impressive. </p>
+<p>And they&#8217;re getting reasonable levels of coverage and accuracy. The system has been designed so that workers don&#8217;t need to be experts in the domain that they&#8217;re transcribing, as they&#8217;re only asked to type in a few words at a time not whole passages. With enough people, it works. If they have at least seven workers, it&#8217;s approaching the coverage you can get with a professional stenographer. </p>
+<p><a href="http://hci.cs.rochester.edu/projectpages/pics/scribe_graph.png"><img src="http://dalelane.co.uk/blog/post-images/130529-scribe-coverage.png" border=0/></a></p>
+<p>Assuming that Mechanical Turk can provide a plentiful supply of workers, then this would not only be cheaper than a stenographer, but also let you start captioning at a moments notice, rather than needing to arrange for a stenographer in advance. </p>
+<p><strong>Map Reduce in the browser</strong></p>
+<p>Speaking of crowd-sourcing, the idea of splitting up a large computing task between a large number of volunteer computers isn&#8217;t new. <a href="http://setiathome.berkeley.edu/">SETI@home</a> is perhaps the best known, while <a href="http://www.worldcommunitygrid.org/">World Community Grid</a> is a recent example from IBM. </p>
+<p>But these need users to install custom client software to receive the task, perform it and submit the results. </p>
+<p>One project showed how <a href="http://www2013.org/companion/p253.pdf">this could be done in web browsers</a>. A large computing task is divided up into map reduce jobs, which are made available through a website. Each web browser that visits the website becomes a map reduce worker, running their task in the background using <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Performance/Using_web_workers">web workers</a>. As long as the user remains on the site, their browser can continue to contribute to the overall task in the background, without the user having had to install custom client software. </p>
+<p><span class='embed-youtube' style='text-align:center; display: block;'><iframe class='youtube-player' type='text/html' width='450' height='284' src='http://www.youtube.com/embed/kRZ8E4FGlTw?version=3&#038;rel=1&%23038;fs=1&%23038;showsearch=0&%23038;showinfo=1&%23038;iv_load_policy=1&%23038;wmode=transparent' frameborder='0' allowfullscreen='true'></iframe></span></p>
+<p>It&#8217;s an elegant idea. Not all sites would be well suited to it, but there are plenty of web sites that I keep open all day (e.g. GMail, Remember The Milk, Google Calendar, etc.) so I think the idea has potential. </p>
+<p><strong>Migrating browser sessions</strong></p>
+<p>An interesting project I saw showed how <a href="http://www.cs.ubc.ca/~wohlstad/imagen.pdf">the state of a browser app could be migrated from one browser to another</a>, potentially a different browser running on a different machine even a different platform. </p>
+<p>This is more than just the client-server session, which you could migrate by transferring cookies. They&#8217;re transferring the entire state of dynamic AJAX-y pages: what bits are open, enabled, and so on, for any arbitrary web app. </p>
+<p>Essentially, they started by wanting to be able to serialize the contents of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window">window</a>, so that it could transferred to another browser where it could be used to restore from. </p>
+<p>That wouldn&#8217;t be enough. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window">window</a> doesn&#8217;t have access to local variables in functions, it wouldn&#8217;t have access to most event listeners such as those added with <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget.addEventListener">addEventListener</a>, it wouldn&#8217;t have access to the contents of some HTML5 tags like <a href="https://developer.mozilla.org/en/docs/HTML/Canvas">canvas</a>, it wouldn&#8217;t have access to events scheduled with <a href="https://developer.mozilla.org/en-US/docs/Web/API/window.setTimeout">setTimeout</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/window.setInterval">setInterval</a>, and so on. </p>
+<p>Serializing <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window">window</a> gets you the current state of the DOM which is a good start, but not sufficient to transfer the state for most web apps. </p>
+<p>A <a href="http://www.cs.ubc.ca/~wohlstad/imagenVideo.html">prototype system called Imagen</a> shows how this could be done. Looking at how they&#8217;ve implemented it, they&#8217;ve had to resort to using a proxy server which intercepts JavaScript going to the browser and instruments it with enough additional calls to let them access all of the stuff that wouldn&#8217;t normally be in scope. This is enough for them to be able to serialize the entire state of the page. </p>
+<p>I can see a lot of uses for this, such as in testing, debugging or service scenarios, as well as just the convenience of being able to resume work in progress as you move between devices. </p>
+<p><strong>Inferring constraints on REST API query parameters</strong></p>
+<p>Many web services include constraints and dependencies for the query parameters. For example: &#8220;this option is always required&#8221;, &#8220;that parameter is optional&#8221;, or &#8220;you have to specify at least one of this or that&#8221;. For example, the <a href="https://dev.twitter.com/docs/api/1.1/get/statuses/user_timeline">twitter API docs</a> explain how you have to specify a user_id or screen_name when requesting a user timeline. </p>
+<p>One project I saw was an attempt to <a href="http://people.engr.ncsu.edu/txie/publications/www13-constraints.pdf">automatically infer these rules and dependencies</a> through a combination of natural language processing to recognise them in API documentation, and automated source code analysis of sample code provided for web services. It combines these into an estimated model of the constraints in the REST APIs, which are then verified by submitting requests to the API. </p>
+<p>They demonstrated it on APIs like twitter, flickr, last.fm, and amazon, and it was surprisingly effective. </p>
+<p><strong>duolingo</strong></p>
+<p>Finally, there was a keynote talk on Wednesday by the founder of <a href="http://duolingo.com/">duolingo</a>.</p>
+<p><a href="http://www.google.com/recaptcha/whyrecaptcha">Captcha</a> is particularly interesting because it uses a task that people need to do anyway (verify that they&#8217;re human) to crowd-source the completion of a task that needs to be done (digitise the text of old books that cannot be read by automated OCR). </p>
+<p>Duolingo is similar. It takes a task that people need to do, which is to learn a new language, and uses that effort to translate texts into different languages. </p>
+<p>It&#8217;s better explained by their demo video.</p>
+<p><span class='embed-youtube' style='text-align:center; display: block;'><iframe class='youtube-player' type='text/html' width='450' height='284' src='http://www.youtube.com/embed/WyzJ2Qq9Abs?version=3&#038;rel=1&%23038;fs=1&%23038;showsearch=0&%23038;showinfo=1&%23038;iv_load_policy=1&%23038;wmode=transparent' frameborder='0' allowfullscreen='true'></iframe></span></p>
 <p>It&#8217;s been around for a little while, but I&#8217;d not come across it before. Since getting back from www, I&#8217;ve been trying it out. Even Grace has been using it to improve her French and seems to be getting on really well with it.</p>
 <p><strong>What else?</strong></p>
 <p>There were a lot of other cool projects and technologies that I saw, so I&#8217;ll follow this up with another post or two to share some more links.</p>
