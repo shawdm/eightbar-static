@@ -220,65 +220,6 @@ body.custom-background { background-color: #E3E3E3; }
 	</article><!-- #post-1667 -->
 				
 					
-	<article id="post-1650" class="post-1650 post type-post status-publish format-standard hentry category-planet tag-8bar tag-eightbar tag-mqtt tag-projects tag-redrat tag-tv tag-work">
-		<header class="entry-header">
-						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2012/06/08/even-more-mqtt-enabled-tvs-2/" title="Permalink to Even More MQTT enabled TVs" rel="bookmark">Even More MQTT enabled TVs</a></h1>
-			
-						<div class="entry-meta">
-				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2012/06/08/even-more-mqtt-enabled-tvs-2/" title="15:17" rel="bookmark"><time class="entry-date" datetime="2012-06-08T15:17:57+00:00">June 8, 2012</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/hardillb/" title="View all posts by Ben Hardill" rel="author">Ben Hardill</a></span></span>							</div><!-- .entry-meta -->
-			
-					</header><!-- .entry-header -->
-
-				<div class="entry-content">
-			<p><a class="alignright" title="Kevin with the Headset by shawdm, on Flickr" href="http://www.flickr.com/photos/shawdm/4652324438/"><img src="http://farm5.staticflickr.com/4050/4652324438_2e5e0cab06_n.jpg" alt="Kevin Modelling the headset" width="320" height="213" /></a></p>
-<p>A project at work recently came up to do with using one of the <a href="http://emotiv.com/">Emotiv</a> headsets to help out a former Italian IBMer who was suffering from <a href="http://en.wikipedia.org/wiki/Locked-in_syndrome">locked in syndrome</a>. The project was being led by <a href="http://kevinxbrown.blogspot.com/">Kevin Brown</a> who was looking for ways to use the headset to drive things sending email and browsing the web but he was also looking for a way to interact with some other tech around the house. The TV was the first on the list.</p>
-<p>Continuing on from my previous work with <a href="http://www.hardill.me.uk/wordpress/?p=25">controlling TVs</a> and <a href="https://eightbar.eu-gb.mybluemix.net/2011/09/16/mqtt-powered-video-wall/">video walls</a> with <a href="http://mqtt.org/">MQTT</a> I said I would have a crack at this. My earlier solution was limited to LG TVs with serial ports and this needed to work with any make so a different approach was needed. It also needed to run on Windows so it was also a chance to play with C# and .Net.</p>
-<p>To be TV agnostic it was decided to use a USB IR remote from a company called <a href="http://www.redrat.co.uk/index.html">RedRat</a>. They make a number of solutions, but their RedRat III was perfect for what was needed.</p>
-<p><a class="alignleft" title="RedRat IR transmitter &amp; receiver by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/7136002505/"><img src="http://farm8.staticflickr.com/7066/7136002505_cbfced5a8a_n.jpg" alt="RedRat IR transmitter &amp; receiver" width="240" height="320" /></a></p>
-<p>The <a href="http://www.redrat.co.uk/software/SDK/index.html">RedRat API</a> comes with bindings for C++, .Net on Windows (and a <a href="http://www.lirc.org/">LIRC</a> plugin for Linux). The RedRat III is not just a IR transmitter, it is also a receiver which means it can &#8220;learn&#8221; from existing remote controls so it can be used with any TV.</p>
-<p>Kevin is using Emotiv headset to drive <a href="http://www.inference.phy.cam.ac.uk/dasher/">Dasher</a> as the input device. Dasher is a sort of keyboard replacement that allows the user to build up words using at a minimum a single input e.g. a single push button. As well as building words other actions can be added to the selector, Kevin added actions for browsing and also to control the TV. These actions publish MQTT messages to a topic with payloads like &#8220;volUp&#8221;, &#8220;chanDown&#8221; or &#8220;power&#8221;.</p>
-<p>So now we had the inputs it was time to get round to writing the code to turn those messages into IR signals. There are 2 MQTT .NET libraries listed on the MQTT.org software page. I grabbed the first off the list <a href="http://sourceforge.net/projects/mqttdotnet/">MqttDotNet</a> and got things working pretty quickly.</p>
-<p>The following few lines sets up a connection and subscribes to a topic.</p>
-<pre class="brush: csharp; gutter: true">String connectionString = &quot;tcp://&quot; + 
-  Properties.Settings.Default.host.Trim() + &quot;:&quot; +
-  Properties.Settings.Default.port;
-IMqtt client = MqttClientFactory.CreateClient(connectionString, &quot;mqtt2ir&quot;);
-try
-{
-	client.Connect(true);
-	client.PublishArrived += new PublishArrivedDelegate(onMessage);
-	client.ConnectionLost += new ConnectionDelegate(connectionLost);
-	client.Subscribe(Properties.Settings.Default.topic.Trim(), 
-	  QoS.BestEfforts);
-}</pre>
-<p>Where the onMessage callback looks like this:</p>
-<pre class="brush: csharp; gutter: true">bool onMessage(object sender, PublishArrivedArgs msg)
-{
-	String command = msg.Payload.ToString().Trim();
-	IRPacket packet = loadSignal(command);
-	if (packet != null) 
-	{
-		redrat.OutputModulatedSignal(packet);
-	}
-	return true;
-}</pre>
-<p><a href="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/06/MQTT2IR.png"><img class="alignright size-medium wp-image-986" title="MQTT2IR Settings Window" src="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/06/MQTT2IR.png" alt="MQTT2IR Settings Window" width="300" height="249" /></a></p>
-<p>And that is pretty much the meat of the whole application, the rest was just some code to initialise the RedRat and to turn it into a System Tray application with a window for entering the broker details and training the commands.</p>
-<p>Unfortunately just a few days before we were due to have delivered this project we learned that the intended recipient had picked up a respiratory infection and had passed away. I would like to extend my thoughts to their family and I hope we can find somebody who may find this work useful in the future.</p>
-					</div><!-- .entry-content -->
-		
-		<footer class="entry-meta">
-												<span class="cat-links">
-				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/planet/" rel="category tag">Planet</a>			</span>
-															<span class="sep"> | </span>
-							<span class="tag-links">
-				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="https://eightbar.eu-gb.mybluemix.net/tag/8bar/" rel="tag">8bar</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/eightbar/" rel="tag">eightbar</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/mqtt/" rel="tag">MQTT</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/projects/" rel="tag">Projects</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/redrat/" rel="tag">redrat</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/tv/" rel="tag">TV</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/work/" rel="tag">Work</a>			</span>
-						
-			
-					</footer><!-- .entry-meta -->
-	</article><!-- #post-1650 -->
-				
-					
 	<article id="post-1360" class="post-1360 post type-post status-publish format-standard hentry category-planet tag-8bar tag-eightbar tag-mqtt tag-projects tag-redrat tag-tv tag-work">
 		<header class="entry-header">
 						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2012/06/08/even-more-mqtt-enabled-tvs/" title="Permalink to Even More MQTT enabled TVs" rel="bookmark">Even More MQTT enabled TVs</a></h1>
@@ -336,6 +277,65 @@ try
 			
 					</footer><!-- .entry-meta -->
 	</article><!-- #post-1360 -->
+				
+					
+	<article id="post-1650" class="post-1650 post type-post status-publish format-standard hentry category-planet tag-8bar tag-eightbar tag-mqtt tag-projects tag-redrat tag-tv tag-work">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2012/06/08/even-more-mqtt-enabled-tvs-2/" title="Permalink to Even More MQTT enabled TVs" rel="bookmark">Even More MQTT enabled TVs</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2012/06/08/even-more-mqtt-enabled-tvs-2/" title="15:17" rel="bookmark"><time class="entry-date" datetime="2012-06-08T15:17:57+00:00">June 8, 2012</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/hardillb/" title="View all posts by Ben Hardill" rel="author">Ben Hardill</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><a class="alignright" title="Kevin with the Headset by shawdm, on Flickr" href="http://www.flickr.com/photos/shawdm/4652324438/"><img src="http://farm5.staticflickr.com/4050/4652324438_2e5e0cab06_n.jpg" alt="Kevin Modelling the headset" width="320" height="213" /></a></p>
+<p>A project at work recently came up to do with using one of the <a href="http://emotiv.com/">Emotiv</a> headsets to help out a former Italian IBMer who was suffering from <a href="http://en.wikipedia.org/wiki/Locked-in_syndrome">locked in syndrome</a>. The project was being led by <a href="http://kevinxbrown.blogspot.com/">Kevin Brown</a> who was looking for ways to use the headset to drive things sending email and browsing the web but he was also looking for a way to interact with some other tech around the house. The TV was the first on the list.</p>
+<p>Continuing on from my previous work with <a href="http://www.hardill.me.uk/wordpress/?p=25">controlling TVs</a> and <a href="https://eightbar.eu-gb.mybluemix.net/2011/09/16/mqtt-powered-video-wall/">video walls</a> with <a href="http://mqtt.org/">MQTT</a> I said I would have a crack at this. My earlier solution was limited to LG TVs with serial ports and this needed to work with any make so a different approach was needed. It also needed to run on Windows so it was also a chance to play with C# and .Net.</p>
+<p>To be TV agnostic it was decided to use a USB IR remote from a company called <a href="http://www.redrat.co.uk/index.html">RedRat</a>. They make a number of solutions, but their RedRat III was perfect for what was needed.</p>
+<p><a class="alignleft" title="RedRat IR transmitter &amp; receiver by hardillb, on Flickr" href="http://www.flickr.com/photos/hardillb/7136002505/"><img src="http://farm8.staticflickr.com/7066/7136002505_cbfced5a8a_n.jpg" alt="RedRat IR transmitter &amp; receiver" width="240" height="320" /></a></p>
+<p>The <a href="http://www.redrat.co.uk/software/SDK/index.html">RedRat API</a> comes with bindings for C++, .Net on Windows (and a <a href="http://www.lirc.org/">LIRC</a> plugin for Linux). The RedRat III is not just a IR transmitter, it is also a receiver which means it can &#8220;learn&#8221; from existing remote controls so it can be used with any TV.</p>
+<p>Kevin is using Emotiv headset to drive <a href="http://www.inference.phy.cam.ac.uk/dasher/">Dasher</a> as the input device. Dasher is a sort of keyboard replacement that allows the user to build up words using at a minimum a single input e.g. a single push button. As well as building words other actions can be added to the selector, Kevin added actions for browsing and also to control the TV. These actions publish MQTT messages to a topic with payloads like &#8220;volUp&#8221;, &#8220;chanDown&#8221; or &#8220;power&#8221;.</p>
+<p>So now we had the inputs it was time to get round to writing the code to turn those messages into IR signals. There are 2 MQTT .NET libraries listed on the MQTT.org software page. I grabbed the first off the list <a href="http://sourceforge.net/projects/mqttdotnet/">MqttDotNet</a> and got things working pretty quickly.</p>
+<p>The following few lines sets up a connection and subscribes to a topic.</p>
+<pre class="brush: csharp; gutter: true">String connectionString = &quot;tcp://&quot; + 
+  Properties.Settings.Default.host.Trim() + &quot;:&quot; +
+  Properties.Settings.Default.port;
+IMqtt client = MqttClientFactory.CreateClient(connectionString, &quot;mqtt2ir&quot;);
+try
+{
+	client.Connect(true);
+	client.PublishArrived += new PublishArrivedDelegate(onMessage);
+	client.ConnectionLost += new ConnectionDelegate(connectionLost);
+	client.Subscribe(Properties.Settings.Default.topic.Trim(), 
+	  QoS.BestEfforts);
+}</pre>
+<p>Where the onMessage callback looks like this:</p>
+<pre class="brush: csharp; gutter: true">bool onMessage(object sender, PublishArrivedArgs msg)
+{
+	String command = msg.Payload.ToString().Trim();
+	IRPacket packet = loadSignal(command);
+	if (packet != null) 
+	{
+		redrat.OutputModulatedSignal(packet);
+	}
+	return true;
+}</pre>
+<p><a href="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/06/MQTT2IR.png"><img class="alignright size-medium wp-image-986" title="MQTT2IR Settings Window" src="http://www.hardill.me.uk/wordpress/wp-content/uploads/2012/06/MQTT2IR.png" alt="MQTT2IR Settings Window" width="300" height="249" /></a></p>
+<p>And that is pretty much the meat of the whole application, the rest was just some code to initialise the RedRat and to turn it into a System Tray application with a window for entering the broker details and training the commands.</p>
+<p>Unfortunately just a few days before we were due to have delivered this project we learned that the intended recipient had picked up a respiratory infection and had passed away. I would like to extend my thoughts to their family and I hope we can find somebody who may find this work useful in the future.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/planet/" rel="category tag">Planet</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="https://eightbar.eu-gb.mybluemix.net/tag/8bar/" rel="tag">8bar</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/eightbar/" rel="tag">eightbar</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/mqtt/" rel="tag">MQTT</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/projects/" rel="tag">Projects</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/redrat/" rel="tag">redrat</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/tv/" rel="tag">TV</a>, <a href="https://eightbar.eu-gb.mybluemix.net/tag/work/" rel="tag">Work</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-1650 -->
 				
 					
 	<article id="post-1436" class="post-1436 post type-post status-publish format-standard hentry category-planet tag-education tag-eightbar tag-nlp">
@@ -763,7 +763,8 @@ while True:
 	</ul>
 </aside>
 <aside id="archives-3" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
-			<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/06/'>June 2016</a></li>
+			<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/07/'>July 2016</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/06/'>June 2016</a></li>
 	<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/02/'>February 2016</a></li>
 	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/04/'>April 2015</a></li>
 	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/02/'>February 2015</a></li>
@@ -956,7 +957,7 @@ while True:
 	</div>
 
 	<script type="text/javascript">
-		WPCOM_sharing_counts = {"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/09\/29\/man-vs-horse\/":1370,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/09\/29\/man-vs-horse-2\/":1667,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/06\/08\/even-more-mqtt-enabled-tvs-2\/":1650,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/06\/08\/even-more-mqtt-enabled-tvs\/":1360,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/05\/27\/natural-language-processing-course\/":1436,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/05\/06\/mad-thermostat-plan\/":1342,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/04\/03\/smile\/":1313,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/04\/02\/why-doctor-who-confidential-mattered\/":1311,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/03\/21\/reflecting-on-our-total-home-energy-usage\/":1310,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/03\/01\/failing-to-invent\/":1306}	</script>
+		WPCOM_sharing_counts = {"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/09\/29\/man-vs-horse\/":1370,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/09\/29\/man-vs-horse-2\/":1667,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/06\/08\/even-more-mqtt-enabled-tvs\/":1360,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/06\/08\/even-more-mqtt-enabled-tvs-2\/":1650,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/05\/27\/natural-language-processing-course\/":1436,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/05\/06\/mad-thermostat-plan\/":1342,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/04\/03\/smile\/":1313,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/04\/02\/why-doctor-who-confidential-mattered\/":1311,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/03\/21\/reflecting-on-our-total-home-energy-usage\/":1310,"https:\/\/eightbar.eu-gb.mybluemix.net\/2012\/03\/01\/failing-to-invent\/":1306}	</script>
 		<script type="text/javascript">
 		jQuery(document).on( 'ready post-load', function(){
 			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {

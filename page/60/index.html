@@ -142,6 +142,36 @@ body.custom-background { background-color: #E3E3E3; }
 	
 								
 					
+	<article id="post-81" class="post-81 post type-post status-publish format-standard hentry category-hursley category-second-life">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2006/05/25/outbound-communications-from-second-life/" title="Permalink to Outbound communications from Second Life" rel="bookmark">Outbound communications from Second Life</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2006/05/25/outbound-communications-from-second-life/" title="21:21" rel="bookmark"><time class="entry-date" datetime="2006-05-25T21:21:18+00:00">May 25, 2006</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/epredator/" title="View all posts by epredator" rel="author">epredator</a></span></span>							</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>I finally got to try the llhttprequest, it was in a 10 minute gap in the day, when my daughter who is 3 today decided she only wanted to play with Grandad.</p>
+<p>Anyway, I did not intend to do things &#8216;properly&#8217; but I did want to see if the new outbound http would let me add function to what I had already. Extend rather than port the XML-RPC inbound code I already had.</p>
+<p>The existing &#8220;legacy&#8221; or &#8220;chesished&#8221; second life objects were 4 different instances of objects with my weatherrss script in them. Just to explain the objects in second life can and could open a channel making them available to be talked to from outside of second life. The outbound mechanism was only email.</p>
+<p>Anyway this led me to create these objects, and cut and paste their unique ids into a piece of externally hosted PH. This PHP did a call to a well known weather service and then sent it into SL to the set of unique ids I had added to it. One click 4 objects get updated</p>
+<p>The problem was triggering this, getting second life to send an email as a way to ask for a refresh was not great. I had a webpage with various URLs that were precanned calls to my PHP with various country location parameters.</p>
+<p>Anyway the new 1.10 Second Life let me put a call in an object in an llhttprequest. So I simply got an object to use the same URLs as in the original webpage.</p>
+<p>I now have an object in SL that can take user input and as my PHP to update all the various weather instances I have.</p>
+<p>Obviously there are better 2 way mechanisms, like why bother using the XML-RPC at all, but this one liner let me exploit what I had and gain massive extra function.</p>
+<p>It would now be very easy to create a map or globe with hotspots. Trigger external events by avatar presence and sensor events etc. All very useful.</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-81" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/05/25/outbound-communications-from-second-life/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-81" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/05/25/outbound-communications-from-second-life/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-81" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/05/25/outbound-communications-from-second-life/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/05/25/outbound-communications-from-second-life/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/05/25/outbound-communications-from-second-life/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/05/25/outbound-communications-from-second-life/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-81" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/05/25/outbound-communications-from-second-life/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-81 -->
+				
+					
 	<article id="post-80" class="post-80 post type-post status-publish format-standard hentry category-hursley category-second-life">
 		<header class="entry-header">
 						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2006/05/24/a-flexible-world/" title="Permalink to A flexible world" rel="bookmark">A flexible world</a></h1>
@@ -387,40 +417,6 @@ The event is hosted in a dome, there are lots of free dances and glowsticks as p
 					</footer><!-- .entry-meta -->
 	</article><!-- #post-67 -->
 				
-					
-	<article id="post-66" class="post-66 post type-post status-publish format-standard hentry category-hursley category-second-life category-technology">
-		<header class="entry-header">
-						<h1 class="entry-title"><a href="https://eightbar.eu-gb.mybluemix.net/2006/04/22/lessons-from-second-life/" title="Permalink to Lessons from second life" rel="bookmark">Lessons from second life</a></h1>
-			
-						<div class="entry-meta">
-				<span class="sep">Posted on </span><a href="https://eightbar.eu-gb.mybluemix.net/2006/04/22/lessons-from-second-life/" title="00:25" rel="bookmark"><time class="entry-date" datetime="2006-04-22T00:25:10+00:00">April 22, 2006</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://eightbar.eu-gb.mybluemix.net/author/epredator/" title="View all posts by epredator" rel="author">epredator</a></span></span>							</div><!-- .entry-meta -->
-			
-					</header><!-- .entry-header -->
-
-				<div class="entry-content">
-			<p>The last few weeks have brought a quite intense immersion in <a href="http://www.secondlife.com">second life</a>. What started with just checking what the tools were like has ended up being a quite a movement.</p>
-<p>Quite a few of us have found that the linden labs platform with a mixture of 3d model creation tools and a very rich scripted language is letting us explore many of the ideas that may have been held up or on the backburner. It would appear that the open nature of second life, the ability to protect intellectual capital, to build and expand on other team members work is causing many more innovative ideas to surface. </p>
-<p>Some of these will start to appear here on eightbar. </p>
-<p>Due to our immersion in second life we were invited to attend an opening event at a campus island created by <a href="http://www.nmc.org">NMC</a>. This was an interesting event in that many of the people were very new for Second life, but you could tell the more experienced dwellers by the costumes and looks. The community aspect that we all helped one another along and shared ideas was very liberating. The nearest analogy is a wiki, but in 3d and with all the contributors being there and seeing one another.</p>
-<p><img src="http://www.sluniverse.com/snapshots/64783.jpg" alt="NMC event" /></p>
-<p>I also have ended up putting some skin in the game by buying a private island (server) for us to share some of our ideas and the mere fact this existed has encouraged our own community to form around it. </p>
-<p>Whilst it was very empty.</p>
-<p><img src="http://www.sluniverse.com/snapshots/64380.jpg" alt="An empty island" /></p>
-<p>We soon had a board room.</p>
-<p><img src="http://www.sluniverse.com/snapshots/64502.jpg" alt="board room" /></p>
-<p>But all work and no play makes jack a dull boy so we have all been out in the metaverse experiencing the richness of the user created world, such as live concerts.</p>
-<p><img src="http://www.sluniverse.com/snapshots/65041.jpg" alt="Concerts" /></p>
-<p>Its certainly brought a great team together who have a common interest, and are finding ways to express all sorts of creative and technical ability. </p>
-<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-66" class="share-google-plus-1 sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/04/22/lessons-from-second-life/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-66" class="share-twitter sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/04/22/lessons-from-second-life/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-66" class="share-facebook sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/04/22/lessons-from-second-life/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/04/22/lessons-from-second-life/?share=email" title="Click to email this to a friend"><span>Email</span></a></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/04/22/lessons-from-second-life/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/04/22/lessons-from-second-life/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-end"></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-66" class="share-linkedin sd-button share-icon" href="https://eightbar.eu-gb.mybluemix.net/2006/04/22/lessons-from-second-life/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>					</div><!-- .entry-content -->
-		
-		<footer class="entry-meta">
-												<span class="cat-links">
-				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="https://eightbar.eu-gb.mybluemix.net/category/hursley/" rel="category tag">Hursley</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/second-life/" rel="category tag">Second Life</a>, <a href="https://eightbar.eu-gb.mybluemix.net/category/technology/" rel="category tag">Technology</a>			</span>
-															
-			
-					</footer><!-- .entry-meta -->
-	</article><!-- #post-66 -->
-				
 						<nav id="nav-below">
 			<h3 class="assistive-text">Post navigation</h3>
 			<div class="nav-previous"><a href="https://eightbar.eu-gb.mybluemix.net/page/61/" ><span class="meta-nav">&larr;</span> Older posts</a></div>
@@ -456,7 +452,8 @@ The event is hosted in a dome, there are lots of free dances and glowsticks as p
 	</ul>
 </aside>
 <aside id="archives-3" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
-			<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/06/'>June 2016</a></li>
+			<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/07/'>July 2016</a></li>
+	<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/06/'>June 2016</a></li>
 	<li><a href='https://eightbar.eu-gb.mybluemix.net/2016/02/'>February 2016</a></li>
 	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/04/'>April 2015</a></li>
 	<li><a href='https://eightbar.eu-gb.mybluemix.net/2015/02/'>February 2015</a></li>
@@ -649,7 +646,7 @@ The event is hosted in a dome, there are lots of free dances and glowsticks as p
 	</div>
 
 	<script type="text/javascript">
-		WPCOM_sharing_counts = {"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/24\/a-flexible-world\/":80,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/24\/htx-event-techconnect\/":79,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/22\/games-within-games-tringo-in-second-life\/":74,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/22\/h-t-the-x\/":73,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/20\/second-life-3d-printers-and-args-all-in-one-post\/":72,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/19\/new-eightbar-theme\/":71,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/18\/hursley-car-show\/":70,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/14\/bbc-radio1-party-in-second-life\/":68,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/04\/22\/web-front-end-for-second-life\/":67,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/04\/22\/lessons-from-second-life\/":66}	</script>
+		WPCOM_sharing_counts = {"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/25\/outbound-communications-from-second-life\/":81,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/24\/a-flexible-world\/":80,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/24\/htx-event-techconnect\/":79,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/22\/games-within-games-tringo-in-second-life\/":74,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/22\/h-t-the-x\/":73,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/20\/second-life-3d-printers-and-args-all-in-one-post\/":72,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/19\/new-eightbar-theme\/":71,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/18\/hursley-car-show\/":70,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/05\/14\/bbc-radio1-party-in-second-life\/":68,"https:\/\/eightbar.eu-gb.mybluemix.net\/2006\/04\/22\/web-front-end-for-second-life\/":67}	</script>
 		<script type="text/javascript">
 		jQuery(document).on( 'ready post-load', function(){
 			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
