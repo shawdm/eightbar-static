@@ -8,7 +8,7 @@ In 2005 a group of us working at IBM's Hursley lab decided to start a blog about
 
 In the 11 years we've seen people join and leave, we've had weddings and babies, bought houses, had [120 breakfasts together](http://eightbar.eu-gb.mybluemix.net/2006/06/17/eat-friday/) and drunk many cups of tea. We've also seen the technology we work with span social media, virtual worlds, cloud, and AI. Some of that has been recorded here. We've had a few attempts to restart Eightbar but interest in reading and writing it has faded, so we decided to call it a day.
 
-The content has all been archived off and is accessible at: https://eightbar.eu-gb.mybluemix.net or you can download the whole thing at: https://github.com/shawdm/eightbar-static. In a few days we'll redirect eightbar.co.uk and in a few weeks we'll let the domain expire.
+The content has all been archived and is accessible at: https://eightbar.eu-gb.mybluemix.net or you can download the whole thing at: https://github.com/shawdm/eightbar-static. In a few days we'll redirect eightbar.co.uk and in a few weeks we'll let the domain expire.
 
 Most of the contributors are still writing their own blogs. All of them are on Twitter.
 
