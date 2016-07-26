@@ -24,6 +24,9 @@ http://stanford-clark.com
 [Ben Hardill](https://twitter.com/hardillb)
 http://www.hardill.me.uk
 
+[Dale Lane](https://twitter.com/dalelane)
+http://dalelane.co.uk
+
 [Darren Shaw](https://twitter.com/shawdm)
 https://darrenshaw.org
 
