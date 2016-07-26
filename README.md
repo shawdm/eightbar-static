@@ -1,4 +1,4 @@
-# eightbar-static
+# Eightbar
 In 2005 a group of us working at IBM's Hursley lab setup a blog, Eightbar, to write about the technology we were interested in and what it was like to work here.  This is the static content of that blog.
 
 # Final Post
